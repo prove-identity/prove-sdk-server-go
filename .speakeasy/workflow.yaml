@@ -12,3 +12,7 @@ targets:
     my-first-target:
         target: go
         source: my-source
+        codeSamples:
+            registry:
+                location: registry.speakeasyapi.dev/prove/prove-dev/my-source-go-code-samples
+            blocking: false

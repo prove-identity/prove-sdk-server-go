@@ -25,7 +25,7 @@ func main() {
 		FlowType:       "mobile",
 		IPAddress:      provesdkservergo.String("10.0.0.1"),
 		PhoneNumber:    provesdkservergo.String("2001001695"),
-		SmsMessage:     provesdkservergo.String("\"Your code is: ####.\""),
+		SmsMessage:     provesdkservergo.String("#### is your temporary code to continue your application. Caution: for your security, don't share this code with anyone."),
 		Ssn:            provesdkservergo.String("0596"),
 	})
 	if err != nil {

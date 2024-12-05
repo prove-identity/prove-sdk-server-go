@@ -162,9 +162,9 @@ func New(opts ...SDKOption) *Provesdkservergo {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "1.0.0",
-			SDKVersion:        "0.6.1",
-			GenVersion:        "2.420.2",
-			UserAgent:         "speakeasy-sdk/go 0.6.1 2.420.2 1.0.0 github.com/prove-identity/prove-sdk-server-go",
+			SDKVersion:        "0.6.2",
+			GenVersion:        "2.471.2",
+			UserAgent:         "speakeasy-sdk/go 0.6.2 2.471.2 1.0.0 github.com/prove-identity/prove-sdk-server-go",
 			Hooks:             hooks.New(),
 		},
 	}

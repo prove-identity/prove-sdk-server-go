@@ -10,6 +10,8 @@
 * [V3CompleteRequest](#v3completerequest) - Complete flow.
 * [V3StartRequest](#v3startrequest) - Start flow.
 * [V3ValidateRequest](#v3validaterequest) - Validate phone number.
+* [V3VerifyRequest](#v3verifyrequest) - Initiate verified users session.
+* [V3VerifyStatusRequest](#v3verifystatusrequest) - Perform checks for verified users session.
 
 ## V3TokenRequest
 
@@ -22,8 +24,8 @@ package main
 
 import(
 	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
-	"context"
 	"github.com/prove-identity/prove-sdk-server-go/models/components"
+	"context"
 	"log"
 )
 
@@ -59,12 +61,11 @@ func main() {
 
 ### Errors
 
-| Error Object       | Status Code        | Content Type       |
+| Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
 | sdkerrors.Error400 | 400                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |
-| sdkerrors.SDKError | 4xx-5xx            | */*                |
-
+| sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
 
 ## V3ChallengeRequest
 
@@ -76,8 +77,8 @@ Send this request to submit challenge information. Either a DOB or last 4 of SSN
 package main
 
 import(
-	"github.com/prove-identity/prove-sdk-server-go/models/components"
 	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+	"github.com/prove-identity/prove-sdk-server-go/models/components"
 	"context"
 	"log"
 )
@@ -119,12 +120,11 @@ func main() {
 
 ### Errors
 
-| Error Object       | Status Code        | Content Type       |
+| Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
 | sdkerrors.Error400 | 400                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |
-| sdkerrors.SDKError | 4xx-5xx            | */*                |
-
+| sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
 
 ## V3CompleteRequest
 
@@ -136,8 +136,8 @@ Send this request to verify the user and complete the flow. It will return a cor
 package main
 
 import(
-	"github.com/prove-identity/prove-sdk-server-go/models/components"
 	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+	"github.com/prove-identity/prove-sdk-server-go/models/components"
 	"context"
 	"log"
 )
@@ -203,12 +203,11 @@ func main() {
 
 ### Errors
 
-| Error Object       | Status Code        | Content Type       |
+| Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
 | sdkerrors.Error400 | 400                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |
-| sdkerrors.SDKError | 4xx-5xx            | */*                |
-
+| sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
 
 ## V3StartRequest
 
@@ -220,8 +219,8 @@ Send this request to start a Prove flow. It will return a correlation ID and an 
 package main
 
 import(
-	"github.com/prove-identity/prove-sdk-server-go/models/components"
 	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+	"github.com/prove-identity/prove-sdk-server-go/models/components"
 	"context"
 	"log"
 )
@@ -242,7 +241,7 @@ func main() {
         FlowType: "mobile",
         IPAddress: provesdkservergo.String("10.0.0.1"),
         PhoneNumber: provesdkservergo.String("2001001695"),
-        SmsMessage: provesdkservergo.String("\"Your code is: ####.\""),
+        SmsMessage: provesdkservergo.String("#### is your temporary code to continue your application. Caution: for your security, don't share this code with anyone."),
         Ssn: provesdkservergo.String("0596"),
     })
     if err != nil {
@@ -268,12 +267,11 @@ func main() {
 
 ### Errors
 
-| Error Object       | Status Code        | Content Type       |
+| Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
 | sdkerrors.Error400 | 400                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |
-| sdkerrors.SDKError | 4xx-5xx            | */*                |
-
+| sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
 
 ## V3ValidateRequest
 
@@ -285,8 +283,8 @@ Send this request to check the phone number entered/discovered earlier in the fl
 package main
 
 import(
-	"github.com/prove-identity/prove-sdk-server-go/models/components"
 	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+	"github.com/prove-identity/prove-sdk-server-go/models/components"
 	"context"
 	"log"
 )
@@ -326,8 +324,131 @@ func main() {
 
 ### Errors
 
-| Error Object       | Status Code        | Content Type       |
+| Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
 | sdkerrors.Error400 | 400                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |
-| sdkerrors.SDKError | 4xx-5xx            | */*                |
+| sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
+
+## V3VerifyRequest
+
+Send this request to initiate a Verified Users session. It will return a correlation ID, authToken for the client SDK, and the results of the possession and verify checks (usually pending from this API).
+
+### Example Usage
+
+```go
+package main
+
+import(
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+	"github.com/prove-identity/prove-sdk-server-go/models/components"
+	"context"
+	"log"
+)
+
+func main() {
+    s := provesdkservergo.New(
+        provesdkservergo.WithSecurity(components.Security{
+            ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+            ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+        }),
+    )
+
+    ctx := context.Background()
+    res, err := s.V3.V3VerifyRequest(ctx, &components.V3VerifyRequest{
+        ClientCustomerID: provesdkservergo.String("e0f78bc2-f748-4eda-9d29-d756844507fc"),
+        ClientRequestID: provesdkservergo.String("71010d88-d0e7-4a24-9297-d1be6fefde81"),
+        EmailAddress: provesdkservergo.String("sbutrimovichb@who.int"),
+        FinalTargetURL: provesdkservergo.String("https://www.example.com/landing-page"),
+        FirstName: "Sheilakathryn",
+        LastName: "Butrimovich",
+        PhoneNumber: "2001004011",
+        PossessionType: "mobile",
+        SmsMessage: provesdkservergo.String("#### is your temporary code to continue your application. Caution: for your security, don't share this code with anyone."),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.V3VerifyResponse != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| `ctx`                                                                    | [context.Context](https://pkg.go.dev/context#Context)                    | :heavy_check_mark:                                                       | The context to use for the request.                                      |
+| `request`                                                                | [components.V3VerifyRequest](../../models/components/v3verifyrequest.md) | :heavy_check_mark:                                                       | The request object to use for the request.                               |
+| `opts`                                                                   | [][operations.Option](../../models/operations/option.md)                 | :heavy_minus_sign:                                                       | The options for this request.                                            |
+
+### Response
+
+**[*operations.V3VerifyRequestResponse](../../models/operations/v3verifyrequestresponse.md), error**
+
+### Errors
+
+| Error Type         | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.Error400 | 400                | application/json   |
+| sdkerrors.Error    | 500                | application/json   |
+| sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
+
+## V3VerifyStatusRequest
+
+Send this request to perform the necessary checks for a Verified Users session. It will return the results of the possession and verify checks, as well as the overall success.
+
+### Example Usage
+
+```go
+package main
+
+import(
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+	"github.com/prove-identity/prove-sdk-server-go/models/components"
+	"context"
+	"log"
+)
+
+func main() {
+    s := provesdkservergo.New(
+        provesdkservergo.WithSecurity(components.Security{
+            ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+            ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+        }),
+    )
+
+    ctx := context.Background()
+    res, err := s.V3.V3VerifyStatusRequest(ctx, &components.V3VerifyStatusRequest{
+        ClientRequestID: provesdkservergo.String("71010d88-d0e7-4a24-9297-d1be6fefde81"),
+        CorrelationID: provesdkservergo.String("713189b8-5555-4b08-83ba-75d08780aebd"),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.V3VerifyStatusResponse != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
+| `request`                                                                            | [components.V3VerifyStatusRequest](../../models/components/v3verifystatusrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `opts`                                                                               | [][operations.Option](../../models/operations/option.md)                             | :heavy_minus_sign:                                                                   | The options for this request.                                                        |
+
+### Response
+
+**[*operations.V3VerifyStatusRequestResponse](../../models/operations/v3verifystatusrequestresponse.md), error**
+
+### Errors
+
+| Error Type         | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.Error400 | 400                | application/json   |
+| sdkerrors.Error    | 500                | application/json   |
+| sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |

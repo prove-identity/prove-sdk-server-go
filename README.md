@@ -14,16 +14,17 @@ OpenAPI Spec - generated.
 
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
+<!-- $toc-max-depth=2 -->
+* [github.com/prove-identity/prove-sdk-server-go](#githubcomprove-identityprove-sdk-server-go)
+  * [SDK Installation](#sdk-installation)
+  * [SDK Example Usage](#sdk-example-usage)
+  * [Available Resources and Operations](#available-resources-and-operations)
+  * [Error Handling](#error-handling)
+  * [Server Selection](#server-selection)
+  * [Custom HTTP Client](#custom-http-client)
+  * [Authentication](#authentication)
+  * [Retries](#retries)
 
-* [SDK Installation](#sdk-installation)
-* [SDK Example Usage](#sdk-example-usage)
-* [Available Resources and Operations](#available-resources-and-operations)
-* [Retries](#retries)
-* [Error Handling](#error-handling)
-* [Server Selection](#server-selection)
-* [Custom HTTP Client](#custom-http-client)
-* [Authentication](#authentication)
-* [Special Types](#special-types)
 <!-- End Table of Contents [toc] -->
 
 <!-- Start SDK Installation [installation] -->
@@ -172,6 +173,8 @@ func flow() error {
 * [V3CompleteRequest](docs/sdks/v3/README.md#v3completerequest) - Complete flow.
 * [V3StartRequest](docs/sdks/v3/README.md#v3startrequest) - Start flow.
 * [V3ValidateRequest](docs/sdks/v3/README.md#v3validaterequest) - Validate phone number.
+* [V3VerifyRequest](docs/sdks/v3/README.md#v3verifyrequest) - Initiate verified users session.
+* [V3VerifyStatusRequest](docs/sdks/v3/README.md#v3verifystatusrequest) - Perform checks for verified users session.
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -179,13 +182,17 @@ func flow() error {
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-Handling errors in this SDK should largely match your expectations.  All operations return a response object or an error, they will never return both.  When specified by the OpenAPI spec document, the SDK will return the appropriate subclass.
+Handling errors in this SDK should largely match your expectations. All operations return a response object or an error, they will never return both.
 
-| Error Object       | Status Code        | Content Type       |
-| ------------------ | ------------------ | ------------------ |
-| sdkerrors.Error400 | 400                | application/json   |
-| sdkerrors.Error    | 500                | application/json   |
-| sdkerrors.SDKError | 4xx-5xx            | */*                |
+By Default, an API error will return `sdkerrors.SDKError`. When custom error responses are specified for an operation, the SDK may also return their associated error. You can refer to respective *Errors* tables in SDK docs for more details on possible error types for each operation.
+
+For example, the `V3TokenRequest` function may return the following errors:
+
+| Error Type         | Status Code | Content Type     |
+| ------------------ | ----------- | ---------------- |
+| sdkerrors.Error400 | 400         | application/json |
+| sdkerrors.Error    | 500         | application/json |
+| sdkerrors.SDKError | 4XX, 5XX    | \*/\*            |
 
 ### Example
 
@@ -240,12 +247,12 @@ func main() {
 
 ### Select Server by Name
 
-You can override the default server globally using the `WithServer` option when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the names associated with the available servers:
+You can override the default server globally using the `WithServer(server string)` option when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the names associated with the available servers:
 
-| Name | Server | Variables |
-| ----- | ------ | --------- |
-| `uat-us` | `https://platform.uat.proveapis.com` | None |
-| `prod-us` | `https://platform.proveapis.com` | None |
+| Name      | Server                               |
+| --------- | ------------------------------------ |
+| `uat-us`  | `https://platform.uat.proveapis.com` |
+| `prod-us` | `https://platform.proveapis.com`     |
 
 #### Example
 
@@ -280,10 +287,9 @@ func main() {
 
 ```
 
-
 ### Override Server URL Per-Client
 
-The default server can also be overridden globally using the `WithServerURL` option when initializing the SDK client instance. For example:
+The default server can also be overridden globally using the `WithServerURL(serverURL string)` option when initializing the SDK client instance. For example:
 ```go
 package main
 
@@ -352,9 +358,9 @@ This can be a convenient way to configure timeouts, cookies, proxies, custom hea
 
 This SDK supports the following security scheme globally:
 
-| Name                           | Type                           | Scheme                         |
-| ------------------------------ | ------------------------------ | ------------------------------ |
-| `ClientID` `ClientSecret`      | oauth2                         | OAuth2 Client Credentials Flow |
+| Name                          | Type   | Scheme                         |
+| ----------------------------- | ------ | ------------------------------ |
+| `ClientID`<br/>`ClientSecret` | oauth2 | OAuth2 Client Credentials Flow |
 
 You can configure it using the `WithSecurity` option when initializing the SDK client instance. For example:
 ```go

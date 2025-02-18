@@ -10,6 +10,8 @@ import (
 )
 
 func main() {
+	ctx := context.Background()
+
 	s := provesdkservergo.New(
 		provesdkservergo.WithSecurity(components.Security{
 			ClientID:     provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
@@ -17,7 +19,6 @@ func main() {
 		}),
 	)
 
-	ctx := context.Background()
 	res, err := s.V3.V3StartRequest(ctx, &components.V3StartRequest{
 		Dob:            provesdkservergo.String("1981-01"),
 		EmailAddress:   provesdkservergo.String("mpinsonm@dyndns.org"),

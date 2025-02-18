@@ -1,0 +1,10 @@
+# V3MFAStatusRequestResponse
+
+
+## Fields
+
+| Field                                                                             | Type                                                                              | Required                                                                          | Description                                                                       | Example                                                                           |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `HTTPMeta`                                                                        | [components.HTTPMetadata](../../models/components/httpmetadata.md)                | :heavy_check_mark:                                                                | N/A                                                                               |                                                                                   |
+| `V3MFAStatusResponse`                                                             | [*components.V3MFAStatusResponse](../../models/components/v3mfastatusresponse.md) | :heavy_minus_sign:                                                                | Successful Request                                                                | {<br/>"phoneNumber": "2001004011",<br/>"success": "success"<br/>}                 |
+| `Headers`                                                                         | map[string][]*string*                                                             | :heavy_check_mark:                                                                | N/A                                                                               |                                                                                   |

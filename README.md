@@ -171,6 +171,8 @@ func flow() error {
 * [V3TokenRequest](docs/sdks/v3/README.md#v3tokenrequest) - Request OAuth token.
 * [V3ChallengeRequest](docs/sdks/v3/README.md#v3challengerequest) - Submit challenge.
 * [V3CompleteRequest](docs/sdks/v3/README.md#v3completerequest) - Complete flow.
+* [V3MFARequest](docs/sdks/v3/README.md#v3mfarequest) - Initiate possession check.
+* [V3MFAStatusRequest](docs/sdks/v3/README.md#v3mfastatusrequest) - Check status of MFA session.
 * [V3StartRequest](docs/sdks/v3/README.md#v3startrequest) - Start flow.
 * [V3ValidateRequest](docs/sdks/v3/README.md#v3validaterequest) - Validate phone number.
 * [V3VerifyRequest](docs/sdks/v3/README.md#v3verifyrequest) - Initiate verified users session.
@@ -209,9 +211,10 @@ import (
 )
 
 func main() {
+	ctx := context.Background()
+
 	s := provesdkservergo.New()
 
-	ctx := context.Background()
 	res, err := s.V3.V3TokenRequest(ctx, &components.V3TokenRequest{
 		ClientID:     "customer_id",
 		ClientSecret: "secret",
@@ -249,10 +252,10 @@ func main() {
 
 You can override the default server globally using the `WithServer(server string)` option when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the names associated with the available servers:
 
-| Name      | Server                               |
-| --------- | ------------------------------------ |
-| `uat-us`  | `https://platform.uat.proveapis.com` |
-| `prod-us` | `https://platform.proveapis.com`     |
+| Name      | Server                               | Description        |
+| --------- | ------------------------------------ | ------------------ |
+| `uat-us`  | `https://platform.uat.proveapis.com` | UAT for US Region  |
+| `prod-us` | `https://platform.proveapis.com`     | Prod for US Region |
 
 #### Example
 
@@ -267,11 +270,12 @@ import (
 )
 
 func main() {
+	ctx := context.Background()
+
 	s := provesdkservergo.New(
 		provesdkservergo.WithServer("prod-us"),
 	)
 
-	ctx := context.Background()
 	res, err := s.V3.V3TokenRequest(ctx, &components.V3TokenRequest{
 		ClientID:     "customer_id",
 		ClientSecret: "secret",
@@ -301,11 +305,12 @@ import (
 )
 
 func main() {
+	ctx := context.Background()
+
 	s := provesdkservergo.New(
 		provesdkservergo.WithServerURL("https://platform.uat.proveapis.com"),
 	)
 
-	ctx := context.Background()
 	res, err := s.V3.V3TokenRequest(ctx, &components.V3TokenRequest{
 		ClientID:     "customer_id",
 		ClientSecret: "secret",
@@ -374,6 +379,8 @@ import (
 )
 
 func main() {
+	ctx := context.Background()
+
 	s := provesdkservergo.New(
 		provesdkservergo.WithSecurity(components.Security{
 			ClientID:     provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
@@ -381,7 +388,6 @@ func main() {
 		}),
 	)
 
-	ctx := context.Background()
 	res, err := s.V3.V3TokenRequest(ctx, &components.V3TokenRequest{
 		ClientID:     "customer_id",
 		ClientSecret: "secret",
@@ -419,9 +425,10 @@ import (
 )
 
 func main() {
+	ctx := context.Background()
+
 	s := provesdkservergo.New()
 
-	ctx := context.Background()
 	res, err := s.V3.V3TokenRequest(ctx, &components.V3TokenRequest{
 		ClientID:     "customer_id",
 		ClientSecret: "secret",
@@ -460,6 +467,8 @@ import (
 )
 
 func main() {
+	ctx := context.Background()
+
 	s := provesdkservergo.New(
 		provesdkservergo.WithRetryConfig(
 			retry.Config{
@@ -474,7 +483,6 @@ func main() {
 			}),
 	)
 
-	ctx := context.Background()
 	res, err := s.V3.V3TokenRequest(ctx, &components.V3TokenRequest{
 		ClientID:     "customer_id",
 		ClientSecret: "secret",

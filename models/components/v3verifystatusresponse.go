@@ -2,30 +2,45 @@
 
 package components
 
-// V3VerifyStatusResponse - Response body for the V3 Verify Status API
-type V3VerifyStatusResponse struct {
-	PossessionResult string `json:"possessionResult"`
-	Success          string `json:"success"`
-	VerifyResult     string `json:"verifyResult"`
+// V3VerifyStatusResponsePossessionResult - Possession Result represents the result of the Possession check. Possible values are "success", "pending", "failed", and "not applicable".
+type V3VerifyStatusResponsePossessionResult struct {
 }
 
-func (o *V3VerifyStatusResponse) GetPossessionResult() string {
+// V3VerifyStatusResponseSuccess - Success is the result of the combination of Verify Result and Possession Result. Possible values are "true", "pending", and "false". The success value will be "pending" until the results of both Verify and Possession are returned or one of them fails, blocking the other.
+type V3VerifyStatusResponseSuccess struct {
+}
+
+// V3VerifyStatusResponseVerifyResult - Verify Result represents the result of the Verify process. Possible values are "success", "pending", "failed", and "not applicable".
+type V3VerifyStatusResponseVerifyResult struct {
+}
+
+// V3VerifyStatusResponse - Response body for the V3 Verify Status API
+type V3VerifyStatusResponse struct {
+	// Possession Result represents the result of the Possession check. Possible values are "success", "pending", "failed", and "not applicable".
+	PossessionResult V3VerifyStatusResponsePossessionResult `json:"possessionResult"`
+	// Success is the result of the combination of Verify Result and Possession Result. Possible values are "true", "pending", and "false". The success value will be "pending" until the results of both Verify and Possession are returned or one of them fails, blocking the other.
+	Success V3VerifyStatusResponseSuccess `json:"success"`
+	// Verify Result represents the result of the Verify process. Possible values are "success", "pending", "failed", and "not applicable".
+	VerifyResult V3VerifyStatusResponseVerifyResult `json:"verifyResult"`
+}
+
+func (o *V3VerifyStatusResponse) GetPossessionResult() V3VerifyStatusResponsePossessionResult {
 	if o == nil {
-		return ""
+		return V3VerifyStatusResponsePossessionResult{}
 	}
 	return o.PossessionResult
 }
 
-func (o *V3VerifyStatusResponse) GetSuccess() string {
+func (o *V3VerifyStatusResponse) GetSuccess() V3VerifyStatusResponseSuccess {
 	if o == nil {
-		return ""
+		return V3VerifyStatusResponseSuccess{}
 	}
 	return o.Success
 }
 
-func (o *V3VerifyStatusResponse) GetVerifyResult() string {
+func (o *V3VerifyStatusResponse) GetVerifyResult() V3VerifyStatusResponseVerifyResult {
 	if o == nil {
-		return ""
+		return V3VerifyStatusResponseVerifyResult{}
 	}
 	return o.VerifyResult
 }

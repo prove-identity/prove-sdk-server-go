@@ -9,6 +9,7 @@
 * [V3ChallengeRequest](#v3challengerequest) - Submit challenge.
 * [V3CompleteRequest](#v3completerequest) - Complete flow.
 * [V3MFARequest](#v3mfarequest) - Initiate possession check.
+* [V3MFABindRequest](#v3mfabindrequest) - Check status of MFA session.
 * [V3MFAStatusRequest](#v3mfastatusrequest) - Check status of MFA session.
 * [V3StartRequest](#v3startrequest) - Start flow.
 * [V3ValidateRequest](#v3validaterequest) - Validate phone number.
@@ -33,7 +34,7 @@ import(
 
 func main() {
     ctx := context.Background()
-    
+
     s := provesdkservergo.New()
 
     res, err := s.V3.V3TokenRequest(ctx, &components.V3TokenRequest{
@@ -67,6 +68,7 @@ func main() {
 | Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
 | sdkerrors.Error400 | 400                | application/json   |
+| sdkerrors.Error401 | 401                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |
 | sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
 
@@ -88,7 +90,7 @@ import(
 
 func main() {
     ctx := context.Background()
-    
+
     s := provesdkservergo.New(
         provesdkservergo.WithSecurity(components.Security{
             ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
@@ -127,6 +129,8 @@ func main() {
 | Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
 | sdkerrors.Error400 | 400                | application/json   |
+| sdkerrors.Error401 | 401                | application/json   |
+| sdkerrors.Error403 | 403                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |
 | sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
 
@@ -148,7 +152,7 @@ import(
 
 func main() {
     ctx := context.Background()
-    
+
     s := provesdkservergo.New(
         provesdkservergo.WithSecurity(components.Security{
             ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
@@ -211,6 +215,8 @@ func main() {
 | Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
 | sdkerrors.Error400 | 400                | application/json   |
+| sdkerrors.Error401 | 401                | application/json   |
+| sdkerrors.Error403 | 403                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |
 | sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
 
@@ -233,7 +239,7 @@ import(
 
 func main() {
     ctx := context.Background()
-    
+
     s := provesdkservergo.New(
         provesdkservergo.WithSecurity(components.Security{
             ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
@@ -277,6 +283,70 @@ func main() {
 | Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
 | sdkerrors.Error400 | 400                | application/json   |
+| sdkerrors.Error401 | 401                | application/json   |
+| sdkerrors.Error403 | 403                | application/json   |
+| sdkerrors.Error    | 500                | application/json   |
+| sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
+
+## V3MFABindRequest
+
+Send this request to bind Prove Key to a phone nuymber of an MFA session and get the possession result.
+
+### Example Usage
+
+```go
+package main
+
+import(
+	"context"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+	"github.com/prove-identity/prove-sdk-server-go/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := provesdkservergo.New(
+        provesdkservergo.WithSecurity(components.Security{
+            ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+            ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+        }),
+    )
+
+    res, err := s.V3.V3MFABindRequest(ctx, &components.V3MFABindRequest{
+        ClientRequestID: provesdkservergo.String("71010d88-d0e7-4a24-9297-d1be6fefde81"),
+        CorrelationID: provesdkservergo.String("713189b8-5555-4b08-83ba-75d08780aebd"),
+        PhoneNumber: provesdkservergo.String("2001004011"),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.V3MFABindResponse != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `ctx`                                                                      | [context.Context](https://pkg.go.dev/context#Context)                      | :heavy_check_mark:                                                         | The context to use for the request.                                        |
+| `request`                                                                  | [components.V3MFABindRequest](../../models/components/v3mfabindrequest.md) | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
+| `opts`                                                                     | [][operations.Option](../../models/operations/option.md)                   | :heavy_minus_sign:                                                         | The options for this request.                                              |
+
+### Response
+
+**[*operations.V3MFABindRequestResponse](../../models/operations/v3mfabindrequestresponse.md), error**
+
+### Errors
+
+| Error Type         | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.Error400 | 400                | application/json   |
+| sdkerrors.Error401 | 401                | application/json   |
+| sdkerrors.Error403 | 403                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |
 | sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
 
@@ -298,7 +368,7 @@ import(
 
 func main() {
     ctx := context.Background()
-    
+
     s := provesdkservergo.New(
         provesdkservergo.WithSecurity(components.Security{
             ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
@@ -337,6 +407,8 @@ func main() {
 | Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
 | sdkerrors.Error400 | 400                | application/json   |
+| sdkerrors.Error401 | 401                | application/json   |
+| sdkerrors.Error403 | 403                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |
 | sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
 
@@ -358,7 +430,7 @@ import(
 
 func main() {
     ctx := context.Background()
-    
+
     s := provesdkservergo.New(
         provesdkservergo.WithSecurity(components.Security{
             ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
@@ -402,6 +474,8 @@ func main() {
 | Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
 | sdkerrors.Error400 | 400                | application/json   |
+| sdkerrors.Error401 | 401                | application/json   |
+| sdkerrors.Error403 | 403                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |
 | sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
 
@@ -423,7 +497,7 @@ import(
 
 func main() {
     ctx := context.Background()
-    
+
     s := provesdkservergo.New(
         provesdkservergo.WithSecurity(components.Security{
             ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
@@ -460,6 +534,8 @@ func main() {
 | Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
 | sdkerrors.Error400 | 400                | application/json   |
+| sdkerrors.Error401 | 401                | application/json   |
+| sdkerrors.Error403 | 403                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |
 | sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
 
@@ -481,7 +557,7 @@ import(
 
 func main() {
     ctx := context.Background()
-    
+
     s := provesdkservergo.New(
         provesdkservergo.WithSecurity(components.Security{
             ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
@@ -526,6 +602,8 @@ func main() {
 | Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
 | sdkerrors.Error400 | 400                | application/json   |
+| sdkerrors.Error401 | 401                | application/json   |
+| sdkerrors.Error403 | 403                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |
 | sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
 
@@ -547,7 +625,7 @@ import(
 
 func main() {
     ctx := context.Background()
-    
+
     s := provesdkservergo.New(
         provesdkservergo.WithSecurity(components.Security{
             ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
@@ -585,5 +663,7 @@ func main() {
 | Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
 | sdkerrors.Error400 | 400                | application/json   |
+| sdkerrors.Error401 | 401                | application/json   |
+| sdkerrors.Error403 | 403                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |
 | sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |

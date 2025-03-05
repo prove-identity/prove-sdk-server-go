@@ -1,0 +1,10 @@
+# V3MFABindRequestResponse
+
+
+## Fields
+
+| Field                                                                         | Type                                                                          | Required                                                                      | Description                                                                   | Example                                                                       |
+| ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `HTTPMeta`                                                                    | [components.HTTPMetadata](../../models/components/httpmetadata.md)            | :heavy_check_mark:                                                            | N/A                                                                           |                                                                               |
+| `V3MFABindResponse`                                                           | [*components.V3MFABindResponse](../../models/components/v3mfabindresponse.md) | :heavy_minus_sign:                                                            | Successful Request                                                            | {<br/>"phoneNumber": "2001004011",<br/>"success": "success"<br/>}             |
+| `Headers`                                                                     | map[string][]*string*                                                         | :heavy_check_mark:                                                            | N/A                                                                           |                                                                               |

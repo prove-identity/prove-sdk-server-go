@@ -18,12 +18,18 @@ const (
 	ServerUatUs string = "uat-us"
 	// Prod for US Region
 	ServerProdUs string = "prod-us"
+	// UAT for EU Region
+	ServerUatEu string = "uat-eu"
+	// Prod for EU Region
+	ServerProdEu string = "prod-eu"
 )
 
 // ServerList contains the list of servers available to the SDK
 var ServerList = map[string]string{
 	ServerUatUs:  "https://platform.uat.proveapis.com",
 	ServerProdUs: "https://platform.proveapis.com",
+	ServerUatEu:  "https://platform.uat.eu.proveapis.com",
+	ServerProdEu: "https://platform.eu.proveapis.com",
 }
 
 // HTTPClient provides an interface for suplying the SDK with a custom HTTP client
@@ -162,9 +168,9 @@ func New(opts ...SDKOption) *Provesdkservergo {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "1.0.0",
-			SDKVersion:        "0.7.0",
-			GenVersion:        "2.515.0",
-			UserAgent:         "speakeasy-sdk/go 0.7.0 2.515.0 1.0.0 github.com/prove-identity/prove-sdk-server-go",
+			SDKVersion:        "0.7.1",
+			GenVersion:        "2.539.1",
+			UserAgent:         "speakeasy-sdk/go 0.7.1 2.539.1 1.0.0 github.com/prove-identity/prove-sdk-server-go",
 			Hooks:             hooks.New(),
 		},
 	}

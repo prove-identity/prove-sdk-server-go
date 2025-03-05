@@ -172,6 +172,7 @@ func flow() error {
 * [V3ChallengeRequest](docs/sdks/v3/README.md#v3challengerequest) - Submit challenge.
 * [V3CompleteRequest](docs/sdks/v3/README.md#v3completerequest) - Complete flow.
 * [V3MFARequest](docs/sdks/v3/README.md#v3mfarequest) - Initiate possession check.
+* [V3MFABindRequest](docs/sdks/v3/README.md#v3mfabindrequest) - Check status of MFA session.
 * [V3MFAStatusRequest](docs/sdks/v3/README.md#v3mfastatusrequest) - Check status of MFA session.
 * [V3StartRequest](docs/sdks/v3/README.md#v3startrequest) - Start flow.
 * [V3ValidateRequest](docs/sdks/v3/README.md#v3validaterequest) - Validate phone number.
@@ -193,6 +194,7 @@ For example, the `V3TokenRequest` function may return the following errors:
 | Error Type         | Status Code | Content Type     |
 | ------------------ | ----------- | ---------------- |
 | sdkerrors.Error400 | 400         | application/json |
+| sdkerrors.Error401 | 401         | application/json |
 | sdkerrors.Error    | 500         | application/json |
 | sdkerrors.SDKError | 4XX, 5XX    | \*/\*            |
 
@@ -228,6 +230,12 @@ func main() {
 			log.Fatal(e.Error())
 		}
 
+		var e *sdkerrors.Error401
+		if errors.As(err, &e) {
+			// handle error
+			log.Fatal(e.Error())
+		}
+
 		var e *sdkerrors.Error
 		if errors.As(err, &e) {
 			// handle error
@@ -252,10 +260,12 @@ func main() {
 
 You can override the default server globally using the `WithServer(server string)` option when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the names associated with the available servers:
 
-| Name      | Server                               | Description        |
-| --------- | ------------------------------------ | ------------------ |
-| `uat-us`  | `https://platform.uat.proveapis.com` | UAT for US Region  |
-| `prod-us` | `https://platform.proveapis.com`     | Prod for US Region |
+| Name      | Server                                  | Description        |
+| --------- | --------------------------------------- | ------------------ |
+| `uat-us`  | `https://platform.uat.proveapis.com`    | UAT for US Region  |
+| `prod-us` | `https://platform.proveapis.com`        | Prod for US Region |
+| `uat-eu`  | `https://platform.uat.eu.proveapis.com` | UAT for EU Region  |
+| `prod-eu` | `https://platform.eu.proveapis.com`     | Prod for EU Region |
 
 #### Example
 
@@ -273,7 +283,7 @@ func main() {
 	ctx := context.Background()
 
 	s := provesdkservergo.New(
-		provesdkservergo.WithServer("prod-us"),
+		provesdkservergo.WithServer("prod-eu"),
 	)
 
 	res, err := s.V3.V3TokenRequest(ctx, &components.V3TokenRequest{

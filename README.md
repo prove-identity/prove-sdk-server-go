@@ -194,7 +194,6 @@ For example, the `V3TokenRequest` function may return the following errors:
 | Error Type         | Status Code | Content Type     |
 | ------------------ | ----------- | ---------------- |
 | sdkerrors.Error400 | 400         | application/json |
-| sdkerrors.Error401 | 401         | application/json |
 | sdkerrors.Error    | 500         | application/json |
 | sdkerrors.SDKError | 4XX, 5XX    | \*/\*            |
 
@@ -225,12 +224,6 @@ func main() {
 	if err != nil {
 
 		var e *sdkerrors.Error400
-		if errors.As(err, &e) {
-			// handle error
-			log.Fatal(e.Error())
-		}
-
-		var e *sdkerrors.Error401
 		if errors.As(err, &e) {
 			// handle error
 			log.Fatal(e.Error())

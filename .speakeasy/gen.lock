@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 13f15f39-429b-4f89-9916-f3a11e8cf70c
 management:
-  docChecksum: d5bbb169bf2c011781c85f6b3d368f15
+  docChecksum: f30b340e2369f7f6435ebf9a6145a3cf
   docVersion: 1.0.0
-  speakeasyVersion: 1.509.1
-  generationVersion: 2.539.1
-  releaseVersion: 0.7.1
-  configChecksum: 5f9a750d421f2590f75b30c71f9f02b6
+  speakeasyVersion: 1.513.4
+  generationVersion: 2.545.4
+  releaseVersion: 0.7.2
+  configChecksum: a6fa74e94b392beb7d0eb2ea4c1b8c50
   repoURL: https://github.com/prove-identity/prove-sdk-server-go.git
   installationURL: https://github.com/prove-identity/prove-sdk-server-go
 features:
@@ -74,7 +74,6 @@ generatedFiles:
   - /models/operations/v3verifystatusrequest.go
   - /models/sdkerrors/error.go
   - /models/sdkerrors/error400.go
-  - /models/sdkerrors/error401.go
   - /models/sdkerrors/error403.go
   - USAGE.md
   - docs/models/components/amltypelistresponseinternal.md
@@ -131,7 +130,6 @@ generatedFiles:
   - docs/models/operations/v3verifystatusrequestresponse.md
   - docs/models/sdkerrors/error.md
   - docs/models/sdkerrors/error400.md
-  - docs/models/sdkerrors/error401.md
   - docs/models/sdkerrors/error403.md
   - docs/sdks/provesdkservergo/README.md
   - docs/sdks/v3/README.md

@@ -8,10 +8,10 @@
 * [V3TokenRequest](#v3tokenrequest) - Request OAuth token.
 * [V3ChallengeRequest](#v3challengerequest) - Submit challenge.
 * [V3CompleteRequest](#v3completerequest) - Complete flow.
-* [V3MFARequest](#v3mfarequest) - Initiate possession check.
-* [V3MFABindRequest](#v3mfabindrequest) - Check status of MFA session.
-* [V3MFAStatusRequest](#v3mfastatusrequest) - Check status of MFA session.
 * [V3StartRequest](#v3startrequest) - Start flow.
+* [V3UnifyRequest](#v3unifyrequest) - Initiate possession check.
+* [V3UnifyBindRequest](#v3unifybindrequest) - Check status of Unify session.
+* [V3UnifyStatusRequest](#v3unifystatusrequest) - Check status of Unify session.
 * [V3ValidateRequest](#v3validaterequest) - Validate phone number.
 * [V3VerifyRequest](#v3verifyrequest) - Initiate verified users session.
 * [V3VerifyStatusRequest](#v3verifystatusrequest) - Perform checks for verified users session.
@@ -220,198 +220,6 @@ func main() {
 | sdkerrors.Error    | 500                | application/json   |
 | sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
 
-## V3MFARequest
-
-Send this request to initiate a possession check. It will return a correlation ID
-and authToken for the client SDK.
-
-### Example Usage
-
-```go
-package main
-
-import(
-	"context"
-	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
-	"github.com/prove-identity/prove-sdk-server-go/models/components"
-	"log"
-)
-
-func main() {
-    ctx := context.Background()
-
-    s := provesdkservergo.New(
-        provesdkservergo.WithSecurity(components.Security{
-            ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
-            ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
-        }),
-    )
-
-    res, err := s.V3.V3MFARequest(ctx, &components.V3MFARequest{
-        ClientCustomerID: provesdkservergo.String("e0f78bc2-f748-4eda-9d29-d756844507fc"),
-        ClientRequestID: provesdkservergo.String("71010d88-d0e7-4a24-9297-d1be6fefde81"),
-        EmailAddress: provesdkservergo.String("user@example.com"),
-        FinalTargetURL: provesdkservergo.String("https://www.example.com/landing-page"),
-        IPAddress: provesdkservergo.String("192.168.1.1"),
-        PhoneNumber: provesdkservergo.String("2001004011"),
-        PossessionType: "mobile",
-        SmsMessage: provesdkservergo.String("#### is your verification code"),
-    })
-    if err != nil {
-        log.Fatal(err)
-    }
-    if res.V3MFAResponse != nil {
-        // handle response
-    }
-}
-```
-
-### Parameters
-
-| Parameter                                                          | Type                                                               | Required                                                           | Description                                                        |
-| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
-| `ctx`                                                              | [context.Context](https://pkg.go.dev/context#Context)              | :heavy_check_mark:                                                 | The context to use for the request.                                |
-| `request`                                                          | [components.V3MFARequest](../../models/components/v3mfarequest.md) | :heavy_check_mark:                                                 | The request object to use for the request.                         |
-| `opts`                                                             | [][operations.Option](../../models/operations/option.md)           | :heavy_minus_sign:                                                 | The options for this request.                                      |
-
-### Response
-
-**[*operations.V3MFARequestResponse](../../models/operations/v3mfarequestresponse.md), error**
-
-### Errors
-
-| Error Type         | Status Code        | Content Type       |
-| ------------------ | ------------------ | ------------------ |
-| sdkerrors.Error400 | 400                | application/json   |
-| sdkerrors.Error401 | 401                | application/json   |
-| sdkerrors.Error403 | 403                | application/json   |
-| sdkerrors.Error    | 500                | application/json   |
-| sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
-
-## V3MFABindRequest
-
-Send this request to bind Prove Key to a phone nuymber of an MFA session and get the possession result.
-
-### Example Usage
-
-```go
-package main
-
-import(
-	"context"
-	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
-	"github.com/prove-identity/prove-sdk-server-go/models/components"
-	"log"
-)
-
-func main() {
-    ctx := context.Background()
-
-    s := provesdkservergo.New(
-        provesdkservergo.WithSecurity(components.Security{
-            ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
-            ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
-        }),
-    )
-
-    res, err := s.V3.V3MFABindRequest(ctx, &components.V3MFABindRequest{
-        ClientRequestID: provesdkservergo.String("71010d88-d0e7-4a24-9297-d1be6fefde81"),
-        CorrelationID: provesdkservergo.String("713189b8-5555-4b08-83ba-75d08780aebd"),
-        PhoneNumber: provesdkservergo.String("2001004011"),
-    })
-    if err != nil {
-        log.Fatal(err)
-    }
-    if res.V3MFABindResponse != nil {
-        // handle response
-    }
-}
-```
-
-### Parameters
-
-| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
-| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| `ctx`                                                                      | [context.Context](https://pkg.go.dev/context#Context)                      | :heavy_check_mark:                                                         | The context to use for the request.                                        |
-| `request`                                                                  | [components.V3MFABindRequest](../../models/components/v3mfabindrequest.md) | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
-| `opts`                                                                     | [][operations.Option](../../models/operations/option.md)                   | :heavy_minus_sign:                                                         | The options for this request.                                              |
-
-### Response
-
-**[*operations.V3MFABindRequestResponse](../../models/operations/v3mfabindrequestresponse.md), error**
-
-### Errors
-
-| Error Type         | Status Code        | Content Type       |
-| ------------------ | ------------------ | ------------------ |
-| sdkerrors.Error400 | 400                | application/json   |
-| sdkerrors.Error401 | 401                | application/json   |
-| sdkerrors.Error403 | 403                | application/json   |
-| sdkerrors.Error    | 500                | application/json   |
-| sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
-
-## V3MFAStatusRequest
-
-Send this request to check the status of an MFA session and get the possession result.
-
-### Example Usage
-
-```go
-package main
-
-import(
-	"context"
-	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
-	"github.com/prove-identity/prove-sdk-server-go/models/components"
-	"log"
-)
-
-func main() {
-    ctx := context.Background()
-
-    s := provesdkservergo.New(
-        provesdkservergo.WithSecurity(components.Security{
-            ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
-            ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
-        }),
-    )
-
-    res, err := s.V3.V3MFAStatusRequest(ctx, &components.V3MFAStatusRequest{
-        ClientRequestID: provesdkservergo.String("71010d88-d0e7-4a24-9297-d1be6fefde81"),
-        CorrelationID: provesdkservergo.String("713189b8-5555-4b08-83ba-75d08780aebd"),
-        PhoneNumber: provesdkservergo.String("2001004011"),
-    })
-    if err != nil {
-        log.Fatal(err)
-    }
-    if res.V3MFAStatusResponse != nil {
-        // handle response
-    }
-}
-```
-
-### Parameters
-
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `ctx`                                                                          | [context.Context](https://pkg.go.dev/context#Context)                          | :heavy_check_mark:                                                             | The context to use for the request.                                            |
-| `request`                                                                      | [components.V3MFAStatusRequest](../../models/components/v3mfastatusrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
-| `opts`                                                                         | [][operations.Option](../../models/operations/option.md)                       | :heavy_minus_sign:                                                             | The options for this request.                                                  |
-
-### Response
-
-**[*operations.V3MFAStatusRequestResponse](../../models/operations/v3mfastatusrequestresponse.md), error**
-
-### Errors
-
-| Error Type         | Status Code        | Content Type       |
-| ------------------ | ------------------ | ------------------ |
-| sdkerrors.Error400 | 400                | application/json   |
-| sdkerrors.Error401 | 401                | application/json   |
-| sdkerrors.Error403 | 403                | application/json   |
-| sdkerrors.Error    | 500                | application/json   |
-| sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
-
 ## V3StartRequest
 
 Send this request to start a Prove flow. It will return a correlation ID and an authToken for the client SDK.
@@ -468,6 +276,196 @@ func main() {
 ### Response
 
 **[*operations.V3StartRequestResponse](../../models/operations/v3startrequestresponse.md), error**
+
+### Errors
+
+| Error Type         | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.Error400 | 400                | application/json   |
+| sdkerrors.Error401 | 401                | application/json   |
+| sdkerrors.Error403 | 403                | application/json   |
+| sdkerrors.Error    | 500                | application/json   |
+| sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
+
+## V3UnifyRequest
+
+Send this request to initiate a possession check. It will return a correlation ID
+and authToken for the client SDK.
+
+### Example Usage
+
+```go
+package main
+
+import(
+	"context"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+	"github.com/prove-identity/prove-sdk-server-go/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := provesdkservergo.New(
+        provesdkservergo.WithSecurity(components.Security{
+            ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+            ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+        }),
+    )
+
+    res, err := s.V3.V3UnifyRequest(ctx, &components.V3UnifyRequest{
+        ClientCustomerID: provesdkservergo.String("e0f78bc2-f748-4eda-9d29-d756844507fc"),
+        ClientRequestID: provesdkservergo.String("71010d88-d0e7-4a24-9297-d1be6fefde81"),
+        FinalTargetURL: provesdkservergo.String("https://www.example.com/landing-page"),
+        PhoneNumber: provesdkservergo.String("2001004011"),
+        PossessionType: "mobile",
+        SmsMessage: provesdkservergo.String("#### is your verification code"),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.V3UnifyResponse != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| `ctx`                                                                  | [context.Context](https://pkg.go.dev/context#Context)                  | :heavy_check_mark:                                                     | The context to use for the request.                                    |
+| `request`                                                              | [components.V3UnifyRequest](../../models/components/v3unifyrequest.md) | :heavy_check_mark:                                                     | The request object to use for the request.                             |
+| `opts`                                                                 | [][operations.Option](../../models/operations/option.md)               | :heavy_minus_sign:                                                     | The options for this request.                                          |
+
+### Response
+
+**[*operations.V3UnifyRequestResponse](../../models/operations/v3unifyrequestresponse.md), error**
+
+### Errors
+
+| Error Type         | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.Error400 | 400                | application/json   |
+| sdkerrors.Error401 | 401                | application/json   |
+| sdkerrors.Error403 | 403                | application/json   |
+| sdkerrors.Error    | 500                | application/json   |
+| sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
+
+## V3UnifyBindRequest
+
+Send this request to bind Prove Key to a phone nuymber of an Unify session and get the possession result.
+
+### Example Usage
+
+```go
+package main
+
+import(
+	"context"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+	"github.com/prove-identity/prove-sdk-server-go/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := provesdkservergo.New(
+        provesdkservergo.WithSecurity(components.Security{
+            ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+            ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+        }),
+    )
+
+    res, err := s.V3.V3UnifyBindRequest(ctx, &components.V3UnifyBindRequest{
+        ClientRequestID: provesdkservergo.String("71010d88-d0e7-4a24-9297-d1be6fefde81"),
+        CorrelationID: provesdkservergo.String("713189b8-5555-4b08-83ba-75d08780aebd"),
+        PhoneNumber: provesdkservergo.String("2001004011"),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.V3UnifyBindResponse != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `ctx`                                                                          | [context.Context](https://pkg.go.dev/context#Context)                          | :heavy_check_mark:                                                             | The context to use for the request.                                            |
+| `request`                                                                      | [components.V3UnifyBindRequest](../../models/components/v3unifybindrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
+| `opts`                                                                         | [][operations.Option](../../models/operations/option.md)                       | :heavy_minus_sign:                                                             | The options for this request.                                                  |
+
+### Response
+
+**[*operations.V3UnifyBindRequestResponse](../../models/operations/v3unifybindrequestresponse.md), error**
+
+### Errors
+
+| Error Type         | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.Error400 | 400                | application/json   |
+| sdkerrors.Error401 | 401                | application/json   |
+| sdkerrors.Error403 | 403                | application/json   |
+| sdkerrors.Error    | 500                | application/json   |
+| sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
+
+## V3UnifyStatusRequest
+
+Send this request to check the status of an Unify session and get the possession result.
+
+### Example Usage
+
+```go
+package main
+
+import(
+	"context"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+	"github.com/prove-identity/prove-sdk-server-go/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := provesdkservergo.New(
+        provesdkservergo.WithSecurity(components.Security{
+            ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+            ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+        }),
+    )
+
+    res, err := s.V3.V3UnifyStatusRequest(ctx, &components.V3UnifyStatusRequest{
+        ClientRequestID: provesdkservergo.String("71010d88-d0e7-4a24-9297-d1be6fefde81"),
+        CorrelationID: provesdkservergo.String("713189b8-5555-4b08-83ba-75d08780aebd"),
+        PhoneNumber: provesdkservergo.String("2001004011"),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.V3UnifyStatusResponse != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `ctx`                                                                              | [context.Context](https://pkg.go.dev/context#Context)                              | :heavy_check_mark:                                                                 | The context to use for the request.                                                |
+| `request`                                                                          | [components.V3UnifyStatusRequest](../../models/components/v3unifystatusrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| `opts`                                                                             | [][operations.Option](../../models/operations/option.md)                           | :heavy_minus_sign:                                                                 | The options for this request.                                                      |
+
+### Response
+
+**[*operations.V3UnifyStatusRequestResponse](../../models/operations/v3unifystatusrequestresponse.md), error**
 
 ### Errors
 

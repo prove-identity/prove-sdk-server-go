@@ -6,22 +6,22 @@ import (
 	"github.com/prove-identity/prove-sdk-server-go/models/components"
 )
 
-type V3MFARequestResponse struct {
+type V3UnifyRequestResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// Successful request.
-	V3MFAResponse *components.V3MFAResponse
+	V3UnifyResponse *components.V3UnifyResponse
 }
 
-func (o *V3MFARequestResponse) GetHTTPMeta() components.HTTPMetadata {
+func (o *V3UnifyRequestResponse) GetHTTPMeta() components.HTTPMetadata {
 	if o == nil {
 		return components.HTTPMetadata{}
 	}
 	return o.HTTPMeta
 }
 
-func (o *V3MFARequestResponse) GetV3MFAResponse() *components.V3MFAResponse {
+func (o *V3UnifyRequestResponse) GetV3UnifyResponse() *components.V3UnifyResponse {
 	if o == nil {
 		return nil
 	}
-	return o.V3MFAResponse
+	return o.V3UnifyResponse
 }

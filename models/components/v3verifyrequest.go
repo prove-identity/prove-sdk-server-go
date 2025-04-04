@@ -16,7 +16,7 @@ type V3VerifyRequest struct {
 	FirstName string `json:"firstName"`
 	// Last name of the individual.
 	LastName string `json:"lastName"`
-	// Phone number is the number of the mobile phone. The field is required in the Sandbox environment. In Production, you will likely pass the phone number via the Prove Link client SDK instead of within the Start call depending on how your user experience is implemented. Acceptable characters are: alphanumeric with symbols '+'.
+	// Phone number is the number of the mobile phone. The field is required in the Sandbox environment. US phone numbers can be passed in with or without a leading `+1`. Acceptable characters are: alphanumeric with symbols '+'.
 	PhoneNumber string `json:"phoneNumber"`
 	// Possession type is based on the method used - either 'desktop' if using desktop, 'mobile' for iOS/Android native apps and mobile web, or 'none' if no possession check is required. Acceptable options are: 'desktop', 'mobile', and 'none'.
 	PossessionType string `json:"possessionType"`

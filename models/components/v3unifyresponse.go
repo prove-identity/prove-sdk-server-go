@@ -2,8 +2,8 @@
 
 package components
 
-// V3MFAResponse - Response body for the V3 MFA API
-type V3MFAResponse struct {
+// V3UnifyResponse - Response body for the V3 Unify API
+type V3UnifyResponse struct {
 	// AuthToken is a one-time use JWT for client side possession SDK
 	// authentication/authorization.
 	AuthToken *string `json:"authToken,omitempty"`
@@ -12,21 +12,21 @@ type V3MFAResponse struct {
 	Success       string `json:"success"`
 }
 
-func (o *V3MFAResponse) GetAuthToken() *string {
+func (o *V3UnifyResponse) GetAuthToken() *string {
 	if o == nil {
 		return nil
 	}
 	return o.AuthToken
 }
 
-func (o *V3MFAResponse) GetCorrelationID() string {
+func (o *V3UnifyResponse) GetCorrelationID() string {
 	if o == nil {
 		return ""
 	}
 	return o.CorrelationID
 }
 
-func (o *V3MFAResponse) GetSuccess() string {
+func (o *V3UnifyResponse) GetSuccess() string {
 	if o == nil {
 		return ""
 	}

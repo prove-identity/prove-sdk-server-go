@@ -2,21 +2,21 @@
 
 package components
 
-// V3MFABindResponse - Response body for the V3 MFA Bind API
-type V3MFABindResponse struct {
+// V3UnifyBindResponse - Response body for the V3 Unify Bind API
+type V3UnifyBindResponse struct {
 	// Phone number that may have been discovered via Mobile Auth during the process.
 	PhoneNumber string `json:"phoneNumber"`
 	Success     string `json:"success"`
 }
 
-func (o *V3MFABindResponse) GetPhoneNumber() string {
+func (o *V3UnifyBindResponse) GetPhoneNumber() string {
 	if o == nil {
 		return ""
 	}
 	return o.PhoneNumber
 }
 
-func (o *V3MFABindResponse) GetSuccess() string {
+func (o *V3UnifyBindResponse) GetSuccess() string {
 	if o == nil {
 		return ""
 	}

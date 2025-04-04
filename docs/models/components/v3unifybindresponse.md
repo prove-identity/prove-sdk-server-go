@@ -1,6 +1,6 @@
-# V3MFABindResponse
+# V3UnifyBindResponse
 
-Response body for the V3 MFA Bind API
+Response body for the V3 Unify Bind API
 
 
 ## Fields

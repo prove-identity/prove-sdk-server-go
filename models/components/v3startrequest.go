@@ -13,7 +13,7 @@ type V3StartRequest struct {
 	FlowType string `json:"flowType"`
 	// IP address is the IP address of the device of the customer. Acceptable characters are: numeric with symbols ':.'.
 	IPAddress *string `json:"ipAddress,omitempty"`
-	// Phone number is the number of the mobile phone. The field is required in the Sandbox environment. In Production, you will likely pass the phone number via the Prove Link client SDK instead of within the Start call depending on how your user experience is implemented. Acceptable characters are: alphanumeric with symbols '+'.
+	// Phone number is the number of the mobile phone. Refer to the Prove Pre-Fill with Mobile Auth and Prove Identity with Mobile Auth documentation for situations where this field is not required. US phone numbers can be passed in with or without a leading +1. Acceptable characters are: alphanumeric with symbols '+'.
 	PhoneNumber *string `json:"phoneNumber,omitempty"`
 	// SMSMessage is an optional field to customize the message body sent in the Instant Link (flowType=desktop) or OTP (on mobile) SMS message.
 	// If not provided, the following default messages will be used:

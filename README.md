@@ -171,10 +171,10 @@ func flow() error {
 * [V3TokenRequest](docs/sdks/v3/README.md#v3tokenrequest) - Request OAuth token.
 * [V3ChallengeRequest](docs/sdks/v3/README.md#v3challengerequest) - Submit challenge.
 * [V3CompleteRequest](docs/sdks/v3/README.md#v3completerequest) - Complete flow.
-* [V3MFARequest](docs/sdks/v3/README.md#v3mfarequest) - Initiate possession check.
-* [V3MFABindRequest](docs/sdks/v3/README.md#v3mfabindrequest) - Check status of MFA session.
-* [V3MFAStatusRequest](docs/sdks/v3/README.md#v3mfastatusrequest) - Check status of MFA session.
 * [V3StartRequest](docs/sdks/v3/README.md#v3startrequest) - Start flow.
+* [V3UnifyRequest](docs/sdks/v3/README.md#v3unifyrequest) - Initiate possession check.
+* [V3UnifyBindRequest](docs/sdks/v3/README.md#v3unifybindrequest) - Check status of Unify session.
+* [V3UnifyStatusRequest](docs/sdks/v3/README.md#v3unifystatusrequest) - Check status of Unify session.
 * [V3ValidateRequest](docs/sdks/v3/README.md#v3validaterequest) - Validate phone number.
 * [V3VerifyRequest](docs/sdks/v3/README.md#v3verifyrequest) - Initiate verified users session.
 * [V3VerifyStatusRequest](docs/sdks/v3/README.md#v3verifystatusrequest) - Perform checks for verified users session.

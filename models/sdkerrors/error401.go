@@ -7,6 +7,10 @@ import (
 )
 
 type Error401 struct {
+	// Code is an internal error code that describes the problem category of the request.
+	Code *int64 `json:"code,omitempty"`
+	// Message is an error message describing the problem with the request.
+	Message string `json:"message"`
 }
 
 var _ error = &Error401{}

@@ -1,6 +1,6 @@
-# V3MFAResponse
+# V3UnifyResponse
 
-Response body for the V3 MFA API
+Response body for the V3 Unify API
 
 
 ## Fields

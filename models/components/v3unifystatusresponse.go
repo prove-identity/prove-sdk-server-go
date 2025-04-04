@@ -2,21 +2,21 @@
 
 package components
 
-// V3MFAStatusResponse - Response body for the V3 MFA Status API
-type V3MFAStatusResponse struct {
+// V3UnifyStatusResponse - Response body for the V3 Unify Status API
+type V3UnifyStatusResponse struct {
 	// Phone number that may have been discovered via Mobile Auth during the process.
 	PhoneNumber string `json:"phoneNumber"`
 	Success     string `json:"success"`
 }
 
-func (o *V3MFAStatusResponse) GetPhoneNumber() string {
+func (o *V3UnifyStatusResponse) GetPhoneNumber() string {
 	if o == nil {
 		return ""
 	}
 	return o.PhoneNumber
 }
 
-func (o *V3MFAStatusResponse) GetSuccess() string {
+func (o *V3UnifyStatusResponse) GetSuccess() string {
 	if o == nil {
 		return ""
 	}

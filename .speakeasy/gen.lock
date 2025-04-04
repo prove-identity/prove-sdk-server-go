@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 13f15f39-429b-4f89-9916-f3a11e8cf70c
 management:
-  docChecksum: d5bbb169bf2c011781c85f6b3d368f15
+  docChecksum: 631e98723f8d838276a7dfc50d6c60de
   docVersion: 1.0.0
-  speakeasyVersion: 1.509.1
-  generationVersion: 2.539.1
-  releaseVersion: 0.7.1
-  configChecksum: 5f9a750d421f2590f75b30c71f9f02b6
+  speakeasyVersion: 1.529.1
+  generationVersion: 2.566.5
+  releaseVersion: 0.8.0
+  configChecksum: 8f39507ae2756fbdea0b421dc8bfad70
   repoURL: https://github.com/prove-identity/prove-sdk-server-go.git
   installationURL: https://github.com/prove-identity/prove-sdk-server-go
 features:
   go:
     additionalDependencies: 0.1.0
-    core: 3.7.2
+    core: 3.7.3
     defaultEnabledRetries: 0.2.0
     envVarSecurityUsage: 0.3.2
     examples: 2.81.4
@@ -20,7 +20,7 @@ features:
     globalSecurityCallbacks: 0.1.0
     globalServerURLs: 2.82.2
     intellisenseMarkdownSupport: 0.1.0
-    oauth2ClientCredentials: 0.2.2
+    oauth2ClientCredentials: 0.3.1
     responseFormat: 0.1.2
     retries: 2.83.2
     sdkHooks: 0.1.0
@@ -46,16 +46,16 @@ generatedFiles:
   - /models/components/v3completeindividualrequest.go
   - /models/components/v3completerequest.go
   - /models/components/v3completeresponse.go
-  - /models/components/v3mfabindrequest.go
-  - /models/components/v3mfabindresponse.go
-  - /models/components/v3mfarequest.go
-  - /models/components/v3mfaresponse.go
-  - /models/components/v3mfastatusrequest.go
-  - /models/components/v3mfastatusresponse.go
   - /models/components/v3startrequest.go
   - /models/components/v3startresponse.go
   - /models/components/v3tokenrequest.go
   - /models/components/v3tokenresponse.go
+  - /models/components/v3unifybindrequest.go
+  - /models/components/v3unifybindresponse.go
+  - /models/components/v3unifyrequest.go
+  - /models/components/v3unifyresponse.go
+  - /models/components/v3unifystatusrequest.go
+  - /models/components/v3unifystatusresponse.go
   - /models/components/v3validaterequest.go
   - /models/components/v3validateresponse.go
   - /models/components/v3verifyrequest.go
@@ -64,11 +64,11 @@ generatedFiles:
   - /models/components/v3verifystatusresponse.go
   - /models/operations/v3challengerequest.go
   - /models/operations/v3completerequest.go
-  - /models/operations/v3mfabindrequest.go
-  - /models/operations/v3mfarequest.go
-  - /models/operations/v3mfastatusrequest.go
   - /models/operations/v3startrequest.go
   - /models/operations/v3tokenrequest.go
+  - /models/operations/v3unifybindrequest.go
+  - /models/operations/v3unifyrequest.go
+  - /models/operations/v3unifystatusrequest.go
   - /models/operations/v3validaterequest.go
   - /models/operations/v3verifyrequest.go
   - /models/operations/v3verifystatusrequest.go
@@ -98,16 +98,16 @@ generatedFiles:
   - docs/models/components/v3completeindividualrequest.md
   - docs/models/components/v3completerequest.md
   - docs/models/components/v3completeresponse.md
-  - docs/models/components/v3mfabindrequest.md
-  - docs/models/components/v3mfabindresponse.md
-  - docs/models/components/v3mfarequest.md
-  - docs/models/components/v3mfaresponse.md
-  - docs/models/components/v3mfastatusrequest.md
-  - docs/models/components/v3mfastatusresponse.md
   - docs/models/components/v3startrequest.md
   - docs/models/components/v3startresponse.md
   - docs/models/components/v3tokenrequest.md
   - docs/models/components/v3tokenresponse.md
+  - docs/models/components/v3unifybindrequest.md
+  - docs/models/components/v3unifybindresponse.md
+  - docs/models/components/v3unifyrequest.md
+  - docs/models/components/v3unifyresponse.md
+  - docs/models/components/v3unifystatusrequest.md
+  - docs/models/components/v3unifystatusresponse.md
   - docs/models/components/v3validaterequest.md
   - docs/models/components/v3validateresponse.md
   - docs/models/components/v3verifyrequest.md
@@ -121,11 +121,11 @@ generatedFiles:
   - docs/models/operations/option.md
   - docs/models/operations/v3challengerequestresponse.md
   - docs/models/operations/v3completerequestresponse.md
-  - docs/models/operations/v3mfabindrequestresponse.md
-  - docs/models/operations/v3mfarequestresponse.md
-  - docs/models/operations/v3mfastatusrequestresponse.md
   - docs/models/operations/v3startrequestresponse.md
   - docs/models/operations/v3tokenrequestresponse.md
+  - docs/models/operations/v3unifybindrequestresponse.md
+  - docs/models/operations/v3unifyrequestresponse.md
+  - docs/models/operations/v3unifystatusrequestresponse.md
   - docs/models/operations/v3validaterequestresponse.md
   - docs/models/operations/v3verifyrequestresponse.md
   - docs/models/operations/v3verifystatusrequestresponse.md
@@ -169,10 +169,10 @@ examples:
           application/json: {"access_token": "eyJ...", "expires_in": 3600, "refresh_expires_in": 3600, "refresh_token": "eyJ...", "token_type": "Bearer"}
         "400":
           application/json: {"code": 8002, "message": "not authorized"}
+        "401":
+          application/json: {"code": 8002, "message": "not authorized"}
         "500":
           application/json: {"code": 8000, "message": "error at prove, try again later"}
-        "401":
-          application/json: {}
   V3ChallengeRequest:
     speakeasy-default-v3-challenge-request:
       requestBody:
@@ -182,43 +182,13 @@ examples:
           application/json: {"individual": {"addresses": [{"address": "39 South Trail", "city": "San Antonio", "extendedAddress": "39 South Trail", "postalCode": "78285", "region": "TX"}, {"address": "39 South Trail", "city": "San Antonio", "extendedAddress": "39 South Trail", "postalCode": "78285", "region": "TX"}], "dob": "1981-01-17T00:00:00Z", "emailAddresses": ["jdoe@example.com", "dsmith@example.com"], "firstName": "Tod", "lastName": "Weedall", "ssn": "265228370"}, "next": {"v3-complete": "/v3/complete"}, "success": true}
         "400":
           application/json: {"code": 8002, "message": "not authorized"}
-        "500":
-          application/json: {"code": 8000, "message": "error at prove, try again later"}
         "401":
-          application/json: {}
+          application/json: {"code": 8002, "message": "not authorized"}
         "403":
           application/json: {"code": 8003, "message": "Access forbidden: insufficient permissions"}
+        "500":
+          application/json: {"code": 8000, "message": "error at prove, try again later"}
   V3CompleteRequest:
-    Example1:
-      requestBody:
-        application/json: {"correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "individual": {"addresses": [{"address": "39 South Trail", "city": "San Antonio", "extendedAddress": "Apt 23", "postalCode": "78285", "region": "TX"}, {"address": "4861 Jay Junction", "city": "Boston", "extendedAddress": "Apt 78", "postalCode": "02208", "region": "MS"}], "dob": "1981-01", "emailAddresses": ["jdoe@example.com", "dsmith@example.com"], "firstName": "Tod", "lastName": "Weedall", "ssn": "265228370"}}
-      responses:
-        "200":
-          application/json: {"next": {"done": "done"}, "success": true}
-    Example2:
-      requestBody:
-        application/json: {"correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "individual": {"addresses": [{"address": "39 South Trail", "city": "San Antonio", "extendedAddress": "Apt 23", "postalCode": "78285", "region": "TX"}, {"address": "4861 Jay Junction", "city": "Boston", "extendedAddress": "Apt 78", "postalCode": "02208", "region": "MS"}], "dob": "1981-01", "emailAddresses": ["jdoe@example.com", "dsmith@example.com"], "firstName": "Tod", "lastName": "Weedall", "ssn": "265228370"}}
-      responses:
-        "200":
-          application/json: {"idv": {"dataSource1": {"address": {"addressScore": 100, "city": true, "distance": 0, "postalCode": true, "region": true, "street": true, "streetNumber": 100}, "cipConfidence": "high", "identifiers": {"dob": true, "ssn": true}, "name": {"firstName": 100, "lastName": 100, "nameScore": 100}}, "dataSource2": {"address": {"addressScore": 100, "city": true, "distance": 0, "postalCode": true, "region": true, "street": true, "streetNumber": 100}, "cipConfidence": "high", "identifiers": {"dob": true, "ssn": true}, "name": {"firstName": 100, "lastName": 100, "nameScore": 100}}, "multiCIPConfidence": "high"}, "kyc": {"amlTypeLists": [{"amlType": "pep-class-1", "fields": [{"name": "Country", "source": "complyAdvantage", "value": "shire"}, {"name": "Political Position", "source": "complyAdvantage", "value": "President"}, {"name": "Gender", "source": "complyAdvantage", "value": "male"}], "listHits": 1}], "totalHits": 4}, "next": {"done": "done"}, "success": true}
-    Example3:
-      requestBody:
-        application/json: {"correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "individual": {"addresses": [{"address": "39 South Trail", "city": "San Antonio", "extendedAddress": "Apt 23", "postalCode": "78285", "region": "TX"}, {"address": "4861 Jay Junction", "city": "Boston", "extendedAddress": "Apt 78", "postalCode": "02208", "region": "MS"}], "dob": "1981-01", "emailAddresses": ["jdoe@example.com", "dsmith@example.com"], "firstName": "Tod", "lastName": "Weedall", "ssn": "265228370"}}
-      responses:
-        "200":
-          application/json: {"idv": {"dataSource1": {"address": {"addressScore": 100, "city": true, "distance": 0, "postalCode": true, "region": true, "street": true, "streetNumber": 100}, "cipConfidence": "low", "identifiers": {"dob": true, "ssn": true}, "name": {"firstName": 100, "lastName": 100, "nameScore": 100}, "reasonCodes": ["DI"]}, "dataSource2": {"address": {"addressScore": 33, "city": true, "distance": 0, "postalCode": true, "region": true, "street": false, "streetNumber": 100}, "cipConfidence": "low", "identifiers": {"dob": true, "ssn": true}, "name": {"firstName": 100, "lastName": 100, "nameScore": 100}}, "multiCIPConfidence": "low"}, "kyc": {"totalHits": 0}, "next": {"done": "done"}, "success": false}
-    Example4:
-      requestBody:
-        application/json: {"correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "individual": {"addresses": [{"address": "39 South Trail", "city": "San Antonio", "extendedAddress": "Apt 23", "postalCode": "78285", "region": "TX"}, {"address": "4861 Jay Junction", "city": "Boston", "extendedAddress": "Apt 78", "postalCode": "02208", "region": "MS"}], "dob": "1981-01", "emailAddresses": ["jdoe@example.com", "dsmith@example.com"], "firstName": "Tod", "lastName": "Weedall", "ssn": "265228370"}}
-      responses:
-        "200":
-          application/json: {"idv": {"dataSource1": {"address": {"addressScore": 100, "city": true, "distance": 0, "postalCode": true, "region": true, "street": true, "streetNumber": 100}, "cipConfidence": "low", "identifiers": {"dob": true, "ssn": false}, "name": {"firstName": 100, "lastName": 100, "nameScore": 100}, "reasonCodes": ["DI"]}, "dataSource2": {"address": {"addressScore": 33, "city": true, "distance": 0, "postalCode": true, "region": true, "street": false, "streetNumber": 100}, "cipConfidence": "low", "identifiers": {"dob": true, "ssn": false}, "name": {"firstName": 100, "lastName": 100, "nameScore": 100}}, "multiCIPConfidence": "low"}, "kyc": {"totalHits": 0}, "next": {"done": "done"}, "success": false}
-    Example5:
-      requestBody:
-        application/json: {"correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "individual": {"addresses": [{"address": "39 South Trail", "city": "San Antonio", "extendedAddress": "Apt 23", "postalCode": "78285", "region": "TX"}, {"address": "4861 Jay Junction", "city": "Boston", "extendedAddress": "Apt 78", "postalCode": "02208", "region": "MS"}], "dob": "1981-01", "emailAddresses": ["jdoe@example.com", "dsmith@example.com"], "firstName": "Tod", "lastName": "Weedall", "ssn": "265228370"}}
-      responses:
-        "200":
-          application/json: {"idv": {"dataSource1": {"address": {"addressScore": 100, "city": true, "distance": 0, "postalCode": true, "region": true, "street": true, "streetNumber": 100}, "cipConfidence": "high", "identifiers": {"dob": true, "ssn": true}, "name": {"firstName": 100, "lastName": 100, "nameScore": 100}}, "dataSource2": {"address": {"addressScore": 100, "city": true, "distance": 0, "postalCode": true, "region": true, "street": true, "streetNumber": 100}, "cipConfidence": "high", "identifiers": {"dob": true, "ssn": true}, "name": {"firstName": 100, "lastName": 100, "nameScore": 100}}, "multiCIPConfidence": "high"}, "kyc": {"totalHits": 0}, "next": {"done": "done"}, "success": true}
     Standard Response:
       requestBody:
         application/json: {"correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "individual": {"addresses": [{"address": "39 South Trail", "city": "San Antonio", "extendedAddress": "Apt 23", "postalCode": "78285", "region": "TX"}, {"address": "4861 Jay Junction", "city": "Boston", "extendedAddress": "Apt 78", "postalCode": "02208", "region": "MS"}], "dob": "1981-01", "emailAddresses": ["jdoe@example.com", "dsmith@example.com"], "firstName": "Tod", "lastName": "Weedall", "ssn": "265228370"}}
@@ -249,36 +219,6 @@ examples:
       responses:
         "200":
           application/json: {"idv": {"dataSource1": {"address": {"addressScore": 100, "city": true, "distance": 0, "postalCode": true, "region": true, "street": true, "streetNumber": 100}, "cipConfidence": "high", "identifiers": {"dob": true, "ssn": true}, "name": {"firstName": 100, "lastName": 100, "nameScore": 100}}, "dataSource2": {"address": {"addressScore": 100, "city": true, "distance": 0, "postalCode": true, "region": true, "street": true, "streetNumber": 100}, "cipConfidence": "high", "identifiers": {"dob": true, "ssn": true}, "name": {"firstName": 100, "lastName": 100, "nameScore": 100}}, "multiCIPConfidence": "high"}, "kyc": {"totalHits": 0}, "next": {"done": "done"}, "success": true}
-  V3MFARequest:
-    speakeasy-default-v3-MFA-request:
-      requestBody:
-        application/json: {"clientCustomerId": "e0f78bc2-f748-4eda-9d29-d756844507fc", "clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "emailAddress": "user@example.com", "finalTargetUrl": "https://www.example.com/landing-page", "ipAddress": "192.168.1.1", "phoneNumber": "2001004011", "possessionType": "mobile", "smsMessage": "#### is your verification code"}
-      responses:
-        "200":
-          application/json: {"authToken": "eyJhbGciOi...", "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "success": "success"}
-        "400":
-          application/json: {"code": 8002, "message": "not authorized"}
-        "500":
-          application/json: {"code": 8000, "message": "error at prove, try again later"}
-        "401":
-          application/json: {}
-        "403":
-          application/json: {"code": 8003, "message": "Access forbidden: insufficient permissions"}
-  V3MFAStatusRequest:
-    speakeasy-default-v3-MFA-status-request:
-      requestBody:
-        application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "phoneNumber": "2001004011"}
-      responses:
-        "200":
-          application/json: {"phoneNumber": "2001004011", "success": "success"}
-        "400":
-          application/json: {"code": 8002, "message": "not authorized"}
-        "500":
-          application/json: {"code": 8000, "message": "error at prove, try again later"}
-        "401":
-          application/json: {}
-        "403":
-          application/json: {"code": 8003, "message": "Access forbidden: insufficient permissions"}
   V3StartRequest:
     speakeasy-default-v3-start-request:
       requestBody:
@@ -288,12 +228,57 @@ examples:
           application/json: {"authToken": "eyJhbGciOi...", "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "next": {"v3-validate": "/v3/validate"}}
         "400":
           application/json: {"code": 8002, "message": "not authorized"}
-        "500":
-          application/json: {"code": 8000, "message": "error at prove, try again later"}
         "401":
-          application/json: {}
+          application/json: {"code": 8002, "message": "not authorized"}
         "403":
           application/json: {"code": 8003, "message": "Access forbidden: insufficient permissions"}
+        "500":
+          application/json: {"code": 8000, "message": "error at prove, try again later"}
+  V3UnifyRequest:
+    speakeasy-default-v3-unify-request:
+      requestBody:
+        application/json: {"clientCustomerId": "e0f78bc2-f748-4eda-9d29-d756844507fc", "clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "finalTargetUrl": "https://www.example.com/landing-page", "phoneNumber": "2001004011", "possessionType": "mobile", "smsMessage": "#### is your verification code"}
+      responses:
+        "200":
+          application/json: {"authToken": "eyJhbGciOi...", "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "success": "success"}
+        "400":
+          application/json: {"code": 8002, "message": "not authorized"}
+        "401":
+          application/json: {"code": 8002, "message": "not authorized"}
+        "403":
+          application/json: {"code": 8003, "message": "Access forbidden: insufficient permissions"}
+        "500":
+          application/json: {"code": 8000, "message": "error at prove, try again later"}
+  V3UnifyBindRequest:
+    speakeasy-default-v3-unify-bind-request:
+      requestBody:
+        application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "phoneNumber": "2001004011"}
+      responses:
+        "200":
+          application/json: {"phoneNumber": "2001004011", "success": "success"}
+        "400":
+          application/json: {"code": 8002, "message": "not authorized"}
+        "401":
+          application/json: {"code": 8002, "message": "not authorized"}
+        "403":
+          application/json: {"code": 8003, "message": "Access forbidden: insufficient permissions"}
+        "500":
+          application/json: {"code": 8000, "message": "error at prove, try again later"}
+  V3UnifyStatusRequest:
+    speakeasy-default-v3-unify-status-request:
+      requestBody:
+        application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "phoneNumber": "2001004011"}
+      responses:
+        "200":
+          application/json: {"phoneNumber": "2001004011", "success": "success"}
+        "400":
+          application/json: {"code": 8002, "message": "not authorized"}
+        "401":
+          application/json: {"code": 8002, "message": "not authorized"}
+        "403":
+          application/json: {"code": 8003, "message": "Access forbidden: insufficient permissions"}
+        "500":
+          application/json: {"code": 8000, "message": "error at prove, try again later"}
   V3ValidateRequest:
     speakeasy-default-v3-validate-request:
       requestBody:
@@ -303,12 +288,12 @@ examples:
           application/json: {"challengeMissing": true, "next": {"v3-challenge": "/v3/challenge"}, "phoneNumber": "2001001686", "success": true}
         "400":
           application/json: {"code": 8002, "message": "not authorized"}
-        "500":
-          application/json: {"code": 8000, "message": "error at prove, try again later"}
         "401":
-          application/json: {}
+          application/json: {"code": 8002, "message": "not authorized"}
         "403":
           application/json: {"code": 8003, "message": "Access forbidden: insufficient permissions"}
+        "500":
+          application/json: {"code": 8000, "message": "error at prove, try again later"}
   V3VerifyRequest:
     speakeasy-default-v3-verify-request:
       requestBody:
@@ -318,12 +303,12 @@ examples:
           application/json: {"authToken": "eyJhbGciOi...", "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "possessionResult": {}, "success": {}, "verifyResult": {}}
         "400":
           application/json: {"code": 8002, "message": "not authorized"}
-        "500":
-          application/json: {"code": 8000, "message": "error at prove, try again later"}
         "401":
-          application/json: {}
+          application/json: {"code": 8002, "message": "not authorized"}
         "403":
           application/json: {"code": 8003, "message": "Access forbidden: insufficient permissions"}
+        "500":
+          application/json: {"code": 8000, "message": "error at prove, try again later"}
   V3VerifyStatusRequest:
     speakeasy-default-v3-verify-status-request:
       requestBody:
@@ -333,26 +318,11 @@ examples:
           application/json: {"possessionResult": {}, "success": {}, "verifyResult": {}}
         "400":
           application/json: {"code": 8002, "message": "not authorized"}
-        "500":
-          application/json: {"code": 8000, "message": "error at prove, try again later"}
         "401":
-          application/json: {}
-        "403":
-          application/json: {"code": 8003, "message": "Access forbidden: insufficient permissions"}
-  V3MFABindRequest:
-    speakeasy-default-v3-MFA-bind-request:
-      requestBody:
-        application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "phoneNumber": "2001004011"}
-      responses:
-        "200":
-          application/json: {"phoneNumber": "2001004011", "success": "success"}
-        "400":
           application/json: {"code": 8002, "message": "not authorized"}
-        "401":
-          application/json: {}
         "403":
           application/json: {"code": 8003, "message": "Access forbidden: insufficient permissions"}
         "500":
           application/json: {"code": 8000, "message": "error at prove, try again later"}
-examplesVersion: 1.0.0
+examplesVersion: 1.0.1
 generatedTests: {}

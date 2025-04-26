@@ -2,12 +2,10 @@
 
 package components
 
-// V3UnifyResponse - Response body for the V3 Unify API
 type V3UnifyResponse struct {
-	// AuthToken is a one-time use JWT for client side possession SDK
-	// authentication/authorization.
+	// The one-time use JWT for the client-side SDK.
 	AuthToken *string `json:"authToken,omitempty"`
-	// Correlation ID is the unique ID that Prove generates for the flow.
+	// The unique ID that Prove generates for the flow.
 	CorrelationID string `json:"correlationId"`
 	Success       string `json:"success"`
 }

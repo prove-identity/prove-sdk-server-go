@@ -2,26 +2,24 @@
 
 package components
 
-// V3UnifyRequest - Request body for the V3 Unify API
 type V3UnifyRequest struct {
-	// Client Customer ID is a client-generated unique ID for a specific customer.
+	// A client-generated unique ID for a specific customer.
 	ClientCustomerID *string `json:"clientCustomerId,omitempty"`
-	// Client Request ID is a client-generated unique ID for a specific session.
+	// A client-generated unique ID for a specific session.
 	ClientRequestID *string `json:"clientRequestId,omitempty"`
-	// Final target URL is only required when possessionType=desktop. The final target
-	// URL is where the end user will be redirected at the end of Instant Link flow.
+	// The final target URL is where the end user will be redirected at the end of Instant Link flow. Required when `possessionType=desktop`.
 	// Acceptable characters are: alphanumeric with symbols '-._+=/:?'.
 	FinalTargetURL *string `json:"finalTargetUrl,omitempty"`
-	// Phone number is the number of the mobile phone. Optional in US, required in EU.
-	// Not allowed when possessionType is 'none'. Acceptable characters are:
+	// The number of the mobile phone. Optional in US, required in EU.
+	// Not allowed when possessionType is `none`. Acceptable characters are:
 	// alphanumeric with symbols '+'.
 	PhoneNumber *string `json:"phoneNumber,omitempty"`
-	// Possession type is based on the method used - either 'desktop' if using desktop,
-	// 'mobile' for iOS/Android native apps and mobile web, or 'none' if no possession
-	// check is required. Acceptable options are: 'desktop', 'mobile', and 'none'.
+	// The type of device being used - either `desktop` if using a desktop,
+	// `mobile` for iOS/Android native apps and mobile web, or `none` if no possession
+	// check is required.
 	PossessionType string `json:"possessionType"`
-	// SMSMessage is an optional field to customize the message body sent in the
-	// Instant Link (possessionType=desktop) or OTP (on mobile) SMS message.
+	// The message body sent in the
+	// Instant Link (`possessionType=desktop`) or OTP (`possessionType=mobile`) SMS message.
 	SmsMessage *string `json:"smsMessage,omitempty"`
 }
 

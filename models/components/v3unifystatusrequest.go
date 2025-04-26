@@ -2,18 +2,13 @@
 
 package components
 
-// V3UnifyStatusRequest - Request body for the V3 Unify Status API
 type V3UnifyStatusRequest struct {
-	// Client Request ID is a client-generated unique ID for a specific request.
-	// This can be used by clients to identify specific requests made to Prove Link.
-	// The format of this ID is defined by the client - Prove recommends using a GUID,
-	// but any format can be accepted.
+	// A client-generated unique ID for a specific request.
 	ClientRequestID *string `json:"clientRequestId,omitempty"`
-	// Correlation ID is the unique ID that Prove generates for the flow. It is returned
+	// The unique ID that Prove generates for the flow. It is returned
 	// from the v3/unify endpoint and cannot be reused outside of a single flow.
 	CorrelationID *string `json:"correlationId,omitempty"`
-	// Phone number is only allowed when possessionType=none from the initial Unify request.
-	// Required for BYO Possession flow on the third call.
+	// The number of the mobile phone. Required when `possessionType=none` in the initial Unify request.
 	PhoneNumber *string `json:"phoneNumber,omitempty"`
 }
 

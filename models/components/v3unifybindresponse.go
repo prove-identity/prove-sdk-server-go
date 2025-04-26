@@ -2,9 +2,8 @@
 
 package components
 
-// V3UnifyBindResponse - Response body for the V3 Unify Bind API
 type V3UnifyBindResponse struct {
-	// Phone number that may have been discovered via Mobile Auth during the process.
+	// The number of the mobile phone used during the process.
 	PhoneNumber string `json:"phoneNumber"`
 	Success     string `json:"success"`
 }

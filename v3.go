@@ -1173,9 +1173,8 @@ func (s *V3) V3StartRequest(ctx context.Context, request *components.V3StartRequ
 
 }
 
-// V3UnifyRequest - Initiate possession check.
-// Send this request to initiate a possession check. It will return a correlation ID
-// and authToken for the client SDK.
+// V3UnifyRequest - Initiate Possession Check
+// This endpoint allows you to initiate the possession check.
 func (s *V3) V3UnifyRequest(ctx context.Context, request *components.V3UnifyRequest, opts ...operations.Option) (*operations.V3UnifyRequestResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -1467,8 +1466,8 @@ func (s *V3) V3UnifyRequest(ctx context.Context, request *components.V3UnifyRequ
 
 }
 
-// V3UnifyBindRequest - Check status of Unify session.
-// Send this request to bind Prove Key to a phone nuymber of an Unify session and get the possession result.
+// V3UnifyBindRequest - Bind Prove Key
+// This endpoint allows you to bind a Prove Key to a phone number of a Unify session and get the possession result.
 func (s *V3) V3UnifyBindRequest(ctx context.Context, request *components.V3UnifyBindRequest, opts ...operations.Option) (*operations.V3UnifyBindRequestResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -1762,8 +1761,8 @@ func (s *V3) V3UnifyBindRequest(ctx context.Context, request *components.V3Unify
 
 }
 
-// V3UnifyStatusRequest - Check status of Unify session.
-// Send this request to check the status of an Unify session and get the possession result.
+// V3UnifyStatusRequest - Check Status of Unify Session
+// This endpoint allows you to check the status of a Unify session and get the possession result.
 func (s *V3) V3UnifyStatusRequest(ctx context.Context, request *components.V3UnifyStatusRequest, opts ...operations.Option) (*operations.V3UnifyStatusRequestResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{

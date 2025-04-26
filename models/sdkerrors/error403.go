@@ -7,9 +7,9 @@ import (
 )
 
 type Error403 struct {
-	// Code is an internal error code that identifies the specific authorization issue.
+	// An internal error code that identifies the specific authorization issue.
 	Code *int64 `json:"code,omitempty"`
-	// Message is an error message describing why access is forbidden.
+	// An error message describing why access is forbidden.
 	Message string `json:"message"`
 }
 

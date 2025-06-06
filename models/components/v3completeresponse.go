@@ -5,9 +5,9 @@ package components
 type V3CompleteResponse struct {
 	Idv *IDVDataInternal `json:"idv,omitempty"`
 	Kyc *KYCInternal     `json:"kyc,omitempty"`
-	// Next contains the next set of allowed calls in the same flow.
+	// The next set of allowed calls in the same flow.
 	Next map[string]string `json:"next"`
-	// Success returns true if the individual was verified successfully.
+	// True if the individual was verified successfully.
 	Success bool `json:"success"`
 }
 

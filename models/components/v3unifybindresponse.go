@@ -2,11 +2,17 @@
 
 package components
 
-// V3UnifyBindResponse - Response body for the V3 Unify Bind API
+// V3UnifyBindResponseSuccess - The result of the possession check.
+// Possible values are `true`, `false`, `pending`, and `possession_required`.
+type V3UnifyBindResponseSuccess struct {
+}
+
 type V3UnifyBindResponse struct {
-	// Phone number that may have been discovered via Mobile Auth during the process.
+	// The number of the mobile phone used during the process.
 	PhoneNumber string `json:"phoneNumber"`
-	Success     string `json:"success"`
+	// The result of the possession check.
+	// Possible values are `true`, `false`, `pending`, and `possession_required`.
+	Success V3UnifyBindResponseSuccess `json:"success"`
 }
 
 func (o *V3UnifyBindResponse) GetPhoneNumber() string {
@@ -16,9 +22,9 @@ func (o *V3UnifyBindResponse) GetPhoneNumber() string {
 	return o.PhoneNumber
 }
 
-func (o *V3UnifyBindResponse) GetSuccess() string {
+func (o *V3UnifyBindResponse) GetSuccess() V3UnifyBindResponseSuccess {
 	if o == nil {
-		return ""
+		return V3UnifyBindResponseSuccess{}
 	}
 	return o.Success
 }

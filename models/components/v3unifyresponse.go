@@ -2,14 +2,17 @@
 
 package components
 
-// V3UnifyResponse - Response body for the V3 Unify API
+// Success - The status of the Unify request.
+type Success struct {
+}
+
 type V3UnifyResponse struct {
-	// AuthToken is a one-time use JWT for client side possession SDK
-	// authentication/authorization.
+	// The one-time use JWT for the client-side SDK.
 	AuthToken *string `json:"authToken,omitempty"`
-	// Correlation ID is the unique ID that Prove generates for the flow.
+	// The unique ID that Prove generates for the flow. To continue the flow, the field will also be used for each of the subsequent API calls in the same flow - it cannot be reused outside of a single flow.
 	CorrelationID string `json:"correlationId"`
-	Success       string `json:"success"`
+	// The status of the Unify request.
+	Success Success `json:"success"`
 }
 
 func (o *V3UnifyResponse) GetAuthToken() *string {
@@ -26,9 +29,9 @@ func (o *V3UnifyResponse) GetCorrelationID() string {
 	return o.CorrelationID
 }
 
-func (o *V3UnifyResponse) GetSuccess() string {
+func (o *V3UnifyResponse) GetSuccess() Success {
 	if o == nil {
-		return ""
+		return Success{}
 	}
 	return o.Success
 }

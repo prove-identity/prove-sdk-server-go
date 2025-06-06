@@ -3,15 +3,15 @@
 package components
 
 type V3TokenResponse struct {
-	// AccessToken returns the access token as a string.
+	// The access token used to authenticate API calls.
 	AccessToken string `json:"access_token"`
-	// ExpiresIn returns the lifetime of the token in seconds.
+	// The lifetime of the token in seconds.
 	ExpiresIn int64 `json:"expires_in"`
-	// RefreshExpiresIn returns the lifetime of the token in seconds. Not currently supported.
+	// The lifetime of the refresh token in seconds. Not currently supported.
 	RefreshExpiresIn *int64 `json:"refresh_expires_in,omitempty"`
-	// RefreshToken returns the refresh token as a string. Not currently supported.
+	// The token used to refresh the expiration time. Not currently supported.
 	RefreshToken *string `json:"refresh_token,omitempty"`
-	// TokenType returns the type of token.
+	// The type of token.
 	TokenType string `json:"token_type"`
 }
 

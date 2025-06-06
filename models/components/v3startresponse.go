@@ -3,11 +3,11 @@
 package components
 
 type V3StartResponse struct {
-	// AuthToken is a bearer token for use by the Prove Client SDK.
+	// A bearer token used by the client-side SDK.
 	AuthToken string `json:"authToken"`
-	// Correlation ID is the unique ID that Prove generates for the flow. To continue the flow, the field will also be used for each of the subsequent API calls in the same flow - it cannot be reused outside of a single flow.
+	// The unique ID that Prove generates for the flow. To continue the flow, the field will also be used for each of the subsequent API calls in the same flow - it cannot be reused outside of a single flow.
 	CorrelationID string `json:"correlationId"`
-	// Next contains the next set of allowed calls in the same flow.
+	// The next set of allowed API calls in the same flow.
 	Next map[string]string `json:"next"`
 }
 

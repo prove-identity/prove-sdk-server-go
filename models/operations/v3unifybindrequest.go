@@ -8,7 +8,7 @@ import (
 
 type V3UnifyBindRequestResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
-	// Successful Request
+	// Successful Request.
 	V3UnifyBindResponse *components.V3UnifyBindResponse
 	Headers             map[string][]string
 }

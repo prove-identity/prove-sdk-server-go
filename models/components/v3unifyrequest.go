@@ -2,27 +2,38 @@
 
 package components
 
-// V3UnifyRequest - Request body for the V3 Unify API
 type V3UnifyRequest struct {
-	// Client Customer ID is a client-generated unique ID for a specific customer.
+	// If true, the customer can request additional OTP codes if the initial code verification failed.
+	AllowOTPRetry *bool `json:"allowOTPRetry,omitempty"`
+	// A client-generated unique ID for a specific customer.
 	ClientCustomerID *string `json:"clientCustomerId,omitempty"`
-	// Client Request ID is a client-generated unique ID for a specific session.
+	// A client-generated unique ID for a specific session.
 	ClientRequestID *string `json:"clientRequestId,omitempty"`
-	// Final target URL is only required when possessionType=desktop. The final target
-	// URL is where the end user will be redirected at the end of Instant Link flow.
+	// The final target URL is where the end user will be redirected at the end of Instant Link flow. Required when `possessionType=desktop`.
 	// Acceptable characters are: alphanumeric with symbols '-._+=/:?'.
 	FinalTargetURL *string `json:"finalTargetUrl,omitempty"`
-	// Phone number is the number of the mobile phone. Optional in US, required in EU.
-	// Not allowed when possessionType is 'none'. Acceptable characters are:
-	// alphanumeric with symbols '+'.
+	// The mobile phone number. US phone numbers can be passed in with or without a leading `+1`. International phone numbers require a leading `+1`. Use the appropriate endpoint URL based on the region the number originates from. Acceptable characters are: alphanumeric with symbols '+'.
+	// Required unless Mobile Auth is enabled.
 	PhoneNumber *string `json:"phoneNumber,omitempty"`
-	// Possession type is based on the method used - either 'desktop' if using desktop,
-	// 'mobile' for iOS/Android native apps and mobile web, or 'none' if no possession
-	// check is required. Acceptable options are: 'desktop', 'mobile', and 'none'.
+	// The type of device being used - either `desktop` if using a desktop,
+	// `mobile` for iOS/Android native apps and mobile web, or `none` if no possession
+	// check is required.
 	PossessionType string `json:"possessionType"`
-	// SMSMessage is an optional field to customize the message body sent in the
-	// Instant Link (possessionType=desktop) or OTP (on mobile) SMS message.
+	// Rebind should be set to `true` if the previous transaction failed with `success=false` because the Prove Key could not be validated.
+	// When `true`, it will re-associate the Prove Key with the newly verified phone number.
+	Rebind *bool `json:"rebind,omitempty"`
+	// The message body sent in the Instant Link (`flowType=desktop`) or OTP (`flowType=mobile`) SMS message. If not provided, the following default messages will be used:
+	// Instant Link: "Complete your verification. If you did not make this request, do not click the link. ####" The verification URL replaces ####.
+	// OTP: "#### is your temporary code to continue your application. Caution: for your security, don't share this code with anyone." Use ####, #####, or ###### to generate 4-6 digit verification codes respectively.
+	// Default language is English. Max length is 160 characters. Non-ASCII characters are allowed.
 	SmsMessage *string `json:"smsMessage,omitempty"`
+}
+
+func (o *V3UnifyRequest) GetAllowOTPRetry() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.AllowOTPRetry
 }
 
 func (o *V3UnifyRequest) GetClientCustomerID() *string {
@@ -58,6 +69,13 @@ func (o *V3UnifyRequest) GetPossessionType() string {
 		return ""
 	}
 	return o.PossessionType
+}
+
+func (o *V3UnifyRequest) GetRebind() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.Rebind
 }
 
 func (o *V3UnifyRequest) GetSmsMessage() *string {

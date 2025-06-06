@@ -3,13 +3,13 @@
 package components
 
 type V3ValidateResponse struct {
-	// Challenge missing returns true if a DOB or SSN needs to be passed in on the next step.
+	// True if a DOB or SSN needs to be passed in on the next step.
 	ChallengeMissing bool `json:"challengeMissing"`
-	// Next contains the next set of allowed calls in the same flow.
+	// The next set of allowed calls in the same flow.
 	Next map[string]string `json:"next"`
-	// PhoneNumber is the number of the mobile phone for which validation was performed.
+	// The number of the mobile phone for which validation was performed.
 	PhoneNumber *string `json:"phoneNumber,omitempty"`
-	// Success returns true if the phone number was validated.
+	// True if the phone number was validated.
 	Success bool `json:"success"`
 }
 

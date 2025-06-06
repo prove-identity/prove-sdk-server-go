@@ -3,11 +3,11 @@
 package components
 
 type V3TokenRequest struct {
-	// ClientID is the optional client ID.
+	// The client ID retrieved from the [Developer Portal](https://developer.prove.com/reference/authentication).
 	ClientID string `form:"name=client_id"`
-	// ClientSecret is the client secret ID provided to the customer during onboarding.
+	// The client secret retrieved from the [Developer Portal](https://developer.prove.com/reference/authentication).
 	ClientSecret string `form:"name=client_secret"`
-	// GrantType only allows option: `client_credentials`.
+	// The grant type. This field only accepts `client_credentials`.
 	GrantType string `form:"name=grant_type"`
 }
 

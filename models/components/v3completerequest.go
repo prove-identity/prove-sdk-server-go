@@ -3,7 +3,7 @@
 package components
 
 type V3CompleteRequest struct {
-	// Correlation ID is the unique ID that Prove generates for the flow. It is returned from the Start endpoint and cannot be reused outside of a single flow.
+	// The unique ID that Prove generates for the flow. It is returned from the Start endpoint and cannot be reused outside of a single flow.
 	CorrelationID string                      `json:"correlationId"`
 	Individual    V3CompleteIndividualRequest `json:"individual"`
 }

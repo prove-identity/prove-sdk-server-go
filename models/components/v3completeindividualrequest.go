@@ -3,17 +3,17 @@
 package components
 
 type V3CompleteIndividualRequest struct {
-	// Addresses that belong to the individual.
+	// Address of the individual. Note that though this is an array, only the first address in the array will be processed.
 	Addresses []V3CompleteAddressEntryRequest `json:"addresses,omitempty"`
-	// DOB is the date of birth of the individual in one of these formats: YYYY-MM-DD, YYYY-MM, or MM-DD. Acceptable characters are: numeric with symbol '-'.
+	// The date of birth of the individual in one of these formats: YYYY-MM-DD, YYYY-MM, or MM-DD. Acceptable characters are: numeric with symbol '-'.
 	Dob *string `json:"dob,omitempty"`
-	// Email addresses that belong to the individual.
+	// Email address of the individual. Note that though this is an array, only the first email address in the array will be processed.
 	EmailAddresses []string `json:"emailAddresses,omitempty"`
-	// First name of the individual.
+	// The first name of the individual.
 	FirstName *string `json:"firstName,omitempty"`
-	// Last name of the individual.
+	// The last name of the individual.
 	LastName *string `json:"lastName,omitempty"`
-	// SSN is the social security number of the individual.
+	// The social security number of the individual.
 	Ssn *string `json:"ssn,omitempty"`
 }
 

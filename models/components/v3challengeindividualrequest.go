@@ -3,17 +3,17 @@
 package components
 
 type V3ChallengeIndividualRequest struct {
-	// Addresses that belong to the individual.
+	// An array of addresses that belong to the individual.
 	Addresses []V3ChallengeAddressEntryRequest `json:"addresses,omitempty"`
-	// DOB is the date of birth of the individual.
+	// The date of birth of the individual.
 	Dob *string `json:"dob,omitempty"`
-	// Email addresses that belong to the individual.
+	// An array of email addresses that belong to the individual.
 	EmailAddresses []string `json:"emailAddresses,omitempty"`
-	// First name of the individual.
+	// The first name of the individual.
 	FirstName *string `json:"firstName,omitempty"`
-	// Last name of the individual.
+	// The last name of the individual.
 	LastName *string `json:"lastName,omitempty"`
-	// SSN is the social security number of the individual.
+	// The social security number of the individual.
 	Ssn *string `json:"ssn,omitempty"`
 }
 

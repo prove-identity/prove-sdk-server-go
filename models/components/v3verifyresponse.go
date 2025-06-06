@@ -2,28 +2,28 @@
 
 package components
 
-// PossessionResult - Possession Result represents the result of the Possession check. Possible values are "pending" and "not_applicable", based on the Possession Type passed in the input. Clients will have to call the Verify Status API to get a result if Possession Result is pending.
+// PossessionResult - The result of the possession check. Possible values are `pending` and `not_applicable`, based on the `possessionType` passed in the input. Clients will have to call the Verify Status API to get a result if `possessionResult=pending`.
 type PossessionResult struct {
 }
 
-// Success is the result of the combination of Verify Result and Possession Result. Possible values are "true", "pending", and "false". The success value will be "pending" until the results of both Verify and Possession are returned or one of them fails, blocking the other.
-type Success struct {
+// V3VerifyResponseSuccess - The result of the combination of `verifyResult` and `possessionResult`. Possible values are `true`, `pending`, and `false`. The value will be `pending` until the results of both Verify and Possession are returned or one of them fails, blocking the other.
+type V3VerifyResponseSuccess struct {
 }
 
-// VerifyResult - Verify Result represents the result of the Verify process. Possible values are "success", "pending", and "failed". If the Verify result is pending, clients will need to call the Verify Status API to get a result.
+// VerifyResult - The result of the Verify process. Possible values are `success`, `pending`, and `failed`. If the Verify result is `pending`, clients will need to call the Verify Status API to get a result.
 type VerifyResult struct {
 }
 
 type V3VerifyResponse struct {
-	// AuthToken is a bearer token for use by the Prove Client SDK.
+	// A bearer token for use by the Prove client SDK.
 	AuthToken *string `json:"authToken,omitempty"`
-	// Correlation ID is the unique ID that Prove generates for the flow. To continue the flow, the field will also be used for each of the subsequent API calls in the same flow - it cannot be reused outside of a single flow.
+	// The unique ID that Prove generates for the flow. To continue the flow, the field will also be used for each of the subsequent API calls in the same flow - it cannot be reused outside of a single flow.
 	CorrelationID string `json:"correlationId"`
-	// Possession Result represents the result of the Possession check. Possible values are "pending" and "not_applicable", based on the Possession Type passed in the input. Clients will have to call the Verify Status API to get a result if Possession Result is pending.
+	// The result of the possession check. Possible values are `pending` and `not_applicable`, based on the `possessionType` passed in the input. Clients will have to call the Verify Status API to get a result if `possessionResult=pending`.
 	PossessionResult PossessionResult `json:"possessionResult"`
-	// Success is the result of the combination of Verify Result and Possession Result. Possible values are "true", "pending", and "false". The success value will be "pending" until the results of both Verify and Possession are returned or one of them fails, blocking the other.
-	Success Success `json:"success"`
-	// Verify Result represents the result of the Verify process. Possible values are "success", "pending", and "failed". If the Verify result is pending, clients will need to call the Verify Status API to get a result.
+	// The result of the combination of `verifyResult` and `possessionResult`. Possible values are `true`, `pending`, and `false`. The value will be `pending` until the results of both Verify and Possession are returned or one of them fails, blocking the other.
+	Success V3VerifyResponseSuccess `json:"success"`
+	// The result of the Verify process. Possible values are `success`, `pending`, and `failed`. If the Verify result is `pending`, clients will need to call the Verify Status API to get a result.
 	VerifyResult VerifyResult `json:"verifyResult"`
 }
 
@@ -48,9 +48,9 @@ func (o *V3VerifyResponse) GetPossessionResult() PossessionResult {
 	return o.PossessionResult
 }
 
-func (o *V3VerifyResponse) GetSuccess() Success {
+func (o *V3VerifyResponse) GetSuccess() V3VerifyResponseSuccess {
 	if o == nil {
-		return Success{}
+		return V3VerifyResponseSuccess{}
 	}
 	return o.Success
 }

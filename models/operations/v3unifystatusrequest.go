@@ -8,7 +8,7 @@ import (
 
 type V3UnifyStatusRequestResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
-	// Successful Request
+	// Successful Request.
 	V3UnifyStatusResponse *components.V3UnifyStatusResponse
 	Headers               map[string][]string
 }

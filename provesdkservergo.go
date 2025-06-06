@@ -2,9 +2,12 @@
 
 package provesdkservergo
 
+// Generated from OpenAPI doc version 1.0.0 and generator version 2.621.3
+
 import (
 	"context"
 	"fmt"
+	"github.com/prove-identity/prove-sdk-server-go/internal/config"
 	"github.com/prove-identity/prove-sdk-server-go/internal/hooks"
 	"github.com/prove-identity/prove-sdk-server-go/internal/utils"
 	"github.com/prove-identity/prove-sdk-server-go/models/components"
@@ -32,7 +35,7 @@ var ServerList = map[string]string{
 	ServerProdEu: "https://platform.eu.proveapis.com",
 }
 
-// HTTPClient provides an interface for suplying the SDK with a custom HTTP client
+// HTTPClient provides an interface for supplying the SDK with a custom HTTP client
 type HTTPClient interface {
 	Do(req *http.Request) (*http.Response, error)
 }
@@ -58,40 +61,15 @@ func Float64(f float64) *float64 { return &f }
 // Pointer provides a helper function to return a pointer to a type
 func Pointer[T any](v T) *T { return &v }
 
-type sdkConfiguration struct {
-	Client            HTTPClient
-	Security          func(context.Context) (interface{}, error)
-	ServerURL         string
-	Server            string
-	Language          string
-	OpenAPIDocVersion string
-	SDKVersion        string
-	GenVersion        string
-	UserAgent         string
-	RetryConfig       *retry.Config
-	Hooks             *hooks.Hooks
-	Timeout           *time.Duration
-}
-
-func (c *sdkConfiguration) GetServerDetails() (string, map[string]string) {
-	if c.ServerURL != "" {
-		return c.ServerURL, nil
-	}
-
-	if c.Server == "" {
-		c.Server = "uat-us"
-	}
-
-	return ServerList[c.Server], nil
-}
-
 // Provesdkservergo - Prove APIs: This specification describes the Prove API.
 //
 // OpenAPI Spec - generated.
 type Provesdkservergo struct {
-	V3 *V3
+	SDKVersion string
+	V3         *V3
 
-	sdkConfiguration sdkConfiguration
+	sdkConfiguration config.SDKConfiguration
+	hooks            *hooks.Hooks
 }
 
 type SDKOption func(*Provesdkservergo)
@@ -165,14 +143,12 @@ func WithTimeout(timeout time.Duration) SDKOption {
 // New creates a new instance of the SDK with the provided options
 func New(opts ...SDKOption) *Provesdkservergo {
 	sdk := &Provesdkservergo{
-		sdkConfiguration: sdkConfiguration{
-			Language:          "go",
-			OpenAPIDocVersion: "1.0.0",
-			SDKVersion:        "0.8.0",
-			GenVersion:        "2.566.5",
-			UserAgent:         "speakeasy-sdk/go 0.8.0 2.566.5 1.0.0 github.com/prove-identity/prove-sdk-server-go",
-			Hooks:             hooks.New(),
+		SDKVersion: "0.9.0",
+		sdkConfiguration: config.SDKConfiguration{
+			UserAgent:  "speakeasy-sdk/go 0.9.0 2.621.3 1.0.0 github.com/prove-identity/prove-sdk-server-go",
+			ServerList: ServerList,
 		},
+		hooks: hooks.New(),
 	}
 	for _, opt := range opts {
 		opt(sdk)
@@ -185,12 +161,12 @@ func New(opts ...SDKOption) *Provesdkservergo {
 
 	currentServerURL, _ := sdk.sdkConfiguration.GetServerDetails()
 	serverURL := currentServerURL
-	serverURL, sdk.sdkConfiguration.Client = sdk.sdkConfiguration.Hooks.SDKInit(currentServerURL, sdk.sdkConfiguration.Client)
-	if serverURL != currentServerURL {
+	serverURL, sdk.sdkConfiguration.Client = sdk.hooks.SDKInit(currentServerURL, sdk.sdkConfiguration.Client)
+	if currentServerURL != serverURL {
 		sdk.sdkConfiguration.ServerURL = serverURL
 	}
 
-	sdk.V3 = newV3(sdk.sdkConfiguration)
+	sdk.V3 = newV3(sdk, sdk.sdkConfiguration, sdk.hooks)
 
 	return sdk
 }

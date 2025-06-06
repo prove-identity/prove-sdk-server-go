@@ -1,29 +1,29 @@
 lockVersion: 2.0.0
 id: 13f15f39-429b-4f89-9916-f3a11e8cf70c
 management:
-  docChecksum: 631e98723f8d838276a7dfc50d6c60de
+  docChecksum: bba93633e3456439de4fa119d96d8cf1
   docVersion: 1.0.0
-  speakeasyVersion: 1.529.1
-  generationVersion: 2.566.5
-  releaseVersion: 0.8.0
-  configChecksum: 8f39507ae2756fbdea0b421dc8bfad70
+  speakeasyVersion: 1.556.2
+  generationVersion: 2.621.3
+  releaseVersion: 0.9.0
+  configChecksum: f6ef6ce008d8942549530e8f32af5c4f
   repoURL: https://github.com/prove-identity/prove-sdk-server-go.git
   installationURL: https://github.com/prove-identity/prove-sdk-server-go
 features:
   go:
     additionalDependencies: 0.1.0
-    core: 3.7.3
+    core: 3.7.5
     defaultEnabledRetries: 0.2.0
     envVarSecurityUsage: 0.3.2
     examples: 2.81.4
     globalSecurity: 2.82.11
     globalSecurityCallbacks: 0.1.0
-    globalServerURLs: 2.82.2
+    globalServerURLs: 2.82.3
     intellisenseMarkdownSupport: 0.1.0
     oauth2ClientCredentials: 0.3.1
     responseFormat: 0.1.2
-    retries: 2.83.2
-    sdkHooks: 0.1.0
+    retries: 2.83.3
+    sdkHooks: 0.2.0
     serverIDs: 2.81.1
 generatedFiles:
   - .gitattributes
@@ -73,7 +73,6 @@ generatedFiles:
   - /models/operations/v3verifyrequest.go
   - /models/operations/v3verifystatusrequest.go
   - /models/sdkerrors/error.go
-  - /models/sdkerrors/error400.go
   - /models/sdkerrors/error401.go
   - /models/sdkerrors/error403.go
   - USAGE.md
@@ -104,14 +103,17 @@ generatedFiles:
   - docs/models/components/v3tokenresponse.md
   - docs/models/components/v3unifybindrequest.md
   - docs/models/components/v3unifybindresponse.md
+  - docs/models/components/v3unifybindresponsesuccess.md
   - docs/models/components/v3unifyrequest.md
   - docs/models/components/v3unifyresponse.md
   - docs/models/components/v3unifystatusrequest.md
   - docs/models/components/v3unifystatusresponse.md
+  - docs/models/components/v3unifystatusresponsesuccess.md
   - docs/models/components/v3validaterequest.md
   - docs/models/components/v3validateresponse.md
   - docs/models/components/v3verifyrequest.md
   - docs/models/components/v3verifyresponse.md
+  - docs/models/components/v3verifyresponsesuccess.md
   - docs/models/components/v3verifystatusrequest.md
   - docs/models/components/v3verifystatusresponse.md
   - docs/models/components/v3verifystatusresponsepossessionresult.md
@@ -130,12 +132,12 @@ generatedFiles:
   - docs/models/operations/v3verifyrequestresponse.md
   - docs/models/operations/v3verifystatusrequestresponse.md
   - docs/models/sdkerrors/error.md
-  - docs/models/sdkerrors/error400.md
   - docs/models/sdkerrors/error401.md
   - docs/models/sdkerrors/error403.md
   - docs/sdks/provesdkservergo/README.md
   - docs/sdks/v3/README.md
   - go.mod
+  - internal/config/sdkconfiguration.go
   - internal/hooks/clientcredentials.go
   - internal/hooks/hooks.go
   - internal/utils/contenttype.go
@@ -143,6 +145,8 @@ generatedFiles:
   - internal/utils/form.go
   - internal/utils/headers.go
   - internal/utils/json.go
+  - internal/utils/oauth2_credentials.go
+  - internal/utils/oauth2_sessions.go
   - internal/utils/pathparams.go
   - internal/utils/queryparams.go
   - internal/utils/requestbody.go
@@ -168,7 +172,7 @@ examples:
         "200":
           application/json: {"access_token": "eyJ...", "expires_in": 3600, "refresh_expires_in": 3600, "refresh_token": "eyJ...", "token_type": "Bearer"}
         "400":
-          application/json: {"code": 8002, "message": "not authorized"}
+          application/json: {"code": 8000, "message": "error at prove, try again later"}
         "401":
           application/json: {"code": 8002, "message": "not authorized"}
         "500":
@@ -179,9 +183,9 @@ examples:
         application/json: {"correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "dob": "1981-01", "ssn": "0596"}
       responses:
         "200":
-          application/json: {"individual": {"addresses": [{"address": "39 South Trail", "city": "San Antonio", "extendedAddress": "39 South Trail", "postalCode": "78285", "region": "TX"}, {"address": "39 South Trail", "city": "San Antonio", "extendedAddress": "39 South Trail", "postalCode": "78285", "region": "TX"}], "dob": "1981-01-17T00:00:00Z", "emailAddresses": ["jdoe@example.com", "dsmith@example.com"], "firstName": "Tod", "lastName": "Weedall", "ssn": "265228370"}, "next": {"v3-complete": "/v3/complete"}, "success": true}
+          application/json: {"individual": {"addresses": [{"address": "39 South Trail", "city": "San Antonio", "extendedAddress": "Apt 23", "postalCode": "78285", "region": "TX"}, {"address": "4861 Jay Junction", "city": "Boston", "extendedAddress": "Apt 78", "postalCode": "02208", "region": "MS"}], "dob": "1981-01-17", "emailAddresses": ["jdoe@example.com", "dsmith@example.com"], "firstName": "Tod", "lastName": "Weedall", "ssn": "265228370"}, "next": {"v3-complete": "/v3/complete"}, "success": true}
         "400":
-          application/json: {"code": 8002, "message": "not authorized"}
+          application/json: {"code": 8000, "message": "error at prove, try again later"}
         "401":
           application/json: {"code": 8002, "message": "not authorized"}
         "403":
@@ -191,43 +195,43 @@ examples:
   V3CompleteRequest:
     Standard Response:
       requestBody:
-        application/json: {"correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "individual": {"addresses": [{"address": "39 South Trail", "city": "San Antonio", "extendedAddress": "Apt 23", "postalCode": "78285", "region": "TX"}, {"address": "4861 Jay Junction", "city": "Boston", "extendedAddress": "Apt 78", "postalCode": "02208", "region": "MS"}], "dob": "1981-01", "emailAddresses": ["jdoe@example.com", "dsmith@example.com"], "firstName": "Tod", "lastName": "Weedall", "ssn": "265228370"}}
+        application/json: {"correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "individual": {"addresses": [{"address": "39 South Trail", "city": "San Antonio", "extendedAddress": "Apt 23", "postalCode": "78285", "region": "TX"}], "dob": "1981-01", "emailAddresses": ["jdoe@example.com"], "firstName": "Tod", "lastName": "Weedall", "ssn": "265228370"}}
       responses:
         "200":
           application/json: {"next": {"done": "done"}, "success": true}
     Response with KYC - 4 hits:
       requestBody:
-        application/json: {"correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "individual": {"addresses": [{"address": "39 South Trail", "city": "San Antonio", "extendedAddress": "Apt 23", "postalCode": "78285", "region": "TX"}, {"address": "4861 Jay Junction", "city": "Boston", "extendedAddress": "Apt 78", "postalCode": "02208", "region": "MS"}], "dob": "1981-01", "emailAddresses": ["jdoe@example.com", "dsmith@example.com"], "firstName": "Tod", "lastName": "Weedall", "ssn": "265228370"}}
+        application/json: {"correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "individual": {"addresses": [{"address": "39 South Trail", "city": "San Antonio", "extendedAddress": "Apt 23", "postalCode": "78285", "region": "TX"}], "dob": "1981-01", "emailAddresses": ["jdoe@example.com"], "firstName": "Tod", "lastName": "Weedall", "ssn": "265228370"}}
       responses:
         "200":
           application/json: {"idv": {"dataSource1": {"address": {"addressScore": 100, "city": true, "distance": 0, "postalCode": true, "region": true, "street": true, "streetNumber": 100}, "cipConfidence": "high", "identifiers": {"dob": true, "ssn": true}, "name": {"firstName": 100, "lastName": 100, "nameScore": 100}}, "dataSource2": {"address": {"addressScore": 100, "city": true, "distance": 0, "postalCode": true, "region": true, "street": true, "streetNumber": 100}, "cipConfidence": "high", "identifiers": {"dob": true, "ssn": true}, "name": {"firstName": 100, "lastName": 100, "nameScore": 100}}, "multiCIPConfidence": "high"}, "kyc": {"amlTypeLists": [{"amlType": "pep-class-1", "fields": [{"name": "Country", "source": "complyAdvantage", "value": "shire"}, {"name": "Political Position", "source": "complyAdvantage", "value": "President"}, {"name": "Gender", "source": "complyAdvantage", "value": "male"}], "listHits": 1}], "totalHits": 4}, "next": {"done": "done"}, "success": true}
     Response with KYC - 0 hits:
       requestBody:
-        application/json: {"correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "individual": {"addresses": [{"address": "39 South Trail", "city": "San Antonio", "extendedAddress": "Apt 23", "postalCode": "78285", "region": "TX"}, {"address": "4861 Jay Junction", "city": "Boston", "extendedAddress": "Apt 78", "postalCode": "02208", "region": "MS"}], "dob": "1981-01", "emailAddresses": ["jdoe@example.com", "dsmith@example.com"], "firstName": "Tod", "lastName": "Weedall", "ssn": "265228370"}}
+        application/json: {"correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "individual": {"addresses": [{"address": "39 South Trail", "city": "San Antonio", "extendedAddress": "Apt 23", "postalCode": "78285", "region": "TX"}], "dob": "1981-01", "emailAddresses": ["jdoe@example.com"], "firstName": "Tod", "lastName": "Weedall", "ssn": "265228370"}}
       responses:
         "200":
           application/json: {"idv": {"dataSource1": {"address": {"addressScore": 100, "city": true, "distance": 0, "postalCode": true, "region": true, "street": true, "streetNumber": 100}, "cipConfidence": "low", "identifiers": {"dob": true, "ssn": true}, "name": {"firstName": 100, "lastName": 100, "nameScore": 100}, "reasonCodes": ["DI"]}, "dataSource2": {"address": {"addressScore": 33, "city": true, "distance": 0, "postalCode": true, "region": true, "street": false, "streetNumber": 100}, "cipConfidence": "low", "identifiers": {"dob": true, "ssn": true}, "name": {"firstName": 100, "lastName": 100, "nameScore": 100}}, "multiCIPConfidence": "low"}, "kyc": {"totalHits": 0}, "next": {"done": "done"}, "success": false}
     Response with Low MultiCIP:
       requestBody:
-        application/json: {"correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "individual": {"addresses": [{"address": "39 South Trail", "city": "San Antonio", "extendedAddress": "Apt 23", "postalCode": "78285", "region": "TX"}, {"address": "4861 Jay Junction", "city": "Boston", "extendedAddress": "Apt 78", "postalCode": "02208", "region": "MS"}], "dob": "1981-01", "emailAddresses": ["jdoe@example.com", "dsmith@example.com"], "firstName": "Tod", "lastName": "Weedall", "ssn": "265228370"}}
+        application/json: {"correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "individual": {"addresses": [{"address": "39 South Trail", "city": "San Antonio", "extendedAddress": "Apt 23", "postalCode": "78285", "region": "TX"}], "dob": "1981-01", "emailAddresses": ["jdoe@example.com"], "firstName": "Tod", "lastName": "Weedall", "ssn": "265228370"}}
       responses:
         "200":
           application/json: {"idv": {"dataSource1": {"address": {"addressScore": 100, "city": true, "distance": 0, "postalCode": true, "region": true, "street": true, "streetNumber": 100}, "cipConfidence": "low", "identifiers": {"dob": true, "ssn": false}, "name": {"firstName": 100, "lastName": 100, "nameScore": 100}, "reasonCodes": ["DI"]}, "dataSource2": {"address": {"addressScore": 33, "city": true, "distance": 0, "postalCode": true, "region": true, "street": false, "streetNumber": 100}, "cipConfidence": "low", "identifiers": {"dob": true, "ssn": false}, "name": {"firstName": 100, "lastName": 100, "nameScore": 100}}, "multiCIPConfidence": "low"}, "kyc": {"totalHits": 0}, "next": {"done": "done"}, "success": false}
     Response with High MultiCIP:
       requestBody:
-        application/json: {"correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "individual": {"addresses": [{"address": "39 South Trail", "city": "San Antonio", "extendedAddress": "Apt 23", "postalCode": "78285", "region": "TX"}, {"address": "4861 Jay Junction", "city": "Boston", "extendedAddress": "Apt 78", "postalCode": "02208", "region": "MS"}], "dob": "1981-01", "emailAddresses": ["jdoe@example.com", "dsmith@example.com"], "firstName": "Tod", "lastName": "Weedall", "ssn": "265228370"}}
+        application/json: {"correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "individual": {"addresses": [{"address": "39 South Trail", "city": "San Antonio", "extendedAddress": "Apt 23", "postalCode": "78285", "region": "TX"}], "dob": "1981-01", "emailAddresses": ["jdoe@example.com"], "firstName": "Tod", "lastName": "Weedall", "ssn": "265228370"}}
       responses:
         "200":
           application/json: {"idv": {"dataSource1": {"address": {"addressScore": 100, "city": true, "distance": 0, "postalCode": true, "region": true, "street": true, "streetNumber": 100}, "cipConfidence": "high", "identifiers": {"dob": true, "ssn": true}, "name": {"firstName": 100, "lastName": 100, "nameScore": 100}}, "dataSource2": {"address": {"addressScore": 100, "city": true, "distance": 0, "postalCode": true, "region": true, "street": true, "streetNumber": 100}, "cipConfidence": "high", "identifiers": {"dob": true, "ssn": true}, "name": {"firstName": 100, "lastName": 100, "nameScore": 100}}, "multiCIPConfidence": "high"}, "kyc": {"totalHits": 0}, "next": {"done": "done"}, "success": true}
   V3StartRequest:
     speakeasy-default-v3-start-request:
       requestBody:
-        application/json: {"dob": "1981-01", "emailAddress": "mpinsonm@dyndns.org", "finalTargetUrl": "https://www.example.com/landing-page", "flowType": "mobile", "ipAddress": "10.0.0.1", "phoneNumber": "2001001695", "smsMessage": "#### is your temporary code to continue your application. Caution: for your security, don't share this code with anyone.", "ssn": "0596"}
+        application/json: {"allowOTPRetry": true, "dob": "1981-01", "emailAddress": "mpinsonm@dyndns.org", "finalTargetUrl": "https://www.example.com/landing-page", "flowType": "mobile", "ipAddress": "10.0.0.1", "phoneNumber": "2001001695", "smsMessage": "#### is your temporary code to continue your application. Caution: for your security, don't share this code with anyone.", "ssn": "0596"}
       responses:
         "200":
           application/json: {"authToken": "eyJhbGciOi...", "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "next": {"v3-validate": "/v3/validate"}}
         "400":
-          application/json: {"code": 8002, "message": "not authorized"}
+          application/json: {"code": 8000, "message": "error at prove, try again later"}
         "401":
           application/json: {"code": 8002, "message": "not authorized"}
         "403":
@@ -237,12 +241,12 @@ examples:
   V3UnifyRequest:
     speakeasy-default-v3-unify-request:
       requestBody:
-        application/json: {"clientCustomerId": "e0f78bc2-f748-4eda-9d29-d756844507fc", "clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "finalTargetUrl": "https://www.example.com/landing-page", "phoneNumber": "2001004011", "possessionType": "mobile", "smsMessage": "#### is your verification code"}
+        application/json: {"allowOTPRetry": true, "clientCustomerId": "e0f78bc2-f748-4eda-9d29-d756844507fc", "clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "finalTargetUrl": "https://www.example.com/landing-page", "phoneNumber": "2001004011", "possessionType": "mobile", "rebind": true, "smsMessage": "#### is your verification code."}
       responses:
         "200":
-          application/json: {"authToken": "eyJhbGciOi...", "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "success": "success"}
+          application/json: {"authToken": "eyJhbGciOi...", "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "success": {}}
         "400":
-          application/json: {"code": 8002, "message": "not authorized"}
+          application/json: {"code": 8000, "message": "error at prove, try again later"}
         "401":
           application/json: {"code": 8002, "message": "not authorized"}
         "403":
@@ -255,9 +259,9 @@ examples:
         application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "phoneNumber": "2001004011"}
       responses:
         "200":
-          application/json: {"phoneNumber": "2001004011", "success": "success"}
+          application/json: {"phoneNumber": "2001004011", "success": {}}
         "400":
-          application/json: {"code": 8002, "message": "not authorized"}
+          application/json: {"code": 8000, "message": "error at prove, try again later"}
         "401":
           application/json: {"code": 8002, "message": "not authorized"}
         "403":
@@ -270,9 +274,9 @@ examples:
         application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "phoneNumber": "2001004011"}
       responses:
         "200":
-          application/json: {"phoneNumber": "2001004011", "success": "success"}
+          application/json: {"phoneNumber": "2001004011", "success": {}}
         "400":
-          application/json: {"code": 8002, "message": "not authorized"}
+          application/json: {"code": 8000, "message": "error at prove, try again later"}
         "401":
           application/json: {"code": 8002, "message": "not authorized"}
         "403":
@@ -287,7 +291,7 @@ examples:
         "200":
           application/json: {"challengeMissing": true, "next": {"v3-challenge": "/v3/challenge"}, "phoneNumber": "2001001686", "success": true}
         "400":
-          application/json: {"code": 8002, "message": "not authorized"}
+          application/json: {"code": 8000, "message": "error at prove, try again later"}
         "401":
           application/json: {"code": 8002, "message": "not authorized"}
         "403":
@@ -297,12 +301,12 @@ examples:
   V3VerifyRequest:
     speakeasy-default-v3-verify-request:
       requestBody:
-        application/json: {"clientCustomerId": "e0f78bc2-f748-4eda-9d29-d756844507fc", "clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "emailAddress": "sbutrimovichb@who.int", "finalTargetUrl": "https://www.example.com/landing-page", "firstName": "Sheilakathryn", "lastName": "Butrimovich", "phoneNumber": "2001004011", "possessionType": "mobile", "smsMessage": "#### is your temporary code to continue your application. Caution: for your security, don't share this code with anyone."}
+        application/json: {"allowOTPRetry": true, "clientCustomerId": "e0f78bc2-f748-4eda-9d29-d756844507fc", "clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "emailAddress": "sbutrimovichb@who.int", "finalTargetUrl": "https://www.example.com/landing-page", "firstName": "Sheilakathryn", "lastName": "Butrimovich", "phoneNumber": "2001004011", "possessionType": "mobile", "smsMessage": "#### is your temporary code to continue your application. Caution: for your security, don't share this code with anyone."}
       responses:
         "200":
           application/json: {"authToken": "eyJhbGciOi...", "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "possessionResult": {}, "success": {}, "verifyResult": {}}
         "400":
-          application/json: {"code": 8002, "message": "not authorized"}
+          application/json: {"code": 8000, "message": "error at prove, try again later"}
         "401":
           application/json: {"code": 8002, "message": "not authorized"}
         "403":
@@ -315,14 +319,14 @@ examples:
         application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd"}
       responses:
         "200":
-          application/json: {"possessionResult": {}, "success": {}, "verifyResult": {}}
+          application/json: {"identityId": "498ce2a7-a7c1-48aa-8bd3-77621f780919", "possessionResult": {}, "success": {}, "verifyResult": {}}
         "400":
-          application/json: {"code": 8002, "message": "not authorized"}
+          application/json: {"code": 8000, "message": "error at prove, try again later"}
         "401":
           application/json: {"code": 8002, "message": "not authorized"}
         "403":
           application/json: {"code": 8003, "message": "Access forbidden: insufficient permissions"}
         "500":
           application/json: {"code": 8000, "message": "error at prove, try again later"}
-examplesVersion: 1.0.1
+examplesVersion: 1.0.2
 generatedTests: {}

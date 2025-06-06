@@ -8,7 +8,7 @@ import (
 
 type V3UnifyRequestResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
-	// Successful request.
+	// Successful Request.
 	V3UnifyResponse *components.V3UnifyResponse
 }
 

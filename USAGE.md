@@ -20,6 +20,7 @@ func main() {
 	)
 
 	res, err := s.V3.V3StartRequest(ctx, &components.V3StartRequest{
+		AllowOTPRetry:  provesdkservergo.Bool(true),
 		Dob:            provesdkservergo.String("1981-01"),
 		EmailAddress:   provesdkservergo.String("mpinsonm@dyndns.org"),
 		FinalTargetURL: provesdkservergo.String("https://www.example.com/landing-page"),

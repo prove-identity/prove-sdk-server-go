@@ -3,15 +3,15 @@
 package components
 
 type V3ChallengeAddressEntryRequest struct {
-	// Address is the street address of the individual.
+	// The street address of the individual.
 	Address *string `json:"address,omitempty"`
-	// City of the individual.
+	// The city of the individual.
 	City *string `json:"city,omitempty"`
-	// Extended address is the apartment number or other extended address information.
+	// The apartment number or other extended address information.
 	ExtendedAddress *string `json:"extendedAddress,omitempty"`
-	// Postal code is the zip code of the individual. It can be either 5 digits (XXXXX) or ZIP+4 (XXXXX-XXXX).
+	// The zip code of the individual. It can be either 5 digits (XXXXX) or ZIP+4 (XXXXX-XXXX).
 	PostalCode *string `json:"postalCode,omitempty"`
-	// Region is the state or locality of the individual.
+	// The state or locality of the individual.
 	Region *string `json:"region,omitempty"`
 }
 

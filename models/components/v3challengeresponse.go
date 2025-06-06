@@ -4,9 +4,9 @@ package components
 
 type V3ChallengeResponse struct {
 	Individual *V3ChallengeIndividualRequest `json:"individual,omitempty"`
-	// Next contains the next set of allowed calls in the same flow.
+	// The next set of allowed calls in the same flow.
 	Next map[string]string `json:"next"`
-	// Success returns true if the challenge was accepted and user info retrieved.
+	// True if the challenge was accepted and user info retrieved.
 	Success bool `json:"success"`
 }
 

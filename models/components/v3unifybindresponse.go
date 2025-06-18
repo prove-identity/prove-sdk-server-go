@@ -2,17 +2,12 @@
 
 package components
 
-// V3UnifyBindResponseSuccess - The result of the possession check.
-// Possible values are `true`, `false`, `pending`, and `possession_required`.
-type V3UnifyBindResponseSuccess struct {
-}
-
 type V3UnifyBindResponse struct {
 	// The number of the mobile phone used during the process.
 	PhoneNumber string `json:"phoneNumber"`
 	// The result of the possession check.
 	// Possible values are `true`, `false`, `pending`, and `possession_required`.
-	Success V3UnifyBindResponseSuccess `json:"success"`
+	Success string `json:"success"`
 }
 
 func (o *V3UnifyBindResponse) GetPhoneNumber() string {
@@ -22,9 +17,9 @@ func (o *V3UnifyBindResponse) GetPhoneNumber() string {
 	return o.PhoneNumber
 }
 
-func (o *V3UnifyBindResponse) GetSuccess() V3UnifyBindResponseSuccess {
+func (o *V3UnifyBindResponse) GetSuccess() string {
 	if o == nil {
-		return V3UnifyBindResponseSuccess{}
+		return ""
 	}
 	return o.Success
 }

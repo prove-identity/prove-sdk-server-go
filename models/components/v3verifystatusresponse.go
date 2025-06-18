@@ -6,10 +6,6 @@ package components
 type V3VerifyStatusResponsePossessionResult struct {
 }
 
-// V3VerifyStatusResponseSuccess - The result of the combination of Verify Result and Possession Result. Possible values are `true`, `pending`, and `false`. The success value will be `pending` until the results of both Verify and Possession are returned or one of them fails, blocking the other.
-type V3VerifyStatusResponseSuccess struct {
-}
-
 // V3VerifyStatusResponseVerifyResult - The result of the Verify process. Possible values are `success`, `pending`, `failed`, and `not_applicable`.
 type V3VerifyStatusResponseVerifyResult struct {
 }
@@ -20,7 +16,7 @@ type V3VerifyStatusResponse struct {
 	// The result of the possession check. Possible values are `success`, `pending`, `failed`, and `not_applicable`.
 	PossessionResult V3VerifyStatusResponsePossessionResult `json:"possessionResult"`
 	// The result of the combination of Verify Result and Possession Result. Possible values are `true`, `pending`, and `false`. The success value will be `pending` until the results of both Verify and Possession are returned or one of them fails, blocking the other.
-	Success V3VerifyStatusResponseSuccess `json:"success"`
+	Success string `json:"success"`
 	// The result of the Verify process. Possible values are `success`, `pending`, `failed`, and `not_applicable`.
 	VerifyResult V3VerifyStatusResponseVerifyResult `json:"verifyResult"`
 }
@@ -39,9 +35,9 @@ func (o *V3VerifyStatusResponse) GetPossessionResult() V3VerifyStatusResponsePos
 	return o.PossessionResult
 }
 
-func (o *V3VerifyStatusResponse) GetSuccess() V3VerifyStatusResponseSuccess {
+func (o *V3VerifyStatusResponse) GetSuccess() string {
 	if o == nil {
-		return V3VerifyStatusResponseSuccess{}
+		return ""
 	}
 	return o.Success
 }

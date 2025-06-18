@@ -3,7 +3,7 @@
 package components
 
 type V3UnifyBindRequest struct {
-	// A client-generated unique ID for a specific request.
+	// A client-generated unique ID for a specific session. This can be used to identify specific requests. The format of this ID is defined by the client - Prove recommends using a GUID, but any format can be accepted. Do not include Personally Identifiable Information (PII) in this field.
 	ClientRequestID *string `json:"clientRequestId,omitempty"`
 	// The unique ID that Prove generates for the flow. It is returned
 	// from the v3/unify endpoint and cannot be reused outside of a single flow.

@@ -2,7 +2,7 @@
 
 package provesdkservergo
 
-// Generated from OpenAPI doc version 1.0.0 and generator version 2.621.3
+// Generated from OpenAPI doc version 1.0.0 and generator version 2.630.9
 
 import (
 	"context"
@@ -67,6 +67,7 @@ func Pointer[T any](v T) *T { return &v }
 type Provesdkservergo struct {
 	SDKVersion string
 	V3         *V3
+	Identity   *Identity
 
 	sdkConfiguration config.SDKConfiguration
 	hooks            *hooks.Hooks
@@ -143,9 +144,9 @@ func WithTimeout(timeout time.Duration) SDKOption {
 // New creates a new instance of the SDK with the provided options
 func New(opts ...SDKOption) *Provesdkservergo {
 	sdk := &Provesdkservergo{
-		SDKVersion: "0.9.0",
+		SDKVersion: "0.10.0",
 		sdkConfiguration: config.SDKConfiguration{
-			UserAgent:  "speakeasy-sdk/go 0.9.0 2.621.3 1.0.0 github.com/prove-identity/prove-sdk-server-go",
+			UserAgent:  "speakeasy-sdk/go 0.10.0 2.630.9 1.0.0 github.com/prove-identity/prove-sdk-server-go",
 			ServerList: ServerList,
 		},
 		hooks: hooks.New(),
@@ -167,6 +168,7 @@ func New(opts ...SDKOption) *Provesdkservergo {
 	}
 
 	sdk.V3 = newV3(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.Identity = newIdentity(sdk, sdk.sdkConfiguration, sdk.hooks)
 
 	return sdk
 }

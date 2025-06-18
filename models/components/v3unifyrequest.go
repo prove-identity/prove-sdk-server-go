@@ -3,13 +3,13 @@
 package components
 
 type V3UnifyRequest struct {
-	// If true, the customer can request additional OTP codes if the initial code verification failed.
+	// If true, the customer can re-enter the OTP pin up to three times. Code must also be implemented. See client-side SDK guide for more details.
 	AllowOTPRetry *bool `json:"allowOTPRetry,omitempty"`
 	// A client-generated unique ID for a specific customer.
 	ClientCustomerID *string `json:"clientCustomerId,omitempty"`
-	// A client-generated unique ID for a specific session.
+	// A client-generated unique ID for a specific session. This can be used to identify specific requests. The format of this ID is defined by the client - Prove recommends using a GUID, but any format can be accepted. Do not include Personally Identifiable Information (PII) in this field.
 	ClientRequestID *string `json:"clientRequestId,omitempty"`
-	// The final target URL is where the end user will be redirected at the end of Instant Link flow. Required when `possessionType=desktop`.
+	// The URL where the end user will be redirected at the end of Instant Link flow. Required when `possessionType=desktop`.
 	// Acceptable characters are: alphanumeric with symbols '-._+=/:?'.
 	FinalTargetURL *string `json:"finalTargetUrl,omitempty"`
 	// The mobile phone number. US phone numbers can be passed in with or without a leading `+1`. International phone numbers require a leading `+1`. Use the appropriate endpoint URL based on the region the number originates from. Acceptable characters are: alphanumeric with symbols '+'.
@@ -19,8 +19,7 @@ type V3UnifyRequest struct {
 	// `mobile` for iOS/Android native apps and mobile web, or `none` if no possession
 	// check is required.
 	PossessionType string `json:"possessionType"`
-	// Rebind should be set to `true` if the previous transaction failed with `success=false` because the Prove Key could not be validated.
-	// When `true`, it will re-associate the Prove Key with the newly verified phone number.
+	// If `true`, rebinds the Prove Key with the newly verified phone number.
 	Rebind *bool `json:"rebind,omitempty"`
 	// The message body sent in the Instant Link (`flowType=desktop`) or OTP (`flowType=mobile`) SMS message. If not provided, the following default messages will be used:
 	// Instant Link: "Complete your verification. If you did not make this request, do not click the link. ####" The verification URL replaces ####.

@@ -2,7 +2,7 @@
 
 package provesdkservergo
 
-// Generated from OpenAPI doc version 1.0.0 and generator version 2.632.0
+// Generated from OpenAPI doc version 1.0.0 and generator version 2.658.3
 
 import (
 	"context"
@@ -144,9 +144,9 @@ func WithTimeout(timeout time.Duration) SDKOption {
 // New creates a new instance of the SDK with the provided options
 func New(opts ...SDKOption) *Provesdkservergo {
 	sdk := &Provesdkservergo{
-		SDKVersion: "0.10.1",
+		SDKVersion: "0.10.2",
 		sdkConfiguration: config.SDKConfiguration{
-			UserAgent:  "speakeasy-sdk/go 0.10.1 2.632.0 1.0.0 github.com/prove-identity/prove-sdk-server-go",
+			UserAgent:  "speakeasy-sdk/go 0.10.2 2.658.3 1.0.0 github.com/prove-identity/prove-sdk-server-go",
 			ServerList: ServerList,
 		},
 		hooks: hooks.New(),

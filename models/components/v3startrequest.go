@@ -3,13 +3,13 @@
 package components
 
 type V3StartRequest struct {
-	// If true, the customer can re-enter the OTP pin up to three times. Code must also be implemented. See client-side SDK guide for more details.
+	// If true, the customer can re-enter the OTP up to three times. Code must also be implemented. See client-side SDK guide for more details.
 	AllowOTPRetry *bool `json:"allowOTPRetry,omitempty"`
 	// The date of birth in one of these formats: YYYY-MM-DD, YYYY-MM, or MM-DD. Acceptable characters are: numeric with symbol '-'.
 	Dob *string `json:"dob,omitempty"`
 	// The email address of the customer. Acceptable characters are: alphanumeric with symbols '@.+'.
 	EmailAddress *string `json:"emailAddress,omitempty"`
-	// The URL where the end user will be redirected at the end of the Instant Link flow. Required only when `flowType=desktop`. Acceptable characters are: alphanumeric with symbols '-._+=/:?'.
+	// The URL where the end user will be redirected at the end of the Instant Link flow. Required only when `flowType=desktop`. Acceptable characters are: alphanumeric with symbols '-._+=/:?'. Max length is 128 characters.
 	FinalTargetURL *string `json:"finalTargetUrl,omitempty"`
 	// The type of device being user - either `desktop` for desktop web or `mobile` for iOS/Android native apps and mobile web.
 	FlowType string `json:"flowType"`

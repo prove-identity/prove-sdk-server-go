@@ -6,16 +6,16 @@ import (
 	"encoding/json"
 )
 
-type Error struct {
+type Error400 struct {
 	// An error code that describes the problem category of the request.
 	Code *int64 `json:"code,omitempty"`
 	// The error message describing the problem with the request.
 	Message string `json:"message"`
 }
 
-var _ error = &Error{}
+var _ error = &Error400{}
 
-func (e *Error) Error() string {
+func (e *Error400) Error() string {
 	data, _ := json.Marshal(e)
 	return string(data)
 }

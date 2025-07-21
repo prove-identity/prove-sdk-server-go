@@ -1,0 +1,688 @@
+overlay: 1.0.0
+info:
+  title: CodeSamples overlay for go target
+  version: 0.0.0
+actions:
+  - target: $["paths"]["/token"]["post"]
+    update:
+      x-codeSamples:
+        - lang: go
+          label: V3TokenRequest
+          source: |-
+            package main
+
+            import(
+            	"context"
+            	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+            	"github.com/prove-identity/prove-sdk-server-go/models/components"
+            	"log"
+            )
+
+            func main() {
+                ctx := context.Background()
+
+                s := provesdkservergo.New()
+
+                res, err := s.V3.V3TokenRequest(ctx, &components.V3TokenRequest{
+                    ClientID: "customer_id",
+                    ClientSecret: "secret",
+                    GrantType: "client_credentials",
+                })
+                if err != nil {
+                    log.Fatal(err)
+                }
+                if res.V3TokenResponse != nil {
+                    // handle response
+                }
+            }
+  - target: $["paths"]["/v3/challenge"]["post"]
+    update:
+      x-codeSamples:
+        - lang: go
+          label: V3ChallengeRequest
+          source: |-
+            package main
+
+            import(
+            	"context"
+            	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+            	"github.com/prove-identity/prove-sdk-server-go/models/components"
+            	"log"
+            )
+
+            func main() {
+                ctx := context.Background()
+
+                s := provesdkservergo.New(
+                    provesdkservergo.WithSecurity(components.Security{
+                        ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+                        ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+                    }),
+                )
+
+                res, err := s.V3.V3ChallengeRequest(ctx, &components.V3ChallengeRequest{
+                    CorrelationID: "713189b8-5555-4b08-83ba-75d08780aebd",
+                    Dob: provesdkservergo.String("1981-01"),
+                    Ssn: provesdkservergo.String("0596"),
+                })
+                if err != nil {
+                    log.Fatal(err)
+                }
+                if res.V3ChallengeResponse != nil {
+                    // handle response
+                }
+            }
+  - target: $["paths"]["/v3/complete"]["post"]
+    update:
+      x-codeSamples:
+        - lang: go
+          label: V3CompleteRequest
+          source: |-
+            package main
+
+            import(
+            	"context"
+            	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+            	"github.com/prove-identity/prove-sdk-server-go/models/components"
+            	"log"
+            )
+
+            func main() {
+                ctx := context.Background()
+
+                s := provesdkservergo.New(
+                    provesdkservergo.WithSecurity(components.Security{
+                        ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+                        ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+                    }),
+                )
+
+                res, err := s.V3.V3CompleteRequest(ctx, &components.V3CompleteRequest{
+                    CorrelationID: "713189b8-5555-4b08-83ba-75d08780aebd",
+                    Individual: components.V3CompleteIndividualRequest{
+                        Addresses: []components.V3CompleteAddressEntryRequest{
+                            components.V3CompleteAddressEntryRequest{
+                                Address: provesdkservergo.String("39 South Trail"),
+                                City: provesdkservergo.String("San Antonio"),
+                                ExtendedAddress: provesdkservergo.String("Apt 23"),
+                                PostalCode: provesdkservergo.String("78285"),
+                                Region: provesdkservergo.String("TX"),
+                            },
+                        },
+                        Dob: provesdkservergo.String("1981-01"),
+                        EmailAddresses: []string{
+                            "jdoe@example.com",
+                        },
+                        FirstName: provesdkservergo.String("Tod"),
+                        LastName: provesdkservergo.String("Weedall"),
+                        Ssn: provesdkservergo.String("265228370"),
+                    },
+                })
+                if err != nil {
+                    log.Fatal(err)
+                }
+                if res.V3CompleteResponse != nil {
+                    // handle response
+                }
+            }
+  - target: $["paths"]["/v3/identity/"]["get"]
+    update:
+      x-codeSamples:
+        - lang: go
+          label: V3BatchGetIdentities
+          source: |-
+            package main
+
+            import(
+            	"context"
+            	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+            	"github.com/prove-identity/prove-sdk-server-go/models/components"
+            	"log"
+            )
+
+            func main() {
+                ctx := context.Background()
+
+                s := provesdkservergo.New(
+                    provesdkservergo.WithSecurity(components.Security{
+                        ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+                        ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+                    }),
+                )
+
+                res, err := s.Identity.V3BatchGetIdentities(ctx, nil, nil, nil, nil)
+                if err != nil {
+                    log.Fatal(err)
+                }
+                if res.V3BatchGetIdentitiesResponse != nil {
+                    // handle response
+                }
+            }
+  - target: $["paths"]["/v3/identity/"]["post"]
+    update:
+      x-codeSamples:
+        - lang: go
+          label: V3EnrollIdentity
+          source: |-
+            package main
+
+            import(
+            	"context"
+            	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+            	"github.com/prove-identity/prove-sdk-server-go/models/components"
+            	"log"
+            )
+
+            func main() {
+                ctx := context.Background()
+
+                s := provesdkservergo.New(
+                    provesdkservergo.WithSecurity(components.Security{
+                        ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+                        ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+                    }),
+                )
+
+                res, err := s.Identity.V3EnrollIdentity(ctx, &components.V3EnrollIdentityRequest{
+                    ClientCustomerID: provesdkservergo.String("e0f78bc2-f748-4eda-9d29-d756844507fc"),
+                    ClientRequestID: provesdkservergo.String("71010d88-d0e7-4a24-9297-d1be6fefde81"),
+                    DeviceID: provesdkservergo.String("bf9ea15d-7dfa-4bb4-a64c-6c26b53472fc"),
+                    PhoneNumber: "2001001695",
+                })
+                if err != nil {
+                    log.Fatal(err)
+                }
+                if res.V3EnrollIdentityResponse != nil {
+                    // handle response
+                }
+            }
+  - target: $["paths"]["/v3/identity/batch"]["post"]
+    update:
+      x-codeSamples:
+        - lang: go
+          label: V3BatchEnrollIdentities
+          source: |-
+            package main
+
+            import(
+            	"context"
+            	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+            	"github.com/prove-identity/prove-sdk-server-go/models/components"
+            	"log"
+            )
+
+            func main() {
+                ctx := context.Background()
+
+                s := provesdkservergo.New(
+                    provesdkservergo.WithSecurity(components.Security{
+                        ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+                        ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+                    }),
+                )
+
+                res, err := s.Identity.V3BatchEnrollIdentities(ctx, &components.V3BatchEnrollIdentitiesRequest{
+                    ClientRequestID: provesdkservergo.String("71010d88-d0e7-4a24-9297-d1be6fefde81"),
+                    Items: []components.IdentityItem{
+                        components.IdentityItem{
+                            ClientCustomerID: provesdkservergo.String("e0f78bc2-f748-4eda-9d29-d756844507fc"),
+                            DeviceID: provesdkservergo.String("bf9ea15d-7dfa-4bb4-a64c-6c26b53472fc"),
+                            PhoneNumber: "2001001695",
+                        },
+                        components.IdentityItem{
+                            ClientCustomerID: provesdkservergo.String("e0f78bc2-f748-4eda-9d29-d756844507fc"),
+                            DeviceID: provesdkservergo.String("bf9ea15d-7dfa-4bb4-a64c-6c26b53472fc"),
+                            PhoneNumber: "2001001695",
+                        },
+                    },
+                })
+                if err != nil {
+                    log.Fatal(err)
+                }
+                if res.V3BatchEnrollIdentitiesResponse != nil {
+                    // handle response
+                }
+            }
+  - target: $["paths"]["/v3/identity/{identityId}"]["delete"]
+    update:
+      x-codeSamples:
+        - lang: go
+          label: V3DisenrollIdentity
+          source: |-
+            package main
+
+            import(
+            	"context"
+            	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+            	"github.com/prove-identity/prove-sdk-server-go/models/components"
+            	"log"
+            )
+
+            func main() {
+                ctx := context.Background()
+
+                s := provesdkservergo.New(
+                    provesdkservergo.WithSecurity(components.Security{
+                        ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+                        ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+                    }),
+                )
+
+                res, err := s.Identity.V3DisenrollIdentity(ctx, "<id>", nil)
+                if err != nil {
+                    log.Fatal(err)
+                }
+                if res.V3DisenrollIdentityResponse != nil {
+                    // handle response
+                }
+            }
+  - target: $["paths"]["/v3/identity/{identityId}"]["get"]
+    update:
+      x-codeSamples:
+        - lang: go
+          label: V3GetIdentity
+          source: |-
+            package main
+
+            import(
+            	"context"
+            	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+            	"github.com/prove-identity/prove-sdk-server-go/models/components"
+            	"log"
+            )
+
+            func main() {
+                ctx := context.Background()
+
+                s := provesdkservergo.New(
+                    provesdkservergo.WithSecurity(components.Security{
+                        ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+                        ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+                    }),
+                )
+
+                res, err := s.Identity.V3GetIdentity(ctx, "<id>", nil)
+                if err != nil {
+                    log.Fatal(err)
+                }
+                if res.V3GetIdentityResponse != nil {
+                    // handle response
+                }
+            }
+  - target: $["paths"]["/v3/identity/{identityId}/activate"]["post"]
+    update:
+      x-codeSamples:
+        - lang: go
+          label: V3ActivateIdentity
+          source: |-
+            package main
+
+            import(
+            	"context"
+            	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+            	"github.com/prove-identity/prove-sdk-server-go/models/components"
+            	"log"
+            )
+
+            func main() {
+                ctx := context.Background()
+
+                s := provesdkservergo.New(
+                    provesdkservergo.WithSecurity(components.Security{
+                        ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+                        ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+                    }),
+                )
+
+                res, err := s.Identity.V3ActivateIdentity(ctx, "<id>", &components.V3ActivateIdentityRequest{
+                    ClientRequestID: provesdkservergo.String("71010d88-d0e7-4a24-9297-d1be6fefde81"),
+                })
+                if err != nil {
+                    log.Fatal(err)
+                }
+                if res.V3ActivateIdentityResponse != nil {
+                    // handle response
+                }
+            }
+  - target: $["paths"]["/v3/identity/{identityId}/deactivate"]["post"]
+    update:
+      x-codeSamples:
+        - lang: go
+          label: V3DeactivateIdentity
+          source: |-
+            package main
+
+            import(
+            	"context"
+            	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+            	"github.com/prove-identity/prove-sdk-server-go/models/components"
+            	"log"
+            )
+
+            func main() {
+                ctx := context.Background()
+
+                s := provesdkservergo.New(
+                    provesdkservergo.WithSecurity(components.Security{
+                        ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+                        ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+                    }),
+                )
+
+                res, err := s.Identity.V3DeactivateIdentity(ctx, "<id>", &components.V3IdentityDeactivateRequest{
+                    ClientRequestID: provesdkservergo.String("71010d88-d0e7-4a24-9297-d1be6fefde81"),
+                })
+                if err != nil {
+                    log.Fatal(err)
+                }
+                if res.V3DeactivateIdentityResponse != nil {
+                    // handle response
+                }
+            }
+  - target: $["paths"]["/v3/identity/{mobileNumber}/lookup"]["get"]
+    update:
+      x-codeSamples:
+        - lang: go
+          label: V3GetIdentitiesByPhoneNumber
+          source: |-
+            package main
+
+            import(
+            	"context"
+            	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+            	"github.com/prove-identity/prove-sdk-server-go/models/components"
+            	"log"
+            )
+
+            func main() {
+                ctx := context.Background()
+
+                s := provesdkservergo.New(
+                    provesdkservergo.WithSecurity(components.Security{
+                        ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+                        ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+                    }),
+                )
+
+                res, err := s.Identity.V3GetIdentitiesByPhoneNumber(ctx, "<value>", nil)
+                if err != nil {
+                    log.Fatal(err)
+                }
+                if res.V3GetIdentitiesByPhoneNumberResponse != nil {
+                    // handle response
+                }
+            }
+  - target: $["paths"]["/v3/start"]["post"]
+    update:
+      x-codeSamples:
+        - lang: go
+          label: V3StartRequest
+          source: |-
+            package main
+
+            import(
+            	"context"
+            	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+            	"github.com/prove-identity/prove-sdk-server-go/models/components"
+            	"log"
+            )
+
+            func main() {
+                ctx := context.Background()
+
+                s := provesdkservergo.New(
+                    provesdkservergo.WithSecurity(components.Security{
+                        ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+                        ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+                    }),
+                )
+
+                res, err := s.V3.V3StartRequest(ctx, &components.V3StartRequest{
+                    AllowOTPRetry: provesdkservergo.Bool(true),
+                    Dob: provesdkservergo.String("1981-01"),
+                    EmailAddress: provesdkservergo.String("mpinsonm@dyndns.org"),
+                    FinalTargetURL: provesdkservergo.String("https://www.example.com/landing-page"),
+                    FlowType: "mobile",
+                    IPAddress: provesdkservergo.String("10.0.0.1"),
+                    PhoneNumber: provesdkservergo.String("2001001695"),
+                    SmsMessage: provesdkservergo.String("#### is your temporary code to continue your application. Caution: for your security, don't share this code with anyone."),
+                    Ssn: provesdkservergo.String("0596"),
+                })
+                if err != nil {
+                    log.Fatal(err)
+                }
+                if res.V3StartResponse != nil {
+                    // handle response
+                }
+            }
+  - target: $["paths"]["/v3/unify"]["post"]
+    update:
+      x-codeSamples:
+        - lang: go
+          label: V3UnifyRequest
+          source: |-
+            package main
+
+            import(
+            	"context"
+            	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+            	"github.com/prove-identity/prove-sdk-server-go/models/components"
+            	"log"
+            )
+
+            func main() {
+                ctx := context.Background()
+
+                s := provesdkservergo.New(
+                    provesdkservergo.WithSecurity(components.Security{
+                        ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+                        ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+                    }),
+                )
+
+                res, err := s.V3.V3UnifyRequest(ctx, &components.V3UnifyRequest{
+                    AllowOTPRetry: provesdkservergo.Bool(true),
+                    ClientCustomerID: provesdkservergo.String("e0f78bc2-f748-4eda-9d29-d756844507fc"),
+                    ClientRequestID: provesdkservergo.String("71010d88-d0e7-4a24-9297-d1be6fefde81"),
+                    FinalTargetURL: provesdkservergo.String("https://www.example.com/landing-page"),
+                    PhoneNumber: provesdkservergo.String("2001004011"),
+                    PossessionType: "mobile",
+                    Rebind: provesdkservergo.Bool(true),
+                    SmsMessage: provesdkservergo.String("#### is your verification code."),
+                })
+                if err != nil {
+                    log.Fatal(err)
+                }
+                if res.V3UnifyResponse != nil {
+                    // handle response
+                }
+            }
+  - target: $["paths"]["/v3/unify-bind"]["post"]
+    update:
+      x-codeSamples:
+        - lang: go
+          label: V3UnifyBindRequest
+          source: |-
+            package main
+
+            import(
+            	"context"
+            	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+            	"github.com/prove-identity/prove-sdk-server-go/models/components"
+            	"log"
+            )
+
+            func main() {
+                ctx := context.Background()
+
+                s := provesdkservergo.New(
+                    provesdkservergo.WithSecurity(components.Security{
+                        ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+                        ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+                    }),
+                )
+
+                res, err := s.V3.V3UnifyBindRequest(ctx, &components.V3UnifyBindRequest{
+                    ClientRequestID: provesdkservergo.String("71010d88-d0e7-4a24-9297-d1be6fefde81"),
+                    CorrelationID: provesdkservergo.String("713189b8-5555-4b08-83ba-75d08780aebd"),
+                    PhoneNumber: provesdkservergo.String("2001004011"),
+                })
+                if err != nil {
+                    log.Fatal(err)
+                }
+                if res.V3UnifyBindResponse != nil {
+                    // handle response
+                }
+            }
+  - target: $["paths"]["/v3/unify-status"]["post"]
+    update:
+      x-codeSamples:
+        - lang: go
+          label: V3UnifyStatusRequest
+          source: |-
+            package main
+
+            import(
+            	"context"
+            	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+            	"github.com/prove-identity/prove-sdk-server-go/models/components"
+            	"log"
+            )
+
+            func main() {
+                ctx := context.Background()
+
+                s := provesdkservergo.New(
+                    provesdkservergo.WithSecurity(components.Security{
+                        ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+                        ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+                    }),
+                )
+
+                res, err := s.V3.V3UnifyStatusRequest(ctx, &components.V3UnifyStatusRequest{
+                    ClientRequestID: provesdkservergo.String("71010d88-d0e7-4a24-9297-d1be6fefde81"),
+                    CorrelationID: provesdkservergo.String("713189b8-5555-4b08-83ba-75d08780aebd"),
+                    PhoneNumber: provesdkservergo.String("2001004011"),
+                })
+                if err != nil {
+                    log.Fatal(err)
+                }
+                if res.V3UnifyStatusResponse != nil {
+                    // handle response
+                }
+            }
+  - target: $["paths"]["/v3/validate"]["post"]
+    update:
+      x-codeSamples:
+        - lang: go
+          label: V3ValidateRequest
+          source: |-
+            package main
+
+            import(
+            	"context"
+            	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+            	"github.com/prove-identity/prove-sdk-server-go/models/components"
+            	"log"
+            )
+
+            func main() {
+                ctx := context.Background()
+
+                s := provesdkservergo.New(
+                    provesdkservergo.WithSecurity(components.Security{
+                        ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+                        ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+                    }),
+                )
+
+                res, err := s.V3.V3ValidateRequest(ctx, &components.V3ValidateRequest{
+                    CorrelationID: "713189b8-5555-4b08-83ba-75d08780aebd",
+                })
+                if err != nil {
+                    log.Fatal(err)
+                }
+                if res.V3ValidateResponse != nil {
+                    // handle response
+                }
+            }
+  - target: $["paths"]["/v3/verify"]["post"]
+    update:
+      x-codeSamples:
+        - lang: go
+          label: V3VerifyRequest
+          source: |-
+            package main
+
+            import(
+            	"context"
+            	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+            	"github.com/prove-identity/prove-sdk-server-go/models/components"
+            	"log"
+            )
+
+            func main() {
+                ctx := context.Background()
+
+                s := provesdkservergo.New(
+                    provesdkservergo.WithSecurity(components.Security{
+                        ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+                        ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+                    }),
+                )
+
+                res, err := s.V3.V3VerifyRequest(ctx, &components.V3VerifyRequest{
+                    AllowOTPRetry: provesdkservergo.Bool(true),
+                    ClientCustomerID: provesdkservergo.String("e0f78bc2-f748-4eda-9d29-d756844507fc"),
+                    ClientRequestID: provesdkservergo.String("71010d88-d0e7-4a24-9297-d1be6fefde81"),
+                    EmailAddress: provesdkservergo.String("sbutrimovichb@who.int"),
+                    FinalTargetURL: provesdkservergo.String("https://www.example.com/landing-page"),
+                    FirstName: "Sheilakathryn",
+                    LastName: "Butrimovich",
+                    PhoneNumber: "2001004011",
+                    PossessionType: "mobile",
+                    SmsMessage: provesdkservergo.String("#### is your temporary code to continue your application. Caution: for your security, don't share this code with anyone."),
+                })
+                if err != nil {
+                    log.Fatal(err)
+                }
+                if res.V3VerifyResponse != nil {
+                    // handle response
+                }
+            }
+  - target: $["paths"]["/v3/verify-status"]["post"]
+    update:
+      x-codeSamples:
+        - lang: go
+          label: V3VerifyStatusRequest
+          source: |-
+            package main
+
+            import(
+            	"context"
+            	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+            	"github.com/prove-identity/prove-sdk-server-go/models/components"
+            	"log"
+            )
+
+            func main() {
+                ctx := context.Background()
+
+                s := provesdkservergo.New(
+                    provesdkservergo.WithSecurity(components.Security{
+                        ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+                        ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+                    }),
+                )
+
+                res, err := s.V3.V3VerifyStatusRequest(ctx, &components.V3VerifyStatusRequest{
+                    ClientRequestID: provesdkservergo.String("71010d88-d0e7-4a24-9297-d1be6fefde81"),
+                    CorrelationID: provesdkservergo.String("713189b8-5555-4b08-83ba-75d08780aebd"),
+                })
+                if err != nil {
+                    log.Fatal(err)
+                }
+                if res.V3VerifyStatusResponse != nil {
+                    // handle response
+                }
+            }

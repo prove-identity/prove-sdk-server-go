@@ -3,7 +3,7 @@
 package components
 
 type V3VerifyRequest struct {
-	// If true, the customer can re-enter the OTP pin up to three times. Code must also be implemented. See client-side SDK guide for more details.
+	// If true, the customer can re-enter the OTP up to three times. Code must also be implemented. See client-side SDK guide for more details.
 	AllowOTPRetry *bool `json:"allowOTPRetry,omitempty"`
 	// A client-generated unique ID for a specific customer. This can be used by clients to link calls related to the same customer, across different requests or sessions.  The format of this ID is defined by the client - Prove recommends using a GUID, but any format can be accepted. Prove does not offer any functionality around the Client Customer ID. Do not include personally identifiable information (PII) in this field.
 	ClientCustomerID *string `json:"clientCustomerId,omitempty"`
@@ -11,7 +11,7 @@ type V3VerifyRequest struct {
 	ClientRequestID *string `json:"clientRequestId,omitempty"`
 	// The email address of the customer. Acceptable characters are: alphanumeric with symbols '@.+'.
 	EmailAddress *string `json:"emailAddress,omitempty"`
-	// The URL where the end user will be redirected at the end of the Instant Link flow. Required only when `flowType=desktop`. Acceptable characters are: alphanumeric with symbols '-._+=/:?'.
+	// The URL where the end user will be redirected at the end of the Instant Link flow. Required only when `flowType=desktop`. Acceptable characters are: alphanumeric with symbols '-._+=/:?'. Max length is 128 characters.
 	FinalTargetURL *string `json:"finalTargetUrl,omitempty"`
 	// The first name of the individual.
 	FirstName string `json:"firstName"`
@@ -19,7 +19,7 @@ type V3VerifyRequest struct {
 	LastName string `json:"lastName"`
 	// The mobile phone number. US phone numbers can be passed in with or without a leading `+1`. International phone numbers require a leading `+1`. Use the appropriate endpoint URL based on the region the number originates from. Acceptable characters are: alphanumeric with symbols '+'.
 	PhoneNumber string `json:"phoneNumber"`
-	// The type of device being user - either `desktop` for desktop web or `mobile` for iOS/Android native apps and mobile web.
+	// The type of device being used - either `desktop` if using a desktop, `mobile` for iOS/Android native apps and mobile web, or `none` if no possession check is required.
 	PossessionType string `json:"possessionType"`
 	// The message body sent in the Instant Link (`flowType=desktop`) or OTP (`flowType=mobile`) SMS message. If not provided, the following default messages will be used:
 	// Instant Link: "Complete your verification. If you did not make this request, do not click the link. ####" The verification URL replaces ####.

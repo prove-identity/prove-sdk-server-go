@@ -67,7 +67,7 @@ func main() {
 
 | Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.Error    | 400                | application/json   |
+| sdkerrors.Error400 | 400                | application/json   |
 | sdkerrors.Error401 | 401                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |
 | sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
@@ -128,7 +128,7 @@ func main() {
 
 | Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.Error    | 400                | application/json   |
+| sdkerrors.Error400 | 400                | application/json   |
 | sdkerrors.Error401 | 401                | application/json   |
 | sdkerrors.Error403 | 403                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |
@@ -206,7 +206,7 @@ func main() {
 
 | Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.Error    | 400                | application/json   |
+| sdkerrors.Error400 | 400                | application/json   |
 | sdkerrors.Error401 | 401                | application/json   |
 | sdkerrors.Error403 | 403                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |
@@ -274,7 +274,7 @@ func main() {
 
 | Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.Error    | 400                | application/json   |
+| sdkerrors.Error400 | 400                | application/json   |
 | sdkerrors.Error401 | 401                | application/json   |
 | sdkerrors.Error403 | 403                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |
@@ -341,7 +341,7 @@ func main() {
 
 | Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.Error    | 400                | application/json   |
+| sdkerrors.Error400 | 400                | application/json   |
 | sdkerrors.Error401 | 401                | application/json   |
 | sdkerrors.Error403 | 403                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |
@@ -403,7 +403,7 @@ func main() {
 
 | Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.Error    | 400                | application/json   |
+| sdkerrors.Error400 | 400                | application/json   |
 | sdkerrors.Error401 | 401                | application/json   |
 | sdkerrors.Error403 | 403                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |
@@ -465,7 +465,7 @@ func main() {
 
 | Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.Error    | 400                | application/json   |
+| sdkerrors.Error400 | 400                | application/json   |
 | sdkerrors.Error401 | 401                | application/json   |
 | sdkerrors.Error403 | 403                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |
@@ -525,7 +525,7 @@ func main() {
 
 | Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.Error    | 400                | application/json   |
+| sdkerrors.Error400 | 400                | application/json   |
 | sdkerrors.Error401 | 401                | application/json   |
 | sdkerrors.Error403 | 403                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |
@@ -594,7 +594,7 @@ func main() {
 
 | Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.Error    | 400                | application/json   |
+| sdkerrors.Error400 | 400                | application/json   |
 | sdkerrors.Error401 | 401                | application/json   |
 | sdkerrors.Error403 | 403                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |
@@ -655,7 +655,7 @@ func main() {
 
 | Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.Error    | 400                | application/json   |
+| sdkerrors.Error400 | 400                | application/json   |
 | sdkerrors.Error401 | 401                | application/json   |
 | sdkerrors.Error403 | 403                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |

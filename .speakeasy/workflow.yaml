@@ -13,7 +13,7 @@ targets:
         target: go
         source: my-source
         codeSamples:
+            output: codeSamples.yaml
             registry:
                 location: registry.speakeasyapi.dev/prove/prove-dev/my-source-go-code-samples
-            output: codeSamples.yaml
             blocking: false

@@ -224,7 +224,7 @@ func (s *V3) V3TokenRequest(ctx context.Context, request *components.V3TokenRequ
 				return nil, err
 			}
 
-			var out sdkerrors.Error
+			var out sdkerrors.Error400
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
@@ -500,7 +500,7 @@ func (s *V3) V3ChallengeRequest(ctx context.Context, request *components.V3Chall
 				return nil, err
 			}
 
-			var out sdkerrors.Error
+			var out sdkerrors.Error400
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
@@ -797,7 +797,7 @@ func (s *V3) V3CompleteRequest(ctx context.Context, request *components.V3Comple
 				return nil, err
 			}
 
-			var out sdkerrors.Error
+			var out sdkerrors.Error400
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
@@ -1094,7 +1094,7 @@ func (s *V3) V3StartRequest(ctx context.Context, request *components.V3StartRequ
 				return nil, err
 			}
 
-			var out sdkerrors.Error
+			var out sdkerrors.Error400
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
@@ -1391,7 +1391,7 @@ func (s *V3) V3UnifyRequest(ctx context.Context, request *components.V3UnifyRequ
 				return nil, err
 			}
 
-			var out sdkerrors.Error
+			var out sdkerrors.Error400
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
@@ -1690,7 +1690,7 @@ func (s *V3) V3UnifyBindRequest(ctx context.Context, request *components.V3Unify
 				return nil, err
 			}
 
-			var out sdkerrors.Error
+			var out sdkerrors.Error400
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
@@ -1989,7 +1989,7 @@ func (s *V3) V3UnifyStatusRequest(ctx context.Context, request *components.V3Uni
 				return nil, err
 			}
 
-			var out sdkerrors.Error
+			var out sdkerrors.Error400
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
@@ -2286,7 +2286,7 @@ func (s *V3) V3ValidateRequest(ctx context.Context, request *components.V3Valida
 				return nil, err
 			}
 
-			var out sdkerrors.Error
+			var out sdkerrors.Error400
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
@@ -2583,7 +2583,7 @@ func (s *V3) V3VerifyRequest(ctx context.Context, request *components.V3VerifyRe
 				return nil, err
 			}
 
-			var out sdkerrors.Error
+			var out sdkerrors.Error400
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
@@ -2882,7 +2882,7 @@ func (s *V3) V3VerifyStatusRequest(ctx context.Context, request *components.V3Ve
 				return nil, err
 			}
 
-			var out sdkerrors.Error
+			var out sdkerrors.Error400
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}

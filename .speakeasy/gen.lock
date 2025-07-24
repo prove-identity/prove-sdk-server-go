@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 13f15f39-429b-4f89-9916-f3a11e8cf70c
 management:
-  docChecksum: e7996e97a028cb80a8648bbba75075e9
+  docChecksum: 610a749bf5a5ed321818c86cbc7d0664
   docVersion: 1.0.0
-  speakeasyVersion: 1.583.1
-  generationVersion: 2.658.3
-  releaseVersion: 0.10.2
-  configChecksum: e7ab21c6f0765d12b5c902c03d60c95a
+  speakeasyVersion: 1.588.1
+  generationVersion: 2.663.0
+  releaseVersion: 0.10.3
+  configChecksum: 6c6347c0291a0db3b45652a7a20604dd
   repoURL: https://github.com/prove-identity/prove-sdk-server-go.git
   installationURL: https://github.com/prove-identity/prove-sdk-server-go
 features:
@@ -108,6 +108,7 @@ generatedFiles:
   - docs/models/components/datasourceidentifiersresponseinternal.md
   - docs/models/components/datasourceinternal.md
   - docs/models/components/datasourcenameresponseinternal.md
+  - docs/models/components/evaluation.md
   - docs/models/components/getbatchidentityitem.md
   - docs/models/components/httpmetadata.md
   - docs/models/components/identityitem.md
@@ -130,6 +131,7 @@ generatedFiles:
   - docs/models/components/v3completeindividualrequest.md
   - docs/models/components/v3completerequest.md
   - docs/models/components/v3completeresponse.md
+  - docs/models/components/v3completeresponseevaluation.md
   - docs/models/components/v3deactivateidentityresponse.md
   - docs/models/components/v3disenrollidentityresponse.md
   - docs/models/components/v3enrollidentityrequest.md
@@ -149,6 +151,7 @@ generatedFiles:
   - docs/models/components/v3unifystatusresponse.md
   - docs/models/components/v3validaterequest.md
   - docs/models/components/v3validateresponse.md
+  - docs/models/components/v3validateresponseevaluation.md
   - docs/models/components/v3verifyrequest.md
   - docs/models/components/v3verifyresponse.md
   - docs/models/components/v3verifystatusrequest.md
@@ -233,7 +236,7 @@ examples:
         application/json: {"correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "dob": "1981-01", "ssn": "0596"}
       responses:
         "200":
-          application/json: {"individual": {"addresses": [{"address": "39 South Trail", "city": "San Antonio", "extendedAddress": "Apt 23", "postalCode": "78285", "region": "TX"}, {"address": "4861 Jay Junction", "city": "Boston", "extendedAddress": "Apt 78", "postalCode": "02208", "region": "MS"}], "dob": "1981-01-17", "emailAddresses": ["jdoe@example.com", "dsmith@example.com"], "firstName": "Tod", "lastName": "Weedall", "ssn": "265228370"}, "next": {"v3-complete": "/v3/complete"}, "success": true}
+          application/json: {"evaluation": {"key": {}}, "individual": {"addresses": [{"address": "39 South Trail", "city": "San Antonio", "extendedAddress": "Apt 23", "postalCode": "78285", "region": "TX"}, {"address": "4861 Jay Junction", "city": "Boston", "extendedAddress": "Apt 78", "postalCode": "02208", "region": "MS"}], "dob": "1981-01-17", "emailAddresses": ["jdoe@example.com", "dsmith@example.com"], "firstName": "Tod", "lastName": "Weedall", "ssn": "265228370"}, "next": {"v3-complete": "/v3/complete"}, "success": true}
         "400":
           application/json: {"code": 8002, "message": "not authorized"}
         "401":
@@ -339,7 +342,7 @@ examples:
         application/json: {"correlationId": "713189b8-5555-4b08-83ba-75d08780aebd"}
       responses:
         "200":
-          application/json: {"challengeMissing": true, "next": {"v3-challenge": "/v3/challenge"}, "phoneNumber": "2001001686", "success": true}
+          application/json: {"challengeMissing": true, "evaluation": {"key": {}}, "next": {"v3-challenge": "/v3/challenge"}, "phoneNumber": "2001001686", "success": true}
         "400":
           application/json: {"code": 8002, "message": "not authorized"}
         "401":
@@ -369,7 +372,7 @@ examples:
         application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd"}
       responses:
         "200":
-          application/json: {"identityId": "498ce2a7-a7c1-48aa-8bd3-77621f780919", "possessionResult": "pending", "success": "pending", "verifyResult": "pending"}
+          application/json: {"identityId": "498ce2a7-a7c1-48aa-8bd3-77621f780919", "possessionResult": "true", "success": "true", "verifyResult": "true"}
         "400":
           application/json: {"code": 8002, "message": "not authorized"}
         "401":

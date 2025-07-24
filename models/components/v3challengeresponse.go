@@ -2,12 +2,24 @@
 
 package components
 
+type Evaluation struct {
+}
+
 type V3ChallengeResponse struct {
+	// The evaluation result for the policy
+	Evaluation map[string]Evaluation         `json:"evaluation,omitempty"`
 	Individual *V3ChallengeIndividualRequest `json:"individual,omitempty"`
 	// The next set of allowed calls in the same flow.
 	Next map[string]string `json:"next"`
 	// True if the challenge was accepted and user info retrieved.
 	Success bool `json:"success"`
+}
+
+func (o *V3ChallengeResponse) GetEvaluation() map[string]Evaluation {
+	if o == nil {
+		return nil
+	}
+	return o.Evaluation
 }
 
 func (o *V3ChallengeResponse) GetIndividual() *V3ChallengeIndividualRequest {

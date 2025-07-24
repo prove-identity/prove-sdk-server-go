@@ -2,9 +2,14 @@
 
 package components
 
+type V3ValidateResponseEvaluation struct {
+}
+
 type V3ValidateResponse struct {
 	// True if a DOB or SSN needs to be passed in on the next step.
 	ChallengeMissing bool `json:"challengeMissing"`
+	// The evaluation result for the policy
+	Evaluation map[string]V3ValidateResponseEvaluation `json:"evaluation,omitempty"`
 	// The next set of allowed calls in the same flow.
 	Next map[string]string `json:"next"`
 	// The number of the mobile phone for which validation was performed.
@@ -18,6 +23,13 @@ func (o *V3ValidateResponse) GetChallengeMissing() bool {
 		return false
 	}
 	return o.ChallengeMissing
+}
+
+func (o *V3ValidateResponse) GetEvaluation() map[string]V3ValidateResponseEvaluation {
+	if o == nil {
+		return nil
+	}
+	return o.Evaluation
 }
 
 func (o *V3ValidateResponse) GetNext() map[string]string {

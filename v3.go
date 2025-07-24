@@ -2683,7 +2683,7 @@ func (s *V3) V3VerifyRequest(ctx context.Context, request *components.V3VerifyRe
 
 }
 
-// V3VerifyStatusRequest - Perform Checks for Verified Users Session
+// V3VerifyStatusRequest - Check Verification Result
 // This endpoint allows you to perform the necessary checks for a Verified Users session.
 func (s *V3) V3VerifyStatusRequest(ctx context.Context, request *components.V3VerifyStatusRequest, opts ...operations.Option) (*operations.V3VerifyStatusRequestResponse, error) {
 	o := operations.Options{}

@@ -14,7 +14,7 @@
 * [V3UnifyStatusRequest](#v3unifystatusrequest) - Check Status
 * [V3ValidateRequest](#v3validaterequest) - Validate Phone Number
 * [V3VerifyRequest](#v3verifyrequest) - Initiate Verified Users Session
-* [V3VerifyStatusRequest](#v3verifystatusrequest) - Perform Checks for Verified Users Session
+* [V3VerifyStatusRequest](#v3verifystatusrequest) - Check Verification Result
 
 ## V3TokenRequest
 

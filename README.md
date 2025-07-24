@@ -188,7 +188,7 @@ func flow() error {
 * [V3UnifyStatusRequest](docs/sdks/v3/README.md#v3unifystatusrequest) - Check Status
 * [V3ValidateRequest](docs/sdks/v3/README.md#v3validaterequest) - Validate Phone Number
 * [V3VerifyRequest](docs/sdks/v3/README.md#v3verifyrequest) - Initiate Verified Users Session
-* [V3VerifyStatusRequest](docs/sdks/v3/README.md#v3verifystatusrequest) - Perform Checks for Verified Users Session
+* [V3VerifyStatusRequest](docs/sdks/v3/README.md#v3verifystatusrequest) - Check Verification Result
 
 </details>
 <!-- End Available Resources and Operations [operations] -->

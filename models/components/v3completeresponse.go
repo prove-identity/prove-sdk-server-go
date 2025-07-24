@@ -2,13 +2,25 @@
 
 package components
 
+type V3CompleteResponseEvaluation struct {
+}
+
 type V3CompleteResponse struct {
-	Idv *IDVDataInternal `json:"idv,omitempty"`
-	Kyc *KYCInternal     `json:"kyc,omitempty"`
+	// The evaluation result for the policy
+	Evaluation map[string]V3CompleteResponseEvaluation `json:"evaluation,omitempty"`
+	Idv        *IDVDataInternal                        `json:"idv,omitempty"`
+	Kyc        *KYCInternal                            `json:"kyc,omitempty"`
 	// The next set of allowed calls in the same flow.
 	Next map[string]string `json:"next"`
 	// True if the individual was verified successfully.
 	Success bool `json:"success"`
+}
+
+func (o *V3CompleteResponse) GetEvaluation() map[string]V3CompleteResponseEvaluation {
+	if o == nil {
+		return nil
+	}
+	return o.Evaluation
 }
 
 func (o *V3CompleteResponse) GetIdv() *IDVDataInternal {

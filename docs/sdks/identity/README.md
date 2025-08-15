@@ -20,6 +20,7 @@ Return a list of all identities you have enrolled in Identity Manager.
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="V3BatchGetIdentities" method="get" path="/v3/identity/" -->
 ```go
 package main
 
@@ -81,6 +82,7 @@ Enrolls a single customer for monitoring using their phone number and unique ide
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="V3EnrollIdentity" method="post" path="/v3/identity/" -->
 ```go
 package main
 
@@ -144,6 +146,7 @@ Enrolls multiple customers in a single request for efficient bulk operations (up
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="V3BatchEnrollIdentities" method="post" path="/v3/identity/batch" -->
 ```go
 package main
 
@@ -216,6 +219,7 @@ Disenrolls an identity from Identity Manager. If you wish to monitor in future, 
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="V3DisenrollIdentity" method="delete" path="/v3/identity/{identityId}" -->
 ```go
 package main
 
@@ -275,6 +279,7 @@ Return details of an identity given the identity ID.
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="V3GetIdentity" method="get" path="/v3/identity/{identityId}" -->
 ```go
 package main
 
@@ -334,6 +339,7 @@ Sets an identity as active for monitoring.
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="V3ActivateIdentity" method="post" path="/v3/identity/{identityId}/activate" -->
 ```go
 package main
 
@@ -395,6 +401,7 @@ Stops webhook notifications without disenrolling the identity.
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="V3DeactivateIdentity" method="post" path="/v3/identity/{identityId}/deactivate" -->
 ```go
 package main
 
@@ -456,6 +463,7 @@ Return list of all identities you have enrolled that are associated with this ph
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="V3GetIdentitiesByPhoneNumber" method="get" path="/v3/identity/{mobileNumber}/lookup" -->
 ```go
 package main
 

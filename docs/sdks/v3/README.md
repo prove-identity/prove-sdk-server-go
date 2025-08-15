@@ -22,6 +22,7 @@ This endpoint allows you to request an OAuth token.
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="V3TokenRequest" method="post" path="/token" -->
 ```go
 package main
 
@@ -78,6 +79,7 @@ This endpoint allows you to submit challenge information.
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="V3ChallengeRequest" method="post" path="/v3/challenge" -->
 ```go
 package main
 
@@ -140,6 +142,7 @@ This endpoint allows you to verify the user and complete the flow.
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="V3CompleteRequest" method="post" path="/v3/complete" -->
 ```go
 package main
 
@@ -218,6 +221,7 @@ This endpoint allows you to start the solution flow.
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="V3StartRequest" method="post" path="/v3/start" -->
 ```go
 package main
 
@@ -286,6 +290,7 @@ This endpoint allows you to initiate the possession check.
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="V3UnifyRequest" method="post" path="/v3/unify" -->
 ```go
 package main
 
@@ -353,6 +358,7 @@ This endpoint allows you to bind a Prove Key to a phone number of a Unify sessio
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="V3UnifyBindRequest" method="post" path="/v3/unify-bind" -->
 ```go
 package main
 
@@ -415,6 +421,7 @@ This endpoint allows you to check the status of a Unify session and get the poss
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="V3UnifyStatusRequest" method="post" path="/v3/unify-status" -->
 ```go
 package main
 
@@ -477,6 +484,7 @@ This endpoint allows you to check if the phone number entered/discovered earlier
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="V3ValidateRequest" method="post" path="/v3/validate" -->
 ```go
 package main
 
@@ -537,6 +545,7 @@ This endpoint allows you to initiate a Verified Users session.
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="V3VerifyRequest" method="post" path="/v3/verify" -->
 ```go
 package main
 
@@ -606,6 +615,7 @@ This endpoint allows you to perform the necessary checks for a Verified Users se
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="V3VerifyStatusRequest" method="post" path="/v3/verify-status" -->
 ```go
 package main
 

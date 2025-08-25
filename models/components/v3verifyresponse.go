@@ -2,11 +2,16 @@
 
 package components
 
+type V3VerifyResponseEvaluation struct {
+}
+
 type V3VerifyResponse struct {
 	// A bearer token for use by the Prove client SDK.
 	AuthToken *string `json:"authToken,omitempty"`
 	// The unique ID that Prove generates for the flow. To continue the flow, the field will also be used for each of the subsequent API calls in the same flow - it cannot be reused outside of a single flow.
 	CorrelationID string `json:"correlationId"`
+	// The evaluation result for the policy
+	Evaluation map[string]V3VerifyResponseEvaluation `json:"evaluation,omitempty"`
 	// The result of the possession check. Possible values are `pending` and `not_applicable`, based on the `possessionType` passed in the input. Clients will have to call the Verify Status API to get a result if `possessionResult=pending`.
 	PossessionResult string `json:"possessionResult"`
 	// The result of the combination of `verifyResult` and `possessionResult`. Possible values are `true`, `pending`, and `false`. The value will be `pending` until the results of both Verify and Possession are returned or one of them fails, blocking the other.
@@ -27,6 +32,13 @@ func (o *V3VerifyResponse) GetCorrelationID() string {
 		return ""
 	}
 	return o.CorrelationID
+}
+
+func (o *V3VerifyResponse) GetEvaluation() map[string]V3VerifyResponseEvaluation {
+	if o == nil {
+		return nil
+	}
+	return o.Evaluation
 }
 
 func (o *V3VerifyResponse) GetPossessionResult() string {

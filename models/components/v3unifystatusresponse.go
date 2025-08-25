@@ -2,12 +2,24 @@
 
 package components
 
+type V3UnifyStatusResponseEvaluation struct {
+}
+
 type V3UnifyStatusResponse struct {
+	// The evaluation result for the policy.
+	Evaluation map[string]V3UnifyStatusResponseEvaluation `json:"evaluation,omitempty"`
 	// The number of the mobile phone used during the process.
 	PhoneNumber string `json:"phoneNumber"`
 	// The result of the possession check.
 	// Possible values are `true`, `false`, `pending`, and `possession_required`.
 	Success string `json:"success"`
+}
+
+func (o *V3UnifyStatusResponse) GetEvaluation() map[string]V3UnifyStatusResponseEvaluation {
+	if o == nil {
+		return nil
+	}
+	return o.Evaluation
 }
 
 func (o *V3UnifyStatusResponse) GetPhoneNumber() string {

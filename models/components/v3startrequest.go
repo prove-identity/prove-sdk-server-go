@@ -6,6 +6,8 @@ type V3StartRequest struct {
 	// If true, the customer can re-enter the OTP up to three times. Code must also be implemented. See client-side SDK guide for more details.
 	AllowOTPRetry *bool `json:"allowOTPRetry,omitempty"`
 	// The date of birth in one of these formats: YYYY-MM-DD, YYYY-MM, or MM-DD. Acceptable characters are: numeric with symbol '-'.
+	//
+	// It is recommended you do NOT pass this value into the Start step. Prove will attempt to pre-fill data using phone number only.
 	Dob *string `json:"dob,omitempty"`
 	// The email address of the customer. Acceptable characters are: alphanumeric with symbols '@.+'.
 	EmailAddress *string `json:"emailAddress,omitempty"`
@@ -26,6 +28,8 @@ type V3StartRequest struct {
 	// Max length is 160 characters. Non-ASCII characters are allowed.
 	SmsMessage *string `json:"smsMessage,omitempty"`
 	// The full or last 4 digits of the social security number. Acceptable characters are: numeric.
+	//
+	// It is recommended you do NOT pass this value into the Start step. Prove will attempt to pre-fill data using phone number only.
 	Ssn *string `json:"ssn,omitempty"`
 }
 

@@ -22,6 +22,7 @@ This endpoint allows you to request an OAuth token.
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="V3TokenRequest" method="post" path="/token" -->
 ```go
 package main
 
@@ -67,7 +68,7 @@ func main() {
 
 | Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.Error400 | 400                | application/json   |
+| sdkerrors.Error    | 400                | application/json   |
 | sdkerrors.Error401 | 401                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |
 | sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
@@ -78,6 +79,7 @@ This endpoint allows you to submit challenge information.
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="V3ChallengeRequest" method="post" path="/v3/challenge" -->
 ```go
 package main
 
@@ -128,7 +130,7 @@ func main() {
 
 | Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.Error400 | 400                | application/json   |
+| sdkerrors.Error    | 400                | application/json   |
 | sdkerrors.Error401 | 401                | application/json   |
 | sdkerrors.Error403 | 403                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |
@@ -140,6 +142,7 @@ This endpoint allows you to verify the user and complete the flow.
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="V3CompleteRequest" method="post" path="/v3/complete" -->
 ```go
 package main
 
@@ -206,7 +209,7 @@ func main() {
 
 | Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.Error400 | 400                | application/json   |
+| sdkerrors.Error    | 400                | application/json   |
 | sdkerrors.Error401 | 401                | application/json   |
 | sdkerrors.Error403 | 403                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |
@@ -218,6 +221,7 @@ This endpoint allows you to start the solution flow.
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="V3StartRequest" method="post" path="/v3/start" -->
 ```go
 package main
 
@@ -274,7 +278,7 @@ func main() {
 
 | Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.Error400 | 400                | application/json   |
+| sdkerrors.Error    | 400                | application/json   |
 | sdkerrors.Error401 | 401                | application/json   |
 | sdkerrors.Error403 | 403                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |
@@ -286,6 +290,7 @@ This endpoint allows you to initiate the possession check.
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="V3UnifyRequest" method="post" path="/v3/unify" -->
 ```go
 package main
 
@@ -308,6 +313,7 @@ func main() {
 
     res, err := s.V3.V3UnifyRequest(ctx, &components.V3UnifyRequest{
         AllowOTPRetry: provesdkservergo.Bool(true),
+        CheckReputation: provesdkservergo.Bool(true),
         ClientCustomerID: provesdkservergo.String("e0f78bc2-f748-4eda-9d29-d756844507fc"),
         ClientRequestID: provesdkservergo.String("71010d88-d0e7-4a24-9297-d1be6fefde81"),
         FinalTargetURL: provesdkservergo.String("https://www.example.com/landing-page"),
@@ -341,7 +347,7 @@ func main() {
 
 | Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.Error400 | 400                | application/json   |
+| sdkerrors.Error    | 400                | application/json   |
 | sdkerrors.Error401 | 401                | application/json   |
 | sdkerrors.Error403 | 403                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |
@@ -353,6 +359,7 @@ This endpoint allows you to bind a Prove Key to a phone number of a Unify sessio
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="V3UnifyBindRequest" method="post" path="/v3/unify-bind" -->
 ```go
 package main
 
@@ -403,7 +410,7 @@ func main() {
 
 | Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.Error400 | 400                | application/json   |
+| sdkerrors.Error    | 400                | application/json   |
 | sdkerrors.Error401 | 401                | application/json   |
 | sdkerrors.Error403 | 403                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |
@@ -415,6 +422,7 @@ This endpoint allows you to check the status of a Unify session and get the poss
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="V3UnifyStatusRequest" method="post" path="/v3/unify-status" -->
 ```go
 package main
 
@@ -465,7 +473,7 @@ func main() {
 
 | Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.Error400 | 400                | application/json   |
+| sdkerrors.Error    | 400                | application/json   |
 | sdkerrors.Error401 | 401                | application/json   |
 | sdkerrors.Error403 | 403                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |
@@ -477,6 +485,7 @@ This endpoint allows you to check if the phone number entered/discovered earlier
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="V3ValidateRequest" method="post" path="/v3/validate" -->
 ```go
 package main
 
@@ -525,7 +534,7 @@ func main() {
 
 | Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.Error400 | 400                | application/json   |
+| sdkerrors.Error    | 400                | application/json   |
 | sdkerrors.Error401 | 401                | application/json   |
 | sdkerrors.Error403 | 403                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |
@@ -537,6 +546,7 @@ This endpoint allows you to initiate a Verified Users session.
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="V3VerifyRequest" method="post" path="/v3/verify" -->
 ```go
 package main
 
@@ -594,7 +604,7 @@ func main() {
 
 | Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.Error400 | 400                | application/json   |
+| sdkerrors.Error    | 400                | application/json   |
 | sdkerrors.Error401 | 401                | application/json   |
 | sdkerrors.Error403 | 403                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |
@@ -606,6 +616,7 @@ This endpoint allows you to perform the necessary checks for a Verified Users se
 
 ### Example Usage
 
+<!-- UsageSnippet language="go" operationID="V3VerifyStatusRequest" method="post" path="/v3/verify-status" -->
 ```go
 package main
 
@@ -655,7 +666,7 @@ func main() {
 
 | Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.Error400 | 400                | application/json   |
+| sdkerrors.Error    | 400                | application/json   |
 | sdkerrors.Error401 | 401                | application/json   |
 | sdkerrors.Error403 | 403                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |

@@ -125,6 +125,143 @@ actions:
                     // handle response
                 }
             }
+  - target: $["paths"]["/v3/domain/id"]["post"]
+    update:
+      x-codeSamples:
+        - lang: go
+          label: V3DomainID
+          source: |-
+            package main
+
+            import(
+            	"context"
+            	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+            	"github.com/prove-identity/prove-sdk-server-go/models/components"
+            	"log"
+            )
+
+            func main() {
+                ctx := context.Background()
+
+                s := provesdkservergo.New(
+                    provesdkservergo.WithSecurity(components.Security{
+                        ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+                        ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+                    }),
+                )
+
+                res, err := s.Domain.V3DomainID(ctx, nil)
+                if err != nil {
+                    log.Fatal(err)
+                }
+                if res.V3DomainIDResponse != nil {
+                    // handle response
+                }
+            }
+  - target: $["paths"]["/v3/domain/link"]["post"]
+    update:
+      x-codeSamples:
+        - lang: go
+          label: V3DomainLink
+          source: |-
+            package main
+
+            import(
+            	"context"
+            	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+            	"github.com/prove-identity/prove-sdk-server-go/models/components"
+            	"log"
+            )
+
+            func main() {
+                ctx := context.Background()
+
+                s := provesdkservergo.New(
+                    provesdkservergo.WithSecurity(components.Security{
+                        ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+                        ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+                    }),
+                )
+
+                res, err := s.Domain.V3DomainLink(ctx, &components.V3DomainLinkRequest{
+                    Pcid: provesdkservergo.String("pcid"),
+                })
+                if err != nil {
+                    log.Fatal(err)
+                }
+                if res.V3DomainLinkResponse != nil {
+                    // handle response
+                }
+            }
+  - target: $["paths"]["/v3/domain/linked"]["get"]
+    update:
+      x-codeSamples:
+        - lang: go
+          label: V3DomainLinked
+          source: |-
+            package main
+
+            import(
+            	"context"
+            	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+            	"github.com/prove-identity/prove-sdk-server-go/models/components"
+            	"log"
+            )
+
+            func main() {
+                ctx := context.Background()
+
+                s := provesdkservergo.New(
+                    provesdkservergo.WithSecurity(components.Security{
+                        ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+                        ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+                    }),
+                )
+
+                res, err := s.Domain.V3DomainLinked(ctx)
+                if err != nil {
+                    log.Fatal(err)
+                }
+                if res.V3DomainLinkedResponse != nil {
+                    // handle response
+                }
+            }
+  - target: $["paths"]["/v3/domain/unlink"]["post"]
+    update:
+      x-codeSamples:
+        - lang: go
+          label: V3DomainUnlink
+          source: |-
+            package main
+
+            import(
+            	"context"
+            	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+            	"github.com/prove-identity/prove-sdk-server-go/models/components"
+            	"log"
+            )
+
+            func main() {
+                ctx := context.Background()
+
+                s := provesdkservergo.New(
+                    provesdkservergo.WithSecurity(components.Security{
+                        ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+                        ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+                    }),
+                )
+
+                res, err := s.Domain.V3DomainUnlink(ctx, &components.V3DomainUnlinkRequest{
+                    PcidFrom: provesdkservergo.String("pcidFrom"),
+                    PcidTo: provesdkservergo.String("pcidTo"),
+                })
+                if err != nil {
+                    log.Fatal(err)
+                }
+                if res.V3DomainUnlinkResponse != nil {
+                    // handle response
+                }
+            }
   - target: $["paths"]["/v3/identity/"]["get"]
     update:
       x-codeSamples:
@@ -482,6 +619,7 @@ actions:
 
                 res, err := s.V3.V3UnifyRequest(ctx, &components.V3UnifyRequest{
                     AllowOTPRetry: provesdkservergo.Bool(true),
+                    CheckReputation: provesdkservergo.Bool(true),
                     ClientCustomerID: provesdkservergo.String("e0f78bc2-f748-4eda-9d29-d756844507fc"),
                     ClientRequestID: provesdkservergo.String("71010d88-d0e7-4a24-9297-d1be6fefde81"),
                     FinalTargetURL: provesdkservergo.String("https://www.example.com/landing-page"),

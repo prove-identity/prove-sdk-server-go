@@ -1,0 +1,9 @@
+# V3DomainIDResponse
+
+
+## Fields
+
+| Field                                                                           | Type                                                                            | Required                                                                        | Description                                                                     | Example                                                                         |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `HTTPMeta`                                                                      | [components.HTTPMetadata](../../models/components/httpmetadata.md)              | :heavy_check_mark:                                                              | N/A                                                                             |                                                                                 |
+| `V3DomainIDResponse`                                                            | [*components.V3DomainIDResponse](../../models/components/v3domainidresponse.md) | :heavy_minus_sign:                                                              | V3DomainIDResponse                                                              | {<br/>"name": "My Company",<br/>"pcid": 123456123456<br/>}                      |

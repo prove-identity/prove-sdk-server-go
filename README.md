@@ -165,6 +165,13 @@ func flow() error {
 <details open>
 <summary>Available methods</summary>
 
+### [Domain](docs/sdks/domain/README.md)
+
+* [V3DomainID](docs/sdks/domain/README.md#v3domainid) - Get Domain Details
+* [V3DomainLink](docs/sdks/domain/README.md#v3domainlink) - # Create a request to connect the requested domain to the domain the request is made from.
+* [V3DomainLinked](docs/sdks/domain/README.md#v3domainlinked) - Get the list of domains that are linked to this domain.
+* [V3DomainUnlink](docs/sdks/domain/README.md#v3domainunlink) - # Remove a domain link or request.
+
 ### [Identity](docs/sdks/identity/README.md)
 
 * [V3BatchGetIdentities](docs/sdks/identity/README.md#v3batchgetidentities) - Batch Get Identities
@@ -204,7 +211,7 @@ For example, the `V3TokenRequest` function may return the following errors:
 
 | Error Type         | Status Code | Content Type     |
 | ------------------ | ----------- | ---------------- |
-| sdkerrors.Error400 | 400         | application/json |
+| sdkerrors.Error    | 400         | application/json |
 | sdkerrors.Error401 | 401         | application/json |
 | sdkerrors.Error    | 500         | application/json |
 | sdkerrors.SDKError | 4XX, 5XX    | \*/\*            |
@@ -235,7 +242,7 @@ func main() {
 	})
 	if err != nil {
 
-		var e *sdkerrors.Error400
+		var e *sdkerrors.Error
 		if errors.As(err, &e) {
 			// handle error
 			log.Fatal(e.Error())
@@ -365,12 +372,13 @@ The built-in `net/http` client satisfies this interface and a default client bas
 import (
 	"net/http"
 	"time"
-	"github.com/myorg/your-go-sdk"
+
+	"github.com/prove-identity/prove-sdk-server-go"
 )
 
 var (
 	httpClient = &http.Client{Timeout: 30 * time.Second}
-	sdkClient  = sdk.New(sdk.WithClient(httpClient))
+	sdkClient  = provesdkservergo.New(provesdkservergo.WithClient(httpClient))
 )
 ```
 

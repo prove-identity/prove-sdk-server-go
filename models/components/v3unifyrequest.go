@@ -5,6 +5,8 @@ package components
 type V3UnifyRequest struct {
 	// If true, the customer can re-enter the OTP up to three times. Code must also be implemented. See client-side SDK guide for more details.
 	AllowOTPRetry *bool `json:"allowOTPRetry,omitempty"`
+	// If true, TrustScore verification will be performed.
+	CheckReputation *bool `json:"checkReputation,omitempty"`
 	// A client-generated unique ID for a specific customer.
 	ClientCustomerID *string `json:"clientCustomerId,omitempty"`
 	// A client-generated unique ID for a specific session. This can be used to identify specific requests. The format of this ID is defined by the client - Prove recommends using a GUID, but any format can be accepted. Do not include Personally Identifiable Information (PII) in this field.
@@ -33,6 +35,13 @@ func (o *V3UnifyRequest) GetAllowOTPRetry() *bool {
 		return nil
 	}
 	return o.AllowOTPRetry
+}
+
+func (o *V3UnifyRequest) GetCheckReputation() *bool {
+	if o == nil {
+		return nil
+	}
+	return o.CheckReputation
 }
 
 func (o *V3UnifyRequest) GetClientCustomerID() *string {

@@ -2,7 +2,12 @@
 
 package components
 
+type V3VerifyStatusResponseEvaluation struct {
+}
+
 type V3VerifyStatusResponse struct {
+	// The evaluation result for the policy
+	Evaluation map[string]V3VerifyStatusResponseEvaluation `json:"evaluation,omitempty"`
 	// A unique ID that Prove generates to refer to a specific identity.
 	IdentityID *string `json:"identityId,omitempty"`
 	// The result of the possession check. Possible values are `success`, `pending`, `failed`, and `not_applicable`.
@@ -11,6 +16,13 @@ type V3VerifyStatusResponse struct {
 	Success string `json:"success"`
 	// The result of the Verify process. Possible values are `success`, `pending`, `failed`, and `not_applicable`.
 	VerifyResult string `json:"verifyResult"`
+}
+
+func (o *V3VerifyStatusResponse) GetEvaluation() map[string]V3VerifyStatusResponseEvaluation {
+	if o == nil {
+		return nil
+	}
+	return o.Evaluation
 }
 
 func (o *V3VerifyStatusResponse) GetIdentityID() *string {

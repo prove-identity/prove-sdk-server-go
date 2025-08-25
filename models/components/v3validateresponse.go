@@ -6,7 +6,8 @@ type V3ValidateResponseEvaluation struct {
 }
 
 type V3ValidateResponse struct {
-	// True if a DOB or SSN needs to be passed in on the next step.
+	// True if a DOB or SSN needs to be passed in on the next step. Only applicable to Pre-Fill. If implementing Prove Identity ignore this field.
+	// It will always return false for this use case.
 	ChallengeMissing bool `json:"challengeMissing"`
 	// The evaluation result for the policy
 	Evaluation map[string]V3ValidateResponseEvaluation `json:"evaluation,omitempty"`

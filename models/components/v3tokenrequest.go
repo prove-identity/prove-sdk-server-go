@@ -4,11 +4,11 @@ package components
 
 type V3TokenRequest struct {
 	// The client ID retrieved from the [Developer Portal](https://developer.prove.com/reference/authentication).
-	ClientID string `form:"name=ClientID"`
+	ClientID string `form:"name=client_id"`
 	// The client secret retrieved from the [Developer Portal](https://developer.prove.com/reference/authentication).
-	ClientSecret string `form:"name=ClientSecret"`
+	ClientSecret string `form:"name=client_secret"`
 	// The grant type. This field only accepts `client_credentials`.
-	GrantType string `form:"name=GrantType"`
+	GrantType string `form:"name=grant_type"`
 }
 
 func (o *V3TokenRequest) GetClientID() string {

@@ -328,8 +328,8 @@ func (s *Domain) V3DomainID(ctx context.Context, request *string, opts ...operat
 
 }
 
-// V3DomainLink - # Create a request to connect the requested domain to the domain the request is made from.
-func (s *Domain) V3DomainLink(ctx context.Context, request *components.V3DomainLinkRequest, opts ...operations.Option) (*operations.V3DomainLinkResponse, error) {
+// V3DomainConfirmLink - # Confirm a given domain link request.
+func (s *Domain) V3DomainConfirmLink(ctx context.Context, request *components.V3DomainConfirmLinkRequest, opts ...operations.Option) (*operations.V3DomainConfirmLinkResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -358,7 +358,7 @@ func (s *Domain) V3DomainLink(ctx context.Context, request *components.V3DomainL
 		SDKConfiguration: s.sdkConfiguration,
 		BaseURL:          baseURL,
 		Context:          ctx,
-		OperationID:      "V3DomainLink",
+		OperationID:      "V3DomainConfirmLink",
 		OAuth2Scopes:     []string{},
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
@@ -487,7 +487,7 @@ func (s *Domain) V3DomainLink(ctx context.Context, request *components.V3DomainL
 		}
 	}
 
-	res := &operations.V3DomainLinkResponse{
+	res := &operations.V3DomainConfirmLinkResponse{
 		HTTPMeta: components.HTTPMetadata{
 			Request:  req,
 			Response: httpRes,
@@ -503,12 +503,12 @@ func (s *Domain) V3DomainLink(ctx context.Context, request *components.V3DomainL
 				return nil, err
 			}
 
-			var out components.V3DomainLinkResponse
+			var out components.V3DomainConfirmLinkResponse
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
 
-			res.V3DomainLinkResponse = &out
+			res.V3DomainConfirmLinkResponse = &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {

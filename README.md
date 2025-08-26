@@ -168,7 +168,7 @@ func flow() error {
 ### [Domain](docs/sdks/domain/README.md)
 
 * [V3DomainID](docs/sdks/domain/README.md#v3domainid) - Get Domain Details
-* [V3DomainLink](docs/sdks/domain/README.md#v3domainlink) - # Create a request to connect the requested domain to the domain the request is made from.
+* [V3DomainConfirmLink](docs/sdks/domain/README.md#v3domainconfirmlink) - # Confirm a given domain link request.
 * [V3DomainLinked](docs/sdks/domain/README.md#v3domainlinked) - Get the list of domains that are linked to this domain.
 * [V3DomainUnlink](docs/sdks/domain/README.md#v3domainunlink) - # Remove a domain link or request.
 

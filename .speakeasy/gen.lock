@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 13f15f39-429b-4f89-9916-f3a11e8cf70c
 management:
-  docChecksum: 6e2a2fa27a0836ffe8b60528019008dc
+  docChecksum: a90aa197b3d31cd16f868a87cf501c09
   docVersion: 1.0.0
-  speakeasyVersion: 1.606.3
+  speakeasyVersion: 1.606.5
   generationVersion: 2.687.1
-  releaseVersion: 0.11.0
-  configChecksum: 9e6438744adc24e3149e63769ceb8129
+  releaseVersion: 0.11.1
+  configChecksum: cb1999cf5023c437c884044fe2fdcdeb
   repoURL: https://github.com/prove-identity/prove-sdk-server-go.git
   installationURL: https://github.com/prove-identity/prove-sdk-server-go
 features:
@@ -62,10 +62,10 @@ generatedFiles:
   - /models/components/v3completeresponse.go
   - /models/components/v3deactivateidentityresponse.go
   - /models/components/v3disenrollidentityresponse.go
+  - /models/components/v3domainconfirmlinkrequest.go
+  - /models/components/v3domainconfirmlinkresponse.go
   - /models/components/v3domainidresponse.go
   - /models/components/v3domainlinkedresponse.go
-  - /models/components/v3domainlinkrequest.go
-  - /models/components/v3domainlinkresponse.go
   - /models/components/v3domainunlinkrequest.go
   - /models/components/v3domainunlinkresponse.go
   - /models/components/v3enrollidentityrequest.go
@@ -96,8 +96,8 @@ generatedFiles:
   - /models/operations/v3completerequest.go
   - /models/operations/v3deactivateidentity.go
   - /models/operations/v3disenrollidentity.go
+  - /models/operations/v3domainconfirmlink.go
   - /models/operations/v3domainid.go
-  - /models/operations/v3domainlink.go
   - /models/operations/v3domainlinked.go
   - /models/operations/v3domainunlink.go
   - /models/operations/v3enrollidentity.go
@@ -151,10 +151,10 @@ generatedFiles:
   - docs/models/components/v3completeresponseevaluation.md
   - docs/models/components/v3deactivateidentityresponse.md
   - docs/models/components/v3disenrollidentityresponse.md
+  - docs/models/components/v3domainconfirmlinkrequest.md
+  - docs/models/components/v3domainconfirmlinkresponse.md
   - docs/models/components/v3domainidresponse.md
   - docs/models/components/v3domainlinkedresponse.md
-  - docs/models/components/v3domainlinkrequest.md
-  - docs/models/components/v3domainlinkresponse.md
   - docs/models/components/v3domainunlinkrequest.md
   - docs/models/components/v3domainunlinkresponse.md
   - docs/models/components/v3enrollidentityrequest.md
@@ -195,9 +195,9 @@ generatedFiles:
   - docs/models/operations/v3deactivateidentityresponse.md
   - docs/models/operations/v3disenrollidentityrequest.md
   - docs/models/operations/v3disenrollidentityresponse.md
+  - docs/models/operations/v3domainconfirmlinkresponse.md
   - docs/models/operations/v3domainidresponse.md
   - docs/models/operations/v3domainlinkedresponse.md
-  - docs/models/operations/v3domainlinkresponse.md
   - docs/models/operations/v3domainunlinkresponse.md
   - docs/models/operations/v3enrollidentityresponse.md
   - docs/models/operations/v3getidentitiesbyphonenumberrequest.md
@@ -252,7 +252,7 @@ examples:
   V3TokenRequest:
     speakeasy-default-v3-token-request:
       requestBody:
-        application/x-www-form-urlencoded: {"ClientID": "customer_id", "ClientSecret": "secret", "GrantType": "client_credentials"}
+        application/x-www-form-urlencoded: {"client_id": "customer_id", "client_secret": "secret", "grant_type": "client_credentials"}
       responses:
         "200":
           application/json: {"access_token": "eyJ...", "expires_in": 3600, "refresh_expires_in": 3600, "refresh_token": "eyJ...", "token_type": "Bearer"}
@@ -596,6 +596,25 @@ examples:
           application/json: {"code": 8003, "message": "Access forbidden: insufficient permissions"}
         "500":
           application/json: {"code": 8000, "message": "error at prove, try again later"}
+  V3DomainConfirmLink:
+    speakeasy-default-v3-domain-confirm-link:
+      requestBody:
+        application/json: {"pcid": "pcid"}
+      responses:
+        "200":
+          application/json: {"success": true}
+        "400":
+          application/json: {"code": 8000, "message": "error at prove, try again later"}
+        "401":
+          application/json: {"code": 8002, "message": "not authorized"}
+        "403":
+          application/json: {"code": 8003, "message": "Access forbidden: insufficient permissions"}
+        "500":
+          application/json: {"code": 8000, "message": "error at prove, try again later"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## SDK Changes Detected:\n* `Provesdkservergo.V3.V3TokenRequest()`:  `request.Request` **Changed** **Breaking** :warning:\n* `Provesdkservergo.Domain.V3DomainId()`: **Added**\n* `Provesdkservergo.Domain.V3DomainLink()`: **Added**\n* `Provesdkservergo.Domain.V3DomainLinked()`: **Added**\n* `Provesdkservergo.Domain.V3DomainUnlink()`: **Added**\n* `Provesdkservergo.V3.V3UnifyRequest()`: \n  *  `request.Request.CheckReputation` **Added**\n* `Provesdkservergo.V3.V3UnifyBindRequest()`:  `response.Evaluation` **Added**\n* `Provesdkservergo.V3.V3UnifyStatusRequest()`:  `response.Evaluation` **Added**\n* `Provesdkservergo.V3.V3VerifyRequest()`:  `response.Evaluation` **Added**\n* `Provesdkservergo.V3.V3VerifyStatusRequest()`:  `response.Evaluation` **Added**\n"
+releaseNotes: |
+  ## SDK Changes Detected:
+  * `Provesdkservergo.V3.V3TokenRequest()`:  `request.Request` **Changed** **Breaking** :warning:
+  * `Provesdkservergo.Domain.V3DomainConfirmLink()`: **Added**
+  * `Provesdkservergo.Domain.V3DomainLink()`: **Deleted** **Breaking** :warning:

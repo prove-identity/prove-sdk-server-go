@@ -6,7 +6,7 @@
 ### Available Operations
 
 * [V3DomainID](#v3domainid) - Get Domain Details
-* [V3DomainLink](#v3domainlink) - # Create a request to connect the requested domain to the domain the request is made from.
+* [V3DomainConfirmLink](#v3domainconfirmlink) - # Confirm a given domain link request.
 * [V3DomainLinked](#v3domainlinked) - Get the list of domains that are linked to this domain.
 * [V3DomainUnlink](#v3domainunlink) - # Remove a domain link or request.
 
@@ -69,13 +69,13 @@ func main() {
 | sdkerrors.Error    | 500                | application/json   |
 | sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
 
-## V3DomainLink
+## V3DomainConfirmLink
 
-# Create a request to connect the requested domain to the domain the request is made from.
+# Confirm a given domain link request.
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="V3DomainLink" method="post" path="/v3/domain/link" -->
+<!-- UsageSnippet language="go" operationID="V3DomainConfirmLink" method="post" path="/v3/domain/link" -->
 ```go
 package main
 
@@ -96,13 +96,13 @@ func main() {
         }),
     )
 
-    res, err := s.Domain.V3DomainLink(ctx, &components.V3DomainLinkRequest{
+    res, err := s.Domain.V3DomainConfirmLink(ctx, &components.V3DomainConfirmLinkRequest{
         Pcid: provesdkservergo.String("pcid"),
     })
     if err != nil {
         log.Fatal(err)
     }
-    if res.V3DomainLinkResponse != nil {
+    if res.V3DomainConfirmLinkResponse != nil {
         // handle response
     }
 }
@@ -110,15 +110,15 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `ctx`                                                                            | [context.Context](https://pkg.go.dev/context#Context)                            | :heavy_check_mark:                                                               | The context to use for the request.                                              |
-| `request`                                                                        | [components.V3DomainLinkRequest](../../models/components/v3domainlinkrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
-| `opts`                                                                           | [][operations.Option](../../models/operations/option.md)                         | :heavy_minus_sign:                                                               | The options for this request.                                                    |
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                          | [context.Context](https://pkg.go.dev/context#Context)                                          | :heavy_check_mark:                                                                             | The context to use for the request.                                                            |
+| `request`                                                                                      | [components.V3DomainConfirmLinkRequest](../../models/components/v3domainconfirmlinkrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `opts`                                                                                         | [][operations.Option](../../models/operations/option.md)                                       | :heavy_minus_sign:                                                                             | The options for this request.                                                                  |
 
 ### Response
 
-**[*operations.V3DomainLinkResponse](../../models/operations/v3domainlinkresponse.md), error**
+**[*operations.V3DomainConfirmLinkResponse](../../models/operations/v3domainconfirmlinkresponse.md), error**
 
 ### Errors
 

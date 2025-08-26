@@ -162,7 +162,7 @@ actions:
     update:
       x-codeSamples:
         - lang: go
-          label: V3DomainLink
+          label: V3DomainConfirmLink
           source: |-
             package main
 
@@ -183,13 +183,13 @@ actions:
                     }),
                 )
 
-                res, err := s.Domain.V3DomainLink(ctx, &components.V3DomainLinkRequest{
+                res, err := s.Domain.V3DomainConfirmLink(ctx, &components.V3DomainConfirmLinkRequest{
                     Pcid: provesdkservergo.String("pcid"),
                 })
                 if err != nil {
                     log.Fatal(err)
                 }
-                if res.V3DomainLinkResponse != nil {
+                if res.V3DomainConfirmLinkResponse != nil {
                     // handle response
                 }
             }

@@ -2,12 +2,12 @@
 
 package components
 
-type V3DomainLinkResponse struct {
+type V3DomainConfirmLinkResponse struct {
 	// Success
 	Success bool `json:"success"`
 }
 
-func (o *V3DomainLinkResponse) GetSuccess() bool {
+func (o *V3DomainConfirmLinkResponse) GetSuccess() bool {
 	if o == nil {
 		return false
 	}

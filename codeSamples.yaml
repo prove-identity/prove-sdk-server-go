@@ -125,11 +125,11 @@ actions:
                     // handle response
                 }
             }
-  - target: $["paths"]["/v3/domain/id"]["post"]
+  - target: $["paths"]["/v3/domain/confirm-link"]["post"]
     update:
       x-codeSamples:
         - lang: go
-          label: V3DomainID
+          label: V3DomainConfirmLinkRequest
           source: |-
             package main
 
@@ -150,7 +150,42 @@ actions:
                     }),
                 )
 
-                res, err := s.Domain.V3DomainID(ctx, nil)
+                res, err := s.Domain.V3DomainConfirmLinkRequest(ctx, &components.V3DomainConfirmLinkRequest{
+                    Pcid: "pcid",
+                })
+                if err != nil {
+                    log.Fatal(err)
+                }
+                if res.V3DomainConfirmLinkResponse != nil {
+                    // handle response
+                }
+            }
+  - target: $["paths"]["/v3/domain/id"]["get"]
+    update:
+      x-codeSamples:
+        - lang: go
+          label: V3DomainIDRequest
+          source: |-
+            package main
+
+            import(
+            	"context"
+            	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+            	"github.com/prove-identity/prove-sdk-server-go/models/components"
+            	"log"
+            )
+
+            func main() {
+                ctx := context.Background()
+
+                s := provesdkservergo.New(
+                    provesdkservergo.WithSecurity(components.Security{
+                        ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+                        ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+                    }),
+                )
+
+                res, err := s.Domain.V3DomainIDRequest(ctx)
                 if err != nil {
                     log.Fatal(err)
                 }
@@ -162,7 +197,7 @@ actions:
     update:
       x-codeSamples:
         - lang: go
-          label: V3DomainConfirmLink
+          label: V3DomainLinkRequest
           source: |-
             package main
 
@@ -183,13 +218,13 @@ actions:
                     }),
                 )
 
-                res, err := s.Domain.V3DomainConfirmLink(ctx, &components.V3DomainConfirmLinkRequest{
-                    Pcid: provesdkservergo.String("pcid"),
+                res, err := s.Domain.V3DomainLinkRequest(ctx, &components.V3DomainLinkRequest{
+                    Pcid: "pcid",
                 })
                 if err != nil {
                     log.Fatal(err)
                 }
-                if res.V3DomainConfirmLinkResponse != nil {
+                if res.V3DomainLinkResponse != nil {
                     // handle response
                 }
             }
@@ -197,7 +232,7 @@ actions:
     update:
       x-codeSamples:
         - lang: go
-          label: V3DomainLinked
+          label: V3DomainLinkedRequest
           source: |-
             package main
 
@@ -218,7 +253,7 @@ actions:
                     }),
                 )
 
-                res, err := s.Domain.V3DomainLinked(ctx)
+                res, err := s.Domain.V3DomainLinkedRequest(ctx)
                 if err != nil {
                     log.Fatal(err)
                 }
@@ -230,7 +265,7 @@ actions:
     update:
       x-codeSamples:
         - lang: go
-          label: V3DomainUnlink
+          label: V3DomainUnlinkRequest
           source: |-
             package main
 
@@ -251,7 +286,7 @@ actions:
                     }),
                 )
 
-                res, err := s.Domain.V3DomainUnlink(ctx, &components.V3DomainUnlinkRequest{
+                res, err := s.Domain.V3DomainUnlinkRequest(ctx, &components.V3DomainUnlinkRequest{
                     PcidFrom: provesdkservergo.String("pcidFrom"),
                     PcidTo: provesdkservergo.String("pcidTo"),
                 })
@@ -262,7 +297,7 @@ actions:
                     // handle response
                 }
             }
-  - target: $["paths"]["/v3/identity/"]["get"]
+  - target: $["paths"]["/v3/identity"]["get"]
     update:
       x-codeSamples:
         - lang: go
@@ -295,7 +330,7 @@ actions:
                     // handle response
                 }
             }
-  - target: $["paths"]["/v3/identity/"]["post"]
+  - target: $["paths"]["/v3/identity"]["post"]
     update:
       x-codeSamples:
         - lang: go
@@ -362,14 +397,14 @@ actions:
                     ClientRequestID: provesdkservergo.String("71010d88-d0e7-4a24-9297-d1be6fefde81"),
                     Items: []components.IdentityItem{
                         components.IdentityItem{
-                            ClientCustomerID: provesdkservergo.String("e0f78bc2-f748-4eda-9d29-d756844507fc"),
-                            DeviceID: provesdkservergo.String("bf9ea15d-7dfa-4bb4-a64c-6c26b53472fc"),
-                            PhoneNumber: "2001001695",
+                            ClientName: "\"Client A\"",
+                            IdentityID: "\"e0f78bc2-f748-4eda-9d29-d756844507fc\"",
+                            Pcid: "\"12345\"",
                         },
                         components.IdentityItem{
-                            ClientCustomerID: provesdkservergo.String("e0f78bc2-f748-4eda-9d29-d756844507fc"),
-                            DeviceID: provesdkservergo.String("bf9ea15d-7dfa-4bb4-a64c-6c26b53472fc"),
-                            PhoneNumber: "2001001695",
+                            ClientName: "\"Client A\"",
+                            IdentityID: "\"e0f78bc2-f748-4eda-9d29-d756844507fc\"",
+                            Pcid: "\"12345\"",
                         },
                     },
                 })
@@ -478,6 +513,41 @@ actions:
                     log.Fatal(err)
                 }
                 if res.V3ActivateIdentityResponse != nil {
+                    // handle response
+                }
+            }
+  - target: $["paths"]["/v3/identity/{identityId}/cross-domain"]["post"]
+    update:
+      x-codeSamples:
+        - lang: go
+          label: V3CrossDomainIdentity
+          source: |-
+            package main
+
+            import(
+            	"context"
+            	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+            	"github.com/prove-identity/prove-sdk-server-go/models/components"
+            	"log"
+            )
+
+            func main() {
+                ctx := context.Background()
+
+                s := provesdkservergo.New(
+                    provesdkservergo.WithSecurity(components.Security{
+                        ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+                        ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+                    }),
+                )
+
+                res, err := s.Identity.V3CrossDomainIdentity(ctx, "<id>", &components.V3CrossDomainIdentityRequest{
+                    ClientRequestID: provesdkservergo.String("71010d88-d0e7-4a24-9297-d1be6fefde81"),
+                })
+                if err != nil {
+                    log.Fatal(err)
+                }
+                if res.V3CrossDomainIdentityResponse != nil {
                     // handle response
                 }
             }

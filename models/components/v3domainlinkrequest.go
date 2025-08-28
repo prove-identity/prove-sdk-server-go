@@ -2,11 +2,11 @@
 
 package components
 
-type V3DomainConfirmLinkRequest struct {
+type V3DomainLinkRequest struct {
 	Pcid string `json:"pcid"`
 }
 
-func (o *V3DomainConfirmLinkRequest) GetPcid() string {
+func (o *V3DomainLinkRequest) GetPcid() string {
 	if o == nil {
 		return ""
 	}

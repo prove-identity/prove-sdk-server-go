@@ -1,4 +1,4 @@
-# V3DomainIDResponse
+# V3DomainIDRequestResponse
 
 
 ## Fields
@@ -6,4 +6,5 @@
 | Field                                                                           | Type                                                                            | Required                                                                        | Description                                                                     | Example                                                                         |
 | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
 | `HTTPMeta`                                                                      | [components.HTTPMetadata](../../models/components/httpmetadata.md)              | :heavy_check_mark:                                                              | N/A                                                                             |                                                                                 |
-| `V3DomainIDResponse`                                                            | [*components.V3DomainIDResponse](../../models/components/v3domainidresponse.md) | :heavy_minus_sign:                                                              | V3DomainIDResponse                                                              | {<br/>"name": "My Company",<br/>"pcid": 123456123456<br/>}                      |
+| `V3DomainIDResponse`                                                            | [*components.V3DomainIDResponse](../../models/components/v3domainidresponse.md) | :heavy_minus_sign:                                                              | N/A                                                                             | {<br/>"name": "My Company",<br/>"pcid": "123456"<br/>}                          |
+| `Headers`                                                                       | map[string][]*string*                                                           | :heavy_check_mark:                                                              | N/A                                                                             |                                                                                 |

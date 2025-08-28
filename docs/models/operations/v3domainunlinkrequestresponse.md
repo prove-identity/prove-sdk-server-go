@@ -1,4 +1,4 @@
-# V3DomainUnlinkResponse
+# V3DomainUnlinkRequestResponse
 
 
 ## Fields

@@ -6,20 +6,20 @@ import (
 	"github.com/prove-identity/prove-sdk-server-go/models/components"
 )
 
-type V3DomainUnlinkResponse struct {
+type V3DomainUnlinkRequestResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// V3DomainUnlinkResponse
 	V3DomainUnlinkResponse *components.V3DomainUnlinkResponse
 }
 
-func (o *V3DomainUnlinkResponse) GetHTTPMeta() components.HTTPMetadata {
+func (o *V3DomainUnlinkRequestResponse) GetHTTPMeta() components.HTTPMetadata {
 	if o == nil {
 		return components.HTTPMetadata{}
 	}
 	return o.HTTPMeta
 }
 
-func (o *V3DomainUnlinkResponse) GetV3DomainUnlinkResponse() *components.V3DomainUnlinkResponse {
+func (o *V3DomainUnlinkRequestResponse) GetV3DomainUnlinkResponse() *components.V3DomainUnlinkResponse {
 	if o == nil {
 		return nil
 	}

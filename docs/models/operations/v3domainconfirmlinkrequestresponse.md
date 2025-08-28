@@ -1,4 +1,4 @@
-# V3DomainConfirmLinkResponse
+# V3DomainConfirmLinkRequestResponse
 
 
 ## Fields

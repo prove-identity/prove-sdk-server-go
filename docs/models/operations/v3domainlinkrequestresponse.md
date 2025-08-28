@@ -1,0 +1,9 @@
+# V3DomainLinkRequestResponse
+
+
+## Fields
+
+| Field                                                                               | Type                                                                                | Required                                                                            | Description                                                                         | Example                                                                             |
+| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| `HTTPMeta`                                                                          | [components.HTTPMetadata](../../models/components/httpmetadata.md)                  | :heavy_check_mark:                                                                  | N/A                                                                                 |                                                                                     |
+| `V3DomainLinkResponse`                                                              | [*components.V3DomainLinkResponse](../../models/components/v3domainlinkresponse.md) | :heavy_minus_sign:                                                                  | V3DomainLinkResponse                                                                | {<br/>"success": true<br/>}                                                         |

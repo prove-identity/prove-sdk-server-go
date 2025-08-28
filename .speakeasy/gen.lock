@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 13f15f39-429b-4f89-9916-f3a11e8cf70c
 management:
-  docChecksum: a90aa197b3d31cd16f868a87cf501c09
+  docChecksum: d7f1c6ac326977f2bda0cc8381e1abca
   docVersion: 1.0.0
-  speakeasyVersion: 1.606.5
-  generationVersion: 2.687.1
-  releaseVersion: 0.11.1
-  configChecksum: cb1999cf5023c437c884044fe2fdcdeb
+  speakeasyVersion: 1.606.8
+  generationVersion: 2.687.13
+  releaseVersion: 0.11.2
+  configChecksum: aae529c788aaded18dd128ebdec4e09e
   repoURL: https://github.com/prove-identity/prove-sdk-server-go.git
   installationURL: https://github.com/prove-identity/prove-sdk-server-go
 features:
@@ -60,12 +60,16 @@ generatedFiles:
   - /models/components/v3completeindividualrequest.go
   - /models/components/v3completerequest.go
   - /models/components/v3completeresponse.go
+  - /models/components/v3crossdomainidentityrequest.go
+  - /models/components/v3crossdomainidentityresponse.go
   - /models/components/v3deactivateidentityresponse.go
   - /models/components/v3disenrollidentityresponse.go
   - /models/components/v3domainconfirmlinkrequest.go
   - /models/components/v3domainconfirmlinkresponse.go
   - /models/components/v3domainidresponse.go
   - /models/components/v3domainlinkedresponse.go
+  - /models/components/v3domainlinkrequest.go
+  - /models/components/v3domainlinkresponse.go
   - /models/components/v3domainunlinkrequest.go
   - /models/components/v3domainunlinkresponse.go
   - /models/components/v3enrollidentityrequest.go
@@ -94,12 +98,14 @@ generatedFiles:
   - /models/operations/v3batchgetidentities.go
   - /models/operations/v3challengerequest.go
   - /models/operations/v3completerequest.go
+  - /models/operations/v3crossdomainidentity.go
   - /models/operations/v3deactivateidentity.go
   - /models/operations/v3disenrollidentity.go
-  - /models/operations/v3domainconfirmlink.go
-  - /models/operations/v3domainid.go
-  - /models/operations/v3domainlinked.go
-  - /models/operations/v3domainunlink.go
+  - /models/operations/v3domainconfirmlinkrequest.go
+  - /models/operations/v3domainidrequest.go
+  - /models/operations/v3domainlinkedrequest.go
+  - /models/operations/v3domainlinkrequest.go
+  - /models/operations/v3domainunlinkrequest.go
   - /models/operations/v3enrollidentity.go
   - /models/operations/v3getidentitiesbyphonenumber.go
   - /models/operations/v3getidentity.go
@@ -149,12 +155,16 @@ generatedFiles:
   - docs/models/components/v3completerequest.md
   - docs/models/components/v3completeresponse.md
   - docs/models/components/v3completeresponseevaluation.md
+  - docs/models/components/v3crossdomainidentityrequest.md
+  - docs/models/components/v3crossdomainidentityresponse.md
   - docs/models/components/v3deactivateidentityresponse.md
   - docs/models/components/v3disenrollidentityresponse.md
   - docs/models/components/v3domainconfirmlinkrequest.md
   - docs/models/components/v3domainconfirmlinkresponse.md
   - docs/models/components/v3domainidresponse.md
   - docs/models/components/v3domainlinkedresponse.md
+  - docs/models/components/v3domainlinkrequest.md
+  - docs/models/components/v3domainlinkresponse.md
   - docs/models/components/v3domainunlinkrequest.md
   - docs/models/components/v3domainunlinkresponse.md
   - docs/models/components/v3enrollidentityrequest.md
@@ -191,14 +201,17 @@ generatedFiles:
   - docs/models/operations/v3batchgetidentitiesresponse.md
   - docs/models/operations/v3challengerequestresponse.md
   - docs/models/operations/v3completerequestresponse.md
+  - docs/models/operations/v3crossdomainidentityrequest.md
+  - docs/models/operations/v3crossdomainidentityresponse.md
   - docs/models/operations/v3deactivateidentityrequest.md
   - docs/models/operations/v3deactivateidentityresponse.md
   - docs/models/operations/v3disenrollidentityrequest.md
   - docs/models/operations/v3disenrollidentityresponse.md
-  - docs/models/operations/v3domainconfirmlinkresponse.md
-  - docs/models/operations/v3domainidresponse.md
-  - docs/models/operations/v3domainlinkedresponse.md
-  - docs/models/operations/v3domainunlinkresponse.md
+  - docs/models/operations/v3domainconfirmlinkrequestresponse.md
+  - docs/models/operations/v3domainidrequestresponse.md
+  - docs/models/operations/v3domainlinkedrequestresponse.md
+  - docs/models/operations/v3domainlinkrequestresponse.md
+  - docs/models/operations/v3domainunlinkrequestresponse.md
   - docs/models/operations/v3enrollidentityresponse.md
   - docs/models/operations/v3getidentitiesbyphonenumberrequest.md
   - docs/models/operations/v3getidentitiesbyphonenumberresponse.md
@@ -444,7 +457,7 @@ examples:
   V3BatchEnrollIdentities:
     speakeasy-default-v3-batch-enroll-identities:
       requestBody:
-        application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "items": [{"clientCustomerId": "e0f78bc2-f748-4eda-9d29-d756844507fc", "deviceId": "bf9ea15d-7dfa-4bb4-a64c-6c26b53472fc", "phoneNumber": "2001001695"}, {"clientCustomerId": "e0f78bc2-f748-4eda-9d29-d756844507fc", "deviceId": "bf9ea15d-7dfa-4bb4-a64c-6c26b53472fc", "phoneNumber": "2001001695"}]}
+        application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "items": [{"clientName": "\"Client A\"", "identityId": "\"e0f78bc2-f748-4eda-9d29-d756844507fc\"", "pcid": "\"12345\""}, {"clientName": "\"Client A\"", "identityId": "\"e0f78bc2-f748-4eda-9d29-d756844507fc\"", "pcid": "\"12345\""}]}
       responses:
         "200":
           application/json: {"results": [{"identityId": "e0f78bc2-f748-4eda-9d29-d756844507fc"}, {"error": "Invalid Phone Number"}]}
@@ -611,10 +624,95 @@ examples:
           application/json: {"code": 8003, "message": "Access forbidden: insufficient permissions"}
         "500":
           application/json: {"code": 8000, "message": "error at prove, try again later"}
+  V3DomainConfirmLinkRequest:
+    speakeasy-default-v3-domain-confirm-link-request:
+      requestBody:
+        application/json: {"pcid": "pcid"}
+      responses:
+        "200":
+          application/json: {"success": true}
+        "400":
+          application/json: {"code": 8000, "message": "error at prove, try again later"}
+        "401":
+          application/json: {"code": 8002, "message": "not authorized"}
+        "403":
+          application/json: {"code": 8003, "message": "Access forbidden: insufficient permissions"}
+        "500":
+          application/json: {"code": 8000, "message": "error at prove, try again later"}
+  V3DomainIDRequest:
+    speakeasy-default-v3-domain-ID-request:
+      responses:
+        "200":
+          application/json: {"name": "My Company", "pcid": "123456"}
+        "400":
+          application/json: {"code": 8000, "message": "error at prove, try again later"}
+        "401":
+          application/json: {"code": 8002, "message": "not authorized"}
+        "403":
+          application/json: {"code": 8003, "message": "Access forbidden: insufficient permissions"}
+        "500":
+          application/json: {"code": 8000, "message": "error at prove, try again later"}
+  V3DomainLinkRequest:
+    speakeasy-default-v3-domain-link-request:
+      requestBody:
+        application/json: {"pcid": "pcid"}
+      responses:
+        "200":
+          application/json: {"success": true}
+        "400":
+          application/json: {"code": 8000, "message": "error at prove, try again later"}
+        "401":
+          application/json: {"code": 8002, "message": "not authorized"}
+        "403":
+          application/json: {"code": 8003, "message": "Access forbidden: insufficient permissions"}
+        "500":
+          application/json: {"code": 8000, "message": "error at prove, try again later"}
+  V3DomainLinkedRequest:
+    speakeasy-default-v3-domain-linked-request:
+      responses:
+        "200":
+          application/json: {"linkedFrom": [{"acceptedAt": 0, "acceptedString": "acceptedString", "name": "name", "pcid": "pcid"}, {"acceptedAt": 0, "acceptedString": "acceptedString", "name": "name", "pcid": "pcid"}], "linkedTo": [{"acceptedAt": 6, "acceptedString": "acceptedString", "name": "name", "pcid": "pcid"}, {"acceptedAt": 6, "acceptedString": "acceptedString", "name": "name", "pcid": "pcid"}], "requestsFrom": [{"name": "name", "pcid": "pcid", "requestedAt": 1, "requestedString": "requestedString"}, {"name": "name", "pcid": "pcid", "requestedAt": 1, "requestedString": "requestedString"}], "requestsTo": [{"name": "name", "pcid": "pcid", "requestedAt": 5, "requestedString": "requestedString"}, {"name": "name", "pcid": "pcid", "requestedAt": 5, "requestedString": "requestedString"}]}
+        "400":
+          application/json: {"code": 8000, "message": "error at prove, try again later"}
+        "401":
+          application/json: {"code": 8002, "message": "not authorized"}
+        "403":
+          application/json: {"code": 8003, "message": "Access forbidden: insufficient permissions"}
+        "500":
+          application/json: {"code": 8000, "message": "error at prove, try again later"}
+  V3DomainUnlinkRequest:
+    speakeasy-default-v3-domain-unlink-request:
+      requestBody:
+        application/json: {"pcidFrom": "pcidFrom", "pcidTo": "pcidTo"}
+      responses:
+        "200":
+          application/json: {"success": true}
+        "400":
+          application/json: {"code": 8000, "message": "error at prove, try again later"}
+        "401":
+          application/json: {"code": 8002, "message": "not authorized"}
+        "403":
+          application/json: {"code": 8003, "message": "Access forbidden: insufficient permissions"}
+        "500":
+          application/json: {"code": 8000, "message": "error at prove, try again later"}
+  V3CrossDomainIdentity:
+    speakeasy-default-v3-cross-domain-identity:
+      parameters:
+        path:
+          identityId: "<id>"
+      requestBody:
+        application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81"}
+      responses:
+        "200":
+          application/json: {"count": 5, "identites": [{"clientName": "Client A", "identityId": "e0f78bc2-f748-4eda-9d29-d756844507fc", "pcid": "12345"}]}
+        "400":
+          application/json: {"code": 8000, "message": "error at prove, try again later"}
+        "401":
+          application/json: {"code": 8002, "message": "not authorized"}
+        "403":
+          application/json: {"code": 8003, "message": "Access forbidden: insufficient permissions"}
+        "500":
+          application/json: {"code": 8000, "message": "error at prove, try again later"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: |
-  ## SDK Changes Detected:
-  * `Provesdkservergo.V3.V3TokenRequest()`:  `request.Request` **Changed** **Breaking** :warning:
-  * `Provesdkservergo.Domain.V3DomainConfirmLink()`: **Added**
-  * `Provesdkservergo.Domain.V3DomainLink()`: **Deleted** **Breaking** :warning:
+releaseNotes: "## SDK Changes Detected:\n* `Provesdkservergo.Identity.V3BatchEnrollIdentities()`: \n  *  `request.Request.Items.[]` **Changed** **Breaking** :warning:\n* `Provesdkservergo.Domain.V3DomainConfirmLinkRequest()`: **Added**\n* `Provesdkservergo.Domain.V3DomainIdRequest()`: **Added**\n* `Provesdkservergo.Domain.V3DomainLinkRequest()`: **Added**\n* `Provesdkservergo.Domain.V3DomainLinkedRequest()`: **Added**\n* `Provesdkservergo.Domain.V3DomainUnlinkRequest()`: **Added**\n* `Provesdkservergo.Identity.V3CrossDomainIdentity()`: **Added**\n* `Provesdkservergo.Domain.V3DomainId()`: **Deleted** **Breaking** :warning:\n* `Provesdkservergo.Domain.V3DomainConfirmLink()`: **Deleted** **Breaking** :warning:\n* `Provesdkservergo.Domain.V3DomainLinked()`: **Deleted** **Breaking** :warning:\n* `Provesdkservergo.Domain.V3DomainUnlink()`: **Deleted** **Breaking** :warning:\n"

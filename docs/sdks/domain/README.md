@@ -5,18 +5,19 @@
 
 ### Available Operations
 
-* [V3DomainID](#v3domainid) - Get Domain Details
-* [V3DomainConfirmLink](#v3domainconfirmlink) - # Confirm a given domain link request.
-* [V3DomainLinked](#v3domainlinked) - Get the list of domains that are linked to this domain.
-* [V3DomainUnlink](#v3domainunlink) - # Remove a domain link or request.
+* [V3DomainConfirmLinkRequest](#v3domainconfirmlinkrequest) - Confirm a domain link request
+* [V3DomainIDRequest](#v3domainidrequest) - Get Domain Details
+* [V3DomainLinkRequest](#v3domainlinkrequest) - Request a domain link
+* [V3DomainLinkedRequest](#v3domainlinkedrequest) - Get the list of domains that are linked to this domain.
+* [V3DomainUnlinkRequest](#v3domainunlinkrequest) - Remove a domain link or request
 
-## V3DomainID
+## V3DomainConfirmLinkRequest
 
-Returns the domain details.
+Confirms a given domain link request by validating the PCID.
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="V3DomainID" method="post" path="/v3/domain/id" -->
+<!-- UsageSnippet language="go" operationID="V3DomainConfirmLinkRequest" method="post" path="/v3/domain/confirm-link" -->
 ```go
 package main
 
@@ -37,67 +38,8 @@ func main() {
         }),
     )
 
-    res, err := s.Domain.V3DomainID(ctx, nil)
-    if err != nil {
-        log.Fatal(err)
-    }
-    if res.V3DomainIDResponse != nil {
-        // handle response
-    }
-}
-```
-
-### Parameters
-
-| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
-| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
-| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
-| `request`                                                | [string](../../.md)                                      | :heavy_check_mark:                                       | The request object to use for the request.               |
-| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
-
-### Response
-
-**[*operations.V3DomainIDResponse](../../models/operations/v3domainidresponse.md), error**
-
-### Errors
-
-| Error Type         | Status Code        | Content Type       |
-| ------------------ | ------------------ | ------------------ |
-| sdkerrors.Error    | 400                | application/json   |
-| sdkerrors.Error401 | 401                | application/json   |
-| sdkerrors.Error403 | 403                | application/json   |
-| sdkerrors.Error    | 500                | application/json   |
-| sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
-
-## V3DomainConfirmLink
-
-# Confirm a given domain link request.
-
-### Example Usage
-
-<!-- UsageSnippet language="go" operationID="V3DomainConfirmLink" method="post" path="/v3/domain/link" -->
-```go
-package main
-
-import(
-	"context"
-	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
-	"github.com/prove-identity/prove-sdk-server-go/models/components"
-	"log"
-)
-
-func main() {
-    ctx := context.Background()
-
-    s := provesdkservergo.New(
-        provesdkservergo.WithSecurity(components.Security{
-            ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
-            ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
-        }),
-    )
-
-    res, err := s.Domain.V3DomainConfirmLink(ctx, &components.V3DomainConfirmLinkRequest{
-        Pcid: provesdkservergo.String("pcid"),
+    res, err := s.Domain.V3DomainConfirmLinkRequest(ctx, &components.V3DomainConfirmLinkRequest{
+        Pcid: "pcid",
     })
     if err != nil {
         log.Fatal(err)
@@ -118,7 +60,7 @@ func main() {
 
 ### Response
 
-**[*operations.V3DomainConfirmLinkResponse](../../models/operations/v3domainconfirmlinkresponse.md), error**
+**[*operations.V3DomainConfirmLinkRequestResponse](../../models/operations/v3domainconfirmlinkrequestresponse.md), error**
 
 ### Errors
 
@@ -130,13 +72,13 @@ func main() {
 | sdkerrors.Error    | 500                | application/json   |
 | sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
 
-## V3DomainLinked
+## V3DomainIDRequest
 
-Returns the accepted and pending links for this domain.
+Returns the domain details.
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="V3DomainLinked" method="get" path="/v3/domain/linked" -->
+<!-- UsageSnippet language="go" operationID="V3DomainIDRequest" method="get" path="/v3/domain/id" -->
 ```go
 package main
 
@@ -157,7 +99,126 @@ func main() {
         }),
     )
 
-    res, err := s.Domain.V3DomainLinked(ctx)
+    res, err := s.Domain.V3DomainIDRequest(ctx)
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.V3DomainIDResponse != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                | Type                                                     | Required                                                 | Description                                              |
+| -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- | -------------------------------------------------------- |
+| `ctx`                                                    | [context.Context](https://pkg.go.dev/context#Context)    | :heavy_check_mark:                                       | The context to use for the request.                      |
+| `opts`                                                   | [][operations.Option](../../models/operations/option.md) | :heavy_minus_sign:                                       | The options for this request.                            |
+
+### Response
+
+**[*operations.V3DomainIDRequestResponse](../../models/operations/v3domainidrequestresponse.md), error**
+
+### Errors
+
+| Error Type         | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.Error    | 400                | application/json   |
+| sdkerrors.Error401 | 401                | application/json   |
+| sdkerrors.Error403 | 403                | application/json   |
+| sdkerrors.Error    | 500                | application/json   |
+| sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
+
+## V3DomainLinkRequest
+
+Create a request to connect the requested domain to the domain the request is made from.
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="V3DomainLinkRequest" method="post" path="/v3/domain/link" -->
+```go
+package main
+
+import(
+	"context"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+	"github.com/prove-identity/prove-sdk-server-go/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := provesdkservergo.New(
+        provesdkservergo.WithSecurity(components.Security{
+            ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+            ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+        }),
+    )
+
+    res, err := s.Domain.V3DomainLinkRequest(ctx, &components.V3DomainLinkRequest{
+        Pcid: "pcid",
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.V3DomainLinkResponse != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `ctx`                                                                            | [context.Context](https://pkg.go.dev/context#Context)                            | :heavy_check_mark:                                                               | The context to use for the request.                                              |
+| `request`                                                                        | [components.V3DomainLinkRequest](../../models/components/v3domainlinkrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| `opts`                                                                           | [][operations.Option](../../models/operations/option.md)                         | :heavy_minus_sign:                                                               | The options for this request.                                                    |
+
+### Response
+
+**[*operations.V3DomainLinkRequestResponse](../../models/operations/v3domainlinkrequestresponse.md), error**
+
+### Errors
+
+| Error Type         | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.Error    | 400                | application/json   |
+| sdkerrors.Error401 | 401                | application/json   |
+| sdkerrors.Error403 | 403                | application/json   |
+| sdkerrors.Error    | 500                | application/json   |
+| sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
+
+## V3DomainLinkedRequest
+
+Returns the accepted and pending links for this domain.
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="V3DomainLinkedRequest" method="get" path="/v3/domain/linked" -->
+```go
+package main
+
+import(
+	"context"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+	"github.com/prove-identity/prove-sdk-server-go/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := provesdkservergo.New(
+        provesdkservergo.WithSecurity(components.Security{
+            ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+            ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+        }),
+    )
+
+    res, err := s.Domain.V3DomainLinkedRequest(ctx)
     if err != nil {
         log.Fatal(err)
     }
@@ -176,7 +237,7 @@ func main() {
 
 ### Response
 
-**[*operations.V3DomainLinkedResponse](../../models/operations/v3domainlinkedresponse.md), error**
+**[*operations.V3DomainLinkedRequestResponse](../../models/operations/v3domainlinkedrequestresponse.md), error**
 
 ### Errors
 
@@ -188,13 +249,13 @@ func main() {
 | sdkerrors.Error    | 500                | application/json   |
 | sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
 
-## V3DomainUnlink
+## V3DomainUnlinkRequest
 
-# Remove a domain link or request.
+Remove a domain link or request between the requested domain and the domain the request is made from.
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="V3DomainUnlink" method="post" path="/v3/domain/unlink" -->
+<!-- UsageSnippet language="go" operationID="V3DomainUnlinkRequest" method="post" path="/v3/domain/unlink" -->
 ```go
 package main
 
@@ -215,7 +276,7 @@ func main() {
         }),
     )
 
-    res, err := s.Domain.V3DomainUnlink(ctx, &components.V3DomainUnlinkRequest{
+    res, err := s.Domain.V3DomainUnlinkRequest(ctx, &components.V3DomainUnlinkRequest{
         PcidFrom: provesdkservergo.String("pcidFrom"),
         PcidTo: provesdkservergo.String("pcidTo"),
     })
@@ -238,7 +299,7 @@ func main() {
 
 ### Response
 
-**[*operations.V3DomainUnlinkResponse](../../models/operations/v3domainunlinkresponse.md), error**
+**[*operations.V3DomainUnlinkRequestResponse](../../models/operations/v3domainunlinkrequestresponse.md), error**
 
 ### Errors
 

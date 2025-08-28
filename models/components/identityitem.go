@@ -2,33 +2,32 @@
 
 package components
 
-// IdentityItem - Represents a single identity that you wish to enroll.
 type IdentityItem struct {
-	// A client-generated unique ID for a specific customer. This ID links calls related to the same customer, across different requests or sessions. The format of this ID is defined by the client - Prove recommends using a GUID, but any format can be accepted. Do not include Personally Identifiable Information (PII) in this field.
-	ClientCustomerID *string `json:"clientCustomerId,omitempty"`
-	// A string that is the unique identifier for the Prove Key on the device. Only applicable if you are leveraging Prove Unify.
-	DeviceID *string `json:"deviceId,omitempty"`
-	// The number of the consumer being enrolled. US phone numbers can be passed in with or without a leading +1. Acceptable characters are: alphanumeric with symbols '+'.
-	PhoneNumber string `json:"phoneNumber"`
+	// The name of the client associated with the identity.
+	ClientName string `json:"clientName"`
+	// The Prove-generated unique ID for the specific identity.
+	IdentityID string `json:"identityId"`
+	// The Prove Customer ID (PCID) associated with the identity.
+	Pcid string `json:"pcid"`
 }
 
-func (o *IdentityItem) GetClientCustomerID() *string {
-	if o == nil {
-		return nil
-	}
-	return o.ClientCustomerID
-}
-
-func (o *IdentityItem) GetDeviceID() *string {
-	if o == nil {
-		return nil
-	}
-	return o.DeviceID
-}
-
-func (o *IdentityItem) GetPhoneNumber() string {
+func (o *IdentityItem) GetClientName() string {
 	if o == nil {
 		return ""
 	}
-	return o.PhoneNumber
+	return o.ClientName
+}
+
+func (o *IdentityItem) GetIdentityID() string {
+	if o == nil {
+		return ""
+	}
+	return o.IdentityID
+}
+
+func (o *IdentityItem) GetPcid() string {
+	if o == nil {
+		return ""
+	}
+	return o.Pcid
 }

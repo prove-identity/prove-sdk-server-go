@@ -1,4 +1,4 @@
-# V3DomainLinkedResponse
+# V3DomainLinkedRequestResponse
 
 
 ## Fields

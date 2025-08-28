@@ -11,6 +11,7 @@
 * [V3DisenrollIdentity](#v3disenrollidentity) - Disenroll Identity
 * [V3GetIdentity](#v3getidentity) - Get Identity
 * [V3ActivateIdentity](#v3activateidentity) - Activate Identity
+* [V3CrossDomainIdentity](#v3crossdomainidentity) - Cross Domain Identity
 * [V3DeactivateIdentity](#v3deactivateidentity) - Deactivate Identity
 * [V3GetIdentitiesByPhoneNumber](#v3getidentitiesbyphonenumber) - Get Identities By Phone Number
 
@@ -20,7 +21,7 @@ Return a list of all identities you have enrolled in Identity Manager.
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="V3BatchGetIdentities" method="get" path="/v3/identity/" -->
+<!-- UsageSnippet language="go" operationID="V3BatchGetIdentities" method="get" path="/v3/identity" -->
 ```go
 package main
 
@@ -82,7 +83,7 @@ Enrolls a single customer for monitoring using their phone number and unique ide
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="V3EnrollIdentity" method="post" path="/v3/identity/" -->
+<!-- UsageSnippet language="go" operationID="V3EnrollIdentity" method="post" path="/v3/identity" -->
 ```go
 package main
 
@@ -171,14 +172,14 @@ func main() {
         ClientRequestID: provesdkservergo.String("71010d88-d0e7-4a24-9297-d1be6fefde81"),
         Items: []components.IdentityItem{
             components.IdentityItem{
-                ClientCustomerID: provesdkservergo.String("e0f78bc2-f748-4eda-9d29-d756844507fc"),
-                DeviceID: provesdkservergo.String("bf9ea15d-7dfa-4bb4-a64c-6c26b53472fc"),
-                PhoneNumber: "2001001695",
+                ClientName: "\"Client A\"",
+                IdentityID: "\"e0f78bc2-f748-4eda-9d29-d756844507fc\"",
+                Pcid: "\"12345\"",
             },
             components.IdentityItem{
-                ClientCustomerID: provesdkservergo.String("e0f78bc2-f748-4eda-9d29-d756844507fc"),
-                DeviceID: provesdkservergo.String("bf9ea15d-7dfa-4bb4-a64c-6c26b53472fc"),
-                PhoneNumber: "2001001695",
+                ClientName: "\"Client A\"",
+                IdentityID: "\"e0f78bc2-f748-4eda-9d29-d756844507fc\"",
+                Pcid: "\"12345\"",
             },
         },
     })
@@ -384,6 +385,68 @@ func main() {
 ### Response
 
 **[*operations.V3ActivateIdentityResponse](../../models/operations/v3activateidentityresponse.md), error**
+
+### Errors
+
+| Error Type         | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.Error    | 400                | application/json   |
+| sdkerrors.Error401 | 401                | application/json   |
+| sdkerrors.Error403 | 403                | application/json   |
+| sdkerrors.Error    | 500                | application/json   |
+| sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
+
+## V3CrossDomainIdentity
+
+Retreives the list of identities from other linked accounts.
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="V3CrossDomainIdentity" method="post" path="/v3/identity/{identityId}/cross-domain" -->
+```go
+package main
+
+import(
+	"context"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+	"github.com/prove-identity/prove-sdk-server-go/models/components"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := provesdkservergo.New(
+        provesdkservergo.WithSecurity(components.Security{
+            ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
+            ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+        }),
+    )
+
+    res, err := s.Identity.V3CrossDomainIdentity(ctx, "<id>", &components.V3CrossDomainIdentityRequest{
+        ClientRequestID: provesdkservergo.String("71010d88-d0e7-4a24-9297-d1be6fefde81"),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.V3CrossDomainIdentityResponse != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                                           | Type                                                                                                | Required                                                                                            | Description                                                                                         | Example                                                                                             |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                               | [context.Context](https://pkg.go.dev/context#Context)                                               | :heavy_check_mark:                                                                                  | The context to use for the request.                                                                 |                                                                                                     |
+| `identityID`                                                                                        | *string*                                                                                            | :heavy_check_mark:                                                                                  | A Prove-generated unique ID for a specific identity.                                                |                                                                                                     |
+| `v3CrossDomainIdentityRequest`                                                                      | [*components.V3CrossDomainIdentityRequest](../../models/components/v3crossdomainidentityrequest.md) | :heavy_minus_sign:                                                                                  | N/A                                                                                                 | {<br/>"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81"<br/>}                               |
+| `opts`                                                                                              | [][operations.Option](../../models/operations/option.md)                                            | :heavy_minus_sign:                                                                                  | The options for this request.                                                                       |                                                                                                     |
+
+### Response
+
+**[*operations.V3CrossDomainIdentityResponse](../../models/operations/v3crossdomainidentityresponse.md), error**
 
 ### Errors
 

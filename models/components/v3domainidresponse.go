@@ -9,16 +9,16 @@ type V3DomainIDResponse struct {
 	Pcid string `json:"pcid"`
 }
 
-func (o *V3DomainIDResponse) GetName() string {
-	if o == nil {
+func (v *V3DomainIDResponse) GetName() string {
+	if v == nil {
 		return ""
 	}
-	return o.Name
+	return v.Name
 }
 
-func (o *V3DomainIDResponse) GetPcid() string {
-	if o == nil {
+func (v *V3DomainIDResponse) GetPcid() string {
+	if v == nil {
 		return ""
 	}
-	return o.Pcid
+	return v.Pcid
 }

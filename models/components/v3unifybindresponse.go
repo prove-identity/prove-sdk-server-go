@@ -6,32 +6,79 @@ type V3UnifyBindResponseEvaluation struct {
 }
 
 type V3UnifyBindResponse struct {
-	// The evaluation result for the policy
+	// A client-generated unique ID to identify a specific customer across business lines.
+	//
+	// Required if success=true.
+	ClientHumanID *string `json:"clientHumanId,omitempty"`
+	// A client-generated unique ID for a specific session. This can be used to identify specific requests.
+	// The format of this ID is defined by the client - Prove recommends using a GUID, but any format can be accepted.
+	// Do not include Personally Identifiable Information (PII) in this field.
+	ClientRequestID *string `json:"clientRequestId,omitempty"`
+	// The unique identifier for the Prove Key on the device.
+	//
+	// Required if success=true.
+	DeviceID *string `json:"deviceId,omitempty"`
+	// The evaluation result for the policy. This is an upcoming field but is not yet enabled.
 	Evaluation map[string]V3UnifyBindResponseEvaluation `json:"evaluation,omitempty"`
 	// The number of the mobile phone used during the process.
-	PhoneNumber string `json:"phoneNumber"`
+	//
+	// Required except when MobileAuth is used in US or a valid ProveID is provided.
+	PhoneNumber *string `json:"phoneNumber,omitempty"`
+	// A unique ID to identify a specific customer obtained from a successful possession check.
+	// If an existing value is available (e.g. from a previous successful possession check) then it should be returned, otherwise a new value should be generated if success=true.
+	//
+	// Required if success=true.
+	ProveID *string `json:"proveId,omitempty"`
 	// The result of the possession check.
 	// Possible values are `true`, `false`, `pending`, and `possession_required`.
 	Success string `json:"success"`
 }
 
-func (o *V3UnifyBindResponse) GetEvaluation() map[string]V3UnifyBindResponseEvaluation {
-	if o == nil {
+func (v *V3UnifyBindResponse) GetClientHumanID() *string {
+	if v == nil {
 		return nil
 	}
-	return o.Evaluation
+	return v.ClientHumanID
 }
 
-func (o *V3UnifyBindResponse) GetPhoneNumber() string {
-	if o == nil {
-		return ""
+func (v *V3UnifyBindResponse) GetClientRequestID() *string {
+	if v == nil {
+		return nil
 	}
-	return o.PhoneNumber
+	return v.ClientRequestID
 }
 
-func (o *V3UnifyBindResponse) GetSuccess() string {
-	if o == nil {
+func (v *V3UnifyBindResponse) GetDeviceID() *string {
+	if v == nil {
+		return nil
+	}
+	return v.DeviceID
+}
+
+func (v *V3UnifyBindResponse) GetEvaluation() map[string]V3UnifyBindResponseEvaluation {
+	if v == nil {
+		return nil
+	}
+	return v.Evaluation
+}
+
+func (v *V3UnifyBindResponse) GetPhoneNumber() *string {
+	if v == nil {
+		return nil
+	}
+	return v.PhoneNumber
+}
+
+func (v *V3UnifyBindResponse) GetProveID() *string {
+	if v == nil {
+		return nil
+	}
+	return v.ProveID
+}
+
+func (v *V3UnifyBindResponse) GetSuccess() string {
+	if v == nil {
 		return ""
 	}
-	return o.Success
+	return v.Success
 }

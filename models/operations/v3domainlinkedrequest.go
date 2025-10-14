@@ -13,23 +13,23 @@ type V3DomainLinkedRequestResponse struct {
 	Headers                map[string][]string
 }
 
-func (o *V3DomainLinkedRequestResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (v *V3DomainLinkedRequestResponse) GetHTTPMeta() components.HTTPMetadata {
+	if v == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return v.HTTPMeta
 }
 
-func (o *V3DomainLinkedRequestResponse) GetV3DomainLinkedResponse() *components.V3DomainLinkedResponse {
-	if o == nil {
+func (v *V3DomainLinkedRequestResponse) GetV3DomainLinkedResponse() *components.V3DomainLinkedResponse {
+	if v == nil {
 		return nil
 	}
-	return o.V3DomainLinkedResponse
+	return v.V3DomainLinkedResponse
 }
 
-func (o *V3DomainLinkedRequestResponse) GetHeaders() map[string][]string {
-	if o == nil {
+func (v *V3DomainLinkedRequestResponse) GetHeaders() map[string][]string {
+	if v == nil {
 		return map[string][]string{}
 	}
-	return o.Headers
+	return v.Headers
 }

@@ -12,18 +12,18 @@ type V3CrossDomainIdentityRequest struct {
 	V3CrossDomainIdentityRequest *components.V3CrossDomainIdentityRequest `request:"mediaType=application/json"`
 }
 
-func (o *V3CrossDomainIdentityRequest) GetIdentityID() string {
-	if o == nil {
+func (v *V3CrossDomainIdentityRequest) GetIdentityID() string {
+	if v == nil {
 		return ""
 	}
-	return o.IdentityID
+	return v.IdentityID
 }
 
-func (o *V3CrossDomainIdentityRequest) GetV3CrossDomainIdentityRequest() *components.V3CrossDomainIdentityRequest {
-	if o == nil {
+func (v *V3CrossDomainIdentityRequest) GetV3CrossDomainIdentityRequest() *components.V3CrossDomainIdentityRequest {
+	if v == nil {
 		return nil
 	}
-	return o.V3CrossDomainIdentityRequest
+	return v.V3CrossDomainIdentityRequest
 }
 
 type V3CrossDomainIdentityResponse struct {
@@ -32,16 +32,16 @@ type V3CrossDomainIdentityResponse struct {
 	V3CrossDomainIdentityResponse *components.V3CrossDomainIdentityResponse
 }
 
-func (o *V3CrossDomainIdentityResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (v *V3CrossDomainIdentityResponse) GetHTTPMeta() components.HTTPMetadata {
+	if v == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return v.HTTPMeta
 }
 
-func (o *V3CrossDomainIdentityResponse) GetV3CrossDomainIdentityResponse() *components.V3CrossDomainIdentityResponse {
-	if o == nil {
+func (v *V3CrossDomainIdentityResponse) GetV3CrossDomainIdentityResponse() *components.V3CrossDomainIdentityResponse {
+	if v == nil {
 		return nil
 	}
-	return o.V3CrossDomainIdentityResponse
+	return v.V3CrossDomainIdentityResponse
 }

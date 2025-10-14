@@ -11,23 +11,23 @@ type V3UnifyResponse struct {
 	Success string `json:"success"`
 }
 
-func (o *V3UnifyResponse) GetAuthToken() *string {
-	if o == nil {
+func (v *V3UnifyResponse) GetAuthToken() *string {
+	if v == nil {
 		return nil
 	}
-	return o.AuthToken
+	return v.AuthToken
 }
 
-func (o *V3UnifyResponse) GetCorrelationID() string {
-	if o == nil {
+func (v *V3UnifyResponse) GetCorrelationID() string {
+	if v == nil {
 		return ""
 	}
-	return o.CorrelationID
+	return v.CorrelationID
 }
 
-func (o *V3UnifyResponse) GetSuccess() string {
-	if o == nil {
+func (v *V3UnifyResponse) GetSuccess() string {
+	if v == nil {
 		return ""
 	}
-	return o.Success
+	return v.Success
 }

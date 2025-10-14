@@ -7,9 +7,9 @@ type V3DomainLinkResponse struct {
 	Success bool `json:"success"`
 }
 
-func (o *V3DomainLinkResponse) GetSuccess() bool {
-	if o == nil {
+func (v *V3DomainLinkResponse) GetSuccess() bool {
+	if v == nil {
 		return false
 	}
-	return o.Success
+	return v.Success
 }

@@ -14,7 +14,7 @@
 * [V3UnifyStatusRequest](#v3unifystatusrequest) - Check Status
 * [V3ValidateRequest](#v3validaterequest) - Validate Phone Number
 * [V3VerifyRequest](#v3verifyrequest) - Initiate Verified Users Session
-* [V3VerifyStatusRequest](#v3verifystatusrequest) - Check Verification Result
+* [V3VerifyBatchRequest](#v3verifybatchrequest) - Batch Verify Users
 
 ## V3TokenRequest
 
@@ -85,8 +85,8 @@ package main
 
 import(
 	"context"
-	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
 	"github.com/prove-identity/prove-sdk-server-go/models/components"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
 	"log"
 )
 
@@ -95,15 +95,15 @@ func main() {
 
     s := provesdkservergo.New(
         provesdkservergo.WithSecurity(components.Security{
-            ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
-            ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+            ClientID: provesdkservergo.Pointer("<YOUR_CLIENT_ID_HERE>"),
+            ClientSecret: provesdkservergo.Pointer("<YOUR_CLIENT_SECRET_HERE>"),
         }),
     )
 
     res, err := s.V3.V3ChallengeRequest(ctx, &components.V3ChallengeRequest{
         CorrelationID: "713189b8-5555-4b08-83ba-75d08780aebd",
-        Dob: provesdkservergo.String("1981-01"),
-        Ssn: provesdkservergo.String("0596"),
+        Dob: provesdkservergo.Pointer("1981-01"),
+        Ssn: provesdkservergo.Pointer("0596"),
     })
     if err != nil {
         log.Fatal(err)
@@ -148,8 +148,8 @@ package main
 
 import(
 	"context"
-	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
 	"github.com/prove-identity/prove-sdk-server-go/models/components"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
 	"log"
 )
 
@@ -158,8 +158,8 @@ func main() {
 
     s := provesdkservergo.New(
         provesdkservergo.WithSecurity(components.Security{
-            ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
-            ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+            ClientID: provesdkservergo.Pointer("<YOUR_CLIENT_ID_HERE>"),
+            ClientSecret: provesdkservergo.Pointer("<YOUR_CLIENT_SECRET_HERE>"),
         }),
     )
 
@@ -168,20 +168,20 @@ func main() {
         Individual: components.V3CompleteIndividualRequest{
             Addresses: []components.V3CompleteAddressEntryRequest{
                 components.V3CompleteAddressEntryRequest{
-                    Address: provesdkservergo.String("39 South Trail"),
-                    City: provesdkservergo.String("San Antonio"),
-                    ExtendedAddress: provesdkservergo.String("Apt 23"),
-                    PostalCode: provesdkservergo.String("78285"),
-                    Region: provesdkservergo.String("TX"),
+                    Address: provesdkservergo.Pointer("39 South Trail"),
+                    City: provesdkservergo.Pointer("San Antonio"),
+                    ExtendedAddress: provesdkservergo.Pointer("Apt 23"),
+                    PostalCode: provesdkservergo.Pointer("78285"),
+                    Region: provesdkservergo.Pointer("TX"),
                 },
             },
-            Dob: provesdkservergo.String("1981-01"),
+            Dob: provesdkservergo.Pointer("1981-01"),
             EmailAddresses: []string{
                 "jdoe@example.com",
             },
-            FirstName: provesdkservergo.String("Tod"),
-            LastName: provesdkservergo.String("Weedall"),
-            Ssn: provesdkservergo.String("265228370"),
+            FirstName: provesdkservergo.Pointer("Tod"),
+            LastName: provesdkservergo.Pointer("Weedall"),
+            Ssn: provesdkservergo.Pointer("265228370"),
         },
     })
     if err != nil {
@@ -227,8 +227,8 @@ package main
 
 import(
 	"context"
-	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
 	"github.com/prove-identity/prove-sdk-server-go/models/components"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
 	"log"
 )
 
@@ -237,21 +237,21 @@ func main() {
 
     s := provesdkservergo.New(
         provesdkservergo.WithSecurity(components.Security{
-            ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
-            ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+            ClientID: provesdkservergo.Pointer("<YOUR_CLIENT_ID_HERE>"),
+            ClientSecret: provesdkservergo.Pointer("<YOUR_CLIENT_SECRET_HERE>"),
         }),
     )
 
     res, err := s.V3.V3StartRequest(ctx, &components.V3StartRequest{
-        AllowOTPRetry: provesdkservergo.Bool(true),
-        Dob: provesdkservergo.String("1981-01"),
-        EmailAddress: provesdkservergo.String("mpinsonm@dyndns.org"),
-        FinalTargetURL: provesdkservergo.String("https://www.example.com/landing-page"),
+        AllowOTPRetry: provesdkservergo.Pointer(true),
+        Dob: provesdkservergo.Pointer("1981-01"),
+        EmailAddress: provesdkservergo.Pointer("mpinsonm@dyndns.org"),
+        FinalTargetURL: provesdkservergo.Pointer("https://www.example.com/landing-page"),
         FlowType: "mobile",
-        IPAddress: provesdkservergo.String("10.0.0.1"),
-        PhoneNumber: provesdkservergo.String("2001001695"),
-        SmsMessage: provesdkservergo.String("#### is your temporary code to continue your application. Caution: for your security, don't share this code with anyone."),
-        Ssn: provesdkservergo.String("0596"),
+        IPAddress: provesdkservergo.Pointer("10.0.0.1"),
+        PhoneNumber: provesdkservergo.Pointer("2001001695"),
+        SmsMessage: provesdkservergo.Pointer("#### is your temporary code to continue your application. Caution: for your security, don't share this code with anyone."),
+        Ssn: provesdkservergo.Pointer("0596"),
     })
     if err != nil {
         log.Fatal(err)
@@ -296,8 +296,8 @@ package main
 
 import(
 	"context"
-	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
 	"github.com/prove-identity/prove-sdk-server-go/models/components"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
 	"log"
 )
 
@@ -306,21 +306,26 @@ func main() {
 
     s := provesdkservergo.New(
         provesdkservergo.WithSecurity(components.Security{
-            ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
-            ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+            ClientID: provesdkservergo.Pointer("<YOUR_CLIENT_ID_HERE>"),
+            ClientSecret: provesdkservergo.Pointer("<YOUR_CLIENT_SECRET_HERE>"),
         }),
     )
 
     res, err := s.V3.V3UnifyRequest(ctx, &components.V3UnifyRequest{
-        AllowOTPRetry: provesdkservergo.Bool(true),
-        CheckReputation: provesdkservergo.Bool(true),
-        ClientCustomerID: provesdkservergo.String("e0f78bc2-f748-4eda-9d29-d756844507fc"),
-        ClientRequestID: provesdkservergo.String("71010d88-d0e7-4a24-9297-d1be6fefde81"),
-        FinalTargetURL: provesdkservergo.String("https://www.example.com/landing-page"),
-        PhoneNumber: provesdkservergo.String("2001004011"),
+        AllowOTPRetry: provesdkservergo.Pointer(true),
+        CheckReputation: provesdkservergo.Pointer(true),
+        ClientCustomerID: provesdkservergo.Pointer("e0f78bc2-f748-4eda-9d29-d756844507fc"),
+        ClientHumanID: provesdkservergo.Pointer("7bfbb91d-9df8-4ec0-99a6-de05ecc23a9e"),
+        ClientRequestID: "71010d88-d0e7-4a24-9297-d1be6fefde81",
+        DeviceID: provesdkservergo.Pointer("bf9ea15d-7dfa-4bb4-a64c-6c26b53472fc"),
+        EmailAddress: provesdkservergo.Pointer("sbutrimovichb@who.int"),
+        FinalTargetURL: provesdkservergo.Pointer("https://www.example.com/landing-page"),
+        IPAddress: provesdkservergo.Pointer("192.168.0.1"),
+        PhoneNumber: provesdkservergo.Pointer("2001004011"),
         PossessionType: "mobile",
-        Rebind: provesdkservergo.Bool(true),
-        SmsMessage: provesdkservergo.String("#### is your verification code."),
+        ProveID: provesdkservergo.Pointer("a07b94ce-218c-461f-beda-d92480e40f61"),
+        Rebind: provesdkservergo.Pointer(true),
+        SmsMessage: provesdkservergo.Pointer("#### is your verification code."),
     })
     if err != nil {
         log.Fatal(err)
@@ -365,8 +370,8 @@ package main
 
 import(
 	"context"
-	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
 	"github.com/prove-identity/prove-sdk-server-go/models/components"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
 	"log"
 )
 
@@ -375,15 +380,15 @@ func main() {
 
     s := provesdkservergo.New(
         provesdkservergo.WithSecurity(components.Security{
-            ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
-            ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+            ClientID: provesdkservergo.Pointer("<YOUR_CLIENT_ID_HERE>"),
+            ClientSecret: provesdkservergo.Pointer("<YOUR_CLIENT_SECRET_HERE>"),
         }),
     )
 
     res, err := s.V3.V3UnifyBindRequest(ctx, &components.V3UnifyBindRequest{
-        ClientRequestID: provesdkservergo.String("71010d88-d0e7-4a24-9297-d1be6fefde81"),
-        CorrelationID: provesdkservergo.String("713189b8-5555-4b08-83ba-75d08780aebd"),
-        PhoneNumber: provesdkservergo.String("2001004011"),
+        ClientRequestID: provesdkservergo.Pointer("71010d88-d0e7-4a24-9297-d1be6fefde81"),
+        CorrelationID: provesdkservergo.Pointer("713189b8-5555-4b08-83ba-75d08780aebd"),
+        PhoneNumber: provesdkservergo.Pointer("2001004011"),
     })
     if err != nil {
         log.Fatal(err)
@@ -428,8 +433,8 @@ package main
 
 import(
 	"context"
-	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
 	"github.com/prove-identity/prove-sdk-server-go/models/components"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
 	"log"
 )
 
@@ -438,15 +443,15 @@ func main() {
 
     s := provesdkservergo.New(
         provesdkservergo.WithSecurity(components.Security{
-            ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
-            ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+            ClientID: provesdkservergo.Pointer("<YOUR_CLIENT_ID_HERE>"),
+            ClientSecret: provesdkservergo.Pointer("<YOUR_CLIENT_SECRET_HERE>"),
         }),
     )
 
     res, err := s.V3.V3UnifyStatusRequest(ctx, &components.V3UnifyStatusRequest{
-        ClientRequestID: provesdkservergo.String("71010d88-d0e7-4a24-9297-d1be6fefde81"),
-        CorrelationID: provesdkservergo.String("713189b8-5555-4b08-83ba-75d08780aebd"),
-        PhoneNumber: provesdkservergo.String("2001004011"),
+        ClientRequestID: provesdkservergo.Pointer("71010d88-d0e7-4a24-9297-d1be6fefde81"),
+        CorrelationID: provesdkservergo.Pointer("713189b8-5555-4b08-83ba-75d08780aebd"),
+        PhoneNumber: provesdkservergo.Pointer("2001004011"),
     })
     if err != nil {
         log.Fatal(err)
@@ -491,8 +496,8 @@ package main
 
 import(
 	"context"
-	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
 	"github.com/prove-identity/prove-sdk-server-go/models/components"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
 	"log"
 )
 
@@ -501,8 +506,8 @@ func main() {
 
     s := provesdkservergo.New(
         provesdkservergo.WithSecurity(components.Security{
-            ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
-            ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+            ClientID: provesdkservergo.Pointer("<YOUR_CLIENT_ID_HERE>"),
+            ClientSecret: provesdkservergo.Pointer("<YOUR_CLIENT_SECRET_HERE>"),
         }),
     )
 
@@ -552,8 +557,8 @@ package main
 
 import(
 	"context"
-	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
 	"github.com/prove-identity/prove-sdk-server-go/models/components"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
 	"log"
 )
 
@@ -562,22 +567,22 @@ func main() {
 
     s := provesdkservergo.New(
         provesdkservergo.WithSecurity(components.Security{
-            ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
-            ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+            ClientID: provesdkservergo.Pointer("<YOUR_CLIENT_ID_HERE>"),
+            ClientSecret: provesdkservergo.Pointer("<YOUR_CLIENT_SECRET_HERE>"),
         }),
     )
 
     res, err := s.V3.V3VerifyRequest(ctx, &components.V3VerifyRequest{
-        AllowOTPRetry: provesdkservergo.Bool(true),
-        ClientCustomerID: provesdkservergo.String("e0f78bc2-f748-4eda-9d29-d756844507fc"),
-        ClientRequestID: provesdkservergo.String("71010d88-d0e7-4a24-9297-d1be6fefde81"),
-        EmailAddress: provesdkservergo.String("sbutrimovichb@who.int"),
-        FinalTargetURL: provesdkservergo.String("https://www.example.com/landing-page"),
-        FirstName: "Sheilakathryn",
-        LastName: "Butrimovich",
+        ClientCustomerID: provesdkservergo.Pointer("e0f78bc2-f748-4eda-9d29-d756844507fc"),
+        ClientHumanID: provesdkservergo.Pointer("aad25769-23bb-458c-80db-50296a82c91b"),
+        ClientRequestID: provesdkservergo.Pointer("71010d88-d0e7-4a24-9297-d1be6fefde81"),
+        EmailAddress: provesdkservergo.Pointer("sbutrimovichb@who.int"),
+        FirstName: provesdkservergo.Pointer("Sheilakathryn"),
+        IPAddress: provesdkservergo.Pointer("192.168.1.1"),
+        LastName: provesdkservergo.Pointer("Butrimovich"),
         PhoneNumber: "2001004011",
-        PossessionType: "mobile",
-        SmsMessage: provesdkservergo.String("#### is your temporary code to continue your application. Caution: for your security, don't share this code with anyone."),
+        UserAgent: provesdkservergo.Pointer("Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0"),
+        VerificationType: "verificationType",
     })
     if err != nil {
         log.Fatal(err)
@@ -610,20 +615,20 @@ func main() {
 | sdkerrors.Error    | 500                | application/json   |
 | sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
 
-## V3VerifyStatusRequest
+## V3VerifyBatchRequest
 
-This endpoint allows you to perform the necessary checks for a Verified Users session.
+This endpoint allows you to batch verify and enroll users.
 
 ### Example Usage
 
-<!-- UsageSnippet language="go" operationID="V3VerifyStatusRequest" method="post" path="/v3/verify-status" -->
+<!-- UsageSnippet language="go" operationID="V3VerifyBatchRequest" method="post" path="/v3/verify/batch" -->
 ```go
 package main
 
 import(
 	"context"
-	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
 	"github.com/prove-identity/prove-sdk-server-go/models/components"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
 	"log"
 )
 
@@ -632,19 +637,42 @@ func main() {
 
     s := provesdkservergo.New(
         provesdkservergo.WithSecurity(components.Security{
-            ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
-            ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+            ClientID: provesdkservergo.Pointer("<YOUR_CLIENT_ID_HERE>"),
+            ClientSecret: provesdkservergo.Pointer("<YOUR_CLIENT_SECRET_HERE>"),
         }),
     )
 
-    res, err := s.V3.V3VerifyStatusRequest(ctx, &components.V3VerifyStatusRequest{
-        ClientRequestID: provesdkservergo.String("71010d88-d0e7-4a24-9297-d1be6fefde81"),
-        CorrelationID: provesdkservergo.String("713189b8-5555-4b08-83ba-75d08780aebd"),
+    res, err := s.V3.V3VerifyBatchRequest(ctx, &components.V3VerifyBatchRequest{
+        ClientRequestID: provesdkservergo.Pointer("clientRequestId"),
+        Items: []components.VerifyItem{
+            components.VerifyItem{
+                ClientCustomerID: provesdkservergo.Pointer("e0f78bc2-f748-4eda-9d29-d756844507fc"),
+                ClientHumanID: provesdkservergo.Pointer("clientHumanId"),
+                EmailAddress: provesdkservergo.Pointer("sbutrimovichb@who.int"),
+                FirstName: "Sheilakathryn",
+                IPAddress: provesdkservergo.Pointer("192.168.1.1"),
+                LastName: "Butrimovich",
+                PhoneNumber: "2001004011",
+                UserAgent: provesdkservergo.Pointer("Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0"),
+                VerificationType: provesdkservergo.Pointer("verificationType"),
+            },
+            components.VerifyItem{
+                ClientCustomerID: provesdkservergo.Pointer("e0f78bc2-f748-4eda-9d29-d756844507fc"),
+                ClientHumanID: provesdkservergo.Pointer("clientHumanId"),
+                EmailAddress: provesdkservergo.Pointer("sbutrimovichb@who.int"),
+                FirstName: "Sheilakathryn",
+                IPAddress: provesdkservergo.Pointer("192.168.1.1"),
+                LastName: "Butrimovich",
+                PhoneNumber: "2001004011",
+                UserAgent: provesdkservergo.Pointer("Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0"),
+                VerificationType: provesdkservergo.Pointer("verificationType"),
+            },
+        },
     })
     if err != nil {
         log.Fatal(err)
     }
-    if res.V3VerifyStatusResponse != nil {
+    if res.V3VerifyBatchResponse != nil {
         // handle response
     }
 }
@@ -652,15 +680,15 @@ func main() {
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
-| `request`                                                                            | [components.V3VerifyStatusRequest](../../models/components/v3verifystatusrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `opts`                                                                               | [][operations.Option](../../models/operations/option.md)                             | :heavy_minus_sign:                                                                   | The options for this request.                                                        |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `ctx`                                                                              | [context.Context](https://pkg.go.dev/context#Context)                              | :heavy_check_mark:                                                                 | The context to use for the request.                                                |
+| `request`                                                                          | [components.V3VerifyBatchRequest](../../models/components/v3verifybatchrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| `opts`                                                                             | [][operations.Option](../../models/operations/option.md)                           | :heavy_minus_sign:                                                                 | The options for this request.                                                      |
 
 ### Response
 
-**[*operations.V3VerifyStatusRequestResponse](../../models/operations/v3verifystatusrequestresponse.md), error**
+**[*operations.V3VerifyBatchRequestResponse](../../models/operations/v3verifybatchrequestresponse.md), error**
 
 ### Errors
 

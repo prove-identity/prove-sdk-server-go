@@ -8,9 +8,9 @@ type V3DeactivateIdentityResponse struct {
 	Success bool `json:"success"`
 }
 
-func (o *V3DeactivateIdentityResponse) GetSuccess() bool {
-	if o == nil {
+func (v *V3DeactivateIdentityResponse) GetSuccess() bool {
+	if v == nil {
 		return false
 	}
-	return o.Success
+	return v.Success
 }

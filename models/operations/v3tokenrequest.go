@@ -12,16 +12,16 @@ type V3TokenRequestResponse struct {
 	V3TokenResponse *components.V3TokenResponse
 }
 
-func (o *V3TokenRequestResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (v *V3TokenRequestResponse) GetHTTPMeta() components.HTTPMetadata {
+	if v == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return v.HTTPMeta
 }
 
-func (o *V3TokenRequestResponse) GetV3TokenResponse() *components.V3TokenResponse {
-	if o == nil {
+func (v *V3TokenRequestResponse) GetV3TokenResponse() *components.V3TokenResponse {
+	if v == nil {
 		return nil
 	}
-	return o.V3TokenResponse
+	return v.V3TokenResponse
 }

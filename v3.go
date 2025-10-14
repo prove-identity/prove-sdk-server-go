@@ -2683,9 +2683,9 @@ func (s *V3) V3VerifyRequest(ctx context.Context, request *components.V3VerifyRe
 
 }
 
-// V3VerifyStatusRequest - Check Verification Result
-// This endpoint allows you to perform the necessary checks for a Verified Users session.
-func (s *V3) V3VerifyStatusRequest(ctx context.Context, request *components.V3VerifyStatusRequest, opts ...operations.Option) (*operations.V3VerifyStatusRequestResponse, error) {
+// V3VerifyBatchRequest - Batch Verify Users
+// This endpoint allows you to batch verify and enroll users.
+func (s *V3) V3VerifyBatchRequest(ctx context.Context, request *components.V3VerifyBatchRequest, opts ...operations.Option) (*operations.V3VerifyBatchRequestResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
 		operations.SupportedOptionRetries,
@@ -2704,7 +2704,7 @@ func (s *V3) V3VerifyStatusRequest(ctx context.Context, request *components.V3Ve
 	} else {
 		baseURL = *o.ServerURL
 	}
-	opURL, err := url.JoinPath(baseURL, "/v3/verify-status")
+	opURL, err := url.JoinPath(baseURL, "/v3/verify/batch")
 	if err != nil {
 		return nil, fmt.Errorf("error generating URL: %w", err)
 	}
@@ -2714,7 +2714,7 @@ func (s *V3) V3VerifyStatusRequest(ctx context.Context, request *components.V3Ve
 		SDKConfiguration: s.sdkConfiguration,
 		BaseURL:          baseURL,
 		Context:          ctx,
-		OperationID:      "V3VerifyStatusRequest",
+		OperationID:      "V3VerifyBatchRequest",
 		OAuth2Scopes:     []string{},
 		SecuritySource:   s.sdkConfiguration.Security,
 	}
@@ -2843,7 +2843,7 @@ func (s *V3) V3VerifyStatusRequest(ctx context.Context, request *components.V3Ve
 		}
 	}
 
-	res := &operations.V3VerifyStatusRequestResponse{
+	res := &operations.V3VerifyBatchRequestResponse{
 		HTTPMeta: components.HTTPMetadata{
 			Request:  req,
 			Response: httpRes,
@@ -2852,8 +2852,6 @@ func (s *V3) V3VerifyStatusRequest(ctx context.Context, request *components.V3Ve
 
 	switch {
 	case httpRes.StatusCode == 200:
-		res.Headers = httpRes.Header
-
 		switch {
 		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/json`):
 			rawBody, err := utils.ConsumeRawBody(httpRes)
@@ -2861,12 +2859,12 @@ func (s *V3) V3VerifyStatusRequest(ctx context.Context, request *components.V3Ve
 				return nil, err
 			}
 
-			var out components.V3VerifyStatusResponse
+			var out components.V3VerifyBatchResponse
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
 
-			res.V3VerifyStatusResponse = &out
+			res.V3VerifyBatchResponse = &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {

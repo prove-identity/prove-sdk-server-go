@@ -15,37 +15,37 @@ type V3CompleteAddressEntryRequest struct {
 	Region *string `json:"region,omitempty"`
 }
 
-func (o *V3CompleteAddressEntryRequest) GetAddress() *string {
-	if o == nil {
+func (v *V3CompleteAddressEntryRequest) GetAddress() *string {
+	if v == nil {
 		return nil
 	}
-	return o.Address
+	return v.Address
 }
 
-func (o *V3CompleteAddressEntryRequest) GetCity() *string {
-	if o == nil {
+func (v *V3CompleteAddressEntryRequest) GetCity() *string {
+	if v == nil {
 		return nil
 	}
-	return o.City
+	return v.City
 }
 
-func (o *V3CompleteAddressEntryRequest) GetExtendedAddress() *string {
-	if o == nil {
+func (v *V3CompleteAddressEntryRequest) GetExtendedAddress() *string {
+	if v == nil {
 		return nil
 	}
-	return o.ExtendedAddress
+	return v.ExtendedAddress
 }
 
-func (o *V3CompleteAddressEntryRequest) GetPostalCode() *string {
-	if o == nil {
+func (v *V3CompleteAddressEntryRequest) GetPostalCode() *string {
+	if v == nil {
 		return nil
 	}
-	return o.PostalCode
+	return v.PostalCode
 }
 
-func (o *V3CompleteAddressEntryRequest) GetRegion() *string {
-	if o == nil {
+func (v *V3CompleteAddressEntryRequest) GetRegion() *string {
+	if v == nil {
 		return nil
 	}
-	return o.Region
+	return v.Region
 }

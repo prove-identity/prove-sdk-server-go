@@ -7,16 +7,16 @@ type KYCInternal struct {
 	TotalHits    *int64                        `json:"totalHits,omitempty"`
 }
 
-func (o *KYCInternal) GetAmlTypeLists() []AmlTypeListResponseInternal {
-	if o == nil {
+func (k *KYCInternal) GetAmlTypeLists() []AmlTypeListResponseInternal {
+	if k == nil {
 		return nil
 	}
-	return o.AmlTypeLists
+	return k.AmlTypeLists
 }
 
-func (o *KYCInternal) GetTotalHits() *int64 {
-	if o == nil {
+func (k *KYCInternal) GetTotalHits() *int64 {
+	if k == nil {
 		return nil
 	}
-	return o.TotalHits
+	return k.TotalHits
 }

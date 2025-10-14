@@ -12,16 +12,16 @@ type V3StartRequestResponse struct {
 	V3StartResponse *components.V3StartResponse
 }
 
-func (o *V3StartRequestResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (v *V3StartRequestResponse) GetHTTPMeta() components.HTTPMetadata {
+	if v == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return v.HTTPMeta
 }
 
-func (o *V3StartRequestResponse) GetV3StartResponse() *components.V3StartResponse {
-	if o == nil {
+func (v *V3StartRequestResponse) GetV3StartResponse() *components.V3StartResponse {
+	if v == nil {
 		return nil
 	}
-	return o.V3StartResponse
+	return v.V3StartResponse
 }

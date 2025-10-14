@@ -26,72 +26,72 @@ type LookupIdentityItem struct {
 	PhoneNumber string `json:"phoneNumber"`
 }
 
-func (o *LookupIdentityItem) GetActive() *bool {
-	if o == nil {
+func (l *LookupIdentityItem) GetActive() *bool {
+	if l == nil {
 		return nil
 	}
-	return o.Active
+	return l.Active
 }
 
-func (o *LookupIdentityItem) GetCarrier() *string {
-	if o == nil {
+func (l *LookupIdentityItem) GetCarrier() *string {
+	if l == nil {
 		return nil
 	}
-	return o.Carrier
+	return l.Carrier
 }
 
-func (o *LookupIdentityItem) GetClientCustomerID() *string {
-	if o == nil {
+func (l *LookupIdentityItem) GetClientCustomerID() *string {
+	if l == nil {
 		return nil
 	}
-	return o.ClientCustomerID
+	return l.ClientCustomerID
 }
 
-func (o *LookupIdentityItem) GetCountryCode() *string {
-	if o == nil {
+func (l *LookupIdentityItem) GetCountryCode() *string {
+	if l == nil {
 		return nil
 	}
-	return o.CountryCode
+	return l.CountryCode
 }
 
-func (o *LookupIdentityItem) GetCreatedAt() *int64 {
-	if o == nil {
+func (l *LookupIdentityItem) GetCreatedAt() *int64 {
+	if l == nil {
 		return nil
 	}
-	return o.CreatedAt
+	return l.CreatedAt
 }
 
-func (o *LookupIdentityItem) GetCreationString() *string {
-	if o == nil {
+func (l *LookupIdentityItem) GetCreationString() *string {
+	if l == nil {
 		return nil
 	}
-	return o.CreationString
+	return l.CreationString
 }
 
-func (o *LookupIdentityItem) GetDeviceID() *string {
-	if o == nil {
+func (l *LookupIdentityItem) GetDeviceID() *string {
+	if l == nil {
 		return nil
 	}
-	return o.DeviceID
+	return l.DeviceID
 }
 
-func (o *LookupIdentityItem) GetIdentityID() *string {
-	if o == nil {
+func (l *LookupIdentityItem) GetIdentityID() *string {
+	if l == nil {
 		return nil
 	}
-	return o.IdentityID
+	return l.IdentityID
 }
 
-func (o *LookupIdentityItem) GetLineType() *string {
-	if o == nil {
+func (l *LookupIdentityItem) GetLineType() *string {
+	if l == nil {
 		return nil
 	}
-	return o.LineType
+	return l.LineType
 }
 
-func (o *LookupIdentityItem) GetPhoneNumber() string {
-	if o == nil {
+func (l *LookupIdentityItem) GetPhoneNumber() string {
+	if l == nil {
 		return ""
 	}
-	return o.PhoneNumber
+	return l.PhoneNumber
 }

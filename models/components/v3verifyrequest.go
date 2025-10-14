@@ -3,97 +3,94 @@
 package components
 
 type V3VerifyRequest struct {
-	// If true, the customer can re-enter the OTP up to three times. Code must also be implemented. See client-side SDK guide for more details.
-	AllowOTPRetry *bool `json:"allowOTPRetry,omitempty"`
 	// A client-generated unique ID for a specific customer. This can be used by clients to link calls related to the same customer, across different requests or sessions.  The format of this ID is defined by the client - Prove recommends using a GUID, but any format can be accepted. Prove does not offer any functionality around the Client Customer ID. Do not include personally identifiable information (PII) in this field.
 	ClientCustomerID *string `json:"clientCustomerId,omitempty"`
+	// An optional client-generated unique ID our Enterprise customer inputs for that consumer across business lines. If the Enterprise customer has been able to identify a consumer across business lines and has a unique identifier for the consumer, they would input this value to Prove.The format of this ID is defined by the client - Prove recommends using a GUID, but any format can be accepted. Do not include personally identifiable information (PII) in this field.
+	ClientHumanID *string `json:"clientHumanId,omitempty"`
 	// A client-generated unique ID for a specific session. This can be used to identify specific requests. The format of this ID is defined by the client - Prove recommends using a GUID, but any format can be accepted. Do not include Personally Identifiable Information (PII) in this field.
 	ClientRequestID *string `json:"clientRequestId,omitempty"`
 	// The email address of the customer. Acceptable characters are: alphanumeric with symbols '@.+'.
 	EmailAddress *string `json:"emailAddress,omitempty"`
-	// The URL where the end user will be redirected at the end of the Instant Link flow. Required only when `flowType=desktop`. Acceptable characters are: alphanumeric with symbols '-._+=/:?'. Max length is 128 characters.
-	FinalTargetURL *string `json:"finalTargetUrl,omitempty"`
-	// The first name of the individual.
-	FirstName string `json:"firstName"`
-	// The last name of the individual.
-	LastName string `json:"lastName"`
+	// The first name of the individual. (required IF verificationType=VerifiedUser)
+	FirstName *string `json:"firstName,omitempty"`
+	// The IP address of the customer.
+	IPAddress *string `json:"ipAddress,omitempty"`
+	// The last name of the individual. (required IF verificationType=VerifiedUser)
+	LastName *string `json:"lastName,omitempty"`
 	// The mobile phone number. US phone numbers can be passed in with or without a leading `+1`. International phone numbers require a leading `+1`. Use the appropriate endpoint URL based on the region the number originates from. Acceptable characters are: alphanumeric with symbols '+'.
 	PhoneNumber string `json:"phoneNumber"`
-	// The type of device being used - either `desktop` if using a desktop, `mobile` for iOS/Android native apps and mobile web, or `none` if no possession check is required.
-	PossessionType string `json:"possessionType"`
-	// The message body sent in the Instant Link (`flowType=desktop`) or OTP (`flowType=mobile`) SMS message. If not provided, the following default messages will be used:
-	// Instant Link: "Complete your verification. If you did not make this request, do not click the link. ####" The verification URL replaces ####.
-	// OTP: "#### is your temporary code to continue your application. Caution: for your security, don't share this code with anyone." Use ####, #####, or ###### to generate 4-6 digit verification codes respectively.
-	// Default language is English. Max length is 160 characters. Non-ASCII characters are allowed.
-	SmsMessage *string `json:"smsMessage,omitempty"`
+	// The User agent of the customer.
+	UserAgent *string `json:"userAgent,omitempty"`
+	// The verification method based on the use case and authorization level.
+	VerificationType string `json:"verificationType"`
 }
 
-func (o *V3VerifyRequest) GetAllowOTPRetry() *bool {
-	if o == nil {
+func (v *V3VerifyRequest) GetClientCustomerID() *string {
+	if v == nil {
 		return nil
 	}
-	return o.AllowOTPRetry
+	return v.ClientCustomerID
 }
 
-func (o *V3VerifyRequest) GetClientCustomerID() *string {
-	if o == nil {
+func (v *V3VerifyRequest) GetClientHumanID() *string {
+	if v == nil {
 		return nil
 	}
-	return o.ClientCustomerID
+	return v.ClientHumanID
 }
 
-func (o *V3VerifyRequest) GetClientRequestID() *string {
-	if o == nil {
+func (v *V3VerifyRequest) GetClientRequestID() *string {
+	if v == nil {
 		return nil
 	}
-	return o.ClientRequestID
+	return v.ClientRequestID
 }
 
-func (o *V3VerifyRequest) GetEmailAddress() *string {
-	if o == nil {
+func (v *V3VerifyRequest) GetEmailAddress() *string {
+	if v == nil {
 		return nil
 	}
-	return o.EmailAddress
+	return v.EmailAddress
 }
 
-func (o *V3VerifyRequest) GetFinalTargetURL() *string {
-	if o == nil {
+func (v *V3VerifyRequest) GetFirstName() *string {
+	if v == nil {
 		return nil
 	}
-	return o.FinalTargetURL
+	return v.FirstName
 }
 
-func (o *V3VerifyRequest) GetFirstName() string {
-	if o == nil {
+func (v *V3VerifyRequest) GetIPAddress() *string {
+	if v == nil {
+		return nil
+	}
+	return v.IPAddress
+}
+
+func (v *V3VerifyRequest) GetLastName() *string {
+	if v == nil {
+		return nil
+	}
+	return v.LastName
+}
+
+func (v *V3VerifyRequest) GetPhoneNumber() string {
+	if v == nil {
 		return ""
 	}
-	return o.FirstName
+	return v.PhoneNumber
 }
 
-func (o *V3VerifyRequest) GetLastName() string {
-	if o == nil {
-		return ""
-	}
-	return o.LastName
-}
-
-func (o *V3VerifyRequest) GetPhoneNumber() string {
-	if o == nil {
-		return ""
-	}
-	return o.PhoneNumber
-}
-
-func (o *V3VerifyRequest) GetPossessionType() string {
-	if o == nil {
-		return ""
-	}
-	return o.PossessionType
-}
-
-func (o *V3VerifyRequest) GetSmsMessage() *string {
-	if o == nil {
+func (v *V3VerifyRequest) GetUserAgent() *string {
+	if v == nil {
 		return nil
 	}
-	return o.SmsMessage
+	return v.UserAgent
+}
+
+func (v *V3VerifyRequest) GetVerificationType() string {
+	if v == nil {
+		return ""
+	}
+	return v.VerificationType
 }

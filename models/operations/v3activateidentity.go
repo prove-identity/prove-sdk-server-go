@@ -12,18 +12,18 @@ type V3ActivateIdentityRequest struct {
 	V3ActivateIdentityRequest *components.V3ActivateIdentityRequest `request:"mediaType=application/json"`
 }
 
-func (o *V3ActivateIdentityRequest) GetIdentityID() string {
-	if o == nil {
+func (v *V3ActivateIdentityRequest) GetIdentityID() string {
+	if v == nil {
 		return ""
 	}
-	return o.IdentityID
+	return v.IdentityID
 }
 
-func (o *V3ActivateIdentityRequest) GetV3ActivateIdentityRequest() *components.V3ActivateIdentityRequest {
-	if o == nil {
+func (v *V3ActivateIdentityRequest) GetV3ActivateIdentityRequest() *components.V3ActivateIdentityRequest {
+	if v == nil {
 		return nil
 	}
-	return o.V3ActivateIdentityRequest
+	return v.V3ActivateIdentityRequest
 }
 
 type V3ActivateIdentityResponse struct {
@@ -32,16 +32,16 @@ type V3ActivateIdentityResponse struct {
 	V3ActivateIdentityResponse *components.V3ActivateIdentityResponse
 }
 
-func (o *V3ActivateIdentityResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (v *V3ActivateIdentityResponse) GetHTTPMeta() components.HTTPMetadata {
+	if v == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return v.HTTPMeta
 }
 
-func (o *V3ActivateIdentityResponse) GetV3ActivateIdentityResponse() *components.V3ActivateIdentityResponse {
-	if o == nil {
+func (v *V3ActivateIdentityResponse) GetV3ActivateIdentityResponse() *components.V3ActivateIdentityResponse {
+	if v == nil {
 		return nil
 	}
-	return o.V3ActivateIdentityResponse
+	return v.V3ActivateIdentityResponse
 }

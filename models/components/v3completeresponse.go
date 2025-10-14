@@ -16,37 +16,37 @@ type V3CompleteResponse struct {
 	Success bool `json:"success"`
 }
 
-func (o *V3CompleteResponse) GetEvaluation() map[string]V3CompleteResponseEvaluation {
-	if o == nil {
+func (v *V3CompleteResponse) GetEvaluation() map[string]V3CompleteResponseEvaluation {
+	if v == nil {
 		return nil
 	}
-	return o.Evaluation
+	return v.Evaluation
 }
 
-func (o *V3CompleteResponse) GetIdv() *IDVDataInternal {
-	if o == nil {
+func (v *V3CompleteResponse) GetIdv() *IDVDataInternal {
+	if v == nil {
 		return nil
 	}
-	return o.Idv
+	return v.Idv
 }
 
-func (o *V3CompleteResponse) GetKyc() *KYCInternal {
-	if o == nil {
+func (v *V3CompleteResponse) GetKyc() *KYCInternal {
+	if v == nil {
 		return nil
 	}
-	return o.Kyc
+	return v.Kyc
 }
 
-func (o *V3CompleteResponse) GetNext() map[string]string {
-	if o == nil {
+func (v *V3CompleteResponse) GetNext() map[string]string {
+	if v == nil {
 		return map[string]string{}
 	}
-	return o.Next
+	return v.Next
 }
 
-func (o *V3CompleteResponse) GetSuccess() bool {
-	if o == nil {
+func (v *V3CompleteResponse) GetSuccess() bool {
+	if v == nil {
 		return false
 	}
-	return o.Success
+	return v.Success
 }

@@ -10,16 +10,16 @@ type V3CrossDomainIdentityResponse struct {
 	Identites []IdentityItem `json:"identites"`
 }
 
-func (o *V3CrossDomainIdentityResponse) GetCount() int64 {
-	if o == nil {
+func (v *V3CrossDomainIdentityResponse) GetCount() int64 {
+	if v == nil {
 		return 0
 	}
-	return o.Count
+	return v.Count
 }
 
-func (o *V3CrossDomainIdentityResponse) GetIdentites() []IdentityItem {
-	if o == nil {
+func (v *V3CrossDomainIdentityResponse) GetIdentites() []IdentityItem {
+	if v == nil {
 		return []IdentityItem{}
 	}
-	return o.Identites
+	return v.Identites
 }

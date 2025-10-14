@@ -6,9 +6,9 @@ type DataSourceEmailAddressResponseInternal struct {
 	EmailAddress *bool `json:"emailAddress,omitempty"`
 }
 
-func (o *DataSourceEmailAddressResponseInternal) GetEmailAddress() *bool {
-	if o == nil {
+func (d *DataSourceEmailAddressResponseInternal) GetEmailAddress() *bool {
+	if d == nil {
 		return nil
 	}
-	return o.EmailAddress
+	return d.EmailAddress
 }

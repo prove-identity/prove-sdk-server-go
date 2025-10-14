@@ -11,23 +11,23 @@ type IdentityItem struct {
 	Pcid string `json:"pcid"`
 }
 
-func (o *IdentityItem) GetClientName() string {
-	if o == nil {
+func (i *IdentityItem) GetClientName() string {
+	if i == nil {
 		return ""
 	}
-	return o.ClientName
+	return i.ClientName
 }
 
-func (o *IdentityItem) GetIdentityID() string {
-	if o == nil {
+func (i *IdentityItem) GetIdentityID() string {
+	if i == nil {
 		return ""
 	}
-	return o.IdentityID
+	return i.IdentityID
 }
 
-func (o *IdentityItem) GetPcid() string {
-	if o == nil {
+func (i *IdentityItem) GetPcid() string {
+	if i == nil {
 		return ""
 	}
-	return o.Pcid
+	return i.Pcid
 }

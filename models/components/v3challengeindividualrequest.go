@@ -17,44 +17,44 @@ type V3ChallengeIndividualRequest struct {
 	Ssn *string `json:"ssn,omitempty"`
 }
 
-func (o *V3ChallengeIndividualRequest) GetAddresses() []V3ChallengeAddressEntryRequest {
-	if o == nil {
+func (v *V3ChallengeIndividualRequest) GetAddresses() []V3ChallengeAddressEntryRequest {
+	if v == nil {
 		return nil
 	}
-	return o.Addresses
+	return v.Addresses
 }
 
-func (o *V3ChallengeIndividualRequest) GetDob() *string {
-	if o == nil {
+func (v *V3ChallengeIndividualRequest) GetDob() *string {
+	if v == nil {
 		return nil
 	}
-	return o.Dob
+	return v.Dob
 }
 
-func (o *V3ChallengeIndividualRequest) GetEmailAddresses() []string {
-	if o == nil {
+func (v *V3ChallengeIndividualRequest) GetEmailAddresses() []string {
+	if v == nil {
 		return nil
 	}
-	return o.EmailAddresses
+	return v.EmailAddresses
 }
 
-func (o *V3ChallengeIndividualRequest) GetFirstName() *string {
-	if o == nil {
+func (v *V3ChallengeIndividualRequest) GetFirstName() *string {
+	if v == nil {
 		return nil
 	}
-	return o.FirstName
+	return v.FirstName
 }
 
-func (o *V3ChallengeIndividualRequest) GetLastName() *string {
-	if o == nil {
+func (v *V3ChallengeIndividualRequest) GetLastName() *string {
+	if v == nil {
 		return nil
 	}
-	return o.LastName
+	return v.LastName
 }
 
-func (o *V3ChallengeIndividualRequest) GetSsn() *string {
-	if o == nil {
+func (v *V3ChallengeIndividualRequest) GetSsn() *string {
+	if v == nil {
 		return nil
 	}
-	return o.Ssn
+	return v.Ssn
 }

@@ -8,9 +8,9 @@ type V3IdentityDeactivateRequest struct {
 	ClientRequestID *string `json:"clientRequestId,omitempty"`
 }
 
-func (o *V3IdentityDeactivateRequest) GetClientRequestID() *string {
-	if o == nil {
+func (v *V3IdentityDeactivateRequest) GetClientRequestID() *string {
+	if v == nil {
 		return nil
 	}
-	return o.ClientRequestID
+	return v.ClientRequestID
 }

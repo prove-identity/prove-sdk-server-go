@@ -7,9 +7,9 @@ type V3GetIdentitiesByPhoneNumberResponse struct {
 	Items []LookupIdentityItem `json:"items,omitempty"`
 }
 
-func (o *V3GetIdentitiesByPhoneNumberResponse) GetItems() []LookupIdentityItem {
-	if o == nil {
+func (v *V3GetIdentitiesByPhoneNumberResponse) GetItems() []LookupIdentityItem {
+	if v == nil {
 		return nil
 	}
-	return o.Items
+	return v.Items
 }

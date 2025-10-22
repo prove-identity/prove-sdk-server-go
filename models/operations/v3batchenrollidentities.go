@@ -12,16 +12,16 @@ type V3BatchEnrollIdentitiesResponse struct {
 	V3BatchEnrollIdentitiesResponse *components.V3BatchEnrollIdentitiesResponse
 }
 
-func (o *V3BatchEnrollIdentitiesResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (v *V3BatchEnrollIdentitiesResponse) GetHTTPMeta() components.HTTPMetadata {
+	if v == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return v.HTTPMeta
 }
 
-func (o *V3BatchEnrollIdentitiesResponse) GetV3BatchEnrollIdentitiesResponse() *components.V3BatchEnrollIdentitiesResponse {
-	if o == nil {
+func (v *V3BatchEnrollIdentitiesResponse) GetV3BatchEnrollIdentitiesResponse() *components.V3BatchEnrollIdentitiesResponse {
+	if v == nil {
 		return nil
 	}
-	return o.V3BatchEnrollIdentitiesResponse
+	return v.V3BatchEnrollIdentitiesResponse
 }

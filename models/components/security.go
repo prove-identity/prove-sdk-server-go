@@ -23,23 +23,23 @@ func (s *Security) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func (o *Security) GetClientID() *string {
-	if o == nil {
+func (s *Security) GetClientID() *string {
+	if s == nil {
 		return nil
 	}
-	return o.ClientID
+	return s.ClientID
 }
 
-func (o *Security) GetClientSecret() *string {
-	if o == nil {
+func (s *Security) GetClientSecret() *string {
+	if s == nil {
 		return nil
 	}
-	return o.ClientSecret
+	return s.ClientSecret
 }
 
-func (o *Security) GetTokenURL() *string {
-	if o == nil {
+func (s *Security) GetTokenURL() *string {
+	if s == nil {
 		return nil
 	}
-	return o.TokenURL
+	return s.TokenURL
 }

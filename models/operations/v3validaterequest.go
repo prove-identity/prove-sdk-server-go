@@ -12,16 +12,16 @@ type V3ValidateRequestResponse struct {
 	V3ValidateResponse *components.V3ValidateResponse
 }
 
-func (o *V3ValidateRequestResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (v *V3ValidateRequestResponse) GetHTTPMeta() components.HTTPMetadata {
+	if v == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return v.HTTPMeta
 }
 
-func (o *V3ValidateRequestResponse) GetV3ValidateResponse() *components.V3ValidateResponse {
-	if o == nil {
+func (v *V3ValidateRequestResponse) GetV3ValidateResponse() *components.V3ValidateResponse {
+	if v == nil {
 		return nil
 	}
-	return o.V3ValidateResponse
+	return v.V3ValidateResponse
 }

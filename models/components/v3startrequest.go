@@ -33,65 +33,65 @@ type V3StartRequest struct {
 	Ssn *string `json:"ssn,omitempty"`
 }
 
-func (o *V3StartRequest) GetAllowOTPRetry() *bool {
-	if o == nil {
+func (v *V3StartRequest) GetAllowOTPRetry() *bool {
+	if v == nil {
 		return nil
 	}
-	return o.AllowOTPRetry
+	return v.AllowOTPRetry
 }
 
-func (o *V3StartRequest) GetDob() *string {
-	if o == nil {
+func (v *V3StartRequest) GetDob() *string {
+	if v == nil {
 		return nil
 	}
-	return o.Dob
+	return v.Dob
 }
 
-func (o *V3StartRequest) GetEmailAddress() *string {
-	if o == nil {
+func (v *V3StartRequest) GetEmailAddress() *string {
+	if v == nil {
 		return nil
 	}
-	return o.EmailAddress
+	return v.EmailAddress
 }
 
-func (o *V3StartRequest) GetFinalTargetURL() *string {
-	if o == nil {
+func (v *V3StartRequest) GetFinalTargetURL() *string {
+	if v == nil {
 		return nil
 	}
-	return o.FinalTargetURL
+	return v.FinalTargetURL
 }
 
-func (o *V3StartRequest) GetFlowType() string {
-	if o == nil {
+func (v *V3StartRequest) GetFlowType() string {
+	if v == nil {
 		return ""
 	}
-	return o.FlowType
+	return v.FlowType
 }
 
-func (o *V3StartRequest) GetIPAddress() *string {
-	if o == nil {
+func (v *V3StartRequest) GetIPAddress() *string {
+	if v == nil {
 		return nil
 	}
-	return o.IPAddress
+	return v.IPAddress
 }
 
-func (o *V3StartRequest) GetPhoneNumber() *string {
-	if o == nil {
+func (v *V3StartRequest) GetPhoneNumber() *string {
+	if v == nil {
 		return nil
 	}
-	return o.PhoneNumber
+	return v.PhoneNumber
 }
 
-func (o *V3StartRequest) GetSmsMessage() *string {
-	if o == nil {
+func (v *V3StartRequest) GetSmsMessage() *string {
+	if v == nil {
 		return nil
 	}
-	return o.SmsMessage
+	return v.SmsMessage
 }
 
-func (o *V3StartRequest) GetSsn() *string {
-	if o == nil {
+func (v *V3StartRequest) GetSsn() *string {
+	if v == nil {
 		return nil
 	}
-	return o.Ssn
+	return v.Ssn
 }

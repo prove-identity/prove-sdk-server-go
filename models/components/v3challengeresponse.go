@@ -6,7 +6,7 @@ type Evaluation struct {
 }
 
 type V3ChallengeResponse struct {
-	// The evaluation result for the policy
+	// The evaluation result for the policy. This is an upcoming field but is not yet enabled.
 	Evaluation map[string]Evaluation         `json:"evaluation,omitempty"`
 	Individual *V3ChallengeIndividualRequest `json:"individual,omitempty"`
 	// The next set of allowed calls in the same flow.
@@ -15,30 +15,30 @@ type V3ChallengeResponse struct {
 	Success bool `json:"success"`
 }
 
-func (o *V3ChallengeResponse) GetEvaluation() map[string]Evaluation {
-	if o == nil {
+func (v *V3ChallengeResponse) GetEvaluation() map[string]Evaluation {
+	if v == nil {
 		return nil
 	}
-	return o.Evaluation
+	return v.Evaluation
 }
 
-func (o *V3ChallengeResponse) GetIndividual() *V3ChallengeIndividualRequest {
-	if o == nil {
+func (v *V3ChallengeResponse) GetIndividual() *V3ChallengeIndividualRequest {
+	if v == nil {
 		return nil
 	}
-	return o.Individual
+	return v.Individual
 }
 
-func (o *V3ChallengeResponse) GetNext() map[string]string {
-	if o == nil {
+func (v *V3ChallengeResponse) GetNext() map[string]string {
+	if v == nil {
 		return map[string]string{}
 	}
-	return o.Next
+	return v.Next
 }
 
-func (o *V3ChallengeResponse) GetSuccess() bool {
-	if o == nil {
+func (v *V3ChallengeResponse) GetSuccess() bool {
+	if v == nil {
 		return false
 	}
-	return o.Success
+	return v.Success
 }

@@ -17,32 +17,32 @@ type V3BatchGetIdentitiesRequest struct {
 	ShowInactive *bool `queryParam:"style=form,explode=true,name=showInactive"`
 }
 
-func (o *V3BatchGetIdentitiesRequest) GetClientRequestID() *string {
-	if o == nil {
+func (v *V3BatchGetIdentitiesRequest) GetClientRequestID() *string {
+	if v == nil {
 		return nil
 	}
-	return o.ClientRequestID
+	return v.ClientRequestID
 }
 
-func (o *V3BatchGetIdentitiesRequest) GetLimit() *int64 {
-	if o == nil {
+func (v *V3BatchGetIdentitiesRequest) GetLimit() *int64 {
+	if v == nil {
 		return nil
 	}
-	return o.Limit
+	return v.Limit
 }
 
-func (o *V3BatchGetIdentitiesRequest) GetStartKey() *string {
-	if o == nil {
+func (v *V3BatchGetIdentitiesRequest) GetStartKey() *string {
+	if v == nil {
 		return nil
 	}
-	return o.StartKey
+	return v.StartKey
 }
 
-func (o *V3BatchGetIdentitiesRequest) GetShowInactive() *bool {
-	if o == nil {
+func (v *V3BatchGetIdentitiesRequest) GetShowInactive() *bool {
+	if v == nil {
 		return nil
 	}
-	return o.ShowInactive
+	return v.ShowInactive
 }
 
 type V3BatchGetIdentitiesResponse struct {
@@ -51,16 +51,16 @@ type V3BatchGetIdentitiesResponse struct {
 	V3BatchGetIdentitiesResponse *components.V3BatchGetIdentitiesResponse
 }
 
-func (o *V3BatchGetIdentitiesResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (v *V3BatchGetIdentitiesResponse) GetHTTPMeta() components.HTTPMetadata {
+	if v == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return v.HTTPMeta
 }
 
-func (o *V3BatchGetIdentitiesResponse) GetV3BatchGetIdentitiesResponse() *components.V3BatchGetIdentitiesResponse {
-	if o == nil {
+func (v *V3BatchGetIdentitiesResponse) GetV3BatchGetIdentitiesResponse() *components.V3BatchGetIdentitiesResponse {
+	if v == nil {
 		return nil
 	}
-	return o.V3BatchGetIdentitiesResponse
+	return v.V3BatchGetIdentitiesResponse
 }

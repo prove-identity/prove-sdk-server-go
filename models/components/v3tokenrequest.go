@@ -11,23 +11,23 @@ type V3TokenRequest struct {
 	GrantType string `form:"name=grant_type"`
 }
 
-func (o *V3TokenRequest) GetClientID() string {
-	if o == nil {
+func (v *V3TokenRequest) GetClientID() string {
+	if v == nil {
 		return ""
 	}
-	return o.ClientID
+	return v.ClientID
 }
 
-func (o *V3TokenRequest) GetClientSecret() string {
-	if o == nil {
+func (v *V3TokenRequest) GetClientSecret() string {
+	if v == nil {
 		return ""
 	}
-	return o.ClientSecret
+	return v.ClientSecret
 }
 
-func (o *V3TokenRequest) GetGrantType() string {
-	if o == nil {
+func (v *V3TokenRequest) GetGrantType() string {
+	if v == nil {
 		return ""
 	}
-	return o.GrantType
+	return v.GrantType
 }

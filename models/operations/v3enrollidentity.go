@@ -12,16 +12,16 @@ type V3EnrollIdentityResponse struct {
 	V3EnrollIdentityResponse *components.V3EnrollIdentityResponse
 }
 
-func (o *V3EnrollIdentityResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (v *V3EnrollIdentityResponse) GetHTTPMeta() components.HTTPMetadata {
+	if v == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return v.HTTPMeta
 }
 
-func (o *V3EnrollIdentityResponse) GetV3EnrollIdentityResponse() *components.V3EnrollIdentityResponse {
-	if o == nil {
+func (v *V3EnrollIdentityResponse) GetV3EnrollIdentityResponse() *components.V3EnrollIdentityResponse {
+	if v == nil {
 		return nil
 	}
-	return o.V3EnrollIdentityResponse
+	return v.V3EnrollIdentityResponse
 }

@@ -8,23 +8,23 @@ type DataSourceIdentifiersResponseInternal struct {
 	Ssn   *bool `json:"ssn,omitempty"`
 }
 
-func (o *DataSourceIdentifiersResponseInternal) GetDob() *bool {
-	if o == nil {
+func (d *DataSourceIdentifiersResponseInternal) GetDob() *bool {
+	if d == nil {
 		return nil
 	}
-	return o.Dob
+	return d.Dob
 }
 
-func (o *DataSourceIdentifiersResponseInternal) GetLast4() *bool {
-	if o == nil {
+func (d *DataSourceIdentifiersResponseInternal) GetLast4() *bool {
+	if d == nil {
 		return nil
 	}
-	return o.Last4
+	return d.Last4
 }
 
-func (o *DataSourceIdentifiersResponseInternal) GetSsn() *bool {
-	if o == nil {
+func (d *DataSourceIdentifiersResponseInternal) GetSsn() *bool {
+	if d == nil {
 		return nil
 	}
-	return o.Ssn
+	return d.Ssn
 }

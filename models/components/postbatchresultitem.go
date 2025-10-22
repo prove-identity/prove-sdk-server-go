@@ -10,16 +10,16 @@ type PostBatchResultItem struct {
 	IdentityID *string `json:"identityId,omitempty"`
 }
 
-func (o *PostBatchResultItem) GetError() *string {
-	if o == nil {
+func (p *PostBatchResultItem) GetError() *string {
+	if p == nil {
 		return nil
 	}
-	return o.Error
+	return p.Error
 }
 
-func (o *PostBatchResultItem) GetIdentityID() *string {
-	if o == nil {
+func (p *PostBatchResultItem) GetIdentityID() *string {
+	if p == nil {
 		return nil
 	}
-	return o.IdentityID
+	return p.IdentityID
 }

@@ -9,30 +9,30 @@ type RequestsFrom struct {
 	RequestedString *string `json:"requestedString,omitempty"`
 }
 
-func (o *RequestsFrom) GetName() *string {
-	if o == nil {
+func (r *RequestsFrom) GetName() *string {
+	if r == nil {
 		return nil
 	}
-	return o.Name
+	return r.Name
 }
 
-func (o *RequestsFrom) GetPcid() *string {
-	if o == nil {
+func (r *RequestsFrom) GetPcid() *string {
+	if r == nil {
 		return nil
 	}
-	return o.Pcid
+	return r.Pcid
 }
 
-func (o *RequestsFrom) GetRequestedAt() *int64 {
-	if o == nil {
+func (r *RequestsFrom) GetRequestedAt() *int64 {
+	if r == nil {
 		return nil
 	}
-	return o.RequestedAt
+	return r.RequestedAt
 }
 
-func (o *RequestsFrom) GetRequestedString() *string {
-	if o == nil {
+func (r *RequestsFrom) GetRequestedString() *string {
+	if r == nil {
 		return nil
 	}
-	return o.RequestedString
+	return r.RequestedString
 }

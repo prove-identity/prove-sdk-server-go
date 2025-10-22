@@ -9,30 +9,30 @@ type LinkedFrom struct {
 	Pcid           *string `json:"pcid,omitempty"`
 }
 
-func (o *LinkedFrom) GetAcceptedAt() *int64 {
-	if o == nil {
+func (l *LinkedFrom) GetAcceptedAt() *int64 {
+	if l == nil {
 		return nil
 	}
-	return o.AcceptedAt
+	return l.AcceptedAt
 }
 
-func (o *LinkedFrom) GetAcceptedString() *string {
-	if o == nil {
+func (l *LinkedFrom) GetAcceptedString() *string {
+	if l == nil {
 		return nil
 	}
-	return o.AcceptedString
+	return l.AcceptedString
 }
 
-func (o *LinkedFrom) GetName() *string {
-	if o == nil {
+func (l *LinkedFrom) GetName() *string {
+	if l == nil {
 		return nil
 	}
-	return o.Name
+	return l.Name
 }
 
-func (o *LinkedFrom) GetPcid() *string {
-	if o == nil {
+func (l *LinkedFrom) GetPcid() *string {
+	if l == nil {
 		return nil
 	}
-	return o.Pcid
+	return l.Pcid
 }

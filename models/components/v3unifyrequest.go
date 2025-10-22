@@ -9,18 +9,33 @@ type V3UnifyRequest struct {
 	CheckReputation *bool `json:"checkReputation,omitempty"`
 	// A client-generated unique ID for a specific customer.
 	ClientCustomerID *string `json:"clientCustomerId,omitempty"`
-	// A client-generated unique ID for a specific session. This can be used to identify specific requests. The format of this ID is defined by the client - Prove recommends using a GUID, but any format can be accepted. Do not include Personally Identifiable Information (PII) in this field.
-	ClientRequestID *string `json:"clientRequestId,omitempty"`
+	// A client-generated unique ID to identify a specific customer across business lines.
+	ClientHumanID *string `json:"clientHumanId,omitempty"`
+	// A client-generated unique ID for a specific session. This can be used to identify specific requests.
+	// The format of this ID is defined by the client - Prove recommends using a GUID, but any format can be accepted.
+	// Do not include Personally Identifiable Information (PII) in this field.
+	ClientRequestID string `json:"clientRequestId"`
+	// The unique identifier for the Prove Key on the device.
+	DeviceID *string `json:"deviceId,omitempty"`
+	// The email address of the customer. Acceptable characters are: alphanumeric with symbols '@.+'.
+	EmailAddress *string `json:"emailAddress,omitempty"`
 	// The URL where the end user will be redirected at the end of Instant Link flow. Required when `possessionType=desktop`.
 	// Acceptable characters are: alphanumeric with symbols '-._+=/:?'. Max length is 128 characters.
 	FinalTargetURL *string `json:"finalTargetUrl,omitempty"`
+	// The IP address of the customer. Acceptable characters are: Alphanumeric with '.:' symbols.
+	IPAddress *string `json:"ipAddress,omitempty"`
 	// The mobile phone number. US phone numbers can be passed in with or without a leading `+1`. International phone numbers require a leading `+1`. Use the appropriate endpoint URL based on the region the number originates from. Acceptable characters are: alphanumeric with symbols '+'.
-	// Required unless Mobile Auth is enabled.
+	//
+	// Required except when MobileAuth is used in US or a valid ProveID is provided.
 	PhoneNumber *string `json:"phoneNumber,omitempty"`
 	// The type of device being used - either `desktop` if using a desktop,
 	// `mobile` for iOS/Android native apps and mobile web, or `none` if no possession
 	// check is required.
 	PossessionType string `json:"possessionType"`
+	// A unique ID to identify a specific customer obtained from a previous successful authentication.
+	//
+	// Required if phoneNumber is not present and mobileAuth is not enabled in the US or phoneNumber is not present in the EU.
+	ProveID *string `json:"proveId,omitempty"`
 	// If `true`, rebinds the Prove Key with the newly verified phone number.
 	Rebind *bool `json:"rebind,omitempty"`
 	// The message body sent in the Instant Link (`flowType=desktop`) or OTP (`flowType=mobile`) SMS message. If not provided, the following default messages will be used:
@@ -30,65 +45,100 @@ type V3UnifyRequest struct {
 	SmsMessage *string `json:"smsMessage,omitempty"`
 }
 
-func (o *V3UnifyRequest) GetAllowOTPRetry() *bool {
-	if o == nil {
+func (v *V3UnifyRequest) GetAllowOTPRetry() *bool {
+	if v == nil {
 		return nil
 	}
-	return o.AllowOTPRetry
+	return v.AllowOTPRetry
 }
 
-func (o *V3UnifyRequest) GetCheckReputation() *bool {
-	if o == nil {
+func (v *V3UnifyRequest) GetCheckReputation() *bool {
+	if v == nil {
 		return nil
 	}
-	return o.CheckReputation
+	return v.CheckReputation
 }
 
-func (o *V3UnifyRequest) GetClientCustomerID() *string {
-	if o == nil {
+func (v *V3UnifyRequest) GetClientCustomerID() *string {
+	if v == nil {
 		return nil
 	}
-	return o.ClientCustomerID
+	return v.ClientCustomerID
 }
 
-func (o *V3UnifyRequest) GetClientRequestID() *string {
-	if o == nil {
+func (v *V3UnifyRequest) GetClientHumanID() *string {
+	if v == nil {
 		return nil
 	}
-	return o.ClientRequestID
+	return v.ClientHumanID
 }
 
-func (o *V3UnifyRequest) GetFinalTargetURL() *string {
-	if o == nil {
-		return nil
-	}
-	return o.FinalTargetURL
-}
-
-func (o *V3UnifyRequest) GetPhoneNumber() *string {
-	if o == nil {
-		return nil
-	}
-	return o.PhoneNumber
-}
-
-func (o *V3UnifyRequest) GetPossessionType() string {
-	if o == nil {
+func (v *V3UnifyRequest) GetClientRequestID() string {
+	if v == nil {
 		return ""
 	}
-	return o.PossessionType
+	return v.ClientRequestID
 }
 
-func (o *V3UnifyRequest) GetRebind() *bool {
-	if o == nil {
+func (v *V3UnifyRequest) GetDeviceID() *string {
+	if v == nil {
 		return nil
 	}
-	return o.Rebind
+	return v.DeviceID
 }
 
-func (o *V3UnifyRequest) GetSmsMessage() *string {
-	if o == nil {
+func (v *V3UnifyRequest) GetEmailAddress() *string {
+	if v == nil {
 		return nil
 	}
-	return o.SmsMessage
+	return v.EmailAddress
+}
+
+func (v *V3UnifyRequest) GetFinalTargetURL() *string {
+	if v == nil {
+		return nil
+	}
+	return v.FinalTargetURL
+}
+
+func (v *V3UnifyRequest) GetIPAddress() *string {
+	if v == nil {
+		return nil
+	}
+	return v.IPAddress
+}
+
+func (v *V3UnifyRequest) GetPhoneNumber() *string {
+	if v == nil {
+		return nil
+	}
+	return v.PhoneNumber
+}
+
+func (v *V3UnifyRequest) GetPossessionType() string {
+	if v == nil {
+		return ""
+	}
+	return v.PossessionType
+}
+
+func (v *V3UnifyRequest) GetProveID() *string {
+	if v == nil {
+		return nil
+	}
+	return v.ProveID
+}
+
+func (v *V3UnifyRequest) GetRebind() *bool {
+	if v == nil {
+		return nil
+	}
+	return v.Rebind
+}
+
+func (v *V3UnifyRequest) GetSmsMessage() *string {
+	if v == nil {
+		return nil
+	}
+	return v.SmsMessage
 }

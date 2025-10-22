@@ -11,23 +11,23 @@ type V3StartResponse struct {
 	Next map[string]string `json:"next"`
 }
 
-func (o *V3StartResponse) GetAuthToken() string {
-	if o == nil {
+func (v *V3StartResponse) GetAuthToken() string {
+	if v == nil {
 		return ""
 	}
-	return o.AuthToken
+	return v.AuthToken
 }
 
-func (o *V3StartResponse) GetCorrelationID() string {
-	if o == nil {
+func (v *V3StartResponse) GetCorrelationID() string {
+	if v == nil {
 		return ""
 	}
-	return o.CorrelationID
+	return v.CorrelationID
 }
 
-func (o *V3StartResponse) GetNext() map[string]string {
-	if o == nil {
+func (v *V3StartResponse) GetNext() map[string]string {
+	if v == nil {
 		return map[string]string{}
 	}
-	return o.Next
+	return v.Next
 }

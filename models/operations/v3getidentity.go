@@ -13,18 +13,18 @@ type V3GetIdentityRequest struct {
 	ClientRequestID *string `queryParam:"style=form,explode=true,name=clientRequestId"`
 }
 
-func (o *V3GetIdentityRequest) GetIdentityID() string {
-	if o == nil {
+func (v *V3GetIdentityRequest) GetIdentityID() string {
+	if v == nil {
 		return ""
 	}
-	return o.IdentityID
+	return v.IdentityID
 }
 
-func (o *V3GetIdentityRequest) GetClientRequestID() *string {
-	if o == nil {
+func (v *V3GetIdentityRequest) GetClientRequestID() *string {
+	if v == nil {
 		return nil
 	}
-	return o.ClientRequestID
+	return v.ClientRequestID
 }
 
 type V3GetIdentityResponse struct {
@@ -33,16 +33,16 @@ type V3GetIdentityResponse struct {
 	V3GetIdentityResponse *components.V3GetIdentityResponse
 }
 
-func (o *V3GetIdentityResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (v *V3GetIdentityResponse) GetHTTPMeta() components.HTTPMetadata {
+	if v == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return v.HTTPMeta
 }
 
-func (o *V3GetIdentityResponse) GetV3GetIdentityResponse() *components.V3GetIdentityResponse {
-	if o == nil {
+func (v *V3GetIdentityResponse) GetV3GetIdentityResponse() *components.V3GetIdentityResponse {
+	if v == nil {
 		return nil
 	}
-	return o.V3GetIdentityResponse
+	return v.V3GetIdentityResponse
 }

@@ -12,23 +12,23 @@ type V3DomainIDRequestResponse struct {
 	Headers            map[string][]string
 }
 
-func (o *V3DomainIDRequestResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (v *V3DomainIDRequestResponse) GetHTTPMeta() components.HTTPMetadata {
+	if v == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return v.HTTPMeta
 }
 
-func (o *V3DomainIDRequestResponse) GetV3DomainIDResponse() *components.V3DomainIDResponse {
-	if o == nil {
+func (v *V3DomainIDRequestResponse) GetV3DomainIDResponse() *components.V3DomainIDResponse {
+	if v == nil {
 		return nil
 	}
-	return o.V3DomainIDResponse
+	return v.V3DomainIDResponse
 }
 
-func (o *V3DomainIDRequestResponse) GetHeaders() map[string][]string {
-	if o == nil {
+func (v *V3DomainIDRequestResponse) GetHeaders() map[string][]string {
+	if v == nil {
 		return map[string][]string{}
 	}
-	return o.Headers
+	return v.Headers
 }

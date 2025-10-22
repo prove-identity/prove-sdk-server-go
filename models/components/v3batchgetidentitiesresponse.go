@@ -10,16 +10,16 @@ type V3BatchGetIdentitiesResponse struct {
 	Results []GetBatchIdentityItem `json:"results"`
 }
 
-func (o *V3BatchGetIdentitiesResponse) GetLastKey() *string {
-	if o == nil {
+func (v *V3BatchGetIdentitiesResponse) GetLastKey() *string {
+	if v == nil {
 		return nil
 	}
-	return o.LastKey
+	return v.LastKey
 }
 
-func (o *V3BatchGetIdentitiesResponse) GetResults() []GetBatchIdentityItem {
-	if o == nil {
+func (v *V3BatchGetIdentitiesResponse) GetResults() []GetBatchIdentityItem {
+	if v == nil {
 		return []GetBatchIdentityItem{}
 	}
-	return o.Results
+	return v.Results
 }

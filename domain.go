@@ -228,7 +228,7 @@ func (s *Domain) V3DomainConfirmLinkRequest(ctx context.Context, request *compon
 				return nil, err
 			}
 
-			var out sdkerrors.Error
+			var out sdkerrors.Error400
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
@@ -520,7 +520,7 @@ func (s *Domain) V3DomainIDRequest(ctx context.Context, opts ...operations.Optio
 				return nil, err
 			}
 
-			var out sdkerrors.Error
+			var out sdkerrors.Error400
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
@@ -817,7 +817,7 @@ func (s *Domain) V3DomainLinkRequest(ctx context.Context, request *components.V3
 				return nil, err
 			}
 
-			var out sdkerrors.Error
+			var out sdkerrors.Error400
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
@@ -1109,7 +1109,7 @@ func (s *Domain) V3DomainLinkedRequest(ctx context.Context, opts ...operations.O
 				return nil, err
 			}
 
-			var out sdkerrors.Error
+			var out sdkerrors.Error400
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
@@ -1406,7 +1406,7 @@ func (s *Domain) V3DomainUnlinkRequest(ctx context.Context, request *components.
 				return nil, err
 			}
 
-			var out sdkerrors.Error
+			var out sdkerrors.Error400
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}

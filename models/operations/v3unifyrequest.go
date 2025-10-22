@@ -12,16 +12,16 @@ type V3UnifyRequestResponse struct {
 	V3UnifyResponse *components.V3UnifyResponse
 }
 
-func (o *V3UnifyRequestResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (v *V3UnifyRequestResponse) GetHTTPMeta() components.HTTPMetadata {
+	if v == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return v.HTTPMeta
 }
 
-func (o *V3UnifyRequestResponse) GetV3UnifyResponse() *components.V3UnifyResponse {
-	if o == nil {
+func (v *V3UnifyRequestResponse) GetV3UnifyResponse() *components.V3UnifyResponse {
+	if v == nil {
 		return nil
 	}
-	return o.V3UnifyResponse
+	return v.V3UnifyResponse
 }

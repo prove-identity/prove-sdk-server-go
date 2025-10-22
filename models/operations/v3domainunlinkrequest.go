@@ -12,16 +12,16 @@ type V3DomainUnlinkRequestResponse struct {
 	V3DomainUnlinkResponse *components.V3DomainUnlinkResponse
 }
 
-func (o *V3DomainUnlinkRequestResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (v *V3DomainUnlinkRequestResponse) GetHTTPMeta() components.HTTPMetadata {
+	if v == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return v.HTTPMeta
 }
 
-func (o *V3DomainUnlinkRequestResponse) GetV3DomainUnlinkResponse() *components.V3DomainUnlinkResponse {
-	if o == nil {
+func (v *V3DomainUnlinkRequestResponse) GetV3DomainUnlinkResponse() *components.V3DomainUnlinkResponse {
+	if v == nil {
 		return nil
 	}
-	return o.V3DomainUnlinkResponse
+	return v.V3DomainUnlinkResponse
 }

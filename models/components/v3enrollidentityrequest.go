@@ -14,30 +14,30 @@ type V3EnrollIdentityRequest struct {
 	PhoneNumber string `json:"phoneNumber"`
 }
 
-func (o *V3EnrollIdentityRequest) GetClientCustomerID() *string {
-	if o == nil {
+func (v *V3EnrollIdentityRequest) GetClientCustomerID() *string {
+	if v == nil {
 		return nil
 	}
-	return o.ClientCustomerID
+	return v.ClientCustomerID
 }
 
-func (o *V3EnrollIdentityRequest) GetClientRequestID() *string {
-	if o == nil {
+func (v *V3EnrollIdentityRequest) GetClientRequestID() *string {
+	if v == nil {
 		return nil
 	}
-	return o.ClientRequestID
+	return v.ClientRequestID
 }
 
-func (o *V3EnrollIdentityRequest) GetDeviceID() *string {
-	if o == nil {
+func (v *V3EnrollIdentityRequest) GetDeviceID() *string {
+	if v == nil {
 		return nil
 	}
-	return o.DeviceID
+	return v.DeviceID
 }
 
-func (o *V3EnrollIdentityRequest) GetPhoneNumber() string {
-	if o == nil {
+func (v *V3EnrollIdentityRequest) GetPhoneNumber() string {
+	if v == nil {
 		return ""
 	}
-	return o.PhoneNumber
+	return v.PhoneNumber
 }

@@ -6,9 +6,9 @@ type V3DomainConfirmLinkRequest struct {
 	Pcid string `json:"pcid"`
 }
 
-func (o *V3DomainConfirmLinkRequest) GetPcid() string {
-	if o == nil {
+func (v *V3DomainConfirmLinkRequest) GetPcid() string {
+	if v == nil {
 		return ""
 	}
-	return o.Pcid
+	return v.Pcid
 }

@@ -9,30 +9,30 @@ type V3DomainLinkedResponse struct {
 	RequestsTo   []RequestsTo   `json:"requestsTo,omitempty"`
 }
 
-func (o *V3DomainLinkedResponse) GetLinkedFrom() []LinkedFrom {
-	if o == nil {
+func (v *V3DomainLinkedResponse) GetLinkedFrom() []LinkedFrom {
+	if v == nil {
 		return nil
 	}
-	return o.LinkedFrom
+	return v.LinkedFrom
 }
 
-func (o *V3DomainLinkedResponse) GetLinkedTo() []LinkedTo {
-	if o == nil {
+func (v *V3DomainLinkedResponse) GetLinkedTo() []LinkedTo {
+	if v == nil {
 		return nil
 	}
-	return o.LinkedTo
+	return v.LinkedTo
 }
 
-func (o *V3DomainLinkedResponse) GetRequestsFrom() []RequestsFrom {
-	if o == nil {
+func (v *V3DomainLinkedResponse) GetRequestsFrom() []RequestsFrom {
+	if v == nil {
 		return nil
 	}
-	return o.RequestsFrom
+	return v.RequestsFrom
 }
 
-func (o *V3DomainLinkedResponse) GetRequestsTo() []RequestsTo {
-	if o == nil {
+func (v *V3DomainLinkedResponse) GetRequestsTo() []RequestsTo {
+	if v == nil {
 		return nil
 	}
-	return o.RequestsTo
+	return v.RequestsTo
 }

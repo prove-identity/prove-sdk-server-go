@@ -7,9 +7,9 @@ type V3ValidateRequest struct {
 	CorrelationID string `json:"correlationId"`
 }
 
-func (o *V3ValidateRequest) GetCorrelationID() string {
-	if o == nil {
+func (v *V3ValidateRequest) GetCorrelationID() string {
+	if v == nil {
 		return ""
 	}
-	return o.CorrelationID
+	return v.CorrelationID
 }

@@ -8,23 +8,23 @@ type DataSourceNameResponseInternal struct {
 	NameScore *int64 `json:"nameScore,omitempty"`
 }
 
-func (o *DataSourceNameResponseInternal) GetFirstName() *int64 {
-	if o == nil {
+func (d *DataSourceNameResponseInternal) GetFirstName() *int64 {
+	if d == nil {
 		return nil
 	}
-	return o.FirstName
+	return d.FirstName
 }
 
-func (o *DataSourceNameResponseInternal) GetLastName() *int64 {
-	if o == nil {
+func (d *DataSourceNameResponseInternal) GetLastName() *int64 {
+	if d == nil {
 		return nil
 	}
-	return o.LastName
+	return d.LastName
 }
 
-func (o *DataSourceNameResponseInternal) GetNameScore() *int64 {
-	if o == nil {
+func (d *DataSourceNameResponseInternal) GetNameScore() *int64 {
+	if d == nil {
 		return nil
 	}
-	return o.NameScore
+	return d.NameScore
 }

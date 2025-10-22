@@ -8,23 +8,23 @@ type KYCFieldTypeResponseInternal struct {
 	Value  *string `json:"value,omitempty"`
 }
 
-func (o *KYCFieldTypeResponseInternal) GetName() *string {
-	if o == nil {
+func (k *KYCFieldTypeResponseInternal) GetName() *string {
+	if k == nil {
 		return nil
 	}
-	return o.Name
+	return k.Name
 }
 
-func (o *KYCFieldTypeResponseInternal) GetSource() *string {
-	if o == nil {
+func (k *KYCFieldTypeResponseInternal) GetSource() *string {
+	if k == nil {
 		return nil
 	}
-	return o.Source
+	return k.Source
 }
 
-func (o *KYCFieldTypeResponseInternal) GetValue() *string {
-	if o == nil {
+func (k *KYCFieldTypeResponseInternal) GetValue() *string {
+	if k == nil {
 		return nil
 	}
-	return o.Value
+	return k.Value
 }

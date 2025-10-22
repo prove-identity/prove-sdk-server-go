@@ -7,16 +7,16 @@ type V3DomainUnlinkRequest struct {
 	PcidTo   *string `json:"pcidTo,omitempty"`
 }
 
-func (o *V3DomainUnlinkRequest) GetPcidFrom() *string {
-	if o == nil {
+func (v *V3DomainUnlinkRequest) GetPcidFrom() *string {
+	if v == nil {
 		return nil
 	}
-	return o.PcidFrom
+	return v.PcidFrom
 }
 
-func (o *V3DomainUnlinkRequest) GetPcidTo() *string {
-	if o == nil {
+func (v *V3DomainUnlinkRequest) GetPcidTo() *string {
+	if v == nil {
 		return nil
 	}
-	return o.PcidTo
+	return v.PcidTo
 }

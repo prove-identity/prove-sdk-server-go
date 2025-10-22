@@ -7,9 +7,9 @@ type GetBatchIdentityItem struct {
 	IdentityID *string `json:"identityId,omitempty"`
 }
 
-func (o *GetBatchIdentityItem) GetIdentityID() *string {
-	if o == nil {
+func (g *GetBatchIdentityItem) GetIdentityID() *string {
+	if g == nil {
 		return nil
 	}
-	return o.IdentityID
+	return g.IdentityID
 }

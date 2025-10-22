@@ -11,23 +11,23 @@ type V3ChallengeRequest struct {
 	Ssn *string `json:"ssn,omitempty"`
 }
 
-func (o *V3ChallengeRequest) GetCorrelationID() string {
-	if o == nil {
+func (v *V3ChallengeRequest) GetCorrelationID() string {
+	if v == nil {
 		return ""
 	}
-	return o.CorrelationID
+	return v.CorrelationID
 }
 
-func (o *V3ChallengeRequest) GetDob() *string {
-	if o == nil {
+func (v *V3ChallengeRequest) GetDob() *string {
+	if v == nil {
 		return nil
 	}
-	return o.Dob
+	return v.Dob
 }
 
-func (o *V3ChallengeRequest) GetSsn() *string {
-	if o == nil {
+func (v *V3ChallengeRequest) GetSsn() *string {
+	if v == nil {
 		return nil
 	}
-	return o.Ssn
+	return v.Ssn
 }

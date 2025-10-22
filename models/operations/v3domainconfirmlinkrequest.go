@@ -12,16 +12,16 @@ type V3DomainConfirmLinkRequestResponse struct {
 	V3DomainConfirmLinkResponse *components.V3DomainConfirmLinkResponse
 }
 
-func (o *V3DomainConfirmLinkRequestResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (v *V3DomainConfirmLinkRequestResponse) GetHTTPMeta() components.HTTPMetadata {
+	if v == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return v.HTTPMeta
 }
 
-func (o *V3DomainConfirmLinkRequestResponse) GetV3DomainConfirmLinkResponse() *components.V3DomainConfirmLinkResponse {
-	if o == nil {
+func (v *V3DomainConfirmLinkRequestResponse) GetV3DomainConfirmLinkResponse() *components.V3DomainConfirmLinkResponse {
+	if v == nil {
 		return nil
 	}
-	return o.V3DomainConfirmLinkResponse
+	return v.V3DomainConfirmLinkResponse
 }

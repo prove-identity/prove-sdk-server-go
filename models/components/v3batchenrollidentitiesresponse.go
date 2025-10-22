@@ -7,9 +7,9 @@ type V3BatchEnrollIdentitiesResponse struct {
 	Results []PostBatchResultItem `json:"results,omitempty"`
 }
 
-func (o *V3BatchEnrollIdentitiesResponse) GetResults() []PostBatchResultItem {
-	if o == nil {
+func (v *V3BatchEnrollIdentitiesResponse) GetResults() []PostBatchResultItem {
+	if v == nil {
 		return nil
 	}
-	return o.Results
+	return v.Results
 }

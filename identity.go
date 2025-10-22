@@ -232,7 +232,7 @@ func (s *Identity) V3BatchGetIdentities(ctx context.Context, clientRequestID *st
 				return nil, err
 			}
 
-			var out sdkerrors.Error
+			var out sdkerrors.Error400
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
@@ -529,7 +529,7 @@ func (s *Identity) V3EnrollIdentity(ctx context.Context, request *components.V3E
 				return nil, err
 			}
 
-			var out sdkerrors.Error
+			var out sdkerrors.Error400
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
@@ -826,7 +826,7 @@ func (s *Identity) V3BatchEnrollIdentities(ctx context.Context, request *compone
 				return nil, err
 			}
 
-			var out sdkerrors.Error
+			var out sdkerrors.Error400
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
@@ -1125,7 +1125,7 @@ func (s *Identity) V3DisenrollIdentity(ctx context.Context, identityID string, c
 				return nil, err
 			}
 
-			var out sdkerrors.Error
+			var out sdkerrors.Error400
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
@@ -1424,7 +1424,7 @@ func (s *Identity) V3GetIdentity(ctx context.Context, identityID string, clientR
 				return nil, err
 			}
 
-			var out sdkerrors.Error
+			var out sdkerrors.Error400
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
@@ -1726,7 +1726,7 @@ func (s *Identity) V3ActivateIdentity(ctx context.Context, identityID string, v3
 				return nil, err
 			}
 
-			var out sdkerrors.Error
+			var out sdkerrors.Error400
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
@@ -2028,7 +2028,7 @@ func (s *Identity) V3CrossDomainIdentity(ctx context.Context, identityID string,
 				return nil, err
 			}
 
-			var out sdkerrors.Error
+			var out sdkerrors.Error400
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
@@ -2330,7 +2330,7 @@ func (s *Identity) V3DeactivateIdentity(ctx context.Context, identityID string, 
 				return nil, err
 			}
 
-			var out sdkerrors.Error
+			var out sdkerrors.Error400
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
@@ -2629,7 +2629,7 @@ func (s *Identity) V3GetIdentitiesByPhoneNumber(ctx context.Context, mobileNumbe
 				return nil, err
 			}
 
-			var out sdkerrors.Error
+			var out sdkerrors.Error400
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}

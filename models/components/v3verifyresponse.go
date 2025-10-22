@@ -6,58 +6,66 @@ type V3VerifyResponseEvaluation struct {
 }
 
 type V3VerifyResponse struct {
-	// A bearer token for use by the Prove client SDK.
-	AuthToken *string `json:"authToken,omitempty"`
+	// (required IF verificationType=VerifiedUser)
+	AdditionalIdentities []AdditionalIdentity `json:"additionalIdentities,omitempty"`
+	// A client-generated unique ID for a specific session. This can be used to identify specific requests. The format of this ID is defined by the client - Prove recommends using a GUID, but any format can be accepted. Do not include Personally Identifiable Information (PII) in this field.
+	ClientRequestID *string `json:"clientRequestId,omitempty"`
 	// The unique ID that Prove generates for the flow. To continue the flow, the field will also be used for each of the subsequent API calls in the same flow - it cannot be reused outside of a single flow.
 	CorrelationID string `json:"correlationId"`
-	// The evaluation result for the policy
+	// The evaluation result for the policy. This is an upcoming field but is not yet enabled.
 	Evaluation map[string]V3VerifyResponseEvaluation `json:"evaluation,omitempty"`
-	// The result of the possession check. Possible values are `pending` and `not_applicable`, based on the `possessionType` passed in the input. Clients will have to call the Verify Status API to get a result if `possessionResult=pending`.
-	PossessionResult string `json:"possessionResult"`
-	// The result of the combination of `verifyResult` and `possessionResult`. Possible values are `true`, `pending`, and `false`. The value will be `pending` until the results of both Verify and Possession are returned or one of them fails, blocking the other.
+	Identity   Identity                              `json:"identity"`
+	// The mobile phone number. US phone numbers can be passed in with or without a leading `+1`. International phone numbers require a leading `+1`. Use the appropriate endpoint URL based on the region the number originates from. Acceptable characters are: alphanumeric with symbols '+'.
+	PhoneNumber string `json:"phoneNumber"`
+	// The result of verification
 	Success string `json:"success"`
-	// The result of the Verify process. Possible values are `success`, `pending`, and `failed`. If the Verify result is `pending`, clients will need to call the Verify Status API to get a result.
-	VerifyResult string `json:"verifyResult"`
 }
 
-func (o *V3VerifyResponse) GetAuthToken() *string {
-	if o == nil {
+func (v *V3VerifyResponse) GetAdditionalIdentities() []AdditionalIdentity {
+	if v == nil {
 		return nil
 	}
-	return o.AuthToken
+	return v.AdditionalIdentities
 }
 
-func (o *V3VerifyResponse) GetCorrelationID() string {
-	if o == nil {
-		return ""
-	}
-	return o.CorrelationID
-}
-
-func (o *V3VerifyResponse) GetEvaluation() map[string]V3VerifyResponseEvaluation {
-	if o == nil {
+func (v *V3VerifyResponse) GetClientRequestID() *string {
+	if v == nil {
 		return nil
 	}
-	return o.Evaluation
+	return v.ClientRequestID
 }
 
-func (o *V3VerifyResponse) GetPossessionResult() string {
-	if o == nil {
+func (v *V3VerifyResponse) GetCorrelationID() string {
+	if v == nil {
 		return ""
 	}
-	return o.PossessionResult
+	return v.CorrelationID
 }
 
-func (o *V3VerifyResponse) GetSuccess() string {
-	if o == nil {
-		return ""
+func (v *V3VerifyResponse) GetEvaluation() map[string]V3VerifyResponseEvaluation {
+	if v == nil {
+		return nil
 	}
-	return o.Success
+	return v.Evaluation
 }
 
-func (o *V3VerifyResponse) GetVerifyResult() string {
-	if o == nil {
+func (v *V3VerifyResponse) GetIdentity() Identity {
+	if v == nil {
+		return Identity{}
+	}
+	return v.Identity
+}
+
+func (v *V3VerifyResponse) GetPhoneNumber() string {
+	if v == nil {
 		return ""
 	}
-	return o.VerifyResult
+	return v.PhoneNumber
+}
+
+func (v *V3VerifyResponse) GetSuccess() string {
+	if v == nil {
+		return ""
+	}
+	return v.Success
 }

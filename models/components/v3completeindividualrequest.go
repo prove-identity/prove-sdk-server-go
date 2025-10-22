@@ -17,44 +17,44 @@ type V3CompleteIndividualRequest struct {
 	Ssn *string `json:"ssn,omitempty"`
 }
 
-func (o *V3CompleteIndividualRequest) GetAddresses() []V3CompleteAddressEntryRequest {
-	if o == nil {
+func (v *V3CompleteIndividualRequest) GetAddresses() []V3CompleteAddressEntryRequest {
+	if v == nil {
 		return nil
 	}
-	return o.Addresses
+	return v.Addresses
 }
 
-func (o *V3CompleteIndividualRequest) GetDob() *string {
-	if o == nil {
+func (v *V3CompleteIndividualRequest) GetDob() *string {
+	if v == nil {
 		return nil
 	}
-	return o.Dob
+	return v.Dob
 }
 
-func (o *V3CompleteIndividualRequest) GetEmailAddresses() []string {
-	if o == nil {
+func (v *V3CompleteIndividualRequest) GetEmailAddresses() []string {
+	if v == nil {
 		return nil
 	}
-	return o.EmailAddresses
+	return v.EmailAddresses
 }
 
-func (o *V3CompleteIndividualRequest) GetFirstName() *string {
-	if o == nil {
+func (v *V3CompleteIndividualRequest) GetFirstName() *string {
+	if v == nil {
 		return nil
 	}
-	return o.FirstName
+	return v.FirstName
 }
 
-func (o *V3CompleteIndividualRequest) GetLastName() *string {
-	if o == nil {
+func (v *V3CompleteIndividualRequest) GetLastName() *string {
+	if v == nil {
 		return nil
 	}
-	return o.LastName
+	return v.LastName
 }
 
-func (o *V3CompleteIndividualRequest) GetSsn() *string {
-	if o == nil {
+func (v *V3CompleteIndividualRequest) GetSsn() *string {
+	if v == nil {
 		return nil
 	}
-	return o.Ssn
+	return v.Ssn
 }

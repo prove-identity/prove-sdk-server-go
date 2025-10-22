@@ -15,37 +15,37 @@ type V3TokenResponse struct {
 	TokenType string `json:"token_type"`
 }
 
-func (o *V3TokenResponse) GetAccessToken() string {
-	if o == nil {
+func (v *V3TokenResponse) GetAccessToken() string {
+	if v == nil {
 		return ""
 	}
-	return o.AccessToken
+	return v.AccessToken
 }
 
-func (o *V3TokenResponse) GetExpiresIn() int64 {
-	if o == nil {
+func (v *V3TokenResponse) GetExpiresIn() int64 {
+	if v == nil {
 		return 0
 	}
-	return o.ExpiresIn
+	return v.ExpiresIn
 }
 
-func (o *V3TokenResponse) GetRefreshExpiresIn() *int64 {
-	if o == nil {
+func (v *V3TokenResponse) GetRefreshExpiresIn() *int64 {
+	if v == nil {
 		return nil
 	}
-	return o.RefreshExpiresIn
+	return v.RefreshExpiresIn
 }
 
-func (o *V3TokenResponse) GetRefreshToken() *string {
-	if o == nil {
+func (v *V3TokenResponse) GetRefreshToken() *string {
+	if v == nil {
 		return nil
 	}
-	return o.RefreshToken
+	return v.RefreshToken
 }
 
-func (o *V3TokenResponse) GetTokenType() string {
-	if o == nil {
+func (v *V3TokenResponse) GetTokenType() string {
+	if v == nil {
 		return ""
 	}
-	return o.TokenType
+	return v.TokenType
 }

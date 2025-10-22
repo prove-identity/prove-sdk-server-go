@@ -12,16 +12,16 @@ type V3DomainLinkRequestResponse struct {
 	V3DomainLinkResponse *components.V3DomainLinkResponse
 }
 
-func (o *V3DomainLinkRequestResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (v *V3DomainLinkRequestResponse) GetHTTPMeta() components.HTTPMetadata {
+	if v == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return v.HTTPMeta
 }
 
-func (o *V3DomainLinkRequestResponse) GetV3DomainLinkResponse() *components.V3DomainLinkResponse {
-	if o == nil {
+func (v *V3DomainLinkRequestResponse) GetV3DomainLinkResponse() *components.V3DomainLinkResponse {
+	if v == nil {
 		return nil
 	}
-	return o.V3DomainLinkResponse
+	return v.V3DomainLinkResponse
 }

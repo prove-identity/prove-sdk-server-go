@@ -11,44 +11,44 @@ type DataSourceInternal struct {
 	ReasonCodes   []string                                `json:"reasonCodes,omitempty"`
 }
 
-func (o *DataSourceInternal) GetAddress() *DataSourceAddressResponseInternal {
-	if o == nil {
+func (d *DataSourceInternal) GetAddress() *DataSourceAddressResponseInternal {
+	if d == nil {
 		return nil
 	}
-	return o.Address
+	return d.Address
 }
 
-func (o *DataSourceInternal) GetCipConfidence() *string {
-	if o == nil {
+func (d *DataSourceInternal) GetCipConfidence() *string {
+	if d == nil {
 		return nil
 	}
-	return o.CipConfidence
+	return d.CipConfidence
 }
 
-func (o *DataSourceInternal) GetEmail() *DataSourceEmailAddressResponseInternal {
-	if o == nil {
+func (d *DataSourceInternal) GetEmail() *DataSourceEmailAddressResponseInternal {
+	if d == nil {
 		return nil
 	}
-	return o.Email
+	return d.Email
 }
 
-func (o *DataSourceInternal) GetIdentifiers() *DataSourceIdentifiersResponseInternal {
-	if o == nil {
+func (d *DataSourceInternal) GetIdentifiers() *DataSourceIdentifiersResponseInternal {
+	if d == nil {
 		return nil
 	}
-	return o.Identifiers
+	return d.Identifiers
 }
 
-func (o *DataSourceInternal) GetName() *DataSourceNameResponseInternal {
-	if o == nil {
+func (d *DataSourceInternal) GetName() *DataSourceNameResponseInternal {
+	if d == nil {
 		return nil
 	}
-	return o.Name
+	return d.Name
 }
 
-func (o *DataSourceInternal) GetReasonCodes() []string {
-	if o == nil {
+func (d *DataSourceInternal) GetReasonCodes() []string {
+	if d == nil {
 		return nil
 	}
-	return o.ReasonCodes
+	return d.ReasonCodes
 }

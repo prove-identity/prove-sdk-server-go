@@ -8,23 +8,23 @@ type IDVDataInternal struct {
 	MultiCIPConfidence *string             `json:"multiCIPConfidence,omitempty"`
 }
 
-func (o *IDVDataInternal) GetDataSource1() *DataSourceInternal {
-	if o == nil {
+func (i *IDVDataInternal) GetDataSource1() *DataSourceInternal {
+	if i == nil {
 		return nil
 	}
-	return o.DataSource1
+	return i.DataSource1
 }
 
-func (o *IDVDataInternal) GetDataSource2() *DataSourceInternal {
-	if o == nil {
+func (i *IDVDataInternal) GetDataSource2() *DataSourceInternal {
+	if i == nil {
 		return nil
 	}
-	return o.DataSource2
+	return i.DataSource2
 }
 
-func (o *IDVDataInternal) GetMultiCIPConfidence() *string {
-	if o == nil {
+func (i *IDVDataInternal) GetMultiCIPConfidence() *string {
+	if i == nil {
 		return nil
 	}
-	return o.MultiCIPConfidence
+	return i.MultiCIPConfidence
 }

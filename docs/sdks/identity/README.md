@@ -27,8 +27,8 @@ package main
 
 import(
 	"context"
-	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
 	"github.com/prove-identity/prove-sdk-server-go/models/components"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
 	"log"
 )
 
@@ -37,8 +37,8 @@ func main() {
 
     s := provesdkservergo.New(
         provesdkservergo.WithSecurity(components.Security{
-            ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
-            ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+            ClientID: provesdkservergo.Pointer("<YOUR_CLIENT_ID_HERE>"),
+            ClientSecret: provesdkservergo.Pointer("<YOUR_CLIENT_SECRET_HERE>"),
         }),
     )
 
@@ -71,7 +71,7 @@ func main() {
 
 | Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.Error    | 400                | application/json   |
+| sdkerrors.Error400 | 400                | application/json   |
 | sdkerrors.Error401 | 401                | application/json   |
 | sdkerrors.Error403 | 403                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |
@@ -89,8 +89,8 @@ package main
 
 import(
 	"context"
-	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
 	"github.com/prove-identity/prove-sdk-server-go/models/components"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
 	"log"
 )
 
@@ -99,15 +99,15 @@ func main() {
 
     s := provesdkservergo.New(
         provesdkservergo.WithSecurity(components.Security{
-            ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
-            ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+            ClientID: provesdkservergo.Pointer("<YOUR_CLIENT_ID_HERE>"),
+            ClientSecret: provesdkservergo.Pointer("<YOUR_CLIENT_SECRET_HERE>"),
         }),
     )
 
     res, err := s.Identity.V3EnrollIdentity(ctx, &components.V3EnrollIdentityRequest{
-        ClientCustomerID: provesdkservergo.String("e0f78bc2-f748-4eda-9d29-d756844507fc"),
-        ClientRequestID: provesdkservergo.String("71010d88-d0e7-4a24-9297-d1be6fefde81"),
-        DeviceID: provesdkservergo.String("bf9ea15d-7dfa-4bb4-a64c-6c26b53472fc"),
+        ClientCustomerID: provesdkservergo.Pointer("e0f78bc2-f748-4eda-9d29-d756844507fc"),
+        ClientRequestID: provesdkservergo.Pointer("71010d88-d0e7-4a24-9297-d1be6fefde81"),
+        DeviceID: provesdkservergo.Pointer("bf9ea15d-7dfa-4bb4-a64c-6c26b53472fc"),
         PhoneNumber: "2001001695",
     })
     if err != nil {
@@ -135,7 +135,7 @@ func main() {
 
 | Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.Error    | 400                | application/json   |
+| sdkerrors.Error400 | 400                | application/json   |
 | sdkerrors.Error401 | 401                | application/json   |
 | sdkerrors.Error403 | 403                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |
@@ -153,8 +153,8 @@ package main
 
 import(
 	"context"
-	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
 	"github.com/prove-identity/prove-sdk-server-go/models/components"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
 	"log"
 )
 
@@ -163,13 +163,13 @@ func main() {
 
     s := provesdkservergo.New(
         provesdkservergo.WithSecurity(components.Security{
-            ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
-            ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+            ClientID: provesdkservergo.Pointer("<YOUR_CLIENT_ID_HERE>"),
+            ClientSecret: provesdkservergo.Pointer("<YOUR_CLIENT_SECRET_HERE>"),
         }),
     )
 
     res, err := s.Identity.V3BatchEnrollIdentities(ctx, &components.V3BatchEnrollIdentitiesRequest{
-        ClientRequestID: provesdkservergo.String("71010d88-d0e7-4a24-9297-d1be6fefde81"),
+        ClientRequestID: provesdkservergo.Pointer("71010d88-d0e7-4a24-9297-d1be6fefde81"),
         Items: []components.IdentityItem{
             components.IdentityItem{
                 ClientName: "\"Client A\"",
@@ -208,7 +208,7 @@ func main() {
 
 | Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.Error    | 400                | application/json   |
+| sdkerrors.Error400 | 400                | application/json   |
 | sdkerrors.Error401 | 401                | application/json   |
 | sdkerrors.Error403 | 403                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |
@@ -226,8 +226,8 @@ package main
 
 import(
 	"context"
-	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
 	"github.com/prove-identity/prove-sdk-server-go/models/components"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
 	"log"
 )
 
@@ -236,8 +236,8 @@ func main() {
 
     s := provesdkservergo.New(
         provesdkservergo.WithSecurity(components.Security{
-            ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
-            ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+            ClientID: provesdkservergo.Pointer("<YOUR_CLIENT_ID_HERE>"),
+            ClientSecret: provesdkservergo.Pointer("<YOUR_CLIENT_SECRET_HERE>"),
         }),
     )
 
@@ -268,7 +268,7 @@ func main() {
 
 | Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.Error    | 400                | application/json   |
+| sdkerrors.Error400 | 400                | application/json   |
 | sdkerrors.Error401 | 401                | application/json   |
 | sdkerrors.Error403 | 403                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |
@@ -286,8 +286,8 @@ package main
 
 import(
 	"context"
-	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
 	"github.com/prove-identity/prove-sdk-server-go/models/components"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
 	"log"
 )
 
@@ -296,8 +296,8 @@ func main() {
 
     s := provesdkservergo.New(
         provesdkservergo.WithSecurity(components.Security{
-            ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
-            ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+            ClientID: provesdkservergo.Pointer("<YOUR_CLIENT_ID_HERE>"),
+            ClientSecret: provesdkservergo.Pointer("<YOUR_CLIENT_SECRET_HERE>"),
         }),
     )
 
@@ -328,7 +328,7 @@ func main() {
 
 | Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.Error    | 400                | application/json   |
+| sdkerrors.Error400 | 400                | application/json   |
 | sdkerrors.Error401 | 401                | application/json   |
 | sdkerrors.Error403 | 403                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |
@@ -346,8 +346,8 @@ package main
 
 import(
 	"context"
-	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
 	"github.com/prove-identity/prove-sdk-server-go/models/components"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
 	"log"
 )
 
@@ -356,13 +356,13 @@ func main() {
 
     s := provesdkservergo.New(
         provesdkservergo.WithSecurity(components.Security{
-            ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
-            ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+            ClientID: provesdkservergo.Pointer("<YOUR_CLIENT_ID_HERE>"),
+            ClientSecret: provesdkservergo.Pointer("<YOUR_CLIENT_SECRET_HERE>"),
         }),
     )
 
     res, err := s.Identity.V3ActivateIdentity(ctx, "<id>", &components.V3ActivateIdentityRequest{
-        ClientRequestID: provesdkservergo.String("71010d88-d0e7-4a24-9297-d1be6fefde81"),
+        ClientRequestID: provesdkservergo.Pointer("71010d88-d0e7-4a24-9297-d1be6fefde81"),
     })
     if err != nil {
         log.Fatal(err)
@@ -390,7 +390,7 @@ func main() {
 
 | Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.Error    | 400                | application/json   |
+| sdkerrors.Error400 | 400                | application/json   |
 | sdkerrors.Error401 | 401                | application/json   |
 | sdkerrors.Error403 | 403                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |
@@ -408,8 +408,8 @@ package main
 
 import(
 	"context"
-	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
 	"github.com/prove-identity/prove-sdk-server-go/models/components"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
 	"log"
 )
 
@@ -418,13 +418,13 @@ func main() {
 
     s := provesdkservergo.New(
         provesdkservergo.WithSecurity(components.Security{
-            ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
-            ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+            ClientID: provesdkservergo.Pointer("<YOUR_CLIENT_ID_HERE>"),
+            ClientSecret: provesdkservergo.Pointer("<YOUR_CLIENT_SECRET_HERE>"),
         }),
     )
 
     res, err := s.Identity.V3CrossDomainIdentity(ctx, "<id>", &components.V3CrossDomainIdentityRequest{
-        ClientRequestID: provesdkservergo.String("71010d88-d0e7-4a24-9297-d1be6fefde81"),
+        ClientRequestID: provesdkservergo.Pointer("71010d88-d0e7-4a24-9297-d1be6fefde81"),
     })
     if err != nil {
         log.Fatal(err)
@@ -452,7 +452,7 @@ func main() {
 
 | Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.Error    | 400                | application/json   |
+| sdkerrors.Error400 | 400                | application/json   |
 | sdkerrors.Error401 | 401                | application/json   |
 | sdkerrors.Error403 | 403                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |
@@ -470,8 +470,8 @@ package main
 
 import(
 	"context"
-	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
 	"github.com/prove-identity/prove-sdk-server-go/models/components"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
 	"log"
 )
 
@@ -480,13 +480,13 @@ func main() {
 
     s := provesdkservergo.New(
         provesdkservergo.WithSecurity(components.Security{
-            ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
-            ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+            ClientID: provesdkservergo.Pointer("<YOUR_CLIENT_ID_HERE>"),
+            ClientSecret: provesdkservergo.Pointer("<YOUR_CLIENT_SECRET_HERE>"),
         }),
     )
 
     res, err := s.Identity.V3DeactivateIdentity(ctx, "<id>", &components.V3IdentityDeactivateRequest{
-        ClientRequestID: provesdkservergo.String("71010d88-d0e7-4a24-9297-d1be6fefde81"),
+        ClientRequestID: provesdkservergo.Pointer("71010d88-d0e7-4a24-9297-d1be6fefde81"),
     })
     if err != nil {
         log.Fatal(err)
@@ -514,7 +514,7 @@ func main() {
 
 | Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.Error    | 400                | application/json   |
+| sdkerrors.Error400 | 400                | application/json   |
 | sdkerrors.Error401 | 401                | application/json   |
 | sdkerrors.Error403 | 403                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |
@@ -532,8 +532,8 @@ package main
 
 import(
 	"context"
-	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
 	"github.com/prove-identity/prove-sdk-server-go/models/components"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
 	"log"
 )
 
@@ -542,8 +542,8 @@ func main() {
 
     s := provesdkservergo.New(
         provesdkservergo.WithSecurity(components.Security{
-            ClientID: provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
-            ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+            ClientID: provesdkservergo.Pointer("<YOUR_CLIENT_ID_HERE>"),
+            ClientSecret: provesdkservergo.Pointer("<YOUR_CLIENT_SECRET_HERE>"),
         }),
     )
 
@@ -574,7 +574,7 @@ func main() {
 
 | Error Type         | Status Code        | Content Type       |
 | ------------------ | ------------------ | ------------------ |
-| sdkerrors.Error    | 400                | application/json   |
+| sdkerrors.Error400 | 400                | application/json   |
 | sdkerrors.Error401 | 401                | application/json   |
 | sdkerrors.Error403 | 403                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |

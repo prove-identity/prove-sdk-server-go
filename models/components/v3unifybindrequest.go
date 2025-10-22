@@ -3,32 +3,36 @@
 package components
 
 type V3UnifyBindRequest struct {
-	// A client-generated unique ID for a specific session. This can be used to identify specific requests. The format of this ID is defined by the client - Prove recommends using a GUID, but any format can be accepted. Do not include Personally Identifiable Information (PII) in this field.
+	// A client-generated unique ID for a specific session. This can be used to identify specific requests.
+	// The format of this ID is defined by the client - Prove recommends using a GUID, but any format can be accepted.
+	// Do not include Personally Identifiable Information (PII) in this field.
 	ClientRequestID *string `json:"clientRequestId,omitempty"`
 	// The unique ID that Prove generates for the flow. It is returned
 	// from the v3/unify endpoint and cannot be reused outside of a single flow.
 	CorrelationID *string `json:"correlationId,omitempty"`
 	// The mobile phone number. US phone numbers can be passed in with or without a leading `+1`. International phone numbers require a leading `+1`. Use the appropriate endpoint URL based on the region the number originates from. Acceptable characters are: alphanumeric with symbols '+'. Required when `possessionType=none` in the initial Unify request.
+	//
+	// Required except when MobileAuth is used in US or a valid ProveID is provided.
 	PhoneNumber *string `json:"phoneNumber,omitempty"`
 }
 
-func (o *V3UnifyBindRequest) GetClientRequestID() *string {
-	if o == nil {
+func (v *V3UnifyBindRequest) GetClientRequestID() *string {
+	if v == nil {
 		return nil
 	}
-	return o.ClientRequestID
+	return v.ClientRequestID
 }
 
-func (o *V3UnifyBindRequest) GetCorrelationID() *string {
-	if o == nil {
+func (v *V3UnifyBindRequest) GetCorrelationID() *string {
+	if v == nil {
 		return nil
 	}
-	return o.CorrelationID
+	return v.CorrelationID
 }
 
-func (o *V3UnifyBindRequest) GetPhoneNumber() *string {
-	if o == nil {
+func (v *V3UnifyBindRequest) GetPhoneNumber() *string {
+	if v == nil {
 		return nil
 	}
-	return o.PhoneNumber
+	return v.PhoneNumber
 }

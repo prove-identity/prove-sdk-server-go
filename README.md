@@ -185,7 +185,6 @@ func flow() error {
 * [V3DeactivateIdentity](docs/sdks/identity/README.md#v3deactivateidentity) - Deactivate Identity
 * [V3GetIdentitiesByPhoneNumber](docs/sdks/identity/README.md#v3getidentitiesbyphonenumber) - Get Identities By Phone Number
 
-
 ### [V3](docs/sdks/v3/README.md)
 
 * [V3TokenRequest](docs/sdks/v3/README.md#v3tokenrequest) - Request OAuth Token
@@ -197,7 +196,7 @@ func flow() error {
 * [V3UnifyStatusRequest](docs/sdks/v3/README.md#v3unifystatusrequest) - Check Status
 * [V3ValidateRequest](docs/sdks/v3/README.md#v3validaterequest) - Validate Phone Number
 * [V3VerifyRequest](docs/sdks/v3/README.md#v3verifyrequest) - Initiate Verified Users Session
-* [V3VerifyStatusRequest](docs/sdks/v3/README.md#v3verifystatusrequest) - Check Verification Result
+* [V3VerifyBatchRequest](docs/sdks/v3/README.md#v3verifybatchrequest) - Batch Verify Users
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -213,7 +212,7 @@ For example, the `V3TokenRequest` function may return the following errors:
 
 | Error Type         | Status Code | Content Type     |
 | ------------------ | ----------- | ---------------- |
-| sdkerrors.Error    | 400         | application/json |
+| sdkerrors.Error400 | 400         | application/json |
 | sdkerrors.Error401 | 401         | application/json |
 | sdkerrors.Error    | 500         | application/json |
 | sdkerrors.SDKError | 4XX, 5XX    | \*/\*            |
@@ -244,7 +243,7 @@ func main() {
 	})
 	if err != nil {
 
-		var e *sdkerrors.Error
+		var e *sdkerrors.Error400
 		if errors.As(err, &e) {
 			// handle error
 			log.Fatal(e.Error())
@@ -394,9 +393,9 @@ This can be a convenient way to configure timeouts, cookies, proxies, custom hea
 
 This SDK supports the following security scheme globally:
 
-| Name                          | Type   | Scheme                         |
-| ----------------------------- | ------ | ------------------------------ |
-| `ClientID`<br/>`ClientSecret` | oauth2 | OAuth2 Client Credentials Flow |
+| Name                                         | Type   | Scheme                         |
+| -------------------------------------------- | ------ | ------------------------------ |
+| `ClientID`<br/>`ClientSecret`<br/>`TokenURL` | oauth2 | OAuth2 Client Credentials Flow |
 
 You can configure it using the `WithSecurity` option when initializing the SDK client instance. For example:
 ```go
@@ -414,8 +413,8 @@ func main() {
 
 	s := provesdkservergo.New(
 		provesdkservergo.WithSecurity(components.Security{
-			ClientID:     provesdkservergo.String("<YOUR_CLIENT_ID_HERE>"),
-			ClientSecret: provesdkservergo.String("<YOUR_CLIENT_SECRET_HERE>"),
+			ClientID:     provesdkservergo.Pointer("<YOUR_CLIENT_ID_HERE>"),
+			ClientSecret: provesdkservergo.Pointer("<YOUR_CLIENT_SECRET_HERE>"),
 		}),
 	)
 

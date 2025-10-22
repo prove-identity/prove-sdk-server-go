@@ -26,72 +26,72 @@ type V3GetIdentityResponse struct {
 	PhoneNumber string `json:"phoneNumber"`
 }
 
-func (o *V3GetIdentityResponse) GetActive() *bool {
-	if o == nil {
+func (v *V3GetIdentityResponse) GetActive() *bool {
+	if v == nil {
 		return nil
 	}
-	return o.Active
+	return v.Active
 }
 
-func (o *V3GetIdentityResponse) GetCarrier() *string {
-	if o == nil {
+func (v *V3GetIdentityResponse) GetCarrier() *string {
+	if v == nil {
 		return nil
 	}
-	return o.Carrier
+	return v.Carrier
 }
 
-func (o *V3GetIdentityResponse) GetClientCustomerID() *string {
-	if o == nil {
+func (v *V3GetIdentityResponse) GetClientCustomerID() *string {
+	if v == nil {
 		return nil
 	}
-	return o.ClientCustomerID
+	return v.ClientCustomerID
 }
 
-func (o *V3GetIdentityResponse) GetCountryCode() *string {
-	if o == nil {
+func (v *V3GetIdentityResponse) GetCountryCode() *string {
+	if v == nil {
 		return nil
 	}
-	return o.CountryCode
+	return v.CountryCode
 }
 
-func (o *V3GetIdentityResponse) GetCreatedAt() *int64 {
-	if o == nil {
+func (v *V3GetIdentityResponse) GetCreatedAt() *int64 {
+	if v == nil {
 		return nil
 	}
-	return o.CreatedAt
+	return v.CreatedAt
 }
 
-func (o *V3GetIdentityResponse) GetCreationString() *string {
-	if o == nil {
+func (v *V3GetIdentityResponse) GetCreationString() *string {
+	if v == nil {
 		return nil
 	}
-	return o.CreationString
+	return v.CreationString
 }
 
-func (o *V3GetIdentityResponse) GetDeviceID() *string {
-	if o == nil {
+func (v *V3GetIdentityResponse) GetDeviceID() *string {
+	if v == nil {
 		return nil
 	}
-	return o.DeviceID
+	return v.DeviceID
 }
 
-func (o *V3GetIdentityResponse) GetIdentityID() *string {
-	if o == nil {
+func (v *V3GetIdentityResponse) GetIdentityID() *string {
+	if v == nil {
 		return nil
 	}
-	return o.IdentityID
+	return v.IdentityID
 }
 
-func (o *V3GetIdentityResponse) GetLineType() *string {
-	if o == nil {
+func (v *V3GetIdentityResponse) GetLineType() *string {
+	if v == nil {
 		return nil
 	}
-	return o.LineType
+	return v.LineType
 }
 
-func (o *V3GetIdentityResponse) GetPhoneNumber() string {
-	if o == nil {
+func (v *V3GetIdentityResponse) GetPhoneNumber() string {
+	if v == nil {
 		return ""
 	}
-	return o.PhoneNumber
+	return v.PhoneNumber
 }

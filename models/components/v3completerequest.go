@@ -8,16 +8,16 @@ type V3CompleteRequest struct {
 	Individual    V3CompleteIndividualRequest `json:"individual"`
 }
 
-func (o *V3CompleteRequest) GetCorrelationID() string {
-	if o == nil {
+func (v *V3CompleteRequest) GetCorrelationID() string {
+	if v == nil {
 		return ""
 	}
-	return o.CorrelationID
+	return v.CorrelationID
 }
 
-func (o *V3CompleteRequest) GetIndividual() V3CompleteIndividualRequest {
-	if o == nil {
+func (v *V3CompleteRequest) GetIndividual() V3CompleteIndividualRequest {
+	if v == nil {
 		return V3CompleteIndividualRequest{}
 	}
-	return o.Individual
+	return v.Individual
 }

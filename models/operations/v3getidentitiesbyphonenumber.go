@@ -13,18 +13,18 @@ type V3GetIdentitiesByPhoneNumberRequest struct {
 	ClientRequestID *string `queryParam:"style=form,explode=true,name=clientRequestId"`
 }
 
-func (o *V3GetIdentitiesByPhoneNumberRequest) GetMobileNumber() string {
-	if o == nil {
+func (v *V3GetIdentitiesByPhoneNumberRequest) GetMobileNumber() string {
+	if v == nil {
 		return ""
 	}
-	return o.MobileNumber
+	return v.MobileNumber
 }
 
-func (o *V3GetIdentitiesByPhoneNumberRequest) GetClientRequestID() *string {
-	if o == nil {
+func (v *V3GetIdentitiesByPhoneNumberRequest) GetClientRequestID() *string {
+	if v == nil {
 		return nil
 	}
-	return o.ClientRequestID
+	return v.ClientRequestID
 }
 
 type V3GetIdentitiesByPhoneNumberResponse struct {
@@ -33,16 +33,16 @@ type V3GetIdentitiesByPhoneNumberResponse struct {
 	V3GetIdentitiesByPhoneNumberResponse *components.V3GetIdentitiesByPhoneNumberResponse
 }
 
-func (o *V3GetIdentitiesByPhoneNumberResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (v *V3GetIdentitiesByPhoneNumberResponse) GetHTTPMeta() components.HTTPMetadata {
+	if v == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return v.HTTPMeta
 }
 
-func (o *V3GetIdentitiesByPhoneNumberResponse) GetV3GetIdentitiesByPhoneNumberResponse() *components.V3GetIdentitiesByPhoneNumberResponse {
-	if o == nil {
+func (v *V3GetIdentitiesByPhoneNumberResponse) GetV3GetIdentitiesByPhoneNumberResponse() *components.V3GetIdentitiesByPhoneNumberResponse {
+	if v == nil {
 		return nil
 	}
-	return o.V3GetIdentitiesByPhoneNumberResponse
+	return v.V3GetIdentitiesByPhoneNumberResponse
 }

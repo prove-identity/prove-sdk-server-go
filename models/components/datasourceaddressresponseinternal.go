@@ -12,51 +12,51 @@ type DataSourceAddressResponseInternal struct {
 	StreetNumber *int64   `json:"streetNumber,omitempty"`
 }
 
-func (o *DataSourceAddressResponseInternal) GetAddressScore() *int64 {
-	if o == nil {
+func (d *DataSourceAddressResponseInternal) GetAddressScore() *int64 {
+	if d == nil {
 		return nil
 	}
-	return o.AddressScore
+	return d.AddressScore
 }
 
-func (o *DataSourceAddressResponseInternal) GetCity() *bool {
-	if o == nil {
+func (d *DataSourceAddressResponseInternal) GetCity() *bool {
+	if d == nil {
 		return nil
 	}
-	return o.City
+	return d.City
 }
 
-func (o *DataSourceAddressResponseInternal) GetDistance() *float64 {
-	if o == nil {
+func (d *DataSourceAddressResponseInternal) GetDistance() *float64 {
+	if d == nil {
 		return nil
 	}
-	return o.Distance
+	return d.Distance
 }
 
-func (o *DataSourceAddressResponseInternal) GetPostalCode() *bool {
-	if o == nil {
+func (d *DataSourceAddressResponseInternal) GetPostalCode() *bool {
+	if d == nil {
 		return nil
 	}
-	return o.PostalCode
+	return d.PostalCode
 }
 
-func (o *DataSourceAddressResponseInternal) GetRegion() *bool {
-	if o == nil {
+func (d *DataSourceAddressResponseInternal) GetRegion() *bool {
+	if d == nil {
 		return nil
 	}
-	return o.Region
+	return d.Region
 }
 
-func (o *DataSourceAddressResponseInternal) GetStreet() *bool {
-	if o == nil {
+func (d *DataSourceAddressResponseInternal) GetStreet() *bool {
+	if d == nil {
 		return nil
 	}
-	return o.Street
+	return d.Street
 }
 
-func (o *DataSourceAddressResponseInternal) GetStreetNumber() *int64 {
-	if o == nil {
+func (d *DataSourceAddressResponseInternal) GetStreetNumber() *int64 {
+	if d == nil {
 		return nil
 	}
-	return o.StreetNumber
+	return d.StreetNumber
 }

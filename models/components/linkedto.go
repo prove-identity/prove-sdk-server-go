@@ -9,30 +9,30 @@ type LinkedTo struct {
 	Pcid           *string `json:"pcid,omitempty"`
 }
 
-func (o *LinkedTo) GetAcceptedAt() *int64 {
-	if o == nil {
+func (l *LinkedTo) GetAcceptedAt() *int64 {
+	if l == nil {
 		return nil
 	}
-	return o.AcceptedAt
+	return l.AcceptedAt
 }
 
-func (o *LinkedTo) GetAcceptedString() *string {
-	if o == nil {
+func (l *LinkedTo) GetAcceptedString() *string {
+	if l == nil {
 		return nil
 	}
-	return o.AcceptedString
+	return l.AcceptedString
 }
 
-func (o *LinkedTo) GetName() *string {
-	if o == nil {
+func (l *LinkedTo) GetName() *string {
+	if l == nil {
 		return nil
 	}
-	return o.Name
+	return l.Name
 }
 
-func (o *LinkedTo) GetPcid() *string {
-	if o == nil {
+func (l *LinkedTo) GetPcid() *string {
+	if l == nil {
 		return nil
 	}
-	return o.Pcid
+	return l.Pcid
 }

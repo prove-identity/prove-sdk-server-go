@@ -13,23 +13,23 @@ type V3UnifyStatusRequestResponse struct {
 	Headers               map[string][]string
 }
 
-func (o *V3UnifyStatusRequestResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (v *V3UnifyStatusRequestResponse) GetHTTPMeta() components.HTTPMetadata {
+	if v == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return v.HTTPMeta
 }
 
-func (o *V3UnifyStatusRequestResponse) GetV3UnifyStatusResponse() *components.V3UnifyStatusResponse {
-	if o == nil {
+func (v *V3UnifyStatusRequestResponse) GetV3UnifyStatusResponse() *components.V3UnifyStatusResponse {
+	if v == nil {
 		return nil
 	}
-	return o.V3UnifyStatusResponse
+	return v.V3UnifyStatusResponse
 }
 
-func (o *V3UnifyStatusRequestResponse) GetHeaders() map[string][]string {
-	if o == nil {
+func (v *V3UnifyStatusRequestResponse) GetHeaders() map[string][]string {
+	if v == nil {
 		return map[string][]string{}
 	}
-	return o.Headers
+	return v.Headers
 }

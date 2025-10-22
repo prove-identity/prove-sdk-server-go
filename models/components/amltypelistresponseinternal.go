@@ -8,23 +8,23 @@ type AmlTypeListResponseInternal struct {
 	ListHits *int64                         `json:"listHits,omitempty"`
 }
 
-func (o *AmlTypeListResponseInternal) GetAmlType() *string {
-	if o == nil {
+func (a *AmlTypeListResponseInternal) GetAmlType() *string {
+	if a == nil {
 		return nil
 	}
-	return o.AmlType
+	return a.AmlType
 }
 
-func (o *AmlTypeListResponseInternal) GetFields() []KYCFieldTypeResponseInternal {
-	if o == nil {
+func (a *AmlTypeListResponseInternal) GetFields() []KYCFieldTypeResponseInternal {
+	if a == nil {
 		return nil
 	}
-	return o.Fields
+	return a.Fields
 }
 
-func (o *AmlTypeListResponseInternal) GetListHits() *int64 {
-	if o == nil {
+func (a *AmlTypeListResponseInternal) GetListHits() *int64 {
+	if a == nil {
 		return nil
 	}
-	return o.ListHits
+	return a.ListHits
 }

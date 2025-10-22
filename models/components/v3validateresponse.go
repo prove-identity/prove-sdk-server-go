@@ -9,7 +9,7 @@ type V3ValidateResponse struct {
 	// True if a DOB or SSN needs to be passed in on the next step. Only applicable to Pre-Fill. If implementing Prove Identity ignore this field.
 	// It will always return false for this use case.
 	ChallengeMissing bool `json:"challengeMissing"`
-	// The evaluation result for the policy
+	// The evaluation result for the policy. This is an upcoming field but is not yet enabled.
 	Evaluation map[string]V3ValidateResponseEvaluation `json:"evaluation,omitempty"`
 	// The next set of allowed calls in the same flow.
 	Next map[string]string `json:"next"`
@@ -19,37 +19,37 @@ type V3ValidateResponse struct {
 	Success bool `json:"success"`
 }
 
-func (o *V3ValidateResponse) GetChallengeMissing() bool {
-	if o == nil {
+func (v *V3ValidateResponse) GetChallengeMissing() bool {
+	if v == nil {
 		return false
 	}
-	return o.ChallengeMissing
+	return v.ChallengeMissing
 }
 
-func (o *V3ValidateResponse) GetEvaluation() map[string]V3ValidateResponseEvaluation {
-	if o == nil {
+func (v *V3ValidateResponse) GetEvaluation() map[string]V3ValidateResponseEvaluation {
+	if v == nil {
 		return nil
 	}
-	return o.Evaluation
+	return v.Evaluation
 }
 
-func (o *V3ValidateResponse) GetNext() map[string]string {
-	if o == nil {
+func (v *V3ValidateResponse) GetNext() map[string]string {
+	if v == nil {
 		return map[string]string{}
 	}
-	return o.Next
+	return v.Next
 }
 
-func (o *V3ValidateResponse) GetPhoneNumber() *string {
-	if o == nil {
+func (v *V3ValidateResponse) GetPhoneNumber() *string {
+	if v == nil {
 		return nil
 	}
-	return o.PhoneNumber
+	return v.PhoneNumber
 }
 
-func (o *V3ValidateResponse) GetSuccess() bool {
-	if o == nil {
+func (v *V3ValidateResponse) GetSuccess() bool {
+	if v == nil {
 		return false
 	}
-	return o.Success
+	return v.Success
 }

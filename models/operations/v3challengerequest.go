@@ -12,16 +12,16 @@ type V3ChallengeRequestResponse struct {
 	V3ChallengeResponse *components.V3ChallengeResponse
 }
 
-func (o *V3ChallengeRequestResponse) GetHTTPMeta() components.HTTPMetadata {
-	if o == nil {
+func (v *V3ChallengeRequestResponse) GetHTTPMeta() components.HTTPMetadata {
+	if v == nil {
 		return components.HTTPMetadata{}
 	}
-	return o.HTTPMeta
+	return v.HTTPMeta
 }
 
-func (o *V3ChallengeRequestResponse) GetV3ChallengeResponse() *components.V3ChallengeResponse {
-	if o == nil {
+func (v *V3ChallengeRequestResponse) GetV3ChallengeResponse() *components.V3ChallengeResponse {
+	if v == nil {
 		return nil
 	}
-	return o.V3ChallengeResponse
+	return v.V3ChallengeResponse
 }

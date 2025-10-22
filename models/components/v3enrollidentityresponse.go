@@ -10,16 +10,16 @@ type V3EnrollIdentityResponse struct {
 	Success bool `json:"success"`
 }
 
-func (o *V3EnrollIdentityResponse) GetIdentityID() string {
-	if o == nil {
+func (v *V3EnrollIdentityResponse) GetIdentityID() string {
+	if v == nil {
 		return ""
 	}
-	return o.IdentityID
+	return v.IdentityID
 }
 
-func (o *V3EnrollIdentityResponse) GetSuccess() bool {
-	if o == nil {
+func (v *V3EnrollIdentityResponse) GetSuccess() bool {
+	if v == nil {
 		return false
 	}
-	return o.Success
+	return v.Success
 }

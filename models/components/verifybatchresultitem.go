@@ -11,8 +11,10 @@ type VerifyBatchResultItem struct {
 	// Prove’s tiered confidence metric, ranging from -1 to 3, that dynamically adapts to user behavior and various authentication keys. It allows for adaptive security policies, meaning you can require different levels of verification for different types of transactions.
 	AssuranceLevel string `json:"assuranceLevel"`
 	// TODO: usage comment. Chances are this will be a part of Identity struct.
-	Businesses       []Business `json:"businesses,omitempty"`
-	ClientCustomerID string     `json:"clientCustomerId"`
+	Businesses []Business `json:"businesses,omitempty"`
+	// The input ClientCustomerID.
+	ClientCustomerID string `json:"clientCustomerId"`
+	// The input ClientHumanID.
 	// (required IF verificationType=VerifiedUser)
 	ClientHumanID *string `json:"clientHumanId,omitempty"`
 	// An error message for this corresponding specific verification.
@@ -21,14 +23,16 @@ type VerifyBatchResultItem struct {
 	Evaluation     map[string]VerifyBatchResultItemEvaluation `json:"evaluation,omitempty"`
 	Identity       *Identity                                  `json:"identity,omitempty"`
 	LinkedAccounts []LinkedAccount                            `json:"linkedAccounts,omitempty"`
-	// The mobile phone number. US phone numbers can be passed in with or without a leading `+1`. International phone numbers require a leading `+1`. Use the appropriate endpoint URL based on the region the number originates from. Acceptable characters are: alphanumeric with symbols '+'.
+	// The input phone number.
 	PhoneNumber    string  `json:"phoneNumber"`
 	ProveAccountID *string `json:"proveAccountId,omitempty"`
+	// A Prove-generated identifier for the consumer.
 	// (required IF verificationType=VerifiedUser)
 	ProveID *string `json:"proveId,omitempty"`
+	// A persistent ID that uniquely identifies a telephone subscriber.
 	// (required IF verificationType=VerifiedUser)
 	ProvePhoneAlias *string `json:"provePhoneAlias,omitempty"`
-	// The result of the combination of `verifyResult` and `possessionResult`. Possible values are `true`, `pending`, and `false`. The value will be `pending` until the results of both Verify and Possession are returned or one of them fails, blocking the other.
+	// The result of verification.
 	Success string `json:"success"`
 }
 

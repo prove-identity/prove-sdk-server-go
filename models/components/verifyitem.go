@@ -16,8 +16,7 @@ type VerifyItem struct {
 	// The last name of the individual.
 	LastName string `json:"lastName"`
 	// The mobile phone number. US phone numbers can be passed in with or without a leading `+1`. International phone numbers require a leading `+1`. Use the appropriate endpoint URL based on the region the number originates from. Acceptable characters are: alphanumeric with symbols '+'.
-	PhoneNumber string  `json:"phoneNumber"`
-	ProveID     *string `json:"proveId,omitempty"`
+	PhoneNumber string `json:"phoneNumber"`
 	// The User agent of the customer.
 	UserAgent *string `json:"userAgent,omitempty"`
 	// The verification method based on the use case and authorization level.
@@ -71,13 +70,6 @@ func (v *VerifyItem) GetPhoneNumber() string {
 		return ""
 	}
 	return v.PhoneNumber
-}
-
-func (v *VerifyItem) GetProveID() *string {
-	if v == nil {
-		return nil
-	}
-	return v.ProveID
 }
 
 func (v *VerifyItem) GetUserAgent() *string {

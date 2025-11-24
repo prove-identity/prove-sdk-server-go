@@ -35,6 +35,222 @@ actions:
                     // handle response
                 }
             }
+  - target: $["paths"]["/v1/server/auth/continue"]["post"]
+    update:
+      x-codeSamples:
+        - lang: go
+          label: AuthContinueRequest
+          source: |-
+            package main
+
+            import(
+            	"context"
+            	"github.com/prove-identity/prove-sdk-server-go/models/components"
+            	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+            	"log"
+            )
+
+            func main() {
+                ctx := context.Background()
+
+                s := provesdkservergo.New(
+                    provesdkservergo.WithSecurity(components.Security{
+                        ClientID: provesdkservergo.Pointer("<YOUR_CLIENT_ID_HERE>"),
+                        ClientSecret: provesdkservergo.Pointer("<YOUR_CLIENT_SECRET_HERE>"),
+                    }),
+                )
+
+                res, err := s.Auth.AuthContinueRequest(ctx, &components.AuthContinueRequest{
+                    AuthID: "713189b8-5555-4b08-83ba-75d08780aebd",
+                    RequestID: "eba12f3a-5555-47bc-b85d-21c0cbc4b973",
+                    Subjects: components.AuthContinueRequestSubjects{
+                        Mobile: &components.AuthContinueRequestSubjectMobile{
+                            Claim: &components.AuthContinueRequestSubjectMobileClaim{
+                                MobileNumber: "12065550100",
+                            },
+                        },
+                    },
+                })
+                if err != nil {
+                    log.Fatal(err)
+                }
+                if res.AuthContinueResponse != nil {
+                    // handle response
+                }
+            }
+  - target: $["paths"]["/v1/server/auth/finish"]["post"]
+    update:
+      x-codeSamples:
+        - lang: go
+          label: AuthFinishRequest
+          source: |-
+            package main
+
+            import(
+            	"context"
+            	"github.com/prove-identity/prove-sdk-server-go/models/components"
+            	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+            	"log"
+            )
+
+            func main() {
+                ctx := context.Background()
+
+                s := provesdkservergo.New(
+                    provesdkservergo.WithSecurity(components.Security{
+                        ClientID: provesdkservergo.Pointer("<YOUR_CLIENT_ID_HERE>"),
+                        ClientSecret: provesdkservergo.Pointer("<YOUR_CLIENT_SECRET_HERE>"),
+                    }),
+                )
+
+                res, err := s.Auth.AuthFinishRequest(ctx, &components.AuthFinishRequest{
+                    AuthID: "eba12f3a-5555-47bc-b85d-21c0cbc4b973",
+                })
+                if err != nil {
+                    log.Fatal(err)
+                }
+                if res.AuthFinishResponse != nil {
+                    // handle response
+                }
+            }
+  - target: $["paths"]["/v1/server/auth/start"]["post"]
+    update:
+      x-codeSamples:
+        - lang: go
+          label: AuthStartRequest
+          source: |-
+            package main
+
+            import(
+            	"context"
+            	"github.com/prove-identity/prove-sdk-server-go/models/components"
+            	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+            	"log"
+            )
+
+            func main() {
+                ctx := context.Background()
+
+                s := provesdkservergo.New(
+                    provesdkservergo.WithSecurity(components.Security{
+                        ClientID: provesdkservergo.Pointer("<YOUR_CLIENT_ID_HERE>"),
+                        ClientSecret: provesdkservergo.Pointer("<YOUR_CLIENT_SECRET_HERE>"),
+                    }),
+                )
+
+                res, err := s.Auth.AuthStartRequest(ctx, &components.AuthStartRequest{
+                    CallbackURL: provesdkservergo.Pointer("https://example.com/webhook"),
+                    Delivery: &components.AuthStartRequestDelivery{
+                        Push: &components.AuthStartRequestDeliveryPush{
+                            Notification: components.AuthStartRequestDeliveryPushNotification{
+                                Body: "Do you want to allow login from this device?",
+                                ConfirmBtn: provesdkservergo.Pointer("Confirm"),
+                                DenyBtn: provesdkservergo.Pointer("Deny"),
+                                OriginatingDevice: provesdkservergo.Pointer("iPhone12"),
+                                OriginatingIP: provesdkservergo.Pointer("198.51.100.10"),
+                                Title: "Confirm Login",
+                            },
+                        },
+                        Scan: &components.AuthStartRequestDeliveryScan{
+                            Notification: components.AuthStartRequestDeliveryScanNotification{
+                                Body: "Please confirm you are trying to sign in...",
+                                ConfirmBtn: provesdkservergo.Pointer("Confirm"),
+                                DenyBtn: provesdkservergo.Pointer("Deny"),
+                                OriginatingDevice: provesdkservergo.Pointer("Google Chrome on Windows"),
+                                OriginatingIP: provesdkservergo.Pointer("198.51.100.10"),
+                                Title: "Confirm Sign In",
+                            },
+                        },
+                    },
+                    RequestID: "eba12f3a-5555-47bc-b85d-21c0cbc4b973",
+                    Subjects: components.AuthStartRequestSubjects{
+                        Card: &components.AuthStartRequestSubjectCard{
+                            Authenticators: components.AuthStartRequestSubjectCardAuthenticators{
+                                AirKey: &components.AuthStartRequestSubjectCardAuthenticatorAirKey{
+                                    Claim: &components.AuthStartRequestSubjectCardAuthenticatorAirKeyClaim{
+                                        Puids: []string{
+                                            "puids",
+                                            "puids",
+                                        },
+                                    },
+                                    TestMode: provesdkservergo.Pointer("testMode"),
+                                },
+                            },
+                        },
+                        Device: &components.AuthStartRequestSubjectDevice{
+                            Authenticators: &components.AuthStartRequestSubjectDeviceAuthenticators{
+                                Passive: &components.AuthStartRequestSubjectDeviceAuthenticatorPassive{
+                                    AllowPasscodeFallback: provesdkservergo.Pointer(true),
+                                    UserVerificationLevel: provesdkservergo.Pointer("userVerificationLevel"),
+                                },
+                            },
+                            Claim: &components.AuthStartRequestSubjectDeviceClaim{
+                                DeviceID: provesdkservergo.Pointer("deviceId"),
+                            },
+                        },
+                        Mobile: &components.AuthStartRequestSubjectMobile{
+                            Authenticators: &components.AuthStartRequestSubjectMobileAuthenticators{
+                                Instant: &components.AuthStartRequestSubjectMobileAuthenticatorInstant{
+                                    Consent: &components.AuthStartRequestInstantAuthConsent{
+                                        CollectedTimestamp: provesdkservergo.Pointer("2022-02-17T00:00:00Z"),
+                                        Description: provesdkservergo.Pointer("Customer Application Name"),
+                                        Status: "optedIn",
+                                        TransactionID: provesdkservergo.Pointer("eba12f3a-5555-47bc-b85d-21c0cbc4b973"),
+                                    },
+                                    TestMode: provesdkservergo.Pointer("testMode"),
+                                },
+                                Instantlink: &components.AuthStartRequestSubjectMobileAuthenticatorInstantLink{
+                                    AllowMobileNumberRePrompt: provesdkservergo.Pointer(true),
+                                    FinalTargetURL: "https://example.com/finishpage",
+                                    MessageText: "Please click the link to authenticate your mobile number: ####",
+                                    SourceIP: provesdkservergo.Pointer("123..."),
+                                    SubscriptionCustomerID: provesdkservergo.Pointer("123"),
+                                    TestMode: provesdkservergo.Pointer("testMode"),
+                                },
+                                Otp: &components.AuthStartRequestSubjectMobileAuthenticatorOTP{
+                                    AllowMobileNumberRePrompt: provesdkservergo.Pointer(true),
+                                    AllowOtpRetry: provesdkservergo.Pointer(true),
+                                    MessageText: "Your pin is: ####",
+                                    TestMode: provesdkservergo.Pointer("testMode"),
+                                },
+                                Passive: &components.AuthStartRequestSubjectMobileAuthenticatorPassive{
+                                    CacheResult: provesdkservergo.Pointer(true),
+                                    LocalDomain: provesdkservergo.Pointer(true),
+                                    MaxAge: provesdkservergo.Pointer[int64](7776000),
+                                    TestMode: provesdkservergo.Pointer("testMode"),
+                                },
+                                Universal: &components.AuthStartRequestSubjectMobileAuthenticatorUniversal{
+                                    FinalTargetURL: "https://example.com/finishpage",
+                                    TestMode: provesdkservergo.Pointer("testMode"),
+                                },
+                            },
+                            Claim: &components.AuthStartRequestSubjectMobileClaim{
+                                MobileNumber: provesdkservergo.Pointer("12065550100"),
+                            },
+                        },
+                        User: &components.AuthStartRequestSubjectUser{
+                            Authenticators: &components.AuthStartRequestSubjectUserAuthenticators{
+                                Docv: &components.Docv{},
+                                Passive: &components.AuthStartRequestSubjectUserAuthenticatorPassive{
+                                    UserVerificationLevel: provesdkservergo.Pointer("userVerificationLevel"),
+                                },
+                                Ppb: &components.Ppb{},
+                                Present: &components.Present{},
+                            },
+                            Claim: &components.AuthStartRequestSubjectUserClaim{
+                                Provided: provesdkservergo.Pointer(true),
+                                UserID: "eba12f3a-5555-47bc-b85d-21c0cbc4b973",
+                            },
+                        },
+                    },
+                })
+                if err != nil {
+                    log.Fatal(err)
+                }
+                if res.AuthStartResponse != nil {
+                    // handle response
+                }
+            }
   - target: $["paths"]["/v3/challenge"]["post"]
     update:
       x-codeSamples:
@@ -845,16 +1061,23 @@ actions:
                 )
 
                 res, err := s.V3.V3VerifyRequest(ctx, &components.V3VerifyRequest{
+                    AddOnFeature: []string{
+                        "ageEstimation",
+                    },
+                    BusinessName: provesdkservergo.Pointer("businessName"),
                     ClientCustomerID: provesdkservergo.Pointer("e0f78bc2-f748-4eda-9d29-d756844507fc"),
                     ClientHumanID: provesdkservergo.Pointer("aad25769-23bb-458c-80db-50296a82c91b"),
                     ClientRequestID: provesdkservergo.Pointer("71010d88-d0e7-4a24-9297-d1be6fefde81"),
-                    EmailAddress: provesdkservergo.Pointer("sbutrimovichb@who.int"),
-                    FirstName: provesdkservergo.Pointer("Sheilakathryn"),
+                    DateOfBirth: provesdkservergo.Pointer("dateOfBirth"),
+                    EmailAddress: provesdkservergo.Pointer("ecoldman1h@storify.com"),
+                    FirstName: provesdkservergo.Pointer("Elena"),
                     IPAddress: provesdkservergo.Pointer("192.168.1.1"),
-                    LastName: provesdkservergo.Pointer("Butrimovich"),
-                    PhoneNumber: "2001004011",
+                    LastName: provesdkservergo.Pointer("Coldman"),
+                    NationalID: provesdkservergo.Pointer("nationalId"),
+                    PhoneNumber: "2001004053",
+                    ProveID: provesdkservergo.Pointer("proveId"),
                     UserAgent: provesdkservergo.Pointer("Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0"),
-                    VerificationType: "verificationType",
+                    VerificationType: components.VerificationTypeVerifiedUser,
                 })
                 if err != nil {
                     log.Fatal(err)
@@ -894,22 +1117,24 @@ actions:
                         components.VerifyItem{
                             ClientCustomerID: provesdkservergo.Pointer("e0f78bc2-f748-4eda-9d29-d756844507fc"),
                             ClientHumanID: provesdkservergo.Pointer("clientHumanId"),
-                            EmailAddress: provesdkservergo.Pointer("sbutrimovichb@who.int"),
-                            FirstName: "Sheilakathryn",
+                            EmailAddress: provesdkservergo.Pointer("ecoldman1h@storify.com"),
+                            FirstName: "Elena",
                             IPAddress: provesdkservergo.Pointer("192.168.1.1"),
-                            LastName: "Butrimovich",
-                            PhoneNumber: "2001004011",
+                            LastName: "Coldman",
+                            PhoneNumber: "2001004053",
+                            ProveID: provesdkservergo.Pointer("e0f78bc2-f748-4eda-9d29-d756844507fc"),
                             UserAgent: provesdkservergo.Pointer("Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0"),
                             VerificationType: provesdkservergo.Pointer("verificationType"),
                         },
                         components.VerifyItem{
                             ClientCustomerID: provesdkservergo.Pointer("e0f78bc2-f748-4eda-9d29-d756844507fc"),
                             ClientHumanID: provesdkservergo.Pointer("clientHumanId"),
-                            EmailAddress: provesdkservergo.Pointer("sbutrimovichb@who.int"),
-                            FirstName: "Sheilakathryn",
+                            EmailAddress: provesdkservergo.Pointer("ecoldman1h@storify.com"),
+                            FirstName: "Elena",
                             IPAddress: provesdkservergo.Pointer("192.168.1.1"),
-                            LastName: "Butrimovich",
-                            PhoneNumber: "2001004011",
+                            LastName: "Coldman",
+                            PhoneNumber: "2001004053",
+                            ProveID: provesdkservergo.Pointer("e0f78bc2-f748-4eda-9d29-d756844507fc"),
                             UserAgent: provesdkservergo.Pointer("Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0"),
                             VerificationType: provesdkservergo.Pointer("verificationType"),
                         },

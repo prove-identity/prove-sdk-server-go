@@ -7,25 +7,57 @@ type V3VerifyResponseEvaluation struct {
 
 type V3VerifyResponse struct {
 	// (required IF verificationType=VerifiedUser)
-	AdditionalIdentities []AdditionalIdentity `json:"additionalIdentities,omitempty"`
+	AdditionalIdentities []Identity `json:"additionalIdentities,omitempty"`
+	// TODO: usage comment. Chances are this will be a part of Identity struct.
+	Businesses []Business `json:"businesses,omitempty"`
+	// Client-generated identifier for a given customer. This is returned as passed into the request.
+	ClientCustomerID *string `json:"clientCustomerId,omitempty"`
+	ClientHumanID    *string `json:"clientHumanId,omitempty"`
 	// A client-generated unique ID for a specific session. This can be used to identify specific requests. The format of this ID is defined by the client - Prove recommends using a GUID, but any format can be accepted. Do not include Personally Identifiable Information (PII) in this field.
 	ClientRequestID *string `json:"clientRequestId,omitempty"`
 	// The unique ID that Prove generates for the flow. To continue the flow, the field will also be used for each of the subsequent API calls in the same flow - it cannot be reused outside of a single flow.
 	CorrelationID string `json:"correlationId"`
 	// The evaluation result for the policy. This is an upcoming field but is not yet enabled.
-	Evaluation map[string]V3VerifyResponseEvaluation `json:"evaluation,omitempty"`
-	Identity   Identity                              `json:"identity"`
+	Evaluation     map[string]V3VerifyResponseEvaluation `json:"evaluation,omitempty"`
+	Identity       *Identity                             `json:"identity,omitempty"`
+	LinkedAccounts []LinkedAccount                       `json:"linkedAccounts,omitempty"`
 	// The mobile phone number. US phone numbers can be passed in with or without a leading `+1`. International phone numbers require a leading `+1`. Use the appropriate endpoint URL based on the region the number originates from. Acceptable characters are: alphanumeric with symbols '+'.
-	PhoneNumber string `json:"phoneNumber"`
+	PhoneNumber    string  `json:"phoneNumber"`
+	ProveAccountID *string `json:"proveAccountId,omitempty"`
+	// (required IF verificationType=VerifiedUser)
+	ProveID *string `json:"proveId,omitempty"`
+	// (required IF verificationType=VerifiedUser)
+	ProvePhoneAlias *string `json:"provePhoneAlias,omitempty"`
 	// The result of verification
 	Success string `json:"success"`
 }
 
-func (v *V3VerifyResponse) GetAdditionalIdentities() []AdditionalIdentity {
+func (v *V3VerifyResponse) GetAdditionalIdentities() []Identity {
 	if v == nil {
 		return nil
 	}
 	return v.AdditionalIdentities
+}
+
+func (v *V3VerifyResponse) GetBusinesses() []Business {
+	if v == nil {
+		return nil
+	}
+	return v.Businesses
+}
+
+func (v *V3VerifyResponse) GetClientCustomerID() *string {
+	if v == nil {
+		return nil
+	}
+	return v.ClientCustomerID
+}
+
+func (v *V3VerifyResponse) GetClientHumanID() *string {
+	if v == nil {
+		return nil
+	}
+	return v.ClientHumanID
 }
 
 func (v *V3VerifyResponse) GetClientRequestID() *string {
@@ -49,11 +81,18 @@ func (v *V3VerifyResponse) GetEvaluation() map[string]V3VerifyResponseEvaluation
 	return v.Evaluation
 }
 
-func (v *V3VerifyResponse) GetIdentity() Identity {
+func (v *V3VerifyResponse) GetIdentity() *Identity {
 	if v == nil {
-		return Identity{}
+		return nil
 	}
 	return v.Identity
+}
+
+func (v *V3VerifyResponse) GetLinkedAccounts() []LinkedAccount {
+	if v == nil {
+		return nil
+	}
+	return v.LinkedAccounts
 }
 
 func (v *V3VerifyResponse) GetPhoneNumber() string {
@@ -61,6 +100,27 @@ func (v *V3VerifyResponse) GetPhoneNumber() string {
 		return ""
 	}
 	return v.PhoneNumber
+}
+
+func (v *V3VerifyResponse) GetProveAccountID() *string {
+	if v == nil {
+		return nil
+	}
+	return v.ProveAccountID
+}
+
+func (v *V3VerifyResponse) GetProveID() *string {
+	if v == nil {
+		return nil
+	}
+	return v.ProveID
+}
+
+func (v *V3VerifyResponse) GetProvePhoneAlias() *string {
+	if v == nil {
+		return nil
+	}
+	return v.ProvePhoneAlias
 }
 
 func (v *V3VerifyResponse) GetSuccess() string {

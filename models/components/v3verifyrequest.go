@@ -2,13 +2,62 @@
 
 package components
 
+import (
+	"encoding/json"
+	"fmt"
+)
+
+// VerificationType - The verification method based on the use case and authorization level. Current allowed values: "verifiedUser", "accountOpening", "bot", "prefill", "prefillForBiz", "identityResolution".
+type VerificationType string
+
+const (
+	VerificationTypeBot                VerificationType = "bot"
+	VerificationTypeVerifiedUser       VerificationType = "verifiedUser"
+	VerificationTypeAccountOpening     VerificationType = "accountOpening"
+	VerificationTypePrefill            VerificationType = "prefill"
+	VerificationTypePrefillForBiz      VerificationType = "prefillForBiz"
+	VerificationTypeIdentityResolution VerificationType = "identityResolution"
+)
+
+func (e VerificationType) ToPointer() *VerificationType {
+	return &e
+}
+func (e *VerificationType) UnmarshalJSON(data []byte) error {
+	var v string
+	if err := json.Unmarshal(data, &v); err != nil {
+		return err
+	}
+	switch v {
+	case "bot":
+		fallthrough
+	case "verifiedUser":
+		fallthrough
+	case "accountOpening":
+		fallthrough
+	case "prefill":
+		fallthrough
+	case "prefillForBiz":
+		fallthrough
+	case "identityResolution":
+		*e = VerificationType(v)
+		return nil
+	default:
+		return fmt.Errorf("invalid value for VerificationType: %v", v)
+	}
+}
+
 type V3VerifyRequest struct {
+	// An optional list of add-on features. Current allowed values: "ageEstimation"
+	AddOnFeature []string `json:"addOnFeature,omitempty"`
+	BusinessName *string  `json:"businessName,omitempty"`
 	// A client-generated unique ID for a specific customer. This can be used by clients to link calls related to the same customer, across different requests or sessions.  The format of this ID is defined by the client - Prove recommends using a GUID, but any format can be accepted. Prove does not offer any functionality around the Client Customer ID. Do not include personally identifiable information (PII) in this field.
 	ClientCustomerID *string `json:"clientCustomerId,omitempty"`
 	// An optional client-generated unique ID our Enterprise customer inputs for that consumer across business lines. If the Enterprise customer has been able to identify a consumer across business lines and has a unique identifier for the consumer, they would input this value to Prove.The format of this ID is defined by the client - Prove recommends using a GUID, but any format can be accepted. Do not include personally identifiable information (PII) in this field.
 	ClientHumanID *string `json:"clientHumanId,omitempty"`
 	// A client-generated unique ID for a specific session. This can be used to identify specific requests. The format of this ID is defined by the client - Prove recommends using a GUID, but any format can be accepted. Do not include Personally Identifiable Information (PII) in this field.
 	ClientRequestID *string `json:"clientRequestId,omitempty"`
+	// TODO: comments and validation
+	DateOfBirth *string `json:"dateOfBirth,omitempty"`
 	// The email address of the customer. Acceptable characters are: alphanumeric with symbols '@.+'.
 	EmailAddress *string `json:"emailAddress,omitempty"`
 	// The first name of the individual. (required IF verificationType=VerifiedUser)
@@ -16,13 +65,29 @@ type V3VerifyRequest struct {
 	// The IP address of the customer.
 	IPAddress *string `json:"ipAddress,omitempty"`
 	// The last name of the individual. (required IF verificationType=VerifiedUser)
-	LastName *string `json:"lastName,omitempty"`
+	LastName   *string `json:"lastName,omitempty"`
+	NationalID *string `json:"nationalId,omitempty"`
 	// The mobile phone number. US phone numbers can be passed in with or without a leading `+1`. International phone numbers require a leading `+1`. Use the appropriate endpoint URL based on the region the number originates from. Acceptable characters are: alphanumeric with symbols '+'.
-	PhoneNumber string `json:"phoneNumber"`
+	PhoneNumber string  `json:"phoneNumber"`
+	ProveID     *string `json:"proveId,omitempty"`
 	// The User agent of the customer.
 	UserAgent *string `json:"userAgent,omitempty"`
-	// The verification method based on the use case and authorization level.
-	VerificationType string `json:"verificationType"`
+	// The verification method based on the use case and authorization level. Current allowed values: "verifiedUser", "accountOpening", "bot", "prefill", "prefillForBiz", "identityResolution".
+	VerificationType VerificationType `json:"verificationType"`
+}
+
+func (v *V3VerifyRequest) GetAddOnFeature() []string {
+	if v == nil {
+		return nil
+	}
+	return v.AddOnFeature
+}
+
+func (v *V3VerifyRequest) GetBusinessName() *string {
+	if v == nil {
+		return nil
+	}
+	return v.BusinessName
 }
 
 func (v *V3VerifyRequest) GetClientCustomerID() *string {
@@ -44,6 +109,13 @@ func (v *V3VerifyRequest) GetClientRequestID() *string {
 		return nil
 	}
 	return v.ClientRequestID
+}
+
+func (v *V3VerifyRequest) GetDateOfBirth() *string {
+	if v == nil {
+		return nil
+	}
+	return v.DateOfBirth
 }
 
 func (v *V3VerifyRequest) GetEmailAddress() *string {
@@ -74,11 +146,25 @@ func (v *V3VerifyRequest) GetLastName() *string {
 	return v.LastName
 }
 
+func (v *V3VerifyRequest) GetNationalID() *string {
+	if v == nil {
+		return nil
+	}
+	return v.NationalID
+}
+
 func (v *V3VerifyRequest) GetPhoneNumber() string {
 	if v == nil {
 		return ""
 	}
 	return v.PhoneNumber
+}
+
+func (v *V3VerifyRequest) GetProveID() *string {
+	if v == nil {
+		return nil
+	}
+	return v.ProveID
 }
 
 func (v *V3VerifyRequest) GetUserAgent() *string {
@@ -88,9 +174,9 @@ func (v *V3VerifyRequest) GetUserAgent() *string {
 	return v.UserAgent
 }
 
-func (v *V3VerifyRequest) GetVerificationType() string {
+func (v *V3VerifyRequest) GetVerificationType() VerificationType {
 	if v == nil {
-		return ""
+		return VerificationType("")
 	}
 	return v.VerificationType
 }

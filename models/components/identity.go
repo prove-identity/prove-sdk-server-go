@@ -3,21 +3,30 @@
 package components
 
 type Identity struct {
+	Addresses []Address `json:"addresses,omitempty"`
 	// Prove’s tiered confidence metric, ranging from -1 to 3, that dynamically adapts to user behavior and various authentication keys. It allows for adaptive security policies, meaning you can require different levels of verification for different types of transactions.
-	AssuranceLevel   string `json:"assuranceLevel"`
-	ClientCustomerID string `json:"clientCustomerId"`
+	AssuranceLevel string `json:"assuranceLevel"`
 	// (required IF verificationType=VerifiedUser)
 	ClientHumanID *string `json:"clientHumanId,omitempty"`
+	// TODO: comments and validation
+	DateOfBirth *string  `json:"dateOfBirth,omitempty"`
+	Emails      []string `json:"emails,omitempty"`
 	// The first name of the individual. (required IF verificationType=VerifiedUser)
-	FirstName string `json:"firstName"`
+	FirstName *string `json:"firstName,omitempty"`
 	// The last name of the individual. (required IF verificationType=VerifiedUser)
-	LastName string `json:"lastName"`
-	// (required IF verificationType=VerifiedUser)
-	ProveID *string `json:"proveId,omitempty"`
-	// (required IF verificationType=VerifiedUser)
-	ProvePhoneAlias *string `json:"provePhoneAlias,omitempty"`
+	LastName   *string `json:"lastName,omitempty"`
+	MaxAge     *int64  `json:"maxAge,omitempty"`
+	MinAge     *int64  `json:"minAge,omitempty"`
+	NationalID *string `json:"nationalId,omitempty"`
 	// Codes explaining the verification outcome
 	Reasons []string `json:"reasons"`
+}
+
+func (i *Identity) GetAddresses() []Address {
+	if i == nil {
+		return nil
+	}
+	return i.Addresses
 }
 
 func (i *Identity) GetAssuranceLevel() string {
@@ -27,13 +36,6 @@ func (i *Identity) GetAssuranceLevel() string {
 	return i.AssuranceLevel
 }
 
-func (i *Identity) GetClientCustomerID() string {
-	if i == nil {
-		return ""
-	}
-	return i.ClientCustomerID
-}
-
 func (i *Identity) GetClientHumanID() *string {
 	if i == nil {
 		return nil
@@ -41,32 +43,53 @@ func (i *Identity) GetClientHumanID() *string {
 	return i.ClientHumanID
 }
 
-func (i *Identity) GetFirstName() string {
+func (i *Identity) GetDateOfBirth() *string {
 	if i == nil {
-		return ""
+		return nil
+	}
+	return i.DateOfBirth
+}
+
+func (i *Identity) GetEmails() []string {
+	if i == nil {
+		return nil
+	}
+	return i.Emails
+}
+
+func (i *Identity) GetFirstName() *string {
+	if i == nil {
+		return nil
 	}
 	return i.FirstName
 }
 
-func (i *Identity) GetLastName() string {
+func (i *Identity) GetLastName() *string {
 	if i == nil {
-		return ""
+		return nil
 	}
 	return i.LastName
 }
 
-func (i *Identity) GetProveID() *string {
+func (i *Identity) GetMaxAge() *int64 {
 	if i == nil {
 		return nil
 	}
-	return i.ProveID
+	return i.MaxAge
 }
 
-func (i *Identity) GetProvePhoneAlias() *string {
+func (i *Identity) GetMinAge() *int64 {
 	if i == nil {
 		return nil
 	}
-	return i.ProvePhoneAlias
+	return i.MinAge
+}
+
+func (i *Identity) GetNationalID() *string {
+	if i == nil {
+		return nil
+	}
+	return i.NationalID
 }
 
 func (i *Identity) GetReasons() []string {

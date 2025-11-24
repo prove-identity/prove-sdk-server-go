@@ -7,9 +7,9 @@ import (
 )
 
 type Error struct {
-	// An error code that describes the problem category of the request.
+	// Code is an internal error code that describes the problem category of the request.
 	Code *int64 `json:"code,omitempty"`
-	// The error message describing the problem with the request.
+	// Message is an error message describing the problem with the request.
 	Message string `json:"message"`
 }
 

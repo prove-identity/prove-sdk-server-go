@@ -7,23 +7,64 @@ type VerifyBatchResultItemEvaluation struct {
 
 type VerifyBatchResultItem struct {
 	// (required IF verificationType=VerifiedUser)
-	AdditionalIdentities []AdditionalIdentity `json:"additionalIdentities,omitempty"`
+	AdditionalIdentities []Identity `json:"additionalIdentities,omitempty"`
+	// Prove’s tiered confidence metric, ranging from -1 to 3, that dynamically adapts to user behavior and various authentication keys. It allows for adaptive security policies, meaning you can require different levels of verification for different types of transactions.
+	AssuranceLevel string `json:"assuranceLevel"`
+	// TODO: usage comment. Chances are this will be a part of Identity struct.
+	Businesses       []Business `json:"businesses,omitempty"`
+	ClientCustomerID string     `json:"clientCustomerId"`
+	// (required IF verificationType=VerifiedUser)
+	ClientHumanID *string `json:"clientHumanId,omitempty"`
 	// An error message for this corresponding specific verification.
 	Error *string `json:"error,omitempty"`
 	// The evaluation result for the policy. This is an upcoming field but is not yet enabled.
-	Evaluation map[string]VerifyBatchResultItemEvaluation `json:"evaluation,omitempty"`
-	Identity   Identity                                   `json:"identity"`
+	Evaluation     map[string]VerifyBatchResultItemEvaluation `json:"evaluation,omitempty"`
+	Identity       *Identity                                  `json:"identity,omitempty"`
+	LinkedAccounts []LinkedAccount                            `json:"linkedAccounts,omitempty"`
 	// The mobile phone number. US phone numbers can be passed in with or without a leading `+1`. International phone numbers require a leading `+1`. Use the appropriate endpoint URL based on the region the number originates from. Acceptable characters are: alphanumeric with symbols '+'.
-	PhoneNumber string `json:"phoneNumber"`
+	PhoneNumber    string  `json:"phoneNumber"`
+	ProveAccountID *string `json:"proveAccountId,omitempty"`
+	// (required IF verificationType=VerifiedUser)
+	ProveID *string `json:"proveId,omitempty"`
+	// (required IF verificationType=VerifiedUser)
+	ProvePhoneAlias *string `json:"provePhoneAlias,omitempty"`
 	// The result of the combination of `verifyResult` and `possessionResult`. Possible values are `true`, `pending`, and `false`. The value will be `pending` until the results of both Verify and Possession are returned or one of them fails, blocking the other.
 	Success string `json:"success"`
 }
 
-func (v *VerifyBatchResultItem) GetAdditionalIdentities() []AdditionalIdentity {
+func (v *VerifyBatchResultItem) GetAdditionalIdentities() []Identity {
 	if v == nil {
 		return nil
 	}
 	return v.AdditionalIdentities
+}
+
+func (v *VerifyBatchResultItem) GetAssuranceLevel() string {
+	if v == nil {
+		return ""
+	}
+	return v.AssuranceLevel
+}
+
+func (v *VerifyBatchResultItem) GetBusinesses() []Business {
+	if v == nil {
+		return nil
+	}
+	return v.Businesses
+}
+
+func (v *VerifyBatchResultItem) GetClientCustomerID() string {
+	if v == nil {
+		return ""
+	}
+	return v.ClientCustomerID
+}
+
+func (v *VerifyBatchResultItem) GetClientHumanID() *string {
+	if v == nil {
+		return nil
+	}
+	return v.ClientHumanID
 }
 
 func (v *VerifyBatchResultItem) GetError() *string {
@@ -40,11 +81,18 @@ func (v *VerifyBatchResultItem) GetEvaluation() map[string]VerifyBatchResultItem
 	return v.Evaluation
 }
 
-func (v *VerifyBatchResultItem) GetIdentity() Identity {
+func (v *VerifyBatchResultItem) GetIdentity() *Identity {
 	if v == nil {
-		return Identity{}
+		return nil
 	}
 	return v.Identity
+}
+
+func (v *VerifyBatchResultItem) GetLinkedAccounts() []LinkedAccount {
+	if v == nil {
+		return nil
+	}
+	return v.LinkedAccounts
 }
 
 func (v *VerifyBatchResultItem) GetPhoneNumber() string {
@@ -52,6 +100,27 @@ func (v *VerifyBatchResultItem) GetPhoneNumber() string {
 		return ""
 	}
 	return v.PhoneNumber
+}
+
+func (v *VerifyBatchResultItem) GetProveAccountID() *string {
+	if v == nil {
+		return nil
+	}
+	return v.ProveAccountID
+}
+
+func (v *VerifyBatchResultItem) GetProveID() *string {
+	if v == nil {
+		return nil
+	}
+	return v.ProveID
+}
+
+func (v *VerifyBatchResultItem) GetProvePhoneAlias() *string {
+	if v == nil {
+		return nil
+	}
+	return v.ProvePhoneAlias
 }
 
 func (v *VerifyBatchResultItem) GetSuccess() string {

@@ -7,7 +7,7 @@ type V3CrossDomainIdentityResponse struct {
 	// The number of items in the Identities array.
 	Count int64 `json:"count"`
 	// The list of identities from other linked accounts.
-	Identites []IdentityItem `json:"identites"`
+	Identities []IdentityItem `json:"identities"`
 }
 
 func (v *V3CrossDomainIdentityResponse) GetCount() int64 {
@@ -17,9 +17,9 @@ func (v *V3CrossDomainIdentityResponse) GetCount() int64 {
 	return v.Count
 }
 
-func (v *V3CrossDomainIdentityResponse) GetIdentites() []IdentityItem {
+func (v *V3CrossDomainIdentityResponse) GetIdentities() []IdentityItem {
 	if v == nil {
 		return []IdentityItem{}
 	}
-	return v.Identites
+	return v.Identities
 }

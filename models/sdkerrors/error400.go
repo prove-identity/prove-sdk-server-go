@@ -6,10 +6,12 @@ import (
 	"encoding/json"
 )
 
+// Error400 is a custom error for HTTP 400. This is used to support distinguishing
+// between HTTP 400 and 500 in Speakeasy SDKs.
 type Error400 struct {
-	// An error code that describes the problem category of the request.
+	// Code is an internal error code that describes the problem category of the request.
 	Code *int64 `json:"code,omitempty"`
-	// The error message describing the problem with the request.
+	// Message is an error message describing the problem with the request.
 	Message string `json:"message"`
 }
 

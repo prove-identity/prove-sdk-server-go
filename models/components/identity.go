@@ -5,9 +5,9 @@ package components
 type Identity struct {
 	// Prove’s tiered confidence metric, ranging from -1 to 3, that dynamically adapts to user behavior and various authentication keys. It allows for adaptive security policies, meaning you can require different levels of verification for different types of transactions.
 	AssuranceLevel string `json:"assuranceLevel"`
-	// The input first name.
+	// The first name of the identity.
 	FirstName *string `json:"firstName,omitempty"`
-	// The input last name.
+	// The last name of the identity.
 	LastName *string `json:"lastName,omitempty"`
 	// Codes explaining the verification outcome
 	Reasons []string `json:"reasons"`

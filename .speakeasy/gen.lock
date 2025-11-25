@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 13f15f39-429b-4f89-9916-f3a11e8cf70c
 management:
-  docChecksum: 545951852b7c8e35798896cb77cabb7b
+  docChecksum: 53231dde27e6d3d3b522f44e6e446a0e
   docVersion: 1.0.0
-  speakeasyVersion: 1.660.0
-  generationVersion: 2.760.2
-  releaseVersion: 0.13.1
-  configChecksum: 9d3bfa3d8c8f0693c3b6bbff56e81d81
+  speakeasyVersion: 1.661.1
+  generationVersion: 2.763.2
+  releaseVersion: 0.13.2
+  configChecksum: 6fbfcaf45c26f7dcd476c5b5d15af94d
   repoURL: https://github.com/prove-identity/prove-sdk-server-go.git
   installationURL: https://github.com/prove-identity/prove-sdk-server-go
 features:
   go:
     additionalDependencies: 0.1.0
-    core: 3.13.2
+    core: 3.13.3
     defaultEnabledRetries: 0.2.0
     envVarSecurityUsage: 0.3.2
     examples: 2.81.5
@@ -28,7 +28,6 @@ features:
     serverIDs: 2.81.1
 generatedFiles:
   - .gitattributes
-  - /models/components/address.go
   - /models/components/amltypelistresponseinternal.go
   - /models/components/authcontinuerequest.go
   - /models/components/authcontinuerequestsubjectmobile.go
@@ -94,8 +93,6 @@ generatedFiles:
   - /models/components/authstartrequestsubjectuserauthenticators.go
   - /models/components/authstartrequestsubjectuserclaim.go
   - /models/components/authstartresponse.go
-  - /models/components/business.go
-  - /models/components/businessaddress.go
   - /models/components/datasourceaddressresponseinternal.go
   - /models/components/datasourceemailaddressresponseinternal.go
   - /models/components/datasourceidentifiersresponseinternal.go
@@ -108,14 +105,11 @@ generatedFiles:
   - /models/components/idvdatainternal.go
   - /models/components/kycfieldtyperesponseinternal.go
   - /models/components/kycinternal.go
-  - /models/components/linkedaccount.go
   - /models/components/linkedfrom.go
   - /models/components/linkedto.go
   - /models/components/lookupidentityitem.go
   - /models/components/postbatchresultitem.go
   - /models/components/pushtoken.go
-  - /models/components/registrationfiling.go
-  - /models/components/relatedperson.go
   - /models/components/requestsfrom.go
   - /models/components/requeststo.go
   - /models/components/security.go
@@ -168,8 +162,8 @@ generatedFiles:
   - /models/components/v3verifybatchresponse.go
   - /models/components/v3verifyrequest.go
   - /models/components/v3verifyresponse.go
+  - /models/components/verifybatchrequestitem.go
   - /models/components/verifybatchresultitem.go
-  - /models/components/verifyitem.go
   - /models/operations/authcontinuerequest.go
   - /models/operations/authfinishrequest.go
   - /models/operations/authstartrequest.go
@@ -203,7 +197,6 @@ generatedFiles:
   - /models/sdkerrors/error403.go
   - USAGE.md
   - auth.go
-  - docs/models/components/address.md
   - docs/models/components/amltypelistresponseinternal.md
   - docs/models/components/authcontinuerequest.md
   - docs/models/components/authcontinuerequestsubjectmobile.md
@@ -269,8 +262,6 @@ generatedFiles:
   - docs/models/components/authstartrequestsubjectuserauthenticators.md
   - docs/models/components/authstartrequestsubjectuserclaim.md
   - docs/models/components/authstartresponse.md
-  - docs/models/components/business.md
-  - docs/models/components/businessaddress.md
   - docs/models/components/datasourceaddressresponseinternal.md
   - docs/models/components/datasourceemailaddressresponseinternal.md
   - docs/models/components/datasourceidentifiersresponseinternal.md
@@ -286,7 +277,6 @@ generatedFiles:
   - docs/models/components/idvdatainternal.md
   - docs/models/components/kycfieldtyperesponseinternal.md
   - docs/models/components/kycinternal.md
-  - docs/models/components/linkedaccount.md
   - docs/models/components/linkedfrom.md
   - docs/models/components/linkedto.md
   - docs/models/components/lookupidentityitem.md
@@ -294,8 +284,6 @@ generatedFiles:
   - docs/models/components/ppb.md
   - docs/models/components/present.md
   - docs/models/components/pushtoken.md
-  - docs/models/components/registrationfiling.md
-  - docs/models/components/relatedperson.md
   - docs/models/components/requestsfrom.md
   - docs/models/components/requeststo.md
   - docs/models/components/security.md
@@ -354,9 +342,9 @@ generatedFiles:
   - docs/models/components/v3verifyresponse.md
   - docs/models/components/v3verifyresponseevaluation.md
   - docs/models/components/verificationtype.md
+  - docs/models/components/verifybatchrequestitem.md
   - docs/models/components/verifybatchresultitem.md
   - docs/models/components/verifybatchresultitemevaluation.md
-  - docs/models/components/verifyitem.md
   - docs/models/operations/authcontinuerequestresponse.md
   - docs/models/operations/authfinishrequestresponse.md
   - docs/models/operations/authstartrequestresponse.md
@@ -604,10 +592,10 @@ examples:
   V3VerifyRequest:
     speakeasy-default-v3-verify-request:
       requestBody:
-        application/json: {"addOnFeature": ["ageEstimation"], "clientCustomerId": "e0f78bc2-f748-4eda-9d29-d756844507fc", "clientHumanId": "aad25769-23bb-458c-80db-50296a82c91b", "clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "emailAddress": "ecoldman1h@storify.com", "firstName": "Elena", "ipAddress": "192.168.1.1", "lastName": "Coldman", "phoneNumber": "2001004053", "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0", "verificationType": "verifiedUser"}
+        application/json: {"clientCustomerId": "e0f78bc2-f748-4eda-9d29-d756844507fc", "clientHumanId": "aad25769-23bb-458c-80db-50296a82c91b", "clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "emailAddress": "ecoldman1h@storify.com", "firstName": "Elena", "ipAddress": "192.168.1.1", "lastName": "Coldman", "phoneNumber": "2001004053", "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0", "verificationType": "verifiedUser"}
       responses:
         "200":
-          application/json: {"additionalIdentities": [{"addresses": [{"address": "address", "city": "city", "extendedAddress": "extendedAddress", "region": "region", "zipCode": "zipCode"}, {"address": "address", "city": "city", "extendedAddress": "extendedAddress", "region": "region", "zipCode": "zipCode"}], "assuranceLevel": "AL-1", "emails": ["emails", "emails"], "firstName": "Elena", "lastName": "Coldman", "maxAge": 25, "minAge": 18, "reasons": ["[AL-1a] (Poor quality identity)"]}, {"addresses": [{"address": "address", "city": "city", "extendedAddress": "extendedAddress", "region": "region", "zipCode": "zipCode"}, {"address": "address", "city": "city", "extendedAddress": "extendedAddress", "region": "region", "zipCode": "zipCode"}], "assuranceLevel": "AL-1", "emails": ["emails", "emails"], "firstName": "Elena", "lastName": "Coldman", "maxAge": 25, "minAge": 18, "reasons": ["[AL-1a] (Poor quality identity)"]}], "clientCustomerId": "261ffa66-961a-4f90-8d93-6c85a450633d", "clientHumanId": "261ffa66-961a-4f90-8d93-6c85a450633d", "clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "evaluation": {"authentication": {}, "identification": {}, "success": {}}, "identity": {"addresses": [{"address": "address", "city": "city", "extendedAddress": "extendedAddress", "region": "region", "zipCode": "zipCode"}, {"address": "address", "city": "city", "extendedAddress": "extendedAddress", "region": "region", "zipCode": "zipCode"}], "assuranceLevel": "AL2", "emails": ["emails", "emails"], "firstName": "Elena", "lastName": "Coldman", "maxAge": 25, "minAge": 18, "reasons": ["[AL2a]"]}, "phoneNumber": "2001004053", "proveId": "a07b94ce-218c-461f-beda-d92480e40f61", "provePhoneAlias": "4B2C41FC4VKDEO100F960011D0AD4A8050MEK19P4SF9PD23EFE27CD2C76A6FAA8375E60AC0550604F6G32D9ED60E06262CCC570F3C15F2D16900184E", "success": "true"}
+          application/json: {"additionalIdentities": [{"assuranceLevel": "AL-1", "firstName": "Elena", "lastName": "Coldman", "reasons": ["[AL-1a] (Poor quality identity)"]}, {"assuranceLevel": "AL-1", "firstName": "Elena", "lastName": "Coldman", "reasons": ["[AL-1a] (Poor quality identity)"]}], "clientCustomerId": "261ffa66-961a-4f90-8d93-6c85a450633d", "clientHumanId": "261ffa66-961a-4f90-8d93-6c85a450633d", "clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "evaluation": {"authentication": {}, "identification": {}}, "identity": {"assuranceLevel": "AL2", "firstName": "Elena", "lastName": "Coldman", "reasons": ["[AL2a]"]}, "phoneNumber": "2001004053", "proveId": "a07b94ce-218c-461f-beda-d92480e40f61", "provePhoneAlias": "4B2C41FC4VKDEO100F960011D0AD4A8050MEK19P4SF9PD23EFE27CD2C76A6FAA8375E60AC0550604F6G32D9ED60E06262CCC570F3C15F2D16900184E", "success": "true"}
         "400":
           application/json: {"code": 1001, "message": "invalid request"}
         "401":
@@ -921,10 +909,10 @@ examples:
   V3VerifyBatchRequest:
     speakeasy-default-v3-verify-batch-request:
       requestBody:
-        application/json: {"clientRequestId": "clientRequestId", "items": [{"clientCustomerId": "e0f78bc2-f748-4eda-9d29-d756844507fc", "clientHumanId": "clientHumanId", "emailAddress": "ecoldman1h@storify.com", "firstName": "Elena", "ipAddress": "192.168.1.1", "lastName": "Coldman", "phoneNumber": "2001004053", "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0", "verificationType": "verificationType"}, {"clientCustomerId": "e0f78bc2-f748-4eda-9d29-d756844507fc", "clientHumanId": "clientHumanId", "emailAddress": "ecoldman1h@storify.com", "firstName": "Elena", "ipAddress": "192.168.1.1", "lastName": "Coldman", "phoneNumber": "2001004053", "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0", "verificationType": "verificationType"}]}
+        application/json: {"clientRequestId": "3d1215f7-ec3f-4fd2-9894-7b46f00e31a6", "items": [{"clientCustomerId": "e0f78bc2-f748-4eda-9d29-d756844507fc", "clientHumanId": "clientHumanId", "emailAddress": "ecoldman1h@storify.com", "firstName": "Elena", "ipAddress": "192.168.1.1", "lastName": "Coldman", "phoneNumber": "2001004053", "proveId": "e0f78bc2-f748-4eda-9d29-d756844507fc", "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0", "verificationType": "verifiedUser"}, {"clientCustomerId": "e0f78bc2-f748-4eda-9d29-d756844507fc", "clientHumanId": "clientHumanId", "emailAddress": "ecoldman1h@storify.com", "firstName": "Elena", "ipAddress": "192.168.1.1", "lastName": "Coldman", "phoneNumber": "2001004053", "proveId": "e0f78bc2-f748-4eda-9d29-d756844507fc", "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0", "verificationType": "verifiedUser"}]}
       responses:
         "200":
-          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "results": [{"additionalIdentities": [{"assuranceLevel": "AL-1", "emails": ["emails", "emails"], "firstName": "Elena", "lastName": "Coldman", "maxAge": 25, "minAge": 18, "reasons": ["[AL-1a] (Poor quality identity)"]}, {"assuranceLevel": "AL-1", "emails": ["emails", "emails"], "firstName": "Elena", "lastName": "Coldman", "maxAge": 25, "minAge": 18, "reasons": ["[AL-1a] (Poor quality identity)"]}], "assuranceLevel": "AL-1", "clientCustomerId": "261ffa66-961a-4f90-8d93-6c85a450633d", "clientHumanId": "7bfbb91d-9df8-4ec0-99a6-de05ecc23a9e", "error": "", "evaluation": {"authentication": {}, "identification": {}, "success": {}}, "identity": {"assuranceLevel": "AL2", "emails": ["emails", "emails"], "firstName": "Elena", "lastName": "Coldman", "maxAge": 25, "minAge": 18, "reasons": ["[AL1a]"]}, "phoneNumber": "2001004053", "proveId": "a07b94ce-218c-461f-beda-d92480e40f61", "provePhoneAlias": "4B2C41FC4VKDEO100F960011D0AD4A8050MEK19P4SF9PD23EFE27CD2C76A6FAA8375E60AC0550604F6G32D9ED60E06262CCC570F3C15F2D16900184E", "success": "true"}, {"additionalIdentities": [{"assuranceLevel": "AL-1", "emails": ["emails", "emails"], "firstName": "Elena", "lastName": "Coldman", "maxAge": 25, "minAge": 18, "reasons": ["[AL-1a] (Poor quality identity)"]}, {"assuranceLevel": "AL-1", "emails": ["emails", "emails"], "firstName": "Elena", "lastName": "Coldman", "maxAge": 25, "minAge": 18, "reasons": ["[AL-1a] (Poor quality identity)"]}], "assuranceLevel": "AL-1", "clientCustomerId": "261ffa66-961a-4f90-8d93-6c85a450633d", "clientHumanId": "7bfbb91d-9df8-4ec0-99a6-de05ecc23a9e", "error": "", "evaluation": {"authentication": {}, "risk": {}, "success": {}}, "identity": {"assuranceLevel": "AL0", "emails": ["emails", "emails"], "firstName": "Alf", "lastName": "Novotni", "maxAge": 25, "minAge": 18, "reasons": ["[AL0b]"]}, "phoneNumber": "2001004054", "proveId": "a07b94ce-218c-461f-beda-d92480e40f61", "provePhoneAlias": "4B2C41FC4VKDEO100F960011D0AD4A8050MEK19P4SF9PD23EFE27CD2C76A6FAA8375E60AC0550604F6G32D9ED60E06262CCC570F3C15F2D16900184E", "success": "false"}]}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "results": [{"additionalIdentities": [{"assuranceLevel": "AL-1", "firstName": "Elena", "lastName": "Coldman", "reasons": ["[AL-1a] (Poor quality identity)"]}, {"assuranceLevel": "AL-1", "firstName": "Elena", "lastName": "Coldman", "reasons": ["[AL-1a] (Poor quality identity)"]}], "assuranceLevel": "AL-1", "clientCustomerId": "261ffa66-961a-4f90-8d93-6c85a450633d", "clientHumanId": "7bfbb91d-9df8-4ec0-99a6-de05ecc23a9e", "error": "", "evaluation": {"authentication": {}, "identification": {}}, "identity": {"assuranceLevel": "AL2", "firstName": "Elena", "lastName": "Coldman", "reasons": ["[AL1a]"]}, "phoneNumber": "2001004053", "proveId": "a07b94ce-218c-461f-beda-d92480e40f61", "provePhoneAlias": "4B2C41FC4VKDEO100F960011D0AD4A8050MEK19P4SF9PD23EFE27CD2C76A6FAA8375E60AC0550604F6G32D9ED60E06262CCC570F3C15F2D16900184E", "success": "true"}, {"additionalIdentities": [{"assuranceLevel": "AL-1", "firstName": "Elena", "lastName": "Coldman", "reasons": ["[AL-1a] (Poor quality identity)"]}, {"assuranceLevel": "AL-1", "firstName": "Elena", "lastName": "Coldman", "reasons": ["[AL-1a] (Poor quality identity)"]}], "assuranceLevel": "AL-1", "clientCustomerId": "261ffa66-961a-4f90-8d93-6c85a450633d", "clientHumanId": "7bfbb91d-9df8-4ec0-99a6-de05ecc23a9e", "error": "", "evaluation": {"authentication": {}, "risk": {}, "success": {}}, "identity": {"assuranceLevel": "AL0", "firstName": "Alf", "lastName": "Novotni", "reasons": ["[AL0b]"]}, "phoneNumber": "2001004054", "proveId": "a07b94ce-218c-461f-beda-d92480e40f61", "provePhoneAlias": "4B2C41FC4VKDEO100F960011D0AD4A8050MEK19P4SF9PD23EFE27CD2C76A6FAA8375E60AC0550604F6G32D9ED60E06262CCC570F3C15F2D16900184E", "success": "false"}]}
         "400":
           application/json: {"code": 1001, "message": "invalid request"}
         "401":
@@ -968,4 +956,4 @@ examples:
           application/json: {"code": 1000, "message": "error occurred"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Go SDK Changes Detected:\n* `Provesdkservergo.V3.V3VerifyRequest()`: \n  *  `request.Request` **Changed** **Breaking** :warning:\n  *  `response` **Changed** **Breaking** :warning:\n* `Provesdkservergo.V3.V3VerifyBatchRequest()`: \n  *  `request.Request.Items.[].ProveId` **Removed** **Breaking** :warning:\n  *  `response.Results.[].AdditionalIdentities.[]` **Changed** **Breaking** :warning:\n"
+releaseNotes: "## Go SDK Changes Detected:\n* `Provesdkservergo.V3.V3VerifyRequest()`: \n  *  `request.Request.AddOnFeature` **Removed** **Breaking** :warning:\n  *  `response.AdditionalIdentities.[]` **Changed** **Breaking** :warning:\n* `Provesdkservergo.V3.V3VerifyBatchRequest()`: \n  *  `request.Request.Items.[]` **Changed** **Breaking** :warning:\n  *  `response.Results.[]` **Changed** **Breaking** :warning:\n"

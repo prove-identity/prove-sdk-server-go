@@ -10,8 +10,6 @@ type VerifyBatchResultItem struct {
 	AdditionalIdentities []Identity `json:"additionalIdentities,omitempty"`
 	// Prove’s tiered confidence metric, ranging from -1 to 3, that dynamically adapts to user behavior and various authentication keys. It allows for adaptive security policies, meaning you can require different levels of verification for different types of transactions.
 	AssuranceLevel string `json:"assuranceLevel"`
-	// TODO: usage comment. Chances are this will be a part of Identity struct.
-	Businesses []Business `json:"businesses,omitempty"`
 	// The input ClientCustomerID.
 	ClientCustomerID string `json:"clientCustomerId"`
 	// The input ClientHumanID.
@@ -19,20 +17,18 @@ type VerifyBatchResultItem struct {
 	ClientHumanID *string `json:"clientHumanId,omitempty"`
 	// An error message for this corresponding specific verification.
 	Error *string `json:"error,omitempty"`
-	// The evaluation result for the policy. This is an upcoming field but is not yet enabled.
-	Evaluation     map[string]VerifyBatchResultItemEvaluation `json:"evaluation,omitempty"`
-	Identity       *Identity                                  `json:"identity,omitempty"`
-	LinkedAccounts []LinkedAccount                            `json:"linkedAccounts,omitempty"`
+	// The evaluation result for the policy. This will contain keys titled "authentication" and "risk" that encompass the different evaluation categories.
+	Evaluation map[string]VerifyBatchResultItemEvaluation `json:"evaluation,omitempty"`
+	Identity   *Identity                                  `json:"identity,omitempty"`
 	// The input phone number.
-	PhoneNumber    string  `json:"phoneNumber"`
-	ProveAccountID *string `json:"proveAccountId,omitempty"`
+	PhoneNumber string `json:"phoneNumber"`
 	// A Prove-generated identifier for the consumer.
 	// (required IF verificationType=VerifiedUser)
 	ProveID *string `json:"proveId,omitempty"`
 	// A persistent ID that uniquely identifies a telephone subscriber.
 	// (required IF verificationType=VerifiedUser)
 	ProvePhoneAlias *string `json:"provePhoneAlias,omitempty"`
-	// The result of verification.
+	// The result of verification. This can be "true" or "false".
 	Success string `json:"success"`
 }
 
@@ -48,13 +44,6 @@ func (v *VerifyBatchResultItem) GetAssuranceLevel() string {
 		return ""
 	}
 	return v.AssuranceLevel
-}
-
-func (v *VerifyBatchResultItem) GetBusinesses() []Business {
-	if v == nil {
-		return nil
-	}
-	return v.Businesses
 }
 
 func (v *VerifyBatchResultItem) GetClientCustomerID() string {
@@ -92,25 +81,11 @@ func (v *VerifyBatchResultItem) GetIdentity() *Identity {
 	return v.Identity
 }
 
-func (v *VerifyBatchResultItem) GetLinkedAccounts() []LinkedAccount {
-	if v == nil {
-		return nil
-	}
-	return v.LinkedAccounts
-}
-
 func (v *VerifyBatchResultItem) GetPhoneNumber() string {
 	if v == nil {
 		return ""
 	}
 	return v.PhoneNumber
-}
-
-func (v *VerifyBatchResultItem) GetProveAccountID() *string {
-	if v == nil {
-		return nil
-	}
-	return v.ProveAccountID
 }
 
 func (v *VerifyBatchResultItem) GetProveID() *string {

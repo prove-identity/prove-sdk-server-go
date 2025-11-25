@@ -2,7 +2,7 @@
 
 package components
 
-type VerifyItem struct {
+type VerifyBatchRequestItem struct {
 	// A client-generated unique ID for a specific customer. This can be used by clients to link calls related to the same customer, across different requests or sessions.  The format of this ID is defined by the client - Prove recommends using a GUID, but any format can be accepted. Prove does not offer any functionality around the Client Customer ID. Do not include personally identifiable information (PII) in this field.
 	ClientCustomerID *string `json:"clientCustomerId,omitempty"`
 	// An optional client-generated unique ID our Enterprise customer inputs for that consumer across business lines. If the Enterprise customer has been able to identify a consumer across business lines and has a unique identifier for the consumer, they would input this value to Prove.The format of this ID is defined by the client - Prove recommends using a GUID, but any format can be accepted. Do not include personally identifiable information (PII) in this field.
@@ -16,72 +16,80 @@ type VerifyItem struct {
 	// The last name of the individual.
 	LastName string `json:"lastName"`
 	// The mobile phone number. US phone numbers can be passed in with or without a leading `+1`. International phone numbers require a leading `+1`. Use the appropriate endpoint URL based on the region the number originates from. Acceptable characters are: alphanumeric with symbols '+'.
-	PhoneNumber string `json:"phoneNumber"`
+	PhoneNumber string  `json:"phoneNumber"`
+	ProveID     *string `json:"proveId,omitempty"`
 	// The User agent of the customer.
 	UserAgent *string `json:"userAgent,omitempty"`
 	// The verification method based on the use case and authorization level.
-	VerificationType *string `json:"verificationType,omitempty"`
+	VerificationType string `json:"verificationType"`
 }
 
-func (v *VerifyItem) GetClientCustomerID() *string {
+func (v *VerifyBatchRequestItem) GetClientCustomerID() *string {
 	if v == nil {
 		return nil
 	}
 	return v.ClientCustomerID
 }
 
-func (v *VerifyItem) GetClientHumanID() *string {
+func (v *VerifyBatchRequestItem) GetClientHumanID() *string {
 	if v == nil {
 		return nil
 	}
 	return v.ClientHumanID
 }
 
-func (v *VerifyItem) GetEmailAddress() *string {
+func (v *VerifyBatchRequestItem) GetEmailAddress() *string {
 	if v == nil {
 		return nil
 	}
 	return v.EmailAddress
 }
 
-func (v *VerifyItem) GetFirstName() string {
+func (v *VerifyBatchRequestItem) GetFirstName() string {
 	if v == nil {
 		return ""
 	}
 	return v.FirstName
 }
 
-func (v *VerifyItem) GetIPAddress() *string {
+func (v *VerifyBatchRequestItem) GetIPAddress() *string {
 	if v == nil {
 		return nil
 	}
 	return v.IPAddress
 }
 
-func (v *VerifyItem) GetLastName() string {
+func (v *VerifyBatchRequestItem) GetLastName() string {
 	if v == nil {
 		return ""
 	}
 	return v.LastName
 }
 
-func (v *VerifyItem) GetPhoneNumber() string {
+func (v *VerifyBatchRequestItem) GetPhoneNumber() string {
 	if v == nil {
 		return ""
 	}
 	return v.PhoneNumber
 }
 
-func (v *VerifyItem) GetUserAgent() *string {
+func (v *VerifyBatchRequestItem) GetProveID() *string {
+	if v == nil {
+		return nil
+	}
+	return v.ProveID
+}
+
+func (v *VerifyBatchRequestItem) GetUserAgent() *string {
 	if v == nil {
 		return nil
 	}
 	return v.UserAgent
 }
 
-func (v *VerifyItem) GetVerificationType() *string {
+func (v *VerifyBatchRequestItem) GetVerificationType() string {
 	if v == nil {
-		return nil
+		return ""
 	}
 	return v.VerificationType
 }

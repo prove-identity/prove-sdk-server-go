@@ -25,7 +25,7 @@ generation:
     generateNewTests: false
     skipResponseBodyAssertions: false
 go:
-  version: 0.13.1
+  version: 0.13.2
   additionalDependencies: {}
   allowUnknownFieldsInWeakUnions: false
   baseErrorName: ProvesdkservergoError
@@ -41,6 +41,7 @@ go:
       shared: models/components
       webhooks: models/webhooks
   includeEmptyObjects: false
+  inferUnionDiscriminators: false
   inputModelSuffix: input
   maxMethodParams: 4
   methodArguments: require-security-and-request

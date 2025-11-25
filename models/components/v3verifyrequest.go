@@ -47,21 +47,19 @@ func (e *VerificationType) UnmarshalJSON(data []byte) error {
 }
 
 type V3VerifyRequest struct {
-	// An optional list of add-on features. Current allowed values: "ageEstimation"
-	AddOnFeature []string `json:"addOnFeature,omitempty"`
-	// A client-generated unique ID for a specific customer. This can be used by clients to link calls related to the same customer, across different requests or sessions.  The format of this ID is defined by the client - Prove recommends using a GUID, but any format can be accepted. Prove does not offer any functionality around the Client Customer ID. Do not include personally identifiable information (PII) in this field.
+	// A client-generated unique ID for a specific customer. This can be used by clients to link calls related to the same customer, across different requests or sessions. The format of this ID is defined by the client - Prove recommends using a GUID, but any format can be accepted. Prove does not offer any functionality around the Client Customer ID. Do not include personally identifiable information (PII) in this field.
 	ClientCustomerID *string `json:"clientCustomerId,omitempty"`
-	// An optional client-generated unique ID our Enterprise customer inputs for that consumer across business lines. If the Enterprise customer has been able to identify a consumer across business lines and has a unique identifier for the consumer, they would input this value to Prove.The format of this ID is defined by the client - Prove recommends using a GUID, but any format can be accepted. Do not include personally identifiable information (PII) in this field.
+	// An optional client-generated unique ID our Enterprise customer inputs for that consumer across business lines. If the Enterprise customer has been able to identify a consumer across business lines and has a unique identifier for the consumer, they would input this value to Prove. The format of this ID is defined by the client - Prove recommends using a GUID, but any format can be accepted. Do not include personally identifiable information (PII) in this field.
 	ClientHumanID *string `json:"clientHumanId,omitempty"`
 	// A client-generated unique ID for a specific session. This can be used to identify specific requests. The format of this ID is defined by the client - Prove recommends using a GUID, but any format can be accepted. Do not include Personally Identifiable Information (PII) in this field.
 	ClientRequestID *string `json:"clientRequestId,omitempty"`
 	// The email address of the customer. Acceptable characters are: alphanumeric with symbols '@.+'.
 	EmailAddress *string `json:"emailAddress,omitempty"`
-	// The first name of the individual. (required IF verificationType=VerifiedUser)
+	// The first name of the individual.
 	FirstName *string `json:"firstName,omitempty"`
 	// The public IP address of the session of the individual. Acceptable characters
 	IPAddress *string `json:"ipAddress,omitempty"`
-	// The last name of the individual. (required IF verificationType=VerifiedUser)
+	// The last name of the individual.
 	LastName *string `json:"lastName,omitempty"`
 	// The mobile phone number. US phone numbers can be passed in with or without a leading `+1`. International phone numbers require a leading `+1`. Use the appropriate endpoint URL based on the region the number originates from. Acceptable characters are: alphanumeric with symbols '+'.
 	PhoneNumber string `json:"phoneNumber"`
@@ -69,13 +67,6 @@ type V3VerifyRequest struct {
 	UserAgent *string `json:"userAgent,omitempty"`
 	// The verification method based on the use case and authorization level. Current allowed values: "verifiedUser", "accountOpening", "bot", "prefill", "prefillForBiz", "identityResolution".
 	VerificationType VerificationType `json:"verificationType"`
-}
-
-func (v *V3VerifyRequest) GetAddOnFeature() []string {
-	if v == nil {
-		return nil
-	}
-	return v.AddOnFeature
 }
 
 func (v *V3VerifyRequest) GetClientCustomerID() *string {

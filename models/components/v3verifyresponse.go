@@ -6,7 +6,7 @@ type V3VerifyResponseEvaluation struct {
 }
 
 type V3VerifyResponse struct {
-	// (required IF verificationType=VerifiedUser)
+	// Additional Identities found as part of the verification flow.
 	AdditionalIdentities []Identity `json:"additionalIdentities,omitempty"`
 	// The input ClientCustomerID.
 	ClientCustomerID *string `json:"clientCustomerId,omitempty"`
@@ -16,18 +16,16 @@ type V3VerifyResponse struct {
 	ClientRequestID *string `json:"clientRequestId,omitempty"`
 	// The unique ID that Prove generates for the flow.
 	CorrelationID string `json:"correlationId"`
-	// The evaluation result for the policy. This is an upcoming field but is not yet enabled.
+	// The evaluation result for the policy. This will contain keys titled "authentication" and "risk" that encompass the different evaluation categories.
 	Evaluation map[string]V3VerifyResponseEvaluation `json:"evaluation,omitempty"`
 	Identity   *Identity                             `json:"identity,omitempty"`
 	// The input phone number.
 	PhoneNumber string `json:"phoneNumber"`
 	// A Prove-generated identifier for the consumer.
-	// (required IF verificationType=VerifiedUser)
 	ProveID *string `json:"proveId,omitempty"`
 	// A persistent ID that uniquely identifies a telephone subscriber.
-	// (required IF verificationType=VerifiedUser)
 	ProvePhoneAlias *string `json:"provePhoneAlias,omitempty"`
-	// The result of verification.
+	// The result of verification. This can be "true" or "false".
 	Success string `json:"success"`
 }
 

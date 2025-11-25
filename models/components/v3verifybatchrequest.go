@@ -3,9 +3,10 @@
 package components
 
 type V3VerifyBatchRequest struct {
+	// A client-generated unique ID for a specific session. This can be used to identify specific requests. The format of this ID is defined by the client - Prove recommends using a GUID, but any format can be accepted. Do not include Personally Identifiable Information (PII) in this field.
 	ClientRequestID *string `json:"clientRequestId,omitempty"`
 	// Batch of verify requests to process. The array length cannot exceed 1000 items.
-	Items []VerifyItem `json:"items"`
+	Items []VerifyBatchRequestItem `json:"items"`
 }
 
 func (v *V3VerifyBatchRequest) GetClientRequestID() *string {
@@ -15,9 +16,9 @@ func (v *V3VerifyBatchRequest) GetClientRequestID() *string {
 	return v.ClientRequestID
 }
 
-func (v *V3VerifyBatchRequest) GetItems() []VerifyItem {
+func (v *V3VerifyBatchRequest) GetItems() []VerifyBatchRequestItem {
 	if v == nil {
-		return []VerifyItem{}
+		return []VerifyBatchRequestItem{}
 	}
 	return v.Items
 }

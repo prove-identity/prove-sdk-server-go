@@ -3,9 +3,9 @@
 package components
 
 type V3VerifyBatchResponse struct {
-	// A client-generated unique ID for a specific session. This can be used to identify specific requests. The format of this ID is defined by the client - Prove recommends using a GUID, but any format can be accepted. Do not include Personally Identifiable Information (PII) in this field.
+	// The input ClientRequestID.
 	ClientRequestID *string `json:"clientRequestId,omitempty"`
-	// The unique ID that Prove generates for the flow. To continue the flow, the field will also be used for each of the subsequent API calls in the same flow - it cannot be reused outside of a single flow.
+	// The unique ID that Prove generates for the flow.
 	CorrelationID string                  `json:"correlationId"`
 	Results       []VerifyBatchResultItem `json:"results,omitempty"`
 }

@@ -3,25 +3,14 @@
 package components
 
 type Identity struct {
-	Addresses []Address `json:"addresses,omitempty"`
 	// Prove’s tiered confidence metric, ranging from -1 to 3, that dynamically adapts to user behavior and various authentication keys. It allows for adaptive security policies, meaning you can require different levels of verification for different types of transactions.
-	AssuranceLevel string   `json:"assuranceLevel"`
-	Emails         []string `json:"emails,omitempty"`
-	// The input first name. (required IF verificationType=VerifiedUser)
+	AssuranceLevel string `json:"assuranceLevel"`
+	// The input first name.
 	FirstName *string `json:"firstName,omitempty"`
-	// The input last name. (required IF verificationType=VerifiedUser)
+	// The input last name.
 	LastName *string `json:"lastName,omitempty"`
-	MaxAge   *int64  `json:"maxAge,omitempty"`
-	MinAge   *int64  `json:"minAge,omitempty"`
 	// Codes explaining the verification outcome
 	Reasons []string `json:"reasons"`
-}
-
-func (i *Identity) GetAddresses() []Address {
-	if i == nil {
-		return nil
-	}
-	return i.Addresses
 }
 
 func (i *Identity) GetAssuranceLevel() string {
@@ -29,13 +18,6 @@ func (i *Identity) GetAssuranceLevel() string {
 		return ""
 	}
 	return i.AssuranceLevel
-}
-
-func (i *Identity) GetEmails() []string {
-	if i == nil {
-		return nil
-	}
-	return i.Emails
 }
 
 func (i *Identity) GetFirstName() *string {
@@ -50,20 +32,6 @@ func (i *Identity) GetLastName() *string {
 		return nil
 	}
 	return i.LastName
-}
-
-func (i *Identity) GetMaxAge() *int64 {
-	if i == nil {
-		return nil
-	}
-	return i.MaxAge
-}
-
-func (i *Identity) GetMinAge() *int64 {
-	if i == nil {
-		return nil
-	}
-	return i.MinAge
 }
 
 func (i *Identity) GetReasons() []string {

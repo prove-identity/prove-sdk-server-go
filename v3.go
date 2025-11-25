@@ -2386,7 +2386,7 @@ func (s *V3) V3ValidateRequest(ctx context.Context, request *components.V3Valida
 
 }
 
-// V3VerifyRequest - Initiate Verified Users Session
+// V3VerifyRequest - Verify User
 // This endpoint allows you to verify a user depending on your particular use case.
 func (s *V3) V3VerifyRequest(ctx context.Context, request *components.V3VerifyRequest, opts ...operations.Option) (*operations.V3VerifyRequestResponse, error) {
 	o := operations.Options{}

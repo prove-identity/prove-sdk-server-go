@@ -1,5 +1,4 @@
 # V3
-(*V3*)
 
 ## Overview
 
@@ -387,7 +386,7 @@ func main() {
 
     res, err := s.V3.V3UnifyBindRequest(ctx, &components.V3UnifyBindRequest{
         ClientRequestID: provesdkservergo.Pointer("71010d88-d0e7-4a24-9297-d1be6fefde81"),
-        CorrelationID: provesdkservergo.Pointer("713189b8-5555-4b08-83ba-75d08780aebd"),
+        CorrelationID: "713189b8-5555-4b08-83ba-75d08780aebd",
         PhoneNumber: provesdkservergo.Pointer("2001004011"),
     })
     if err != nil {
@@ -450,7 +449,7 @@ func main() {
 
     res, err := s.V3.V3UnifyStatusRequest(ctx, &components.V3UnifyStatusRequest{
         ClientRequestID: provesdkservergo.Pointer("71010d88-d0e7-4a24-9297-d1be6fefde81"),
-        CorrelationID: provesdkservergo.Pointer("713189b8-5555-4b08-83ba-75d08780aebd"),
+        CorrelationID: "713189b8-5555-4b08-83ba-75d08780aebd",
         PhoneNumber: provesdkservergo.Pointer("2001004011"),
     })
     if err != nil {

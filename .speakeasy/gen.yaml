@@ -20,12 +20,13 @@ generation:
   schemas:
     allOfMergeStrategy: shallowMerge
   requestBodyFieldName: ""
+  persistentEdits: {}
   tests:
     generateTests: true
     generateNewTests: false
     skipResponseBodyAssertions: false
 go:
-  version: 0.13.3
+  version: 0.14.0
   additionalDependencies: {}
   allowUnknownFieldsInWeakUnions: false
   baseErrorName: ProvesdkservergoError
@@ -46,6 +47,7 @@ go:
   maxMethodParams: 4
   methodArguments: require-security-and-request
   modulePath: ""
+  multipartArrayFormat: legacy
   nullableOptionalWrapper: false
   outputModelSuffix: output
   packageName: github.com/prove-identity/prove-sdk-server-go

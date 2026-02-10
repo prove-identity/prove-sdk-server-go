@@ -11,9 +11,7 @@ type V3UnifyBindRequest struct {
 	// from the v3/unify endpoint and cannot be reused outside of a single flow.
 	CorrelationID string `json:"correlationId"`
 	// The mobile phone number. US phone numbers can be passed in with or without a leading `+1`. International phone numbers require a leading `+1`. Use the appropriate endpoint URL based on the region the number originates from. Acceptable characters are: alphanumeric with symbols '+'. Required when `possessionType=none` in the initial Unify request.
-	//
-	// Required except when MobileAuth is used in US or a valid ProveID is provided.
-	PhoneNumber *string `json:"phoneNumber,omitempty"`
+	PhoneNumber string `json:"phoneNumber"`
 }
 
 func (v *V3UnifyBindRequest) GetClientRequestID() *string {
@@ -30,9 +28,9 @@ func (v *V3UnifyBindRequest) GetCorrelationID() string {
 	return v.CorrelationID
 }
 
-func (v *V3UnifyBindRequest) GetPhoneNumber() *string {
+func (v *V3UnifyBindRequest) GetPhoneNumber() string {
 	if v == nil {
-		return nil
+		return ""
 	}
 	return v.PhoneNumber
 }

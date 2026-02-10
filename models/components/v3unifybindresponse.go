@@ -22,7 +22,7 @@ type V3UnifyBindResponse struct {
 	Evaluation map[string]V3UnifyBindResponseEvaluation `json:"evaluation,omitempty"`
 	// The number of the mobile phone used during the process.
 	//
-	// Required except when MobileAuth is used in US or a valid ProveID is provided.
+	// Required
 	PhoneNumber *string `json:"phoneNumber,omitempty"`
 	// A unique ID to identify a specific customer obtained from a successful possession check.
 	// If an existing value is available (e.g. from a previous successful possession check) then it should be returned, otherwise a new value should be generated if success=true.

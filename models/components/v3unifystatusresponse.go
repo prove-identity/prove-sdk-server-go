@@ -16,7 +16,7 @@ type V3UnifyStatusResponse struct {
 	// The unique identifier for the Prove Key on the device.
 	// Required if success=true.
 	DeviceID *string `json:"deviceId,omitempty"`
-	// The evaluation result for the policy. This is an upcoming field but is not yet enabled.
+	// The evaluation result for the policy. This will contain keys titled "authentication" and "risk" that encompass the different evaluation categories.
 	Evaluation map[string]V3UnifyStatusResponseEvaluation `json:"evaluation,omitempty"`
 	// The number of the mobile phone used during the process.
 	//

@@ -165,12 +165,6 @@ func flow() error {
 <details open>
 <summary>Available methods</summary>
 
-### [Auth](docs/sdks/auth/README.md)
-
-* [AuthContinueRequest](docs/sdks/auth/README.md#authcontinuerequest) - AuthContinue /v1/server/auth/continue
-* [AuthFinishRequest](docs/sdks/auth/README.md#authfinishrequest) - AuthFinish /v1/server/auth/finish
-* [AuthStartRequest](docs/sdks/auth/README.md#authstartrequest) - AuthStart /v1/server/auth/start
-
 ### [Domain](docs/sdks/domain/README.md)
 
 * [V3DomainConfirmLinkRequest](docs/sdks/domain/README.md#v3domainconfirmlinkrequest) - Confirm a domain link request

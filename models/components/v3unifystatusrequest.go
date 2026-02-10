@@ -10,10 +10,6 @@ type V3UnifyStatusRequest struct {
 	// The unique ID that Prove generates for the flow. It is returned
 	// from the v3/unify endpoint and cannot be reused outside of a single flow.
 	CorrelationID string `json:"correlationId"`
-	// The mobile phone number. US phone numbers can be passed in with or without a leading `+1`. International phone numbers require a leading `+1`. Use the appropriate endpoint URL based on the region the number originates from. Acceptable characters are: alphanumeric with symbols '+'. Required when `possessionType=none` in the initial Unify request.
-	//
-	// Required except when MobileAuth is used in US or a valid ProveID is provided.
-	PhoneNumber *string `json:"phoneNumber,omitempty"`
 }
 
 func (v *V3UnifyStatusRequest) GetClientRequestID() *string {
@@ -28,11 +24,4 @@ func (v *V3UnifyStatusRequest) GetCorrelationID() string {
 		return ""
 	}
 	return v.CorrelationID
-}
-
-func (v *V3UnifyStatusRequest) GetPhoneNumber() *string {
-	if v == nil {
-		return nil
-	}
-	return v.PhoneNumber
 }

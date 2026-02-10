@@ -76,9 +76,45 @@ func main() {
 
 This endpoint allows you to submit challenge information.
 
-### Example Usage
+### Example Usage: Response with Failed Evaluation
 
-<!-- UsageSnippet language="go" operationID="V3ChallengeRequest" method="post" path="/v3/challenge" -->
+<!-- UsageSnippet language="go" operationID="V3ChallengeRequest" method="post" path="/v3/challenge" example="Response with Failed Evaluation" -->
+```go
+package main
+
+import(
+	"context"
+	"github.com/prove-identity/prove-sdk-server-go/models/components"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := provesdkservergo.New(
+        provesdkservergo.WithSecurity(components.Security{
+            ClientID: provesdkservergo.Pointer("<YOUR_CLIENT_ID_HERE>"),
+            ClientSecret: provesdkservergo.Pointer("<YOUR_CLIENT_SECRET_HERE>"),
+        }),
+    )
+
+    res, err := s.V3.V3ChallengeRequest(ctx, &components.V3ChallengeRequest{
+        CorrelationID: "713189b8-5555-4b08-83ba-75d08780aebd",
+        Dob: provesdkservergo.Pointer("1981-01"),
+        Ssn: provesdkservergo.Pointer("0596"),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.V3ChallengeResponse != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: Response with Success Evaluation
+
+<!-- UsageSnippet language="go" operationID="V3ChallengeRequest" method="post" path="/v3/challenge" example="Response with Success Evaluation" -->
 ```go
 package main
 
@@ -139,9 +175,321 @@ func main() {
 
 This endpoint allows you to verify the user and complete the flow.
 
-### Example Usage
+### Example Usage: Response with Failed Evaluation
 
-<!-- UsageSnippet language="go" operationID="V3CompleteRequest" method="post" path="/v3/complete" -->
+<!-- UsageSnippet language="go" operationID="V3CompleteRequest" method="post" path="/v3/complete" example="Response with Failed Evaluation" -->
+```go
+package main
+
+import(
+	"context"
+	"github.com/prove-identity/prove-sdk-server-go/models/components"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := provesdkservergo.New(
+        provesdkservergo.WithSecurity(components.Security{
+            ClientID: provesdkservergo.Pointer("<YOUR_CLIENT_ID_HERE>"),
+            ClientSecret: provesdkservergo.Pointer("<YOUR_CLIENT_SECRET_HERE>"),
+        }),
+    )
+
+    res, err := s.V3.V3CompleteRequest(ctx, &components.V3CompleteRequest{
+        CorrelationID: "713189b8-5555-4b08-83ba-75d08780aebd",
+        Individual: components.V3CompleteIndividualRequest{
+            Addresses: []components.V3CompleteAddressEntryRequest{
+                components.V3CompleteAddressEntryRequest{
+                    Address: provesdkservergo.Pointer("39 South Trail"),
+                    City: provesdkservergo.Pointer("San Antonio"),
+                    ExtendedAddress: provesdkservergo.Pointer("Apt 23"),
+                    PostalCode: provesdkservergo.Pointer("78285"),
+                    Region: provesdkservergo.Pointer("TX"),
+                },
+            },
+            Dob: provesdkservergo.Pointer("1981-01"),
+            EmailAddresses: []string{
+                "jdoe@example.com",
+            },
+            FirstName: provesdkservergo.Pointer("Tod"),
+            LastName: provesdkservergo.Pointer("Weedall"),
+            Ssn: provesdkservergo.Pointer("265228370"),
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.V3CompleteResponse != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: Response with High MultiCIP
+
+<!-- UsageSnippet language="go" operationID="V3CompleteRequest" method="post" path="/v3/complete" example="Response with High MultiCIP" -->
+```go
+package main
+
+import(
+	"context"
+	"github.com/prove-identity/prove-sdk-server-go/models/components"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := provesdkservergo.New(
+        provesdkservergo.WithSecurity(components.Security{
+            ClientID: provesdkservergo.Pointer("<YOUR_CLIENT_ID_HERE>"),
+            ClientSecret: provesdkservergo.Pointer("<YOUR_CLIENT_SECRET_HERE>"),
+        }),
+    )
+
+    res, err := s.V3.V3CompleteRequest(ctx, &components.V3CompleteRequest{
+        CorrelationID: "713189b8-5555-4b08-83ba-75d08780aebd",
+        Individual: components.V3CompleteIndividualRequest{
+            Addresses: []components.V3CompleteAddressEntryRequest{
+                components.V3CompleteAddressEntryRequest{
+                    Address: provesdkservergo.Pointer("39 South Trail"),
+                    City: provesdkservergo.Pointer("San Antonio"),
+                    ExtendedAddress: provesdkservergo.Pointer("Apt 23"),
+                    PostalCode: provesdkservergo.Pointer("78285"),
+                    Region: provesdkservergo.Pointer("TX"),
+                },
+            },
+            Dob: provesdkservergo.Pointer("1981-01"),
+            EmailAddresses: []string{
+                "jdoe@example.com",
+            },
+            FirstName: provesdkservergo.Pointer("Tod"),
+            LastName: provesdkservergo.Pointer("Weedall"),
+            Ssn: provesdkservergo.Pointer("265228370"),
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.V3CompleteResponse != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: Response with KYC - 0 hits
+
+<!-- UsageSnippet language="go" operationID="V3CompleteRequest" method="post" path="/v3/complete" example="Response with KYC - 0 hits" -->
+```go
+package main
+
+import(
+	"context"
+	"github.com/prove-identity/prove-sdk-server-go/models/components"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := provesdkservergo.New(
+        provesdkservergo.WithSecurity(components.Security{
+            ClientID: provesdkservergo.Pointer("<YOUR_CLIENT_ID_HERE>"),
+            ClientSecret: provesdkservergo.Pointer("<YOUR_CLIENT_SECRET_HERE>"),
+        }),
+    )
+
+    res, err := s.V3.V3CompleteRequest(ctx, &components.V3CompleteRequest{
+        CorrelationID: "713189b8-5555-4b08-83ba-75d08780aebd",
+        Individual: components.V3CompleteIndividualRequest{
+            Addresses: []components.V3CompleteAddressEntryRequest{
+                components.V3CompleteAddressEntryRequest{
+                    Address: provesdkservergo.Pointer("39 South Trail"),
+                    City: provesdkservergo.Pointer("San Antonio"),
+                    ExtendedAddress: provesdkservergo.Pointer("Apt 23"),
+                    PostalCode: provesdkservergo.Pointer("78285"),
+                    Region: provesdkservergo.Pointer("TX"),
+                },
+            },
+            Dob: provesdkservergo.Pointer("1981-01"),
+            EmailAddresses: []string{
+                "jdoe@example.com",
+            },
+            FirstName: provesdkservergo.Pointer("Tod"),
+            LastName: provesdkservergo.Pointer("Weedall"),
+            Ssn: provesdkservergo.Pointer("265228370"),
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.V3CompleteResponse != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: Response with KYC - 4 hits
+
+<!-- UsageSnippet language="go" operationID="V3CompleteRequest" method="post" path="/v3/complete" example="Response with KYC - 4 hits" -->
+```go
+package main
+
+import(
+	"context"
+	"github.com/prove-identity/prove-sdk-server-go/models/components"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := provesdkservergo.New(
+        provesdkservergo.WithSecurity(components.Security{
+            ClientID: provesdkservergo.Pointer("<YOUR_CLIENT_ID_HERE>"),
+            ClientSecret: provesdkservergo.Pointer("<YOUR_CLIENT_SECRET_HERE>"),
+        }),
+    )
+
+    res, err := s.V3.V3CompleteRequest(ctx, &components.V3CompleteRequest{
+        CorrelationID: "713189b8-5555-4b08-83ba-75d08780aebd",
+        Individual: components.V3CompleteIndividualRequest{
+            Addresses: []components.V3CompleteAddressEntryRequest{
+                components.V3CompleteAddressEntryRequest{
+                    Address: provesdkservergo.Pointer("39 South Trail"),
+                    City: provesdkservergo.Pointer("San Antonio"),
+                    ExtendedAddress: provesdkservergo.Pointer("Apt 23"),
+                    PostalCode: provesdkservergo.Pointer("78285"),
+                    Region: provesdkservergo.Pointer("TX"),
+                },
+            },
+            Dob: provesdkservergo.Pointer("1981-01"),
+            EmailAddresses: []string{
+                "jdoe@example.com",
+            },
+            FirstName: provesdkservergo.Pointer("Tod"),
+            LastName: provesdkservergo.Pointer("Weedall"),
+            Ssn: provesdkservergo.Pointer("265228370"),
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.V3CompleteResponse != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: Response with Low MultiCIP
+
+<!-- UsageSnippet language="go" operationID="V3CompleteRequest" method="post" path="/v3/complete" example="Response with Low MultiCIP" -->
+```go
+package main
+
+import(
+	"context"
+	"github.com/prove-identity/prove-sdk-server-go/models/components"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := provesdkservergo.New(
+        provesdkservergo.WithSecurity(components.Security{
+            ClientID: provesdkservergo.Pointer("<YOUR_CLIENT_ID_HERE>"),
+            ClientSecret: provesdkservergo.Pointer("<YOUR_CLIENT_SECRET_HERE>"),
+        }),
+    )
+
+    res, err := s.V3.V3CompleteRequest(ctx, &components.V3CompleteRequest{
+        CorrelationID: "713189b8-5555-4b08-83ba-75d08780aebd",
+        Individual: components.V3CompleteIndividualRequest{
+            Addresses: []components.V3CompleteAddressEntryRequest{
+                components.V3CompleteAddressEntryRequest{
+                    Address: provesdkservergo.Pointer("39 South Trail"),
+                    City: provesdkservergo.Pointer("San Antonio"),
+                    ExtendedAddress: provesdkservergo.Pointer("Apt 23"),
+                    PostalCode: provesdkservergo.Pointer("78285"),
+                    Region: provesdkservergo.Pointer("TX"),
+                },
+            },
+            Dob: provesdkservergo.Pointer("1981-01"),
+            EmailAddresses: []string{
+                "jdoe@example.com",
+            },
+            FirstName: provesdkservergo.Pointer("Tod"),
+            LastName: provesdkservergo.Pointer("Weedall"),
+            Ssn: provesdkservergo.Pointer("265228370"),
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.V3CompleteResponse != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: Response with Success Evaluation
+
+<!-- UsageSnippet language="go" operationID="V3CompleteRequest" method="post" path="/v3/complete" example="Response with Success Evaluation" -->
+```go
+package main
+
+import(
+	"context"
+	"github.com/prove-identity/prove-sdk-server-go/models/components"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := provesdkservergo.New(
+        provesdkservergo.WithSecurity(components.Security{
+            ClientID: provesdkservergo.Pointer("<YOUR_CLIENT_ID_HERE>"),
+            ClientSecret: provesdkservergo.Pointer("<YOUR_CLIENT_SECRET_HERE>"),
+        }),
+    )
+
+    res, err := s.V3.V3CompleteRequest(ctx, &components.V3CompleteRequest{
+        CorrelationID: "713189b8-5555-4b08-83ba-75d08780aebd",
+        Individual: components.V3CompleteIndividualRequest{
+            Addresses: []components.V3CompleteAddressEntryRequest{
+                components.V3CompleteAddressEntryRequest{
+                    Address: provesdkservergo.Pointer("39 South Trail"),
+                    City: provesdkservergo.Pointer("San Antonio"),
+                    ExtendedAddress: provesdkservergo.Pointer("Apt 23"),
+                    PostalCode: provesdkservergo.Pointer("78285"),
+                    Region: provesdkservergo.Pointer("TX"),
+                },
+            },
+            Dob: provesdkservergo.Pointer("1981-01"),
+            EmailAddresses: []string{
+                "jdoe@example.com",
+            },
+            FirstName: provesdkservergo.Pointer("Tod"),
+            LastName: provesdkservergo.Pointer("Weedall"),
+            Ssn: provesdkservergo.Pointer("265228370"),
+        },
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.V3CompleteResponse != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: Standard Response
+
+<!-- UsageSnippet language="go" operationID="V3CompleteRequest" method="post" path="/v3/complete" example="Standard Response" -->
 ```go
 package main
 
@@ -387,7 +735,7 @@ func main() {
     res, err := s.V3.V3UnifyBindRequest(ctx, &components.V3UnifyBindRequest{
         ClientRequestID: provesdkservergo.Pointer("71010d88-d0e7-4a24-9297-d1be6fefde81"),
         CorrelationID: "713189b8-5555-4b08-83ba-75d08780aebd",
-        PhoneNumber: provesdkservergo.Pointer("2001004011"),
+        PhoneNumber: "2001004011",
     })
     if err != nil {
         log.Fatal(err)
@@ -424,9 +772,9 @@ func main() {
 
 This endpoint allows you to check the status of a Unify session and get the possession result.
 
-### Example Usage
+### Example Usage: Response with Failed Evaluation
 
-<!-- UsageSnippet language="go" operationID="V3UnifyStatusRequest" method="post" path="/v3/unify-status" -->
+<!-- UsageSnippet language="go" operationID="V3UnifyStatusRequest" method="post" path="/v3/unify-status" example="Response with Failed Evaluation" -->
 ```go
 package main
 
@@ -450,7 +798,41 @@ func main() {
     res, err := s.V3.V3UnifyStatusRequest(ctx, &components.V3UnifyStatusRequest{
         ClientRequestID: provesdkservergo.Pointer("71010d88-d0e7-4a24-9297-d1be6fefde81"),
         CorrelationID: "713189b8-5555-4b08-83ba-75d08780aebd",
-        PhoneNumber: provesdkservergo.Pointer("2001004011"),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.V3UnifyStatusResponse != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: Response with Success Evaluation
+
+<!-- UsageSnippet language="go" operationID="V3UnifyStatusRequest" method="post" path="/v3/unify-status" example="Response with Success Evaluation" -->
+```go
+package main
+
+import(
+	"context"
+	"github.com/prove-identity/prove-sdk-server-go/models/components"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := provesdkservergo.New(
+        provesdkservergo.WithSecurity(components.Security{
+            ClientID: provesdkservergo.Pointer("<YOUR_CLIENT_ID_HERE>"),
+            ClientSecret: provesdkservergo.Pointer("<YOUR_CLIENT_SECRET_HERE>"),
+        }),
+    )
+
+    res, err := s.V3.V3UnifyStatusRequest(ctx, &components.V3UnifyStatusRequest{
+        ClientRequestID: provesdkservergo.Pointer("71010d88-d0e7-4a24-9297-d1be6fefde81"),
+        CorrelationID: "713189b8-5555-4b08-83ba-75d08780aebd",
     })
     if err != nil {
         log.Fatal(err)
@@ -487,9 +869,43 @@ func main() {
 
 This endpoint allows you to check if the phone number entered/discovered earlier in the flow is validated.
 
-### Example Usage
+### Example Usage: Response with Failed Evaluation
 
-<!-- UsageSnippet language="go" operationID="V3ValidateRequest" method="post" path="/v3/validate" -->
+<!-- UsageSnippet language="go" operationID="V3ValidateRequest" method="post" path="/v3/validate" example="Response with Failed Evaluation" -->
+```go
+package main
+
+import(
+	"context"
+	"github.com/prove-identity/prove-sdk-server-go/models/components"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := provesdkservergo.New(
+        provesdkservergo.WithSecurity(components.Security{
+            ClientID: provesdkservergo.Pointer("<YOUR_CLIENT_ID_HERE>"),
+            ClientSecret: provesdkservergo.Pointer("<YOUR_CLIENT_SECRET_HERE>"),
+        }),
+    )
+
+    res, err := s.V3.V3ValidateRequest(ctx, &components.V3ValidateRequest{
+        CorrelationID: "713189b8-5555-4b08-83ba-75d08780aebd",
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.V3ValidateResponse != nil {
+        // handle response
+    }
+}
+```
+### Example Usage: Response with Success Evaluation
+
+<!-- UsageSnippet language="go" operationID="V3ValidateRequest" method="post" path="/v3/validate" example="Response with Success Evaluation" -->
 ```go
 package main
 

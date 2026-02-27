@@ -2,7 +2,7 @@
 
 package provesdkservergo
 
-// Generated from OpenAPI doc version 1.0.0 and generator version 2.814.0
+// Generated from OpenAPI doc version 1.0.0 and generator version 2.845.5
 
 import (
 	"context"
@@ -67,6 +67,7 @@ func Pointer[T any](v T) *T { return &v }
 type Provesdkservergo struct {
 	SDKVersion string
 	V3         *V3
+	Auth       *Auth
 	Domain     *Domain
 	Identity   *Identity
 
@@ -76,7 +77,7 @@ type Provesdkservergo struct {
 
 type SDKOption func(*Provesdkservergo)
 
-// WithServerURL allows the overriding of the default server URL
+// WithServerURL allows providing an alternative server URL
 func WithServerURL(serverURL string) SDKOption {
 	return func(sdk *Provesdkservergo) {
 		sdk.sdkConfiguration.ServerURL = serverURL
@@ -145,9 +146,9 @@ func WithTimeout(timeout time.Duration) SDKOption {
 // New creates a new instance of the SDK with the provided options
 func New(opts ...SDKOption) *Provesdkservergo {
 	sdk := &Provesdkservergo{
-		SDKVersion: "0.14.1",
+		SDKVersion: "0.14.2",
 		sdkConfiguration: config.SDKConfiguration{
-			UserAgent:  "speakeasy-sdk/go 0.14.1 2.814.0 1.0.0 github.com/prove-identity/prove-sdk-server-go",
+			UserAgent:  "speakeasy-sdk/go 0.14.2 2.845.5 1.0.0 github.com/prove-identity/prove-sdk-server-go",
 			ServerList: ServerList,
 		},
 		hooks: hooks.New(),
@@ -169,6 +170,7 @@ func New(opts ...SDKOption) *Provesdkservergo {
 	}
 
 	sdk.V3 = newV3(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.Auth = newAuth(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Domain = newDomain(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Identity = newIdentity(sdk, sdk.sdkConfiguration, sdk.hooks)
 

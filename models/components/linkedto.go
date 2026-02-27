@@ -3,10 +3,11 @@
 package components
 
 type LinkedTo struct {
-	AcceptedAt     *int64  `json:"acceptedAt,omitempty"`
-	AcceptedString *string `json:"acceptedString,omitempty"`
-	Name           *string `json:"name,omitempty"`
-	Pcid           *string `json:"pcid,omitempty"`
+	AcceptedAt     *int64   `json:"acceptedAt,omitempty"`
+	AcceptedString *string  `json:"acceptedString,omitempty"`
+	Name           *string  `json:"name,omitempty"`
+	Pcid           *string  `json:"pcid,omitempty"`
+	Scopes         []string `json:"scopes,omitempty"`
 }
 
 func (l *LinkedTo) GetAcceptedAt() *int64 {
@@ -35,4 +36,11 @@ func (l *LinkedTo) GetPcid() *string {
 		return nil
 	}
 	return l.Pcid
+}
+
+func (l *LinkedTo) GetScopes() []string {
+	if l == nil {
+		return nil
+	}
+	return l.Scopes
 }

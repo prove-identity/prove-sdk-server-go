@@ -10,7 +10,9 @@ type V3UnifyBindRequest struct {
 	// The unique ID that Prove generates for the flow. It is returned
 	// from the v3/unify endpoint and cannot be reused outside of a single flow.
 	CorrelationID string `json:"correlationId"`
-	// The mobile phone number. US phone numbers can be passed in with or without a leading `+1`. International phone numbers require a leading `+1`. Use the appropriate endpoint URL based on the region the number originates from. Acceptable characters are: alphanumeric with symbols '+'. Required when `possessionType=none` in the initial Unify request.
+	// The mobile phone number. US and Canada phone numbers can be passed in with or without a leading `+1`.
+	// International phone numbers require a leading `+` followed by the country code. Use the appropriate endpoint URL
+	// based on the region the number originates from. Acceptable characters are: alphanumeric with symbols '+'.
 	PhoneNumber string `json:"phoneNumber"`
 }
 

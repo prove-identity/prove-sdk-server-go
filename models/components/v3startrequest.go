@@ -17,7 +17,12 @@ type V3StartRequest struct {
 	FlowType string `json:"flowType"`
 	// The IP address of the mobile device. Acceptable characters are: numeric with symbols ':.'.
 	IPAddress *string `json:"ipAddress,omitempty"`
-	// The number of the mobile phone. Refer to the [Prove Pre-Fill Implementation guide](https://developer.prove.com/docs/prove-pre-fill-implementation-guide#implement-prove-pre-fill) and [Prove Identity Implementation guide](https://developer.prove.com/docs/prove-identity-implementation-guide#implement-prove-identity) for situations where this field is not required. Acceptable characters are: alphanumeric with symbols '+'.
+	// The number of the mobile phone.
+	// US and Canada phone numbers can be passed in with or without a leading `+1`.
+	// International phone numbers require a leading `+` followed by the country code.
+	// Refer to the [Prove Pre-Fill Implementation guide](https://developer.prove.com/docs/prove-pre-fill-implementation-guide#implement-prove-pre-fill) and
+	// [Prove Identity Implementation guide](https://developer.prove.com/docs/prove-identity-implementation-guide#implement-prove-identity) for situations
+	// where this field is not required. Acceptable characters are: alphanumeric with symbols '+'.
 	PhoneNumber *string `json:"phoneNumber,omitempty"`
 	// The message body sent in the Instant Link (`flowType=desktop`) or OTP (`flowType=mobile`) SMS message. If not provided, the following default messages will be used:
 	//

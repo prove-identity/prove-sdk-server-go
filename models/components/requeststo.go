@@ -3,10 +3,11 @@
 package components
 
 type RequestsTo struct {
-	Name            *string `json:"name,omitempty"`
-	Pcid            *string `json:"pcid,omitempty"`
-	RequestedAt     *int64  `json:"requestedAt,omitempty"`
-	RequestedString *string `json:"requestedString,omitempty"`
+	Name            *string  `json:"name,omitempty"`
+	Pcid            *string  `json:"pcid,omitempty"`
+	RequestedAt     *int64   `json:"requestedAt,omitempty"`
+	RequestedString *string  `json:"requestedString,omitempty"`
+	Scopes          []string `json:"scopes,omitempty"`
 }
 
 func (r *RequestsTo) GetName() *string {
@@ -35,4 +36,11 @@ func (r *RequestsTo) GetRequestedString() *string {
 		return nil
 	}
 	return r.RequestedString
+}
+
+func (r *RequestsTo) GetScopes() []string {
+	if r == nil {
+		return nil
+	}
+	return r.Scopes
 }

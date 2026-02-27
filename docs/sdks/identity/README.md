@@ -4,6 +4,7 @@
 
 ### Available Operations
 
+* [V3FetchRequest](#v3fetchrequest) - Fetch Identity Attributes
 * [V3BatchGetIdentities](#v3batchgetidentities) - Batch Get Identities
 * [V3EnrollIdentity](#v3enrollidentity) - Enroll Identity
 * [V3BatchEnrollIdentities](#v3batchenrollidentities) - Batch Enroll Identities
@@ -13,6 +14,68 @@
 * [V3CrossDomainIdentity](#v3crossdomainidentity) - Cross Domain Identity
 * [V3DeactivateIdentity](#v3deactivateidentity) - Deactivate Identity
 * [V3GetIdentitiesByPhoneNumber](#v3getidentitiesbyphonenumber) - Get Identities By Phone Number
+
+## V3FetchRequest
+
+Fetch actual identity attribute values (e.g., walletID) based on the customer ProveID and attribute UUID.
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="V3FetchRequest" method="get" path="/v3/fetch" -->
+```go
+package main
+
+import(
+	"context"
+	"github.com/prove-identity/prove-sdk-server-go/models/components"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := provesdkservergo.New(
+        provesdkservergo.WithSecurity(components.Security{
+            ClientID: provesdkservergo.Pointer("<YOUR_CLIENT_ID_HERE>"),
+            ClientSecret: provesdkservergo.Pointer("<YOUR_CLIENT_SECRET_HERE>"),
+        }),
+    )
+
+    res, err := s.Identity.V3FetchRequest(ctx, "<id>", "<id>", nil)
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.V3FetchResponse != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                                                                                                                                    | Type                                                                                                                                                                                                                                                                                         | Required                                                                                                                                                                                                                                                                                     | Description                                                                                                                                                                                                                                                                                  |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ctx`                                                                                                                                                                                                                                                                                        | [context.Context](https://pkg.go.dev/context#Context)                                                                                                                                                                                                                                        | :heavy_check_mark:                                                                                                                                                                                                                                                                           | The context to use for the request.                                                                                                                                                                                                                                                          |
+| `proveID`                                                                                                                                                                                                                                                                                    | *string*                                                                                                                                                                                                                                                                                     | :heavy_check_mark:                                                                                                                                                                                                                                                                           | A unique Prove-generated identifier for the enrolled identity (UUID).                                                                                                                                                                                                                        |
+| `attributeID`                                                                                                                                                                                                                                                                                | *string*                                                                                                                                                                                                                                                                                     | :heavy_check_mark:                                                                                                                                                                                                                                                                           | A unique identifier for the identity attribute (UUID), as returned by the discover endpoint.                                                                                                                                                                                                 |
+| `clientRequestID`                                                                                                                                                                                                                                                                            | **string*                                                                                                                                                                                                                                                                                    | :heavy_minus_sign:                                                                                                                                                                                                                                                                           | A client-generated unique ID for a specific session. This can be used to identify specific requests. The format of this ID is defined by the client - Prove recommends using a GUID, but any format can be accepted. Do not include Personally Identifiable Information (PII) in this field. |
+| `opts`                                                                                                                                                                                                                                                                                       | [][operations.Option](../../models/operations/option.md)                                                                                                                                                                                                                                     | :heavy_minus_sign:                                                                                                                                                                                                                                                                           | The options for this request.                                                                                                                                                                                                                                                                |
+
+### Response
+
+**[*operations.V3FetchRequestResponse](../../models/operations/v3fetchrequestresponse.md), error**
+
+### Errors
+
+| Error Type         | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.Error400 | 400                | application/json   |
+| sdkerrors.Error401 | 401                | application/json   |
+| sdkerrors.Error403 | 403                | application/json   |
+| sdkerrors.Error404 | 404                | application/json   |
+| sdkerrors.Error    | 500                | application/json   |
+| sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
 
 ## V3BatchGetIdentities
 
@@ -107,6 +170,12 @@ func main() {
         ClientCustomerID: provesdkservergo.Pointer("e0f78bc2-f748-4eda-9d29-d756844507fc"),
         ClientRequestID: provesdkservergo.Pointer("71010d88-d0e7-4a24-9297-d1be6fefde81"),
         DeviceID: provesdkservergo.Pointer("bf9ea15d-7dfa-4bb4-a64c-6c26b53472fc"),
+        IdentityAttributes: []components.IdentityAttribute{
+            components.IdentityAttribute{
+                AttributeType: provesdkservergo.Pointer("myWalletId"),
+                AttributeValue: provesdkservergo.Pointer("token123"),
+            },
+        },
         PhoneNumber: "2001001695",
     })
     if err != nil {

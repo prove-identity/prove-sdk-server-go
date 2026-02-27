@@ -158,6 +158,10 @@ func main() {
 
     res, err := s.Domain.V3DomainLinkRequest(ctx, &components.V3DomainLinkRequest{
         Pcid: "pcid",
+        Scopes: []string{
+            "scopes",
+            "scopes",
+        },
     })
     if err != nil {
         log.Fatal(err)

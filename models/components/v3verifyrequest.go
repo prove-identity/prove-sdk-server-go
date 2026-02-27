@@ -57,11 +57,15 @@ type V3VerifyRequest struct {
 	EmailAddress *string `json:"emailAddress,omitempty"`
 	// The first name of the individual.
 	FirstName *string `json:"firstName,omitempty"`
+	// An optional list of identity attributes
+	IdentityAttributes []IdentityAttribute `json:"identityAttributes,omitempty"`
 	// The public IP address of the session of the individual. Acceptable characters
 	IPAddress *string `json:"ipAddress,omitempty"`
 	// The last name of the individual.
 	LastName *string `json:"lastName,omitempty"`
-	// The mobile phone number. US phone numbers can be passed in with or without a leading `+1`. International phone numbers require a leading `+1`. Use the appropriate endpoint URL based on the region the number originates from. Acceptable characters are: alphanumeric with symbols '+'.
+	// The mobile phone number. US and Canada phone numbers can be passed in with or without a leading `+1`.
+	// International phone numbers require a leading `+` followed by the country code. Use the appropriate endpoint URL
+	// based on the region the number originates from. Acceptable characters are: alphanumeric with symbols '+'.
 	PhoneNumber string `json:"phoneNumber"`
 	// The User agent of the session of the individual.
 	UserAgent *string `json:"userAgent,omitempty"`
@@ -102,6 +106,13 @@ func (v *V3VerifyRequest) GetFirstName() *string {
 		return nil
 	}
 	return v.FirstName
+}
+
+func (v *V3VerifyRequest) GetIdentityAttributes() []IdentityAttribute {
+	if v == nil {
+		return nil
+	}
+	return v.IdentityAttributes
 }
 
 func (v *V3VerifyRequest) GetIPAddress() *string {

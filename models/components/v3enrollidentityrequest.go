@@ -10,7 +10,10 @@ type V3EnrollIdentityRequest struct {
 	ClientRequestID *string `json:"clientRequestId,omitempty"`
 	// A string that is the unique identifier for the Prove Key on the device. Only applicable if you are leveraging Prove Unify.
 	DeviceID *string `json:"deviceId,omitempty"`
-	// The number of the consumer being enrolled. US phone numbers can be passed in with or without a leading +1. Acceptable characters are: alphanumeric with symbols '+'.
+	// Attributes is a list of objects contains attribute Type and Value.
+	IdentityAttributes []IdentityAttribute `json:"identityAttributes,omitempty"`
+	// The number of the consumer being enrolled. US and Canada phone numbers can be passed in with or without a leading `+1`.
+	// International phone numbers require a leading `+` followed by the country code. Acceptable characters are: alphanumeric with symbols '+'.
 	PhoneNumber string `json:"phoneNumber"`
 }
 
@@ -33,6 +36,13 @@ func (v *V3EnrollIdentityRequest) GetDeviceID() *string {
 		return nil
 	}
 	return v.DeviceID
+}
+
+func (v *V3EnrollIdentityRequest) GetIdentityAttributes() []IdentityAttribute {
+	if v == nil {
+		return nil
+	}
+	return v.IdentityAttributes
 }
 
 func (v *V3EnrollIdentityRequest) GetPhoneNumber() string {

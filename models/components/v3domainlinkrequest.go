@@ -3,7 +3,8 @@
 package components
 
 type V3DomainLinkRequest struct {
-	Pcid string `json:"pcid"`
+	Pcid   string   `json:"pcid"`
+	Scopes []string `json:"scopes,omitempty"`
 }
 
 func (v *V3DomainLinkRequest) GetPcid() string {
@@ -11,4 +12,11 @@ func (v *V3DomainLinkRequest) GetPcid() string {
 		return ""
 	}
 	return v.Pcid
+}
+
+func (v *V3DomainLinkRequest) GetScopes() []string {
+	if v == nil {
+		return nil
+	}
+	return v.Scopes
 }

@@ -7,6 +7,7 @@
 * [V3TokenRequest](#v3tokenrequest) - Request OAuth Token
 * [V3ChallengeRequest](#v3challengerequest) - Submit Challenge
 * [V3CompleteRequest](#v3completerequest) - Complete Flow
+* [V3DeviceRevokeRequest](#v3devicerevokerequest) - Revoke Device
 * [V3StartRequest](#v3startrequest) - Start Flow
 * [V3UnifyRequest](#v3unifyrequest) - Initiate Possession Check
 * [V3UnifyBindRequest](#v3unifybindrequest) - Bind Prove Key
@@ -562,6 +563,69 @@ func main() {
 | sdkerrors.Error    | 500                | application/json   |
 | sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
 
+## V3DeviceRevokeRequest
+
+This endpoint allows you to revoke a Prove Key device, marking it as inactive
+so it can no longer be used in an auth flow.
+
+### Example Usage
+
+<!-- UsageSnippet language="go" operationID="V3DeviceRevokeRequest" method="post" path="/v3/device/revoke" -->
+```go
+package main
+
+import(
+	"context"
+	"github.com/prove-identity/prove-sdk-server-go/models/components"
+	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
+	"log"
+)
+
+func main() {
+    ctx := context.Background()
+
+    s := provesdkservergo.New(
+        provesdkservergo.WithSecurity(components.Security{
+            ClientID: provesdkservergo.Pointer("<YOUR_CLIENT_ID_HERE>"),
+            ClientSecret: provesdkservergo.Pointer("<YOUR_CLIENT_SECRET_HERE>"),
+        }),
+    )
+
+    res, err := s.V3.V3DeviceRevokeRequest(ctx, &components.V3DeviceRevokeRequest{
+        ClientRequestID: "71010d88-d0e7-4a24-9297-d1be6fefde81",
+        DeviceID: "bf9ea15d-7dfa-4bb4-a64c-6c26b53472fc",
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    if res.V3DeviceRevokeResponse != nil {
+        // handle response
+    }
+}
+```
+
+### Parameters
+
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `ctx`                                                                                | [context.Context](https://pkg.go.dev/context#Context)                                | :heavy_check_mark:                                                                   | The context to use for the request.                                                  |
+| `request`                                                                            | [components.V3DeviceRevokeRequest](../../models/components/v3devicerevokerequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `opts`                                                                               | [][operations.Option](../../models/operations/option.md)                             | :heavy_minus_sign:                                                                   | The options for this request.                                                        |
+
+### Response
+
+**[*operations.V3DeviceRevokeRequestResponse](../../models/operations/v3devicerevokerequestresponse.md), error**
+
+### Errors
+
+| Error Type         | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.Error400 | 400                | application/json   |
+| sdkerrors.Error401 | 401                | application/json   |
+| sdkerrors.Error403 | 403                | application/json   |
+| sdkerrors.Error    | 500                | application/json   |
+| sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
+
 ## V3StartRequest
 
 This endpoint allows you to start the solution flow.
@@ -993,6 +1057,12 @@ func main() {
         ClientRequestID: provesdkservergo.Pointer("71010d88-d0e7-4a24-9297-d1be6fefde81"),
         EmailAddress: provesdkservergo.Pointer("ecoldman1h@storify.com"),
         FirstName: provesdkservergo.Pointer("Elena"),
+        IdentityAttributes: []components.IdentityAttribute{
+            components.IdentityAttribute{
+                AttributeType: provesdkservergo.Pointer("walletId"),
+                AttributeValue: provesdkservergo.Pointer("wallet123"),
+            },
+        },
         IPAddress: provesdkservergo.Pointer("192.168.1.1"),
         LastName: provesdkservergo.Pointer("Coldman"),
         PhoneNumber: "2001004053",

@@ -5,4 +5,4 @@
 
 | Field              | Type               | Required           | Description        |
 | ------------------ | ------------------ | ------------------ | ------------------ |
-| `Puid`             | **string*          | :heavy_minus_sign: | N/A                |
+| `Puid`             | `*string`          | :heavy_minus_sign: | N/A                |

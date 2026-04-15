@@ -3,6 +3,7 @@ permissions:
   checks: write
   contents: write
   pull-requests: write
+  id-token: write
   statuses: write
 "on":
   workflow_dispatch:

@@ -32,8 +32,9 @@ func (v *V3DiscoverRequestRequest) GetClientRequestID() *string {
 
 type V3DiscoverRequestResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
-	// V3FetchResponse
-	V3FetchResponse *components.V3FetchResponse
+	// Successful Request.
+	V3DiscoverResponse *components.V3DiscoverResponse
+	Headers            map[string][]string
 }
 
 func (v *V3DiscoverRequestResponse) GetHTTPMeta() components.HTTPMetadata {
@@ -43,11 +44,18 @@ func (v *V3DiscoverRequestResponse) GetHTTPMeta() components.HTTPMetadata {
 	return v.HTTPMeta
 }
 
-func (v *V3DiscoverRequestResponse) GetV3FetchResponse() *components.V3FetchResponse {
+func (v *V3DiscoverRequestResponse) GetV3DiscoverResponse() *components.V3DiscoverResponse {
 	if v == nil {
 		return nil
 	}
-	return v.V3FetchResponse
+	return v.V3DiscoverResponse
+}
+
+func (v *V3DiscoverRequestResponse) GetHeaders() map[string][]string {
+	if v == nil {
+		return map[string][]string{}
+	}
+	return v.Headers
 }
 
 // #region class-body-v3discoverrequestresponse

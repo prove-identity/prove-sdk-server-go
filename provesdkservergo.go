@@ -67,6 +67,7 @@ func Pointer[T any](v T) *T { return &v }
 type Provesdkservergo struct {
 	SDKVersion string
 	V3         *V3
+	Auth       *Auth
 	Identity   *Identity
 	Domain     *Domain
 
@@ -145,9 +146,9 @@ func WithTimeout(timeout time.Duration) SDKOption {
 // New creates a new instance of the SDK with the provided options
 func New(opts ...SDKOption) *Provesdkservergo {
 	sdk := &Provesdkservergo{
-		SDKVersion: "0.14.3",
+		SDKVersion: "0.14.4",
 		sdkConfiguration: config.SDKConfiguration{
-			UserAgent:  "speakeasy-sdk/go 0.14.3 2.879.13 1.0.0 github.com/prove-identity/prove-sdk-server-go",
+			UserAgent:  "speakeasy-sdk/go 0.14.4 2.879.13 1.0.0 github.com/prove-identity/prove-sdk-server-go",
 			ServerList: ServerList,
 		},
 		hooks: hooks.New(),
@@ -169,6 +170,7 @@ func New(opts ...SDKOption) *Provesdkservergo {
 	}
 
 	sdk.V3 = newV3(sdk, sdk.sdkConfiguration, sdk.hooks)
+	sdk.Auth = newAuth(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Identity = newIdentity(sdk, sdk.sdkConfiguration, sdk.hooks)
 	sdk.Domain = newDomain(sdk, sdk.sdkConfiguration, sdk.hooks)
 

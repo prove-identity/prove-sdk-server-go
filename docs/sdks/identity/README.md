@@ -49,7 +49,7 @@ func main() {
     if err != nil {
         log.Fatal(err)
     }
-    if res.V3FetchResponse != nil {
+    if res.V3DiscoverResponse != nil {
         // handle response
     }
 }

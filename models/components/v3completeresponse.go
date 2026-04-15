@@ -5,6 +5,9 @@ package components
 type V3CompleteResponseEvaluation struct {
 }
 
+// #region class-body-v3completeresponseevaluation
+// #endregion class-body-v3completeresponseevaluation
+
 type V3CompleteResponse struct {
 	// The evaluation result for the policy
 	Evaluation map[string]V3CompleteResponseEvaluation `json:"evaluation,omitempty"`
@@ -50,3 +53,6 @@ func (v *V3CompleteResponse) GetSuccess() bool {
 	}
 	return v.Success
 }
+
+// #region class-body-v3completeresponse
+// #endregion class-body-v3completeresponse

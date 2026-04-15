@@ -12,3 +12,6 @@ func (v *V3DomainConfirmLinkRequest) GetPcid() string {
 	}
 	return v.Pcid
 }
+
+// #region class-body-v3domainconfirmlinkrequest
+// #endregion class-body-v3domainconfirmlinkrequest

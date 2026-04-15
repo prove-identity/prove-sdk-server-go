@@ -5,4 +5,4 @@
 
 | Field              | Type               | Required           | Description        | Example            |
 | ------------------ | ------------------ | ------------------ | ------------------ | ------------------ |
-| `Success`          | *bool*             | :heavy_check_mark: | Success            | true               |
+| `Success`          | `bool`             | :heavy_check_mark: | Success            | true               |

@@ -22,3 +22,6 @@ func (v *V3BatchEnrollIdentitiesRequest) GetItems() []IdentityItem {
 	}
 	return v.Items
 }
+
+// #region class-body-v3batchenrollidentitiesrequest
+// #endregion class-body-v3batchenrollidentitiesrequest

@@ -25,3 +25,6 @@ func (v *V3ValidateRequestResponse) GetV3ValidateResponse() *components.V3Valida
 	}
 	return v.V3ValidateResponse
 }
+
+// #region class-body-v3validaterequestresponse
+// #endregion class-body-v3validaterequestresponse

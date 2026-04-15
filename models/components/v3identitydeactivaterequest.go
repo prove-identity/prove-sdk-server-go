@@ -14,3 +14,6 @@ func (v *V3IdentityDeactivateRequest) GetClientRequestID() *string {
 	}
 	return v.ClientRequestID
 }
+
+// #region class-body-v3identitydeactivaterequest
+// #endregion class-body-v3identitydeactivaterequest

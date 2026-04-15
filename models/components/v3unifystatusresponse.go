@@ -5,6 +5,9 @@ package components
 type V3UnifyStatusResponseEvaluation struct {
 }
 
+// #region class-body-v3unifystatusresponseevaluation
+// #endregion class-body-v3unifystatusresponseevaluation
+
 type V3UnifyStatusResponse struct {
 	// A client-generated unique ID to identify a specific customer across business lines.
 	// Required if success=true.
@@ -79,3 +82,6 @@ func (v *V3UnifyStatusResponse) GetSuccess() string {
 	}
 	return v.Success
 }
+
+// #region class-body-v3unifystatusresponse
+// #endregion class-body-v3unifystatusresponse

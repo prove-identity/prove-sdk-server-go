@@ -14,3 +14,6 @@ func (v *V3DisenrollIdentityResponse) GetSuccess() bool {
 	}
 	return v.Success
 }
+
+// #region class-body-v3disenrollidentityresponse
+// #endregion class-body-v3disenrollidentityresponse

@@ -6,58 +6,49 @@ import (
 	"github.com/prove-identity/prove-sdk-server-go/models/components"
 )
 
-type V3FetchRequestRequest struct {
+type V3DiscoverRequestRequest struct {
 	// A unique Prove-generated identifier for the enrolled identity (UUID).
 	ProveID string `queryParam:"style=form,explode=true,name=proveId"`
-	// A unique identifier for the identity attribute (UUID), as returned by the discover endpoint.
-	AttributeID string `queryParam:"style=form,explode=true,name=attributeId"`
 	// A client-generated unique ID for a specific session. This can be used to identify specific requests. The format of this ID is defined by the client - Prove recommends using a GUID, but any format can be accepted. Do not include Personally Identifiable Information (PII) in this field.
 	ClientRequestID *string `queryParam:"style=form,explode=true,name=clientRequestId"`
 }
 
-func (v *V3FetchRequestRequest) GetProveID() string {
+func (v *V3DiscoverRequestRequest) GetProveID() string {
 	if v == nil {
 		return ""
 	}
 	return v.ProveID
 }
 
-func (v *V3FetchRequestRequest) GetAttributeID() string {
-	if v == nil {
-		return ""
-	}
-	return v.AttributeID
-}
-
-func (v *V3FetchRequestRequest) GetClientRequestID() *string {
+func (v *V3DiscoverRequestRequest) GetClientRequestID() *string {
 	if v == nil {
 		return nil
 	}
 	return v.ClientRequestID
 }
 
-// #region class-body-v3fetchrequestrequest
-// #endregion class-body-v3fetchrequestrequest
+// #region class-body-v3discoverrequestrequest
+// #endregion class-body-v3discoverrequestrequest
 
-type V3FetchRequestResponse struct {
+type V3DiscoverRequestResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// V3FetchResponse
 	V3FetchResponse *components.V3FetchResponse
 }
 
-func (v *V3FetchRequestResponse) GetHTTPMeta() components.HTTPMetadata {
+func (v *V3DiscoverRequestResponse) GetHTTPMeta() components.HTTPMetadata {
 	if v == nil {
 		return components.HTTPMetadata{}
 	}
 	return v.HTTPMeta
 }
 
-func (v *V3FetchRequestResponse) GetV3FetchResponse() *components.V3FetchResponse {
+func (v *V3DiscoverRequestResponse) GetV3FetchResponse() *components.V3FetchResponse {
 	if v == nil {
 		return nil
 	}
 	return v.V3FetchResponse
 }
 
-// #region class-body-v3fetchrequestresponse
-// #endregion class-body-v3fetchrequestresponse
+// #region class-body-v3discoverrequestresponse
+// #endregion class-body-v3discoverrequestresponse

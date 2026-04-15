@@ -25,3 +25,6 @@ func (v *V3TokenRequestResponse) GetV3TokenResponse() *components.V3TokenRespons
 	}
 	return v.V3TokenResponse
 }
+
+// #region class-body-v3tokenrequestresponse
+// #endregion class-body-v3tokenrequestresponse

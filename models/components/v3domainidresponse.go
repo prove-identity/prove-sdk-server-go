@@ -3,10 +3,19 @@
 package components
 
 type V3DomainIDResponse struct {
+	// Issuer ID
+	IssuerID string `json:"issuerId"`
 	// Customer friendly name
 	Name string `json:"name"`
 	// Customer ID
 	Pcid string `json:"pcid"`
+}
+
+func (v *V3DomainIDResponse) GetIssuerID() string {
+	if v == nil {
+		return ""
+	}
+	return v.IssuerID
 }
 
 func (v *V3DomainIDResponse) GetName() string {
@@ -22,3 +31,6 @@ func (v *V3DomainIDResponse) GetPcid() string {
 	}
 	return v.Pcid
 }
+
+// #region class-body-v3domainidresponse
+// #endregion class-body-v3domainidresponse

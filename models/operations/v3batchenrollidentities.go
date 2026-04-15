@@ -25,3 +25,6 @@ func (v *V3BatchEnrollIdentitiesResponse) GetV3BatchEnrollIdentitiesResponse() *
 	}
 	return v.V3BatchEnrollIdentitiesResponse
 }
+
+// #region class-body-v3batchenrollidentitiesresponse
+// #endregion class-body-v3batchenrollidentitiesresponse

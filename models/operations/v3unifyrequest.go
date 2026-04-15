@@ -25,3 +25,6 @@ func (v *V3UnifyRequestResponse) GetV3UnifyResponse() *components.V3UnifyRespons
 	}
 	return v.V3UnifyResponse
 }
+
+// #region class-body-v3unifyrequestresponse
+// #endregion class-body-v3unifyrequestresponse

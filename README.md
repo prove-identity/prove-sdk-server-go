@@ -165,12 +165,6 @@ func flow() error {
 <details open>
 <summary>Available methods</summary>
 
-### [Auth](docs/sdks/auth/README.md)
-
-* [AuthContinueRequest](docs/sdks/auth/README.md#authcontinuerequest) - AuthContinue /v1/server/auth/continue
-* [AuthFinishRequest](docs/sdks/auth/README.md#authfinishrequest) - AuthFinish /v1/server/auth/finish
-* [AuthStartRequest](docs/sdks/auth/README.md#authstartrequest) - AuthStart /v1/server/auth/start
-
 ### [Domain](docs/sdks/domain/README.md)
 
 * [V3DomainConfirmLinkRequest](docs/sdks/domain/README.md#v3domainconfirmlinkrequest) - Confirm a domain link request
@@ -181,16 +175,17 @@ func flow() error {
 
 ### [Identity](docs/sdks/identity/README.md)
 
+* [V3DiscoverRequest](docs/sdks/identity/README.md#v3discoverrequest) - Discover Identity Attributes
 * [V3FetchRequest](docs/sdks/identity/README.md#v3fetchrequest) - Fetch Identity Attributes
 * [V3BatchGetIdentities](docs/sdks/identity/README.md#v3batchgetidentities) - Batch Get Identities
 * [V3EnrollIdentity](docs/sdks/identity/README.md#v3enrollidentity) - Enroll Identity
 * [V3BatchEnrollIdentities](docs/sdks/identity/README.md#v3batchenrollidentities) - Batch Enroll Identities
+* [V3CrossDomainIdentity](docs/sdks/identity/README.md#v3crossdomainidentity) - Cross Domain Identity
+* [V3GetIdentitiesByPhoneNumber](docs/sdks/identity/README.md#v3getidentitiesbyphonenumber) - Get Identities By Phone Number
 * [V3DisenrollIdentity](docs/sdks/identity/README.md#v3disenrollidentity) - Disenroll Identity
 * [V3GetIdentity](docs/sdks/identity/README.md#v3getidentity) - Get Identity
 * [V3ActivateIdentity](docs/sdks/identity/README.md#v3activateidentity) - Activate Identity
-* [V3CrossDomainIdentity](docs/sdks/identity/README.md#v3crossdomainidentity) - Cross Domain Identity
 * [V3DeactivateIdentity](docs/sdks/identity/README.md#v3deactivateidentity) - Deactivate Identity
-* [V3GetIdentitiesByPhoneNumber](docs/sdks/identity/README.md#v3getidentitiesbyphonenumber) - Get Identities By Phone Number
 
 ### [V3](docs/sdks/v3/README.md)
 

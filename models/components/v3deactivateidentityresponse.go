@@ -14,3 +14,6 @@ func (v *V3DeactivateIdentityResponse) GetSuccess() bool {
 	}
 	return v.Success
 }
+
+// #region class-body-v3deactivateidentityresponse
+// #endregion class-body-v3deactivateidentityresponse

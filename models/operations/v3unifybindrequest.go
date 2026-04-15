@@ -33,3 +33,6 @@ func (v *V3UnifyBindRequestResponse) GetHeaders() map[string][]string {
 	}
 	return v.Headers
 }
+
+// #region class-body-v3unifybindrequestresponse
+// #endregion class-body-v3unifybindrequestresponse

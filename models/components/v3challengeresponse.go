@@ -42,3 +42,6 @@ func (v *V3ChallengeResponse) GetSuccess() bool {
 	}
 	return v.Success
 }
+
+// #region class-body-v3challengeresponse
+// #endregion class-body-v3challengeresponse

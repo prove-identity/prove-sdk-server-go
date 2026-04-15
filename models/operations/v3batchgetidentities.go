@@ -45,6 +45,9 @@ func (v *V3BatchGetIdentitiesRequest) GetShowInactive() *bool {
 	return v.ShowInactive
 }
 
+// #region class-body-v3batchgetidentitiesrequest
+// #endregion class-body-v3batchgetidentitiesrequest
+
 type V3BatchGetIdentitiesResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// V3BatchGetIdentitiesResponse
@@ -64,3 +67,6 @@ func (v *V3BatchGetIdentitiesResponse) GetV3BatchGetIdentitiesResponse() *compon
 	}
 	return v.V3BatchGetIdentitiesResponse
 }
+
+// #region class-body-v3batchgetidentitiesresponse
+// #endregion class-body-v3batchgetidentitiesresponse

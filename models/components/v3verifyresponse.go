@@ -5,6 +5,9 @@ package components
 type V3VerifyResponseEvaluation struct {
 }
 
+// #region class-body-v3verifyresponseevaluation
+// #endregion class-body-v3verifyresponseevaluation
+
 type V3VerifyResponse struct {
 	// Additional Identities found as part of the verification flow.
 	AdditionalIdentities []Identity `json:"additionalIdentities,omitempty"`
@@ -105,3 +108,6 @@ func (v *V3VerifyResponse) GetSuccess() string {
 	}
 	return v.Success
 }
+
+// #region class-body-v3verifyresponse
+// #endregion class-body-v3verifyresponse

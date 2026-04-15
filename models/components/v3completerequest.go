@@ -21,3 +21,6 @@ func (v *V3CompleteRequest) GetIndividual() V3CompleteIndividualRequest {
 	}
 	return v.Individual
 }
+
+// #region class-body-v3completerequest
+// #endregion class-body-v3completerequest

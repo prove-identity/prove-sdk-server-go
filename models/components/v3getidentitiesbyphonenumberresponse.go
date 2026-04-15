@@ -13,3 +13,6 @@ func (v *V3GetIdentitiesByPhoneNumberResponse) GetItems() []LookupIdentityItem {
 	}
 	return v.Items
 }
+
+// #region class-body-v3getidentitiesbyphonenumberresponse
+// #endregion class-body-v3getidentitiesbyphonenumberresponse

@@ -33,3 +33,6 @@ func (v *V3DeviceRevokeRequestResponse) GetHeaders() map[string][]string {
 	}
 	return v.Headers
 }
+
+// #region class-body-v3devicerevokerequestresponse
+// #endregion class-body-v3devicerevokerequestresponse

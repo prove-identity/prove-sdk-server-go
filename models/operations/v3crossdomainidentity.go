@@ -26,6 +26,9 @@ func (v *V3CrossDomainIdentityRequest) GetV3CrossDomainIdentityRequest() *compon
 	return v.V3CrossDomainIdentityRequest
 }
 
+// #region class-body-v3crossdomainidentityrequest
+// #endregion class-body-v3crossdomainidentityrequest
+
 type V3CrossDomainIdentityResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// V3CrossDomainIdentityResponse
@@ -45,3 +48,6 @@ func (v *V3CrossDomainIdentityResponse) GetV3CrossDomainIdentityResponse() *comp
 	}
 	return v.V3CrossDomainIdentityResponse
 }
+
+// #region class-body-v3crossdomainidentityresponse
+// #endregion class-body-v3crossdomainidentityresponse

@@ -25,3 +25,6 @@ func (v *V3StartRequestResponse) GetV3StartResponse() *components.V3StartRespons
 	}
 	return v.V3StartResponse
 }
+
+// #region class-body-v3startrequestresponse
+// #endregion class-body-v3startrequestresponse

@@ -25,3 +25,6 @@ func (v *V3EnrollIdentityResponse) GetV3EnrollIdentityResponse() *components.V3E
 	}
 	return v.V3EnrollIdentityResponse
 }
+
+// #region class-body-v3enrollidentityresponse
+// #endregion class-body-v3enrollidentityresponse

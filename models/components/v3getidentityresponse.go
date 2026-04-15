@@ -18,14 +18,14 @@ type V3GetIdentityResponse struct {
 	CreationString *string `json:"creationString,omitempty"`
 	// A string that is the unique identifier for the Prove Key on the device. Only applicable if you are leveraging Prove Unify.
 	DeviceID *string `json:"deviceId,omitempty"`
-	// A unique Prove-generated identifier for the enrolled identity. This is a UUID that can be used to reference the identity in future requests.
-	IdentityID *string `json:"identityId,omitempty"`
 	// The type of line associated with this identity/mobile number.
 	LineType *string `json:"lineType,omitempty"`
 	// The number of the mobile phone. Refer to the Prove Pre-Fill with Mobile Auth and Prove Identity with Mobile Auth documentation for situations
 	// where this field is not required. US and Canada phone numbers can be passed in with or without a leading `+1`. International phone numbers
 	// require a leading `+` followed by the country code. Acceptable characters are: alphanumeric with symbols '+'.
 	PhoneNumber string `json:"phoneNumber"`
+	// A unique Prove-generated identifier for the enrolled identity. This is a UUID that can be used to reference the identity in future requests.
+	ProveID *string `json:"proveId,omitempty"`
 }
 
 func (v *V3GetIdentityResponse) GetActive() *bool {
@@ -77,13 +77,6 @@ func (v *V3GetIdentityResponse) GetDeviceID() *string {
 	return v.DeviceID
 }
 
-func (v *V3GetIdentityResponse) GetIdentityID() *string {
-	if v == nil {
-		return nil
-	}
-	return v.IdentityID
-}
-
 func (v *V3GetIdentityResponse) GetLineType() *string {
 	if v == nil {
 		return nil
@@ -97,3 +90,13 @@ func (v *V3GetIdentityResponse) GetPhoneNumber() string {
 	}
 	return v.PhoneNumber
 }
+
+func (v *V3GetIdentityResponse) GetProveID() *string {
+	if v == nil {
+		return nil
+	}
+	return v.ProveID
+}
+
+// #region class-body-v3getidentityresponse
+// #endregion class-body-v3getidentityresponse

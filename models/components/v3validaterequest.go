@@ -13,3 +13,6 @@ func (v *V3ValidateRequest) GetCorrelationID() string {
 	}
 	return v.CorrelationID
 }
+
+// #region class-body-v3validaterequest
+// #endregion class-body-v3validaterequest

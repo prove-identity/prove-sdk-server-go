@@ -8,16 +8,16 @@ import (
 
 type V3DisenrollIdentityRequest struct {
 	// A Prove-generated unique ID for a specific identity.
-	IdentityID string `pathParam:"style=simple,explode=false,name=identityId"`
+	ProveID string `pathParam:"style=simple,explode=false,name=proveId"`
 	// A client-generated unique ID for a specific session. This can be used to identify specific requests. The format of this ID is defined by the client - Prove recommends using a GUID, but any format can be accepted. Do not include Personally Identifiable Information (PII) in this field.
 	ClientRequestID *string `queryParam:"style=form,explode=true,name=clientRequestId"`
 }
 
-func (v *V3DisenrollIdentityRequest) GetIdentityID() string {
+func (v *V3DisenrollIdentityRequest) GetProveID() string {
 	if v == nil {
 		return ""
 	}
-	return v.IdentityID
+	return v.ProveID
 }
 
 func (v *V3DisenrollIdentityRequest) GetClientRequestID() *string {
@@ -26,6 +26,9 @@ func (v *V3DisenrollIdentityRequest) GetClientRequestID() *string {
 	}
 	return v.ClientRequestID
 }
+
+// #region class-body-v3disenrollidentityrequest
+// #endregion class-body-v3disenrollidentityrequest
 
 type V3DisenrollIdentityResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
@@ -46,3 +49,6 @@ func (v *V3DisenrollIdentityResponse) GetV3DisenrollIdentityResponse() *componen
 	}
 	return v.V3DisenrollIdentityResponse
 }
+
+// #region class-body-v3disenrollidentityresponse
+// #endregion class-body-v3disenrollidentityresponse

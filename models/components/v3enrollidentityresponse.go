@@ -5,16 +5,16 @@ package components
 // V3EnrollIdentityResponse - Response body for the V3 Enroll Identity method.
 type V3EnrollIdentityResponse struct {
 	// A unique Prove-generated identifier for the enrolled identity. This is a UUID that can be used to reference the identity in future requests.
-	IdentityID string `json:"identityId"`
+	ProveID string `json:"proveId"`
 	// If true, the request was successful and the identity was created.
 	Success bool `json:"success"`
 }
 
-func (v *V3EnrollIdentityResponse) GetIdentityID() string {
+func (v *V3EnrollIdentityResponse) GetProveID() string {
 	if v == nil {
 		return ""
 	}
-	return v.IdentityID
+	return v.ProveID
 }
 
 func (v *V3EnrollIdentityResponse) GetSuccess() bool {
@@ -23,3 +23,6 @@ func (v *V3EnrollIdentityResponse) GetSuccess() bool {
 	}
 	return v.Success
 }
+
+// #region class-body-v3enrollidentityresponse
+// #endregion class-body-v3enrollidentityresponse

@@ -49,3 +49,6 @@ func (v *V3CompleteAddressEntryRequest) GetRegion() *string {
 	}
 	return v.Region
 }
+
+// #region class-body-v3completeaddressentryrequest
+// #endregion class-body-v3completeaddressentryrequest

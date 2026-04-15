@@ -30,3 +30,6 @@ func (v *V3VerifyBatchResponse) GetResults() []VerifyBatchResultItem {
 	}
 	return v.Results
 }
+
+// #region class-body-v3verifybatchresponse
+// #endregion class-body-v3verifybatchresponse

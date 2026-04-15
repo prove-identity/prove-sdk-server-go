@@ -7,11 +7,11 @@ import (
 	"fmt"
 )
 
-// VerificationType - The verification method based on the use case and authorization level. Current allowed values: "verifiedUser", "accountOpening", "bot", "prefill", "prefillForBiz", "identityResolution".
+// VerificationType - The verification method based on the use case and authorization level. Current allowed values: "verifiedUser", "accountOpening", "humanAssurance", "prefill", "prefillForBiz", "identityResolution".
 type VerificationType string
 
 const (
-	VerificationTypeBot                VerificationType = "bot"
+	VerificationTypeHumanAssurance     VerificationType = "humanAssurance"
 	VerificationTypeVerifiedUser       VerificationType = "verifiedUser"
 	VerificationTypeAccountOpening     VerificationType = "accountOpening"
 	VerificationTypePrefill            VerificationType = "prefill"
@@ -28,7 +28,7 @@ func (e *VerificationType) UnmarshalJSON(data []byte) error {
 		return err
 	}
 	switch v {
-	case "bot":
+	case "humanAssurance":
 		fallthrough
 	case "verifiedUser":
 		fallthrough
@@ -69,7 +69,7 @@ type V3VerifyRequest struct {
 	PhoneNumber string `json:"phoneNumber"`
 	// The User agent of the session of the individual.
 	UserAgent *string `json:"userAgent,omitempty"`
-	// The verification method based on the use case and authorization level. Current allowed values: "verifiedUser", "accountOpening", "bot", "prefill", "prefillForBiz", "identityResolution".
+	// The verification method based on the use case and authorization level. Current allowed values: "verifiedUser", "accountOpening", "humanAssurance", "prefill", "prefillForBiz", "identityResolution".
 	VerificationType VerificationType `json:"verificationType"`
 }
 
@@ -149,3 +149,6 @@ func (v *V3VerifyRequest) GetVerificationType() VerificationType {
 	}
 	return v.VerificationType
 }
+
+// #region class-body-v3verifyrequest
+// #endregion class-body-v3verifyrequest

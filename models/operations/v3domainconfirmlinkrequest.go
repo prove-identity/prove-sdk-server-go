@@ -25,3 +25,6 @@ func (v *V3DomainConfirmLinkRequestResponse) GetV3DomainConfirmLinkResponse() *c
 	}
 	return v.V3DomainConfirmLinkResponse
 }
+
+// #region class-body-v3domainconfirmlinkrequestresponse
+// #endregion class-body-v3domainconfirmlinkrequestresponse

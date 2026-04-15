@@ -25,3 +25,6 @@ func (v *V3ChallengeRequestResponse) GetV3ChallengeResponse() *components.V3Chal
 	}
 	return v.V3ChallengeResponse
 }
+
+// #region class-body-v3challengerequestresponse
+// #endregion class-body-v3challengerequestresponse

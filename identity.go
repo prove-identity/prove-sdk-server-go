@@ -204,6 +204,8 @@ func (s *Identity) V3DiscoverRequest(ctx context.Context, proveID string, client
 
 	switch {
 	case httpRes.StatusCode == 200:
+		res.Headers = httpRes.Header
+
 		switch {
 		case utils.MatchContentType(httpRes.Header.Get("Content-Type"), `application/json`):
 			rawBody, err := utils.ConsumeRawBody(httpRes)
@@ -211,12 +213,12 @@ func (s *Identity) V3DiscoverRequest(ctx context.Context, proveID string, client
 				return nil, err
 			}
 
-			var out components.V3FetchResponse
+			var out components.V3DiscoverResponse
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
 				return nil, err
 			}
 
-			res.V3FetchResponse = &out
+			res.V3DiscoverResponse = &out
 		default:
 			rawBody, err := utils.ConsumeRawBody(httpRes)
 			if err != nil {

@@ -31,3 +31,6 @@ func (v *V3TokenRequest) GetGrantType() string {
 	}
 	return v.GrantType
 }
+
+// #region class-body-v3tokenrequest
+// #endregion class-body-v3tokenrequest

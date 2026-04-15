@@ -25,3 +25,6 @@ func (v *V3DomainLinkRequestResponse) GetV3DomainLinkResponse() *components.V3Do
 	}
 	return v.V3DomainLinkResponse
 }
+
+// #region class-body-v3domainlinkrequestresponse
+// #endregion class-body-v3domainlinkrequestresponse

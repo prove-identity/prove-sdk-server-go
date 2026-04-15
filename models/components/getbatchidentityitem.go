@@ -4,12 +4,12 @@ package components
 
 type GetBatchIdentityItem struct {
 	// A unique Prove-generated identifier for the enrolled identity. This is a UUID that can be used to reference the identity in future requests.
-	IdentityID *string `json:"identityId,omitempty"`
+	ProveID *string `json:"proveId,omitempty"`
 }
 
-func (g *GetBatchIdentityItem) GetIdentityID() *string {
+func (g *GetBatchIdentityItem) GetProveID() *string {
 	if g == nil {
 		return nil
 	}
-	return g.IdentityID
+	return g.ProveID
 }

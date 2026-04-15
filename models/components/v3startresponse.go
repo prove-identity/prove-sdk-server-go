@@ -31,3 +31,6 @@ func (v *V3StartResponse) GetNext() map[string]string {
 	}
 	return v.Next
 }
+
+// #region class-body-v3startresponse
+// #endregion class-body-v3startresponse

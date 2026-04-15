@@ -20,3 +20,6 @@ func (v *V3DomainUnlinkRequest) GetPcidTo() *string {
 	}
 	return v.PcidTo
 }
+
+// #region class-body-v3domainunlinkrequest
+// #endregion class-body-v3domainunlinkrequest

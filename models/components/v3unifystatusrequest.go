@@ -25,3 +25,6 @@ func (v *V3UnifyStatusRequest) GetCorrelationID() string {
 	}
 	return v.CorrelationID
 }
+
+// #region class-body-v3unifystatusrequest
+// #endregion class-body-v3unifystatusrequest

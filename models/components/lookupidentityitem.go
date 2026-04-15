@@ -18,14 +18,14 @@ type LookupIdentityItem struct {
 	CreationString *string `json:"creationString,omitempty"`
 	// A string that is the unique identifier for the Prove Key on the device. Only applicable if you are leveraging Prove Unify.
 	DeviceID *string `json:"deviceId,omitempty"`
-	// A Prove-generated unique ID for a specific identity.
-	IdentityID *string `json:"identityId,omitempty"`
 	// The type of line associated with this identity/mobile number.
 	LineType *string `json:"lineType,omitempty"`
 	// The number of the mobile phone. Refer to the Prove Pre-Fill with Mobile Auth and Prove Identity with Mobile Auth documentation for situations
 	// where this field is not required. US and Canada phone numbers can be passed in with or without a leading `+1`. International phone numbers
 	// require a leading `+` followed by the country code. Acceptable characters are: alphanumeric with symbols '+'.
 	PhoneNumber string `json:"phoneNumber"`
+	// A Prove-generated unique ID for a specific identity.
+	ProveID *string `json:"proveId,omitempty"`
 }
 
 func (l *LookupIdentityItem) GetActive() *bool {
@@ -77,13 +77,6 @@ func (l *LookupIdentityItem) GetDeviceID() *string {
 	return l.DeviceID
 }
 
-func (l *LookupIdentityItem) GetIdentityID() *string {
-	if l == nil {
-		return nil
-	}
-	return l.IdentityID
-}
-
 func (l *LookupIdentityItem) GetLineType() *string {
 	if l == nil {
 		return nil
@@ -96,4 +89,11 @@ func (l *LookupIdentityItem) GetPhoneNumber() string {
 		return ""
 	}
 	return l.PhoneNumber
+}
+
+func (l *LookupIdentityItem) GetProveID() *string {
+	if l == nil {
+		return nil
+	}
+	return l.ProveID
 }

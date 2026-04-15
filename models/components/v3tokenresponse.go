@@ -49,3 +49,6 @@ func (v *V3TokenResponse) GetTokenType() string {
 	}
 	return v.TokenType
 }
+
+// #region class-body-v3tokenresponse
+// #endregion class-body-v3tokenresponse

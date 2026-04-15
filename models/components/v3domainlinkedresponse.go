@@ -36,3 +36,6 @@ func (v *V3DomainLinkedResponse) GetRequestsTo() []RequestsTo {
 	}
 	return v.RequestsTo
 }
+
+// #region class-body-v3domainlinkedresponse
+// #endregion class-body-v3domainlinkedresponse

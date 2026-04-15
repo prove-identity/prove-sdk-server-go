@@ -24,3 +24,6 @@ func (v *V3DeviceRevokeRequest) GetDeviceID() string {
 	}
 	return v.DeviceID
 }
+
+// #region class-body-v3devicerevokerequest
+// #endregion class-body-v3devicerevokerequest

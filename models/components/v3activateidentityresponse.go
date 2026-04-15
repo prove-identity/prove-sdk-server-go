@@ -14,3 +14,6 @@ func (v *V3ActivateIdentityResponse) GetSuccess() bool {
 	}
 	return v.Success
 }
+
+// #region class-body-v3activateidentityresponse
+// #endregion class-body-v3activateidentityresponse

@@ -13,3 +13,6 @@ func (v *V3DomainUnlinkResponse) GetSuccess() bool {
 	}
 	return v.Success
 }
+
+// #region class-body-v3domainunlinkresponse
+// #endregion class-body-v3domainunlinkresponse

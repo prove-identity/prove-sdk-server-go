@@ -25,3 +25,6 @@ func (v *V3CompleteRequestResponse) GetV3CompleteResponse() *components.V3Comple
 	}
 	return v.V3CompleteResponse
 }
+
+// #region class-body-v3completerequestresponse
+// #endregion class-body-v3completerequestresponse

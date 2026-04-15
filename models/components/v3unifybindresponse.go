@@ -5,6 +5,9 @@ package components
 type V3UnifyBindResponseEvaluation struct {
 }
 
+// #region class-body-v3unifybindresponseevaluation
+// #endregion class-body-v3unifybindresponseevaluation
+
 type V3UnifyBindResponse struct {
 	// A client-generated unique ID to identify a specific customer across business lines.
 	//
@@ -82,3 +85,6 @@ func (v *V3UnifyBindResponse) GetSuccess() string {
 	}
 	return v.Success
 }
+
+// #region class-body-v3unifybindresponse
+// #endregion class-body-v3unifybindresponse

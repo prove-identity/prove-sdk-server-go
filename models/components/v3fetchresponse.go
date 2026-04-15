@@ -14,3 +14,6 @@ func (v *V3FetchResponse) GetResults() []FetchResult {
 	}
 	return v.Results
 }
+
+// #region class-body-v3fetchresponse
+// #endregion class-body-v3fetchresponse

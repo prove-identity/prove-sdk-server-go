@@ -36,6 +36,9 @@ func (v *V3FetchRequestRequest) GetClientRequestID() *string {
 	return v.ClientRequestID
 }
 
+// #region class-body-v3fetchrequestrequest
+// #endregion class-body-v3fetchrequestrequest
+
 type V3FetchRequestResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// V3FetchResponse
@@ -55,3 +58,6 @@ func (v *V3FetchRequestResponse) GetV3FetchResponse() *components.V3FetchRespons
 	}
 	return v.V3FetchResponse
 }
+
+// #region class-body-v3fetchrequestresponse
+// #endregion class-body-v3fetchrequestresponse

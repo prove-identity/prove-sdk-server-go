@@ -100,3 +100,6 @@ func (v *V3StartRequest) GetSsn() *string {
 	}
 	return v.Ssn
 }
+
+// #region class-body-v3startrequest
+// #endregion class-body-v3startrequest

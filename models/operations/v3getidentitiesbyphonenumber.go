@@ -27,6 +27,9 @@ func (v *V3GetIdentitiesByPhoneNumberRequest) GetClientRequestID() *string {
 	return v.ClientRequestID
 }
 
+// #region class-body-v3getidentitiesbyphonenumberrequest
+// #endregion class-body-v3getidentitiesbyphonenumberrequest
+
 type V3GetIdentitiesByPhoneNumberResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
 	// V3GetIdentitiesByPhoneNumberResponse
@@ -46,3 +49,6 @@ func (v *V3GetIdentitiesByPhoneNumberResponse) GetV3GetIdentitiesByPhoneNumberRe
 	}
 	return v.V3GetIdentitiesByPhoneNumberResponse
 }
+
+// #region class-body-v3getidentitiesbyphonenumberresponse
+// #endregion class-body-v3getidentitiesbyphonenumberresponse

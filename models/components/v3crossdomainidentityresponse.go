@@ -23,3 +23,6 @@ func (v *V3CrossDomainIdentityResponse) GetIdentities() []IdentityItem {
 	}
 	return v.Identities
 }
+
+// #region class-body-v3crossdomainidentityresponse
+// #endregion class-body-v3crossdomainidentityresponse

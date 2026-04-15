@@ -5,6 +5,9 @@ package components
 type V3ValidateResponseEvaluation struct {
 }
 
+// #region class-body-v3validateresponseevaluation
+// #endregion class-body-v3validateresponseevaluation
+
 type V3ValidateResponse struct {
 	// True if a DOB or SSN needs to be passed in on the next step. Only applicable to Pre-Fill. If implementing Prove Identity ignore this field.
 	// It will always return false for this use case.
@@ -53,3 +56,6 @@ func (v *V3ValidateResponse) GetSuccess() bool {
 	}
 	return v.Success
 }
+
+// #region class-body-v3validateresponse
+// #endregion class-body-v3validateresponse

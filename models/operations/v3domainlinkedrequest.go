@@ -33,3 +33,6 @@ func (v *V3DomainLinkedRequestResponse) GetHeaders() map[string][]string {
 	}
 	return v.Headers
 }
+
+// #region class-body-v3domainlinkedrequestresponse
+// #endregion class-body-v3domainlinkedrequestresponse

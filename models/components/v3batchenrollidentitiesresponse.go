@@ -13,3 +13,6 @@ func (v *V3BatchEnrollIdentitiesResponse) GetResults() []PostBatchResultItem {
 	}
 	return v.Results
 }
+
+// #region class-body-v3batchenrollidentitiesresponse
+// #endregion class-body-v3batchenrollidentitiesresponse

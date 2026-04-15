@@ -7,7 +7,7 @@ type PostBatchResultItem struct {
 	// An error message that is returned if the identity cannot be successfully enrolled.
 	Error *string `json:"error,omitempty"`
 	// A unique Prove-generated identifier for the enrolled identity. This is a UUID that can be used to reference the identity in future requests.
-	IdentityID *string `json:"identityId,omitempty"`
+	ProveID *string `json:"proveId,omitempty"`
 }
 
 func (p *PostBatchResultItem) GetError() *string {
@@ -17,9 +17,9 @@ func (p *PostBatchResultItem) GetError() *string {
 	return p.Error
 }
 
-func (p *PostBatchResultItem) GetIdentityID() *string {
+func (p *PostBatchResultItem) GetProveID() *string {
 	if p == nil {
 		return nil
 	}
-	return p.IdentityID
+	return p.ProveID
 }

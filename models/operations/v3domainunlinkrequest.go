@@ -25,3 +25,6 @@ func (v *V3DomainUnlinkRequestResponse) GetV3DomainUnlinkResponse() *components.
 	}
 	return v.V3DomainUnlinkResponse
 }
+
+// #region class-body-v3domainunlinkrequestresponse
+// #endregion class-body-v3domainunlinkrequestresponse

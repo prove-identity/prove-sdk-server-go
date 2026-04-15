@@ -623,6 +623,7 @@ func main() {
 | sdkerrors.Error400 | 400                | application/json   |
 | sdkerrors.Error401 | 401                | application/json   |
 | sdkerrors.Error403 | 403                | application/json   |
+| sdkerrors.Error404 | 404                | application/json   |
 | sdkerrors.Error    | 500                | application/json   |
 | sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
 
@@ -732,6 +733,7 @@ func main() {
         EmailAddress: provesdkservergo.Pointer("sbutrimovichb@who.int"),
         FinalTargetURL: provesdkservergo.Pointer("https://www.example.com/landing-page"),
         IPAddress: provesdkservergo.Pointer("192.168.0.1"),
+        MobileAuthEnabled: provesdkservergo.Pointer(true),
         PhoneNumber: provesdkservergo.Pointer("2001004011"),
         PossessionType: "mobile",
         ProveID: provesdkservergo.Pointer("a07b94ce-218c-461f-beda-d92480e40f61"),

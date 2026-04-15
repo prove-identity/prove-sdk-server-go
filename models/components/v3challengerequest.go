@@ -31,3 +31,6 @@ func (v *V3ChallengeRequest) GetSsn() *string {
 	}
 	return v.Ssn
 }
+
+// #region class-body-v3challengerequest
+// #endregion class-body-v3challengerequest

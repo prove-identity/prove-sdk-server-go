@@ -22,3 +22,6 @@ func (v *V3VerifyBatchRequest) GetItems() []VerifyBatchRequestItem {
 	}
 	return v.Items
 }
+
+// #region class-body-v3verifybatchrequest
+// #endregion class-body-v3verifybatchrequest

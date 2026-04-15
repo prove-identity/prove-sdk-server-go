@@ -58,3 +58,6 @@ func (v *V3CompleteIndividualRequest) GetSsn() *string {
 	}
 	return v.Ssn
 }
+
+// #region class-body-v3completeindividualrequest
+// #endregion class-body-v3completeindividualrequest

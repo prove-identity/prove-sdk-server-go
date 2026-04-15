@@ -6,6 +6,8 @@ package components
 type V3EnrollIdentityRequest struct {
 	// A client-generated unique ID for a specific customer. This can be used by clients to link calls related to the same customer, across different requests or sessions.  The format of this ID is defined by the client - Prove recommends using a GUID, but any format can be accepted. Do not include personally identifiable information (PII) in this field.
 	ClientCustomerID *string `json:"clientCustomerId,omitempty"`
+	// An optional client-generated unique ID our Enterprise customer inputs for that consumer across business lines. If the Enterprise customer has been able to identify a consumer across business lines and has a unique identifier for the consumer, they would input this value to Prove. The format of this ID is defined by the client - Prove recommends using a GUID, but any format can be accepted. Do not include personally identifiable information (PII) in this field.
+	ClientHumanID *string `json:"clientHumanId,omitempty"`
 	// A client-generated unique ID for a specific session. This can be used to identify specific requests. The format of this ID is defined by the client - Prove recommends using a GUID, but any format can be accepted. Do not include Personally Identifiable Information (PII) in this field.
 	ClientRequestID *string `json:"clientRequestId,omitempty"`
 	// A string that is the unique identifier for the Prove Key on the device. Only applicable if you are leveraging Prove Unify.
@@ -22,6 +24,13 @@ func (v *V3EnrollIdentityRequest) GetClientCustomerID() *string {
 		return nil
 	}
 	return v.ClientCustomerID
+}
+
+func (v *V3EnrollIdentityRequest) GetClientHumanID() *string {
+	if v == nil {
+		return nil
+	}
+	return v.ClientHumanID
 }
 
 func (v *V3EnrollIdentityRequest) GetClientRequestID() *string {
@@ -51,3 +60,6 @@ func (v *V3EnrollIdentityRequest) GetPhoneNumber() string {
 	}
 	return v.PhoneNumber
 }
+
+// #region class-body-v3enrollidentityrequest
+// #endregion class-body-v3enrollidentityrequest

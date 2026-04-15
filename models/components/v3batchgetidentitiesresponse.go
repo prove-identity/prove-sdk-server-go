@@ -23,3 +23,6 @@ func (v *V3BatchGetIdentitiesResponse) GetResults() []GetBatchIdentityItem {
 	}
 	return v.Results
 }
+
+// #region class-body-v3batchgetidentitiesresponse
+// #endregion class-body-v3batchgetidentitiesresponse

@@ -36,3 +36,6 @@ func (v *V3UnifyBindRequest) GetPhoneNumber() string {
 	}
 	return v.PhoneNumber
 }
+
+// #region class-body-v3unifybindrequest
+// #endregion class-body-v3unifybindrequest

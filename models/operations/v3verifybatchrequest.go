@@ -25,3 +25,6 @@ func (v *V3VerifyBatchRequestResponse) GetV3VerifyBatchResponse() *components.V3
 	}
 	return v.V3VerifyBatchResponse
 }
+
+// #region class-body-v3verifybatchrequestresponse
+// #endregion class-body-v3verifybatchrequestresponse

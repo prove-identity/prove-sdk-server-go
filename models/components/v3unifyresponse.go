@@ -31,3 +31,6 @@ func (v *V3UnifyResponse) GetSuccess() string {
 	}
 	return v.Success
 }
+
+// #region class-body-v3unifyresponse
+// #endregion class-body-v3unifyresponse

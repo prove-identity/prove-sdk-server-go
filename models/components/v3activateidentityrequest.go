@@ -14,3 +14,6 @@ func (v *V3ActivateIdentityRequest) GetClientRequestID() *string {
 	}
 	return v.ClientRequestID
 }
+
+// #region class-body-v3activateidentityrequest
+// #endregion class-body-v3activateidentityrequest

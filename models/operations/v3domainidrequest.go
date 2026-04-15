@@ -32,3 +32,6 @@ func (v *V3DomainIDRequestResponse) GetHeaders() map[string][]string {
 	}
 	return v.Headers
 }
+
+// #region class-body-v3domainidrequestresponse
+// #endregion class-body-v3domainidrequestresponse

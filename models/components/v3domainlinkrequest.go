@@ -20,3 +20,6 @@ func (v *V3DomainLinkRequest) GetScopes() []string {
 	}
 	return v.Scopes
 }
+
+// #region class-body-v3domainlinkrequest
+// #endregion class-body-v3domainlinkrequest

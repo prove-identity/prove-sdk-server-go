@@ -13,3 +13,6 @@ func (v *V3DeviceRevokeResponse) GetSuccess() bool {
 	}
 	return v.Success
 }
+
+// #region class-body-v3devicerevokeresponse
+// #endregion class-body-v3devicerevokeresponse

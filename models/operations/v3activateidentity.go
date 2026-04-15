@@ -8,15 +8,15 @@ import (
 
 type V3ActivateIdentityRequest struct {
 	// A Prove-generated unique ID for a specific identity.
-	IdentityID                string                                `pathParam:"style=simple,explode=false,name=identityId"`
+	ProveID                   string                                `pathParam:"style=simple,explode=false,name=proveId"`
 	V3ActivateIdentityRequest *components.V3ActivateIdentityRequest `request:"mediaType=application/json"`
 }
 
-func (v *V3ActivateIdentityRequest) GetIdentityID() string {
+func (v *V3ActivateIdentityRequest) GetProveID() string {
 	if v == nil {
 		return ""
 	}
-	return v.IdentityID
+	return v.ProveID
 }
 
 func (v *V3ActivateIdentityRequest) GetV3ActivateIdentityRequest() *components.V3ActivateIdentityRequest {
@@ -25,6 +25,9 @@ func (v *V3ActivateIdentityRequest) GetV3ActivateIdentityRequest() *components.V
 	}
 	return v.V3ActivateIdentityRequest
 }
+
+// #region class-body-v3activateidentityrequest
+// #endregion class-body-v3activateidentityrequest
 
 type V3ActivateIdentityResponse struct {
 	HTTPMeta components.HTTPMetadata `json:"-"`
@@ -45,3 +48,6 @@ func (v *V3ActivateIdentityResponse) GetV3ActivateIdentityResponse() *components
 	}
 	return v.V3ActivateIdentityResponse
 }
+
+// #region class-body-v3activateidentityresponse
+// #endregion class-body-v3activateidentityresponse

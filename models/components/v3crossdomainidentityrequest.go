@@ -14,3 +14,6 @@ func (v *V3CrossDomainIdentityRequest) GetClientRequestID() *string {
 	}
 	return v.ClientRequestID
 }
+
+// #region class-body-v3crossdomainidentityrequest
+// #endregion class-body-v3crossdomainidentityrequest

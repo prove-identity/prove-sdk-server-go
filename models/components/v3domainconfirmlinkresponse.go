@@ -13,3 +13,6 @@ func (v *V3DomainConfirmLinkResponse) GetSuccess() bool {
 	}
 	return v.Success
 }
+
+// #region class-body-v3domainconfirmlinkresponse
+// #endregion class-body-v3domainconfirmlinkresponse

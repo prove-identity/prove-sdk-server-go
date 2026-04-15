@@ -25,3 +25,6 @@ func (v *V3VerifyRequestResponse) GetV3VerifyResponse() *components.V3VerifyResp
 	}
 	return v.V3VerifyResponse
 }
+
+// #region class-body-v3verifyrequestresponse
+// #endregion class-body-v3verifyrequestresponse

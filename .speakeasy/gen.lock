@@ -1,18 +1,18 @@
 lockVersion: 2.0.0
 id: 13f15f39-429b-4f89-9916-f3a11e8cf70c
 management:
-  docChecksum: 324c7662dd3c61bde7b11dce25e66949
+  docChecksum: 4bd286bea9d703247887f0d2d1ac167b
   docVersion: 1.0.0
-  speakeasyVersion: 1.761.5
+  speakeasyVersion: 1.761.6
   generationVersion: 2.879.13
-  releaseVersion: 0.14.4
-  configChecksum: 5adc435d6a3a5aed63a5fc8f1ef175aa
+  releaseVersion: 0.14.5
+  configChecksum: ff8f5a340baa20e6cba703f84100851c
   repoURL: https://github.com/prove-identity/prove-sdk-server-go.git
   installationURL: https://github.com/prove-identity/prove-sdk-server-go
 persistentEdits:
-  generation_id: a8f721da-b9da-497e-bae0-305458bbebcb
-  pristine_commit_hash: 85f40edfca4b2a75f1acefc69e296b7dfaf9be10
-  pristine_tree_hash: bbede15bccba17fa1a26b148a6145d37f80d07fa
+  generation_id: fdae5a91-6346-4954-9203-9351dcbe8516
+  pristine_commit_hash: 7a300167b4f4bdd6c98afcf018072cef8bb43cf7
+  pristine_tree_hash: 58c945865be79a7f4676b2b7f9dc83f1cb6f4034
 features:
   go:
     additionalDependencies: 0.1.0
@@ -641,8 +641,8 @@ trackedFiles:
     pristine_git_object: 8a7f6e25b798db67614db62bbc69eb1af3d511bb
   docs/models/components/v3verifyresponse.md:
     id: 2b470992c038
-    last_write_checksum: sha1:a3310ab5829bc4944684d083c8fa1244d0a77e15
-    pristine_git_object: f52ad40a87f4d56a19752079db48211ed68c4d5f
+    last_write_checksum: sha1:6c931ec62d92d793e238ae33a32151aa6cec98eb
+    pristine_git_object: c58c5e9ab8075cd8ee7dfb588d0396282fef76fb
   docs/models/components/v3verifyresponseevaluation.md:
     id: a7ee8db8dd84
     last_write_checksum: sha1:0c62e186110a7b2b9feb918c0593991f31fc38c2
@@ -821,8 +821,8 @@ trackedFiles:
     pristine_git_object: a39a6b5ce651012e1bdf94d8a32df4fd596bb04c
   docs/models/operations/v3verifyrequestresponse.md:
     id: b17503424dd4
-    last_write_checksum: sha1:491e5b79d238b5f560e4c555f6bd6c1e6f679ee5
-    pristine_git_object: d7f14348b80d2e68e2a1251f24decbad1e237dc1
+    last_write_checksum: sha1:264786e422e71920b963830f4f396237a96973d8
+    pristine_git_object: d54de0cd102bee0756e50d3ae00c04ccb2d95e3e
   docs/models/sdkerrors/error.md:
     id: f38026ef53ea
     last_write_checksum: sha1:e7caf8cab5e2ef377f6646e1340e0decbdc8b9e3
@@ -1505,8 +1505,8 @@ trackedFiles:
     pristine_git_object: 3353f1c8a59d5a26d8ce0aa3ede88b379fa2327d
   models/components/v3verifyresponse.go:
     id: 051cdb4c2458
-    last_write_checksum: sha1:9c5f52e71f83405aaa4d8c7ebc9862e941be4f1f
-    pristine_git_object: 12492c0d85d3fb32296f387f82283d809b8e118c
+    last_write_checksum: sha1:662db4588d2e6cbf0a66f303da4cb7d8df4ee248
+    pristine_git_object: 6e7dc9bd9f057a5d2700b76a45323a7693a65799
   models/components/verifybatchrequestitem.go:
     id: 74adc0ff2bd1
     last_write_checksum: sha1:c55a5fed74c1ab4cd32210f218839dc04b866e0d
@@ -1673,8 +1673,8 @@ trackedFiles:
     pristine_git_object: e6e5a01c6e721e879e24a38a1f97e3e27d4686d4
   provesdkservergo.go:
     id: e4a202a2f033
-    last_write_checksum: sha1:e5bf7f7b5802e7700008f59966c951b5b78028cb
-    pristine_git_object: a34aea2be8a4eadf2c9c1d3302615184d731ce4a
+    last_write_checksum: sha1:0ce7e0583cdb49bafbe92155c40e42381e022e25
+    pristine_git_object: 98e45cdb1a7616eaf052ede7b71660cad06a1a67
   retry/config.go:
     id: 82d673cb0389
     last_write_checksum: sha1:7f7d96b59a18e95bac847ae09c63bbd911ee8432
@@ -1888,7 +1888,7 @@ examples:
         application/json: {"clientCustomerId": "e0f78bc2-f748-4eda-9d29-d756844507fc", "clientHumanId": "aad25769-23bb-458c-80db-50296a82c91b", "clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "emailAddress": "ecoldman1h@storify.com", "firstName": "Elena", "identityAttributes": [{"attributeType": "walletId", "attributeValue": "wallet123"}], "ipAddress": "192.168.1.1", "lastName": "Coldman", "phoneNumber": "2001004053", "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0", "verificationType": "verifiedUser"}
       responses:
         "200":
-          application/json: {"additionalIdentities": [{"assuranceLevel": "AL-1", "firstName": "Elena", "lastName": "Coldman", "reasons": ["[AL-1a] (Poor quality identity)"]}, {"assuranceLevel": "AL-1", "firstName": "Elena", "lastName": "Coldman", "reasons": ["[AL-1a] (Poor quality identity)"]}], "clientCustomerId": "261ffa66-961a-4f90-8d93-6c85a450633d", "clientHumanId": "261ffa66-961a-4f90-8d93-6c85a450633d", "clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "evaluation": {"authentication": {}, "identification": {}}, "identity": {"assuranceLevel": "AL2", "firstName": "Elena", "lastName": "Coldman", "reasons": ["[AL2a]"]}, "phoneNumber": "2001004053", "proveId": "a07b94ce-218c-461f-beda-d92480e40f61", "provePhoneAlias": "4B2C41FC4VKDEO100F960011D0AD4A8050MEK19P4SF9PD23EFE27CD2C76A6FAA8375E60AC0550604F6G32D9ED60E06262CCC570F3C15F2D16900184E", "success": "true"}
+          application/json: {"additionalIdentities": [{"assuranceLevel": "AL-1", "firstName": "Elena", "lastName": "Coldman", "reasons": ["[AL-1a] (Poor quality identity)"]}, {"assuranceLevel": "AL-1", "firstName": "Elena", "lastName": "Coldman", "reasons": ["[AL-1a] (Poor quality identity)"]}], "clientCustomerId": "261ffa66-961a-4f90-8d93-6c85a450633d", "clientHumanId": "261ffa66-961a-4f90-8d93-6c85a450633d", "clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "evaluation": {"authentication": {}, "identification": {}}, "identity": {"assuranceLevel": "AL2", "firstName": "Elena", "lastName": "Coldman", "reasons": ["[AL2a]"]}, "isEnrolled": true, "phoneNumber": "2001004053", "proveId": "a07b94ce-218c-461f-beda-d92480e40f61", "provePhoneAlias": "4B2C41FC4VKDEO100F960011D0AD4A8050MEK19P4SF9PD23EFE27CD2C76A6FAA8375E60AC0550604F6G32D9ED60E06262CCC570F3C15F2D16900184E", "success": "true"}
         "400":
           application/json: {"code": 1001, "message": "invalid request"}
         "401":
@@ -2309,10 +2309,7 @@ examplesVersion: 1.0.2
 generatedTests: {}
 releaseNotes: |
   ## Go SDK Changes:
-  * `Provesdkservergo.Identity.V3DiscoverRequest()`:  `response.Results` **Changed** (Breaking ⚠️)
-  * `Provesdkservergo.Auth.AuthContinueRequest()`: **Added**
-  * `Provesdkservergo.Auth.AuthFinishRequest()`: **Added**
-  * `Provesdkservergo.Auth.AuthStartRequest()`: **Added**
+  * `Provesdkservergo.V3.V3VerifyRequest()`:  `response.IsEnrolled` **Added**
 generatedFiles:
   - .gitattributes
   - /models/components/amltypelistresponseinternal.go

@@ -146,9 +146,9 @@ func WithTimeout(timeout time.Duration) SDKOption {
 // New creates a new instance of the SDK with the provided options
 func New(opts ...SDKOption) *Provesdkservergo {
 	sdk := &Provesdkservergo{
-		SDKVersion: "0.14.4",
+		SDKVersion: "0.14.5",
 		sdkConfiguration: config.SDKConfiguration{
-			UserAgent:  "speakeasy-sdk/go 0.14.4 2.879.13 1.0.0 github.com/prove-identity/prove-sdk-server-go",
+			UserAgent:  "speakeasy-sdk/go 0.14.5 2.879.13 1.0.0 github.com/prove-identity/prove-sdk-server-go",
 			ServerList: ServerList,
 		},
 		hooks: hooks.New(),

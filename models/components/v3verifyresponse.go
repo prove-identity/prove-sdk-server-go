@@ -22,6 +22,9 @@ type V3VerifyResponse struct {
 	// The evaluation result for the policy. This will contain keys titled "authentication" and "risk" that encompass the different evaluation categories.
 	Evaluation map[string]V3VerifyResponseEvaluation `json:"evaluation,omitempty"`
 	Identity   *Identity                             `json:"identity,omitempty"`
+	// IsEnrolled indicates whether the identity was successfully enrolled in Hobbes (IDM).
+	// False when the ranking response contained no PFA (enrollment skipped) or Hobbes failed.
+	IsEnrolled *bool `json:"isEnrolled,omitempty"`
 	// The input phone number.
 	PhoneNumber string `json:"phoneNumber"`
 	// A Prove-generated identifier for the consumer.
@@ -79,6 +82,13 @@ func (v *V3VerifyResponse) GetIdentity() *Identity {
 		return nil
 	}
 	return v.Identity
+}
+
+func (v *V3VerifyResponse) GetIsEnrolled() *bool {
+	if v == nil {
+		return nil
+	}
+	return v.IsEnrolled
 }
 
 func (v *V3VerifyResponse) GetPhoneNumber() string {

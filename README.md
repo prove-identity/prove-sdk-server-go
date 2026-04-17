@@ -204,7 +204,7 @@ func flow() error {
 * [V3UnifyBindRequest](docs/sdks/v3/README.md#v3unifybindrequest) - Bind Prove Key
 * [V3UnifyStatusRequest](docs/sdks/v3/README.md#v3unifystatusrequest) - Check Status
 * [V3ValidateRequest](docs/sdks/v3/README.md#v3validaterequest) - Validate Phone Number
-* [V3VerifyRequest](docs/sdks/v3/README.md#v3verifyrequest) - Verify User
+* [V3VerifyRequest](docs/sdks/v3/README.md#v3verifyrequest) - Verify
 * [V3VerifyBatchRequest](docs/sdks/v3/README.md#v3verifybatchrequest) - Batch Verify Users
 
 </details>

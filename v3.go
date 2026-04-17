@@ -172,7 +172,7 @@ func (s *V3) V3TokenRequest(ctx context.Context, request *components.V3TokenRequ
 
 			_, err = s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 			return nil, err
-		} else if utils.MatchStatusCodes([]string{"400", "401", "4XX", "500", "5XX"}, httpRes.StatusCode) {
+		} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
 			_httpRes, err := s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 			if err != nil {
 				return nil, err
@@ -448,7 +448,7 @@ func (s *V3) V3ChallengeRequest(ctx context.Context, request *components.V3Chall
 
 			_, err = s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 			return nil, err
-		} else if utils.MatchStatusCodes([]string{"400", "401", "403", "4XX", "500", "5XX"}, httpRes.StatusCode) {
+		} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
 			_httpRes, err := s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 			if err != nil {
 				return nil, err
@@ -745,7 +745,7 @@ func (s *V3) V3CompleteRequest(ctx context.Context, request *components.V3Comple
 
 			_, err = s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 			return nil, err
-		} else if utils.MatchStatusCodes([]string{"400", "401", "403", "4XX", "500", "5XX"}, httpRes.StatusCode) {
+		} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
 			_httpRes, err := s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 			if err != nil {
 				return nil, err
@@ -1043,7 +1043,7 @@ func (s *V3) V3DeviceRevokeRequest(ctx context.Context, request *components.V3De
 
 			_, err = s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 			return nil, err
-		} else if utils.MatchStatusCodes([]string{"400", "401", "403", "404", "4XX", "500", "5XX"}, httpRes.StatusCode) {
+		} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
 			_httpRes, err := s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 			if err != nil {
 				return nil, err
@@ -1363,7 +1363,7 @@ func (s *V3) V3StartRequest(ctx context.Context, request *components.V3StartRequ
 
 			_, err = s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 			return nil, err
-		} else if utils.MatchStatusCodes([]string{"400", "401", "403", "4XX", "500", "5XX"}, httpRes.StatusCode) {
+		} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
 			_httpRes, err := s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 			if err != nil {
 				return nil, err
@@ -1660,7 +1660,7 @@ func (s *V3) V3UnifyRequest(ctx context.Context, request *components.V3UnifyRequ
 
 			_, err = s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 			return nil, err
-		} else if utils.MatchStatusCodes([]string{"400", "401", "403", "4XX", "500", "5XX"}, httpRes.StatusCode) {
+		} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
 			_httpRes, err := s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 			if err != nil {
 				return nil, err
@@ -1957,7 +1957,7 @@ func (s *V3) V3UnifyBindRequest(ctx context.Context, request *components.V3Unify
 
 			_, err = s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 			return nil, err
-		} else if utils.MatchStatusCodes([]string{"400", "401", "403", "4XX", "500", "5XX"}, httpRes.StatusCode) {
+		} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
 			_httpRes, err := s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 			if err != nil {
 				return nil, err
@@ -2256,7 +2256,7 @@ func (s *V3) V3UnifyStatusRequest(ctx context.Context, request *components.V3Uni
 
 			_, err = s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 			return nil, err
-		} else if utils.MatchStatusCodes([]string{"400", "401", "403", "4XX", "500", "5XX"}, httpRes.StatusCode) {
+		} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
 			_httpRes, err := s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 			if err != nil {
 				return nil, err
@@ -2555,7 +2555,7 @@ func (s *V3) V3ValidateRequest(ctx context.Context, request *components.V3Valida
 
 			_, err = s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 			return nil, err
-		} else if utils.MatchStatusCodes([]string{"400", "401", "403", "4XX", "500", "5XX"}, httpRes.StatusCode) {
+		} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
 			_httpRes, err := s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 			if err != nil {
 				return nil, err
@@ -2707,8 +2707,58 @@ func (s *V3) V3ValidateRequest(ctx context.Context, request *components.V3Valida
 
 }
 
-// V3VerifyRequest - Verify User
-// This endpoint allows you to verify a user depending on your particular use case.
+// V3VerifyRequest - Verify
+// Runs Prove verification flows in one endpoint. Set `verificationType` in the request body to select the flow.
+//
+// ## Pre-fill for consumers (identity)
+//
+// Use `verificationType` = `prefill` for consumer identity pre-fill. Requires the appropriate pre-fill product on the token.
+// Response fields vary by flow; for pre-fill, `identity` may include name, contact, address, and assurance fields, and
+// `evaluation` may include `authentication`, `identification`, and `risk` objects with a `result` (for example `pass` or `fail`).
+//
+// Illustrative **200** response body for this flow (values are synthetic, not real data):
+//
+// {
+// "success": "true",
+// "correlationId": "11111111-2222-3333-4444-555555555555",
+// "phoneNumber": "+15555550123",
+// "proveId": "22222222-3333-4444-5555-666666666666",
+// "provePhoneAlias": "SYNTHPFA00000000000000000000000000000000000000000000000000000001",
+// "clientRequestId": "client-synthetic-prefill-001",
+// "identity": {
+// "firstName": "Sample",
+// "lastName": "Person",
+// "dateOfBirth": "1990-06-15",
+// "nationalId": "900-00-0000",
+// "emails": [
+// "sample.person@example.invalid",
+// "s.person@example.invalid"
+// ],
+// "addresses": [
+// {
+// "address": "100 Synthetic St",
+// "extendedAddress": "Unit 1",
+// "city": "Exampletown",
+// "region": "EX",
+// "zipCode": "00001"
+// },
+// {
+// "address": "200 Placeholder Rd",
+// "extendedAddress": "",
+// "city": "Demo City",
+// "region": "DM",
+// "zipCode": "00002"
+// }
+// ],
+// "assuranceLevel": "AL3",
+// "reasons": ["AL3a"]
+// },
+// "evaluation": {
+// "authentication": { "result": "pass" },
+// "identification": { "result": "pass" },
+// "risk": { "result": "pass" }
+// }
+// }
 func (s *V3) V3VerifyRequest(ctx context.Context, request *components.V3VerifyRequest, opts ...operations.Option) (*operations.V3VerifyRequestResponse, error) {
 	o := operations.Options{}
 	supportedOptions := []string{
@@ -2852,7 +2902,7 @@ func (s *V3) V3VerifyRequest(ctx context.Context, request *components.V3VerifyRe
 
 			_, err = s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 			return nil, err
-		} else if utils.MatchStatusCodes([]string{"400", "401", "403", "4XX", "500", "5XX"}, httpRes.StatusCode) {
+		} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
 			_httpRes, err := s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 			if err != nil {
 				return nil, err
@@ -3149,7 +3199,7 @@ func (s *V3) V3VerifyBatchRequest(ctx context.Context, request *components.V3Ver
 
 			_, err = s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, nil, err)
 			return nil, err
-		} else if utils.MatchStatusCodes([]string{"400", "401", "403", "4XX", "500", "5XX"}, httpRes.StatusCode) {
+		} else if utils.MatchStatusCodes([]string{"4XX", "5XX"}, httpRes.StatusCode) {
 			_httpRes, err := s.hooks.AfterError(hooks.AfterErrorContext{HookContext: hookCtx}, httpRes, nil)
 			if err != nil {
 				return nil, err

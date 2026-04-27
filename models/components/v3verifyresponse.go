@@ -11,6 +11,8 @@ type V3VerifyResponseEvaluation struct {
 type V3VerifyResponse struct {
 	// Additional Identities found as part of the verification flow.
 	AdditionalIdentities []Identity `json:"additionalIdentities,omitempty"`
+	// Businesses is used for business prefill.
+	Businesses []Business `json:"businesses,omitempty"`
 	// The input ClientCustomerID.
 	ClientCustomerID *string `json:"clientCustomerId,omitempty"`
 	// The input ClientHumanID.
@@ -22,8 +24,7 @@ type V3VerifyResponse struct {
 	// The evaluation result for the policy. This will contain keys titled "authentication" and "risk" that encompass the different evaluation categories.
 	Evaluation map[string]V3VerifyResponseEvaluation `json:"evaluation,omitempty"`
 	Identity   *Identity                             `json:"identity,omitempty"`
-	// IsEnrolled indicates whether the identity was successfully enrolled in Hobbes (IDM).
-	// False when the ranking response contained no PFA (enrollment skipped) or Hobbes failed.
+	// IsEnrolled indicates whether the identity was successfully enrolled into Identity Manager.
 	IsEnrolled *bool `json:"isEnrolled,omitempty"`
 	// The input phone number.
 	PhoneNumber string `json:"phoneNumber"`
@@ -40,6 +41,13 @@ func (v *V3VerifyResponse) GetAdditionalIdentities() []Identity {
 		return nil
 	}
 	return v.AdditionalIdentities
+}
+
+func (v *V3VerifyResponse) GetBusinesses() []Business {
+	if v == nil {
+		return nil
+	}
+	return v.Businesses
 }
 
 func (v *V3VerifyResponse) GetClientCustomerID() *string {

@@ -6,6 +6,8 @@ type Identity struct {
 	Addresses []Address `json:"addresses,omitempty"`
 	// Prove’s tiered confidence metric, ranging from -1 to 3, that dynamically adapts to user behavior and various authentication keys. It allows for adaptive security policies, meaning you can require different levels of verification for different types of transactions.
 	AssuranceLevel string `json:"assuranceLevel"`
+	// The unique ID that we generate for the identity.
+	ClientHumanID *string `json:"clientHumanId,omitempty"`
 	// TODO: comments and validation
 	DateOfBirth *string  `json:"dateOfBirth,omitempty"`
 	Emails      []string `json:"emails,omitempty"`
@@ -32,6 +34,13 @@ func (i *Identity) GetAssuranceLevel() string {
 		return ""
 	}
 	return i.AssuranceLevel
+}
+
+func (i *Identity) GetClientHumanID() *string {
+	if i == nil {
+		return nil
+	}
+	return i.ClientHumanID
 }
 
 func (i *Identity) GetDateOfBirth() *string {

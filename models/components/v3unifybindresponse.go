@@ -2,12 +2,6 @@
 
 package components
 
-type V3UnifyBindResponseEvaluation struct {
-}
-
-// #region class-body-v3unifybindresponseevaluation
-// #endregion class-body-v3unifybindresponseevaluation
-
 type V3UnifyBindResponse struct {
 	// A client-generated unique ID to identify a specific customer across business lines.
 	//
@@ -22,7 +16,7 @@ type V3UnifyBindResponse struct {
 	// Required if success=true.
 	DeviceID *string `json:"deviceId,omitempty"`
 	// The evaluation result for the policy. This is an upcoming field but is not yet enabled.
-	Evaluation map[string]V3UnifyBindResponseEvaluation `json:"evaluation,omitempty"`
+	Evaluation map[string]any `json:"evaluation,omitempty"`
 	// The number of the mobile phone used during the process.
 	//
 	// Required
@@ -58,7 +52,7 @@ func (v *V3UnifyBindResponse) GetDeviceID() *string {
 	return v.DeviceID
 }
 
-func (v *V3UnifyBindResponse) GetEvaluation() map[string]V3UnifyBindResponseEvaluation {
+func (v *V3UnifyBindResponse) GetEvaluation() map[string]any {
 	if v == nil {
 		return nil
 	}

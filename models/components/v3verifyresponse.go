@@ -2,12 +2,6 @@
 
 package components
 
-type V3VerifyResponseEvaluation struct {
-}
-
-// #region class-body-v3verifyresponseevaluation
-// #endregion class-body-v3verifyresponseevaluation
-
 type V3VerifyResponse struct {
 	// Additional Identities found as part of the verification flow.
 	AdditionalIdentities []Identity `json:"additionalIdentities,omitempty"`
@@ -22,8 +16,8 @@ type V3VerifyResponse struct {
 	// The unique ID that Prove generates for the flow.
 	CorrelationID string `json:"correlationId"`
 	// The evaluation result for the policy. This will contain keys titled "authentication" and "risk" that encompass the different evaluation categories.
-	Evaluation map[string]V3VerifyResponseEvaluation `json:"evaluation,omitempty"`
-	Identity   *Identity                             `json:"identity,omitempty"`
+	Evaluation map[string]any `json:"evaluation,omitempty"`
+	Identity   *Identity      `json:"identity,omitempty"`
 	// IsEnrolled indicates whether the identity was successfully enrolled into Identity Manager.
 	IsEnrolled *bool `json:"isEnrolled,omitempty"`
 	// The input phone number.
@@ -78,7 +72,7 @@ func (v *V3VerifyResponse) GetCorrelationID() string {
 	return v.CorrelationID
 }
 
-func (v *V3VerifyResponse) GetEvaluation() map[string]V3VerifyResponseEvaluation {
+func (v *V3VerifyResponse) GetEvaluation() map[string]any {
 	if v == nil {
 		return nil
 	}

@@ -14,7 +14,6 @@
 * [V3UnifyStatusRequest](#v3unifystatusrequest) - Check Status
 * [V3ValidateRequest](#v3validaterequest) - Validate Phone Number
 * [V3VerifyRequest](#v3verifyrequest) - Verify
-* [V3VerifyBatchRequest](#v3verifybatchrequest) - Batch Verify Users
 
 ## V3TokenRequest
 
@@ -733,7 +732,6 @@ func main() {
         EmailAddress: provesdkservergo.Pointer("sbutrimovichb@who.int"),
         FinalTargetURL: provesdkservergo.Pointer("https://www.example.com/landing-page"),
         IPAddress: provesdkservergo.Pointer("192.168.0.1"),
-        MobileAuthEnabled: provesdkservergo.Pointer(true),
         PhoneNumber: provesdkservergo.Pointer("2001004011"),
         PossessionType: "mobile",
         ProveID: provesdkservergo.Pointer("a07b94ce-218c-461f-beda-d92480e40f61"),
@@ -1141,93 +1139,6 @@ func main() {
 ### Response
 
 **[*operations.V3VerifyRequestResponse](../../models/operations/v3verifyrequestresponse.md), error**
-
-### Errors
-
-| Error Type         | Status Code        | Content Type       |
-| ------------------ | ------------------ | ------------------ |
-| sdkerrors.Error400 | 400                | application/json   |
-| sdkerrors.Error401 | 401                | application/json   |
-| sdkerrors.Error403 | 403                | application/json   |
-| sdkerrors.Error    | 500                | application/json   |
-| sdkerrors.SDKError | 4XX, 5XX           | \*/\*              |
-
-## V3VerifyBatchRequest
-
-This endpoint allows you to batch verify and enroll users.
-
-### Example Usage
-
-<!-- UsageSnippet language="go" operationID="V3VerifyBatchRequest" method="post" path="/v3/verify/batch" -->
-```go
-package main
-
-import(
-	"context"
-	"github.com/prove-identity/prove-sdk-server-go/models/components"
-	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
-	"log"
-)
-
-func main() {
-    ctx := context.Background()
-
-    s := provesdkservergo.New(
-        provesdkservergo.WithSecurity(components.Security{
-            ClientID: provesdkservergo.Pointer("<YOUR_CLIENT_ID_HERE>"),
-            ClientSecret: provesdkservergo.Pointer("<YOUR_CLIENT_SECRET_HERE>"),
-        }),
-    )
-
-    res, err := s.V3.V3VerifyBatchRequest(ctx, &components.V3VerifyBatchRequest{
-        ClientRequestID: provesdkservergo.Pointer("3d1215f7-ec3f-4fd2-9894-7b46f00e31a6"),
-        Items: []components.VerifyBatchRequestItem{
-            components.VerifyBatchRequestItem{
-                ClientCustomerID: provesdkservergo.Pointer("e0f78bc2-f748-4eda-9d29-d756844507fc"),
-                ClientHumanID: provesdkservergo.Pointer("clientHumanId"),
-                EmailAddress: provesdkservergo.Pointer("ecoldman1h@storify.com"),
-                FirstName: "Elena",
-                IPAddress: provesdkservergo.Pointer("192.168.1.1"),
-                LastName: "Coldman",
-                PhoneNumber: "2001004053",
-                ProveID: provesdkservergo.Pointer("e0f78bc2-f748-4eda-9d29-d756844507fc"),
-                UserAgent: provesdkservergo.Pointer("Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0"),
-                VerificationType: "verifiedUser",
-            },
-            components.VerifyBatchRequestItem{
-                ClientCustomerID: provesdkservergo.Pointer("e0f78bc2-f748-4eda-9d29-d756844507fc"),
-                ClientHumanID: provesdkservergo.Pointer("clientHumanId"),
-                EmailAddress: provesdkservergo.Pointer("ecoldman1h@storify.com"),
-                FirstName: "Elena",
-                IPAddress: provesdkservergo.Pointer("192.168.1.1"),
-                LastName: "Coldman",
-                PhoneNumber: "2001004053",
-                ProveID: provesdkservergo.Pointer("e0f78bc2-f748-4eda-9d29-d756844507fc"),
-                UserAgent: provesdkservergo.Pointer("Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0"),
-                VerificationType: "verifiedUser",
-            },
-        },
-    })
-    if err != nil {
-        log.Fatal(err)
-    }
-    if res.V3VerifyBatchResponse != nil {
-        // handle response
-    }
-}
-```
-
-### Parameters
-
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `ctx`                                                                              | [context.Context](https://pkg.go.dev/context#Context)                              | :heavy_check_mark:                                                                 | The context to use for the request.                                                |
-| `request`                                                                          | [components.V3VerifyBatchRequest](../../models/components/v3verifybatchrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `opts`                                                                             | [][operations.Option](../../models/operations/option.md)                           | :heavy_minus_sign:                                                                 | The options for this request.                                                      |
-
-### Response
-
-**[*operations.V3VerifyBatchRequestResponse](../../models/operations/v3verifybatchrequestresponse.md), error**
 
 ### Errors
 

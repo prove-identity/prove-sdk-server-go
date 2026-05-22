@@ -205,7 +205,6 @@ func flow() error {
 * [V3UnifyStatusRequest](docs/sdks/v3/README.md#v3unifystatusrequest) - Check Status
 * [V3ValidateRequest](docs/sdks/v3/README.md#v3validaterequest) - Validate Phone Number
 * [V3VerifyRequest](docs/sdks/v3/README.md#v3verifyrequest) - Verify
-* [V3VerifyBatchRequest](docs/sdks/v3/README.md#v3verifybatchrequest) - Batch Verify Users
 
 </details>
 <!-- End Available Resources and Operations [operations] -->

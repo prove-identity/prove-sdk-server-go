@@ -2,12 +2,6 @@
 
 package components
 
-type V3UnifyStatusResponseEvaluation struct {
-}
-
-// #region class-body-v3unifystatusresponseevaluation
-// #endregion class-body-v3unifystatusresponseevaluation
-
 type V3UnifyStatusResponse struct {
 	// A client-generated unique ID to identify a specific customer across business lines.
 	// Required if success=true.
@@ -20,7 +14,7 @@ type V3UnifyStatusResponse struct {
 	// Required if success=true.
 	DeviceID *string `json:"deviceId,omitempty"`
 	// The evaluation result for the policy. This will contain keys titled "authentication" and "risk" that encompass the different evaluation categories.
-	Evaluation map[string]V3UnifyStatusResponseEvaluation `json:"evaluation,omitempty"`
+	Evaluation map[string]any `json:"evaluation,omitempty"`
 	// The number of the mobile phone used during the process.
 	//
 	// Required except when MobileAuth is used in US or a valid ProveID is provided.
@@ -55,7 +49,7 @@ func (v *V3UnifyStatusResponse) GetDeviceID() *string {
 	return v.DeviceID
 }
 
-func (v *V3UnifyStatusResponse) GetEvaluation() map[string]V3UnifyStatusResponseEvaluation {
+func (v *V3UnifyStatusResponse) GetEvaluation() map[string]any {
 	if v == nil {
 		return nil
 	}

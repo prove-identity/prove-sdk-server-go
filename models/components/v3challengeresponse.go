@@ -2,12 +2,9 @@
 
 package components
 
-type Evaluation struct {
-}
-
 type V3ChallengeResponse struct {
 	// The evaluation result for the policy. This is an upcoming field but is not yet enabled.
-	Evaluation map[string]Evaluation         `json:"evaluation,omitempty"`
+	Evaluation map[string]any                `json:"evaluation,omitempty"`
 	Individual *V3ChallengeIndividualRequest `json:"individual,omitempty"`
 	// The next set of allowed calls in the same flow.
 	Next map[string]string `json:"next"`
@@ -15,7 +12,7 @@ type V3ChallengeResponse struct {
 	Success bool `json:"success"`
 }
 
-func (v *V3ChallengeResponse) GetEvaluation() map[string]Evaluation {
+func (v *V3ChallengeResponse) GetEvaluation() map[string]any {
 	if v == nil {
 		return nil
 	}

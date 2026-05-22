@@ -2,18 +2,12 @@
 
 package components
 
-type V3ValidateResponseEvaluation struct {
-}
-
-// #region class-body-v3validateresponseevaluation
-// #endregion class-body-v3validateresponseevaluation
-
 type V3ValidateResponse struct {
 	// True if a DOB or SSN needs to be passed in on the next step. Only applicable to Pre-Fill. If implementing Prove Identity ignore this field.
 	// It will always return false for this use case.
 	ChallengeMissing bool `json:"challengeMissing"`
 	// The evaluation result for the policy. This is an upcoming field but is not yet enabled.
-	Evaluation map[string]V3ValidateResponseEvaluation `json:"evaluation,omitempty"`
+	Evaluation map[string]any `json:"evaluation,omitempty"`
 	// The next set of allowed calls in the same flow.
 	Next map[string]string `json:"next"`
 	// The number of the mobile phone for which validation was performed.
@@ -29,7 +23,7 @@ func (v *V3ValidateResponse) GetChallengeMissing() bool {
 	return v.ChallengeMissing
 }
 
-func (v *V3ValidateResponse) GetEvaluation() map[string]V3ValidateResponseEvaluation {
+func (v *V3ValidateResponse) GetEvaluation() map[string]any {
 	if v == nil {
 		return nil
 	}

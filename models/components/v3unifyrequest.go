@@ -24,9 +24,6 @@ type V3UnifyRequest struct {
 	FinalTargetURL *string `json:"finalTargetUrl,omitempty"`
 	// The IP address of the customer. Acceptable characters are: Alphanumeric with '.:' symbols.
 	IPAddress *string `json:"ipAddress,omitempty"`
-	// A workaround input parameter to indicate if Mobile Auth should be enabled for this Unified Auth session.
-	// This input parameter should not be communicated to any customer except Bumble.
-	MobileAuthEnabled *bool `json:"mobileAuthEnabled,omitempty"`
 	// The mobile phone number. US and Canada phone numbers can be passed in with or without a leading `+1`.
 	// International phone numbers require a leading `+` followed by the country code. Use the appropriate endpoint URL
 	// based on the region the number originates from. Acceptable characters are: alphanumeric with symbols '+'.
@@ -111,13 +108,6 @@ func (v *V3UnifyRequest) GetIPAddress() *string {
 		return nil
 	}
 	return v.IPAddress
-}
-
-func (v *V3UnifyRequest) GetMobileAuthEnabled() *bool {
-	if v == nil {
-		return nil
-	}
-	return v.MobileAuthEnabled
 }
 
 func (v *V3UnifyRequest) GetPhoneNumber() *string {

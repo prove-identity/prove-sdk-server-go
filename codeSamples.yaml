@@ -1026,7 +1026,6 @@ actions:
                     EmailAddress: provesdkservergo.Pointer("sbutrimovichb@who.int"),
                     FinalTargetURL: provesdkservergo.Pointer("https://www.example.com/landing-page"),
                     IPAddress: provesdkservergo.Pointer("192.168.0.1"),
-                    MobileAuthEnabled: provesdkservergo.Pointer(true),
                     PhoneNumber: provesdkservergo.Pointer("2001004011"),
                     PossessionType: "mobile",
                     ProveID: provesdkservergo.Pointer("a07b94ce-218c-461f-beda-d92480e40f61"),
@@ -1195,67 +1194,6 @@ actions:
                     log.Fatal(err)
                 }
                 if res.V3VerifyResponse != nil {
-                    // handle response
-                }
-            }
-  - target: $["paths"]["/v3/verify/batch"]["post"]
-    update:
-      x-codeSamples:
-        - lang: go
-          label: V3VerifyBatchRequest
-          source: |-
-            package main
-
-            import(
-            	"context"
-            	"github.com/prove-identity/prove-sdk-server-go/models/components"
-            	provesdkservergo "github.com/prove-identity/prove-sdk-server-go"
-            	"log"
-            )
-
-            func main() {
-                ctx := context.Background()
-
-                s := provesdkservergo.New(
-                    provesdkservergo.WithSecurity(components.Security{
-                        ClientID: provesdkservergo.Pointer("<YOUR_CLIENT_ID_HERE>"),
-                        ClientSecret: provesdkservergo.Pointer("<YOUR_CLIENT_SECRET_HERE>"),
-                    }),
-                )
-
-                res, err := s.V3.V3VerifyBatchRequest(ctx, &components.V3VerifyBatchRequest{
-                    ClientRequestID: provesdkservergo.Pointer("3d1215f7-ec3f-4fd2-9894-7b46f00e31a6"),
-                    Items: []components.VerifyBatchRequestItem{
-                        components.VerifyBatchRequestItem{
-                            ClientCustomerID: provesdkservergo.Pointer("e0f78bc2-f748-4eda-9d29-d756844507fc"),
-                            ClientHumanID: provesdkservergo.Pointer("clientHumanId"),
-                            EmailAddress: provesdkservergo.Pointer("ecoldman1h@storify.com"),
-                            FirstName: "Elena",
-                            IPAddress: provesdkservergo.Pointer("192.168.1.1"),
-                            LastName: "Coldman",
-                            PhoneNumber: "2001004053",
-                            ProveID: provesdkservergo.Pointer("e0f78bc2-f748-4eda-9d29-d756844507fc"),
-                            UserAgent: provesdkservergo.Pointer("Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0"),
-                            VerificationType: "verifiedUser",
-                        },
-                        components.VerifyBatchRequestItem{
-                            ClientCustomerID: provesdkservergo.Pointer("e0f78bc2-f748-4eda-9d29-d756844507fc"),
-                            ClientHumanID: provesdkservergo.Pointer("clientHumanId"),
-                            EmailAddress: provesdkservergo.Pointer("ecoldman1h@storify.com"),
-                            FirstName: "Elena",
-                            IPAddress: provesdkservergo.Pointer("192.168.1.1"),
-                            LastName: "Coldman",
-                            PhoneNumber: "2001004053",
-                            ProveID: provesdkservergo.Pointer("e0f78bc2-f748-4eda-9d29-d756844507fc"),
-                            UserAgent: provesdkservergo.Pointer("Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0"),
-                            VerificationType: "verifiedUser",
-                        },
-                    },
-                })
-                if err != nil {
-                    log.Fatal(err)
-                }
-                if res.V3VerifyBatchResponse != nil {
                     // handle response
                 }
             }

@@ -1,25 +1,25 @@
 lockVersion: 2.0.0
 id: 13f15f39-429b-4f89-9916-f3a11e8cf70c
 management:
-  docChecksum: 2606b2a497037963034da8bce20aaeb5
+  docChecksum: b79ae79a4f4e6bd4050b20e5ffe6ea5f
   docVersion: 1.0.0
-  speakeasyVersion: 1.761.9
-  generationVersion: 2.881.4
-  releaseVersion: 0.14.8
-  configChecksum: 3fe04509b6c5f7d802c0ea189d6fc6f0
+  speakeasyVersion: 1.790.2
+  generationVersion: 2.918.3
+  releaseVersion: 0.14.9
+  configChecksum: 00513eb0aeb3448335b110c3f79498d8
   repoURL: https://github.com/prove-identity/prove-sdk-server-go.git
   installationURL: https://github.com/prove-identity/prove-sdk-server-go
 persistentEdits:
-  generation_id: 057186ad-9cdd-496b-90a6-7444ddc6c2f2
-  pristine_commit_hash: 1c8f1e8ae27535988876a91d54e181f47dd59544
-  pristine_tree_hash: 706c7cf440bbbb20b1243b6b1b54cac6b6b3808c
+  generation_id: 3f9fec86-680a-4b26-98a0-00ce5deb4ae4
+  pristine_commit_hash: d4cc52adbfb0635f5612cb5b7adb19a22f2175b0
+  pristine_tree_hash: 074c854918b73450a03fb7d451e63fb443a10995
 features:
   go:
     additionalDependencies: 0.1.0
-    core: 3.13.40
+    core: 3.13.47
     defaultEnabledRetries: 0.2.0
     envVarSecurityUsage: 0.3.2
-    examples: 2.81.6
+    examples: 2.81.7
     flattening: 2.81.2
     globalSecurity: 2.82.15
     globalSecurityCallbacks: 0.1.0
@@ -27,7 +27,7 @@ features:
     intellisenseMarkdownSupport: 0.1.0
     oauth2ClientCredentials: 1.1.5
     responseFormat: 0.1.2
-    retries: 2.84.2
+    retries: 2.84.3
     sdkHooks: 0.3.0
     serverIDs: 2.81.1
 trackedFiles:
@@ -87,6 +87,10 @@ trackedFiles:
     id: 0ed5df45baf6
     last_write_checksum: sha1:1b40b901113767743459bc1794fe9a9599efe555
     pristine_git_object: 325635a6fd10694258275da6e46ffd1e4fb2afce
+  docs/models/components/authenticationresults.md:
+    id: d5e6c90f773d
+    last_write_checksum: sha1:96bb8f8b742ce017bdb1e73f01c6ffe95a0c0fab
+    pristine_git_object: b9e4e408151f69b490e70e1f3810ff5b4201b80c
   docs/models/components/authfinishrequest.md:
     id: 46496a6d27f5
     last_write_checksum: sha1:8b2261da647b5e065eb36629e1351c2da3d54789
@@ -431,6 +435,10 @@ trackedFiles:
     id: 54906b49ea28
     last_write_checksum: sha1:2684dcfd048895875731cde8aa6b7a87c5af1144
     pristine_git_object: caf04b43d1185730c091be2060aa055609ff1161
+  docs/models/components/signals.md:
+    id: 88fb51320bb3
+    last_write_checksum: sha1:37fa5467dcd8b14f4902ba9ee4d2d745eff2471d
+    pristine_git_object: bf7d519998e82e16b59351b75db8024299e4df8b
   docs/models/components/subjectdeviceresultsuccessextrastrust.md:
     id: 427ed8feaac0
     last_write_checksum: sha1:b5bfefec7359e5d3087292b3da9135a2649591ef
@@ -617,8 +625,8 @@ trackedFiles:
     pristine_git_object: 07c812b1bf1feacf09c9b719207abc1eec2f2cb4
   docs/models/components/v3unifystatusresponse.md:
     id: 773a5f68e881
-    last_write_checksum: sha1:9304a057191f8ad116c4908151e3026f073a5b4e
-    pristine_git_object: 978ee0389e393dfb770c401ede1c0853ccce0720
+    last_write_checksum: sha1:42e3768103c8720e0b03ea998955e6a119f10fcc
+    pristine_git_object: f48974fa59adaf9890f6c0d4c670f96d1afb5509
   docs/models/components/v3validaterequest.md:
     id: 16a80eaa5320
     last_write_checksum: sha1:194f54e9ff907fd22bd3fc3e25a8db702fcbb8f5
@@ -629,16 +637,16 @@ trackedFiles:
     pristine_git_object: aaa74c65fbb37b1b1c5fc4c416ef83af9cccd055
   docs/models/components/v3verifyrequest.md:
     id: 9fb026135053
-    last_write_checksum: sha1:dc3e99543836551c8c8a9884d7f9a78737fe35db
-    pristine_git_object: 8a7f6e25b798db67614db62bbc69eb1af3d511bb
+    last_write_checksum: sha1:27f47e812bdca8ef3b496b5dd7c4b5a904a37c64
+    pristine_git_object: 3101cff71b1b741053876fd0f82a799d32136420
   docs/models/components/v3verifyresponse.md:
     id: 2b470992c038
-    last_write_checksum: sha1:aaa027cb470d458cfb3e6fad9857b78648ebeab2
-    pristine_git_object: 413df07317ff20cdc4cca34296b113fb3bba3f4d
+    last_write_checksum: sha1:b6e3e9b628b5d445f927db8976b029d92a0a9933
+    pristine_git_object: 708c99beda13c0cb03d0c778bed6b3e144d2a2b2
   docs/models/components/verificationtype.md:
     id: 607630b39a72
-    last_write_checksum: sha1:2c27800c5905992bc86ff9fdadc1d606650cf2f0
-    pristine_git_object: c9558c4a39e2cc71c1f9dfc0e7737335d99f4466
+    last_write_checksum: sha1:a14ea907c987ead799fa4ac6d28aae1ed58843af
+    pristine_git_object: ba0f5a379e19023a2c3b9907fc684003583800fc
   docs/models/operations/authcontinuerequestresponse.md:
     id: 786bd4b936ff
     last_write_checksum: sha1:d9f3230db18810eb2d9903a4a4ea591601c3c4eb
@@ -785,16 +793,16 @@ trackedFiles:
     pristine_git_object: 1649c490ead8c55beff0df5efb7c70543438c90b
   docs/models/operations/v3unifystatusrequestresponse.md:
     id: e6e4b55927be
-    last_write_checksum: sha1:12df42daa0a0d3d9fca3c24b4eb9c4e2816e22ae
-    pristine_git_object: b023a6a21465af74f221961e49f8c158d150e519
+    last_write_checksum: sha1:5f9cbc6019189fc208673aa555e2d988bb632805
+    pristine_git_object: 4354ac6fea938fa33a41555d4b6d6c5c43c347d7
   docs/models/operations/v3validaterequestresponse.md:
     id: 4879ff691aa6
     last_write_checksum: sha1:8a8a754078d62fc4414e0cf29e356f48a6764c44
     pristine_git_object: b34d8b7e42fb89a204e152e9844439f64b0ccb06
   docs/models/operations/v3verifyrequestresponse.md:
     id: b17503424dd4
-    last_write_checksum: sha1:00bac510263edb8cc150ea3445f70059a2a9c25f
-    pristine_git_object: 049ade4d1095eff421bc7e736709c49141924fde
+    last_write_checksum: sha1:f1ee3c3d30743bbe4742c9cc4e79f55930e2f47e
+    pristine_git_object: b3eb77c7324bcff7dc02c1b28eeb085def5252d2
   docs/models/sdkerrors/error.md:
     id: f38026ef53ea
     last_write_checksum: sha1:e7caf8cab5e2ef377f6646e1340e0decbdc8b9e3
@@ -829,16 +837,16 @@ trackedFiles:
     pristine_git_object: ebcc3c250b28ec7fccf164c12dea95296b9efdc6
   docs/sdks/v3/README.md:
     id: ee683463fcdd
-    last_write_checksum: sha1:34f7df27ba8c78b2ffd5a6609bb32eb771b0a2d2
-    pristine_git_object: 9c10d8e21e71da31c2b8d0d7a43671bdee7ead55
+    last_write_checksum: sha1:c3aa26dc370f6089d28bde9c49d2acb1b0ca7753
+    pristine_git_object: 1c1788722342dcfb82b90897eb94b16aeb8f6993
   domain.go:
     id: 9fdb7947bd3e
     last_write_checksum: sha1:afa2e66fa255744000df8bdea01aa5bfb5489ba2
     pristine_git_object: 82913e5db7e295268756780c8754f7099f294507
   go.mod:
     id: c47645c391ad
-    last_write_checksum: sha1:2cf85e3863bc5634e5efcfc21b89fab0353249bd
-    pristine_git_object: 6c03356880c4ee6fb13b7903a1611305e0040bba
+    last_write_checksum: sha1:196f417819d8e64984c6021c241c564c263c26d0
+    pristine_git_object: 1850c0526ad9e908b72db0ac5f4771a5e98afcfb
   identity.go:
     id: bd2478edc26d
     last_write_checksum: sha1:3f86dc5d2109a1fa216552c15bb86be1596473bd
@@ -873,8 +881,8 @@ trackedFiles:
     pristine_git_object: 38ef80af17c961b166a336b5a89041ab4a21fea7
   internal/utils/json.go:
     id: ad03e3c502d8
-    last_write_checksum: sha1:eb0f8dfd17a36849aff825608ef8486b33ff0843
-    pristine_git_object: 916c67c7a5bc06d704147908d201cacc031ce221
+    last_write_checksum: sha1:94be13c9e669278410d9fb30000a06d72ac08211
+    pristine_git_object: 24ffd1174924879df7dfdcfaf228446250850dbd
   internal/utils/oauth2_credentials.go:
     id: 633b88c0d3ff
     last_write_checksum: sha1:f9218b6b3dbd11494cc353bf22eb37f0ca654a7d
@@ -905,12 +913,12 @@ trackedFiles:
     pristine_git_object: a2332ee8de013a2121880e4b7be332d3385c6f41
   internal/utils/union.go:
     id: db86c85746b6
-    last_write_checksum: sha1:cdbd1d4d5515c0b23e6d5a8a715a9e1fbf5661f6
-    pristine_git_object: 62fe93360814b4f87fbdac61decad376487bf97b
+    last_write_checksum: sha1:1692359440c856188c0bba822d26db51f8d223f7
+    pristine_git_object: 16da7323c7ebf50af7663b1eb6b6bd8611bf2c93
   internal/utils/union_test.go:
     id: 4b56247171bd
-    last_write_checksum: sha1:83ac73c1901de4c6db90f65cf5879163f3d47a00
-    pristine_git_object: f66814c73ace94d8e71d785fd6161fb405745754
+    last_write_checksum: sha1:bd5c7506e1d6238117c1ac4e340314a5a41401b5
+    pristine_git_object: 138f7e2a066b10dffd0a9957ecfcab9e00dd26fe
   internal/utils/utils.go:
     id: 1133b2a27019
     last_write_checksum: sha1:c03378176a107205b8938606faef3fd8fb8f91a0
@@ -959,6 +967,10 @@ trackedFiles:
     id: d09be1e209fa
     last_write_checksum: sha1:bcada569811c98f5cc5fc6e0834eea545b61e4e7
     pristine_git_object: b90ee7ced0be0fa4147e749b58649abdd09414d6
+  models/components/authenticationresults.go:
+    id: 5fc50038ca55
+    last_write_checksum: sha1:bb9fa919d39c30932d33272695fc02be43de83ef
+    pristine_git_object: cd7166a3d361eb79d515b73190e76c74c1aa7c44
   models/components/authfinishrequest.go:
     id: e68a7406ed08
     last_write_checksum: sha1:868af5075437b1593746a0adaec41ae11f797e7f
@@ -1473,8 +1485,8 @@ trackedFiles:
     pristine_git_object: a3a5d60ae99b5173432b5f783892c95bd9161510
   models/components/v3unifystatusresponse.go:
     id: 830db3015121
-    last_write_checksum: sha1:08c2e60c7717dfeb0c3478c7c019ef655b62c7c2
-    pristine_git_object: f92f00680ee39f2ef16ee8c839af8ef871b6ec0d
+    last_write_checksum: sha1:8957424220744dbfe4e0fb1ce6fad7eca37408f7
+    pristine_git_object: e6b6669adfd9bfb4754ac09332c9334473630df2
   models/components/v3validaterequest.go:
     id: 05953ecc7feb
     last_write_checksum: sha1:6ae191ab8c8bfedb1b390752881a6350999dc005
@@ -1485,12 +1497,12 @@ trackedFiles:
     pristine_git_object: f232ff2194a4e2e2bb4542d4e6c2cc0b36bd76b9
   models/components/v3verifyrequest.go:
     id: 6ecaa04a289c
-    last_write_checksum: sha1:52982bbddfb1ac604b3b35fde58ccd5cce804e17
-    pristine_git_object: 3353f1c8a59d5a26d8ce0aa3ede88b379fa2327d
+    last_write_checksum: sha1:26f402717ec6027eb144a0a04827cd9e314f319e
+    pristine_git_object: b688b54267ea7d9bf1c1298b972846e726f37f40
   models/components/v3verifyresponse.go:
     id: 051cdb4c2458
-    last_write_checksum: sha1:27c5b439f9fa4b124af0a17771c46e204566d101
-    pristine_git_object: 9664af5a12caa5b194e68be814a8cfd3309b3d69
+    last_write_checksum: sha1:0c3985f52571d4728364fd9d945cb84088963e50
+    pristine_git_object: ee25eccece3ac93726e7d514e90fd2b76b6d7972
   models/operations/authcontinuerequest.go:
     id: bb2897e24f8c
     last_write_checksum: sha1:98eaf1bf068f6053f7c089d514ed9d5332b0231b
@@ -1645,12 +1657,12 @@ trackedFiles:
     pristine_git_object: e6e5a01c6e721e879e24a38a1f97e3e27d4686d4
   provesdkservergo.go:
     id: e4a202a2f033
-    last_write_checksum: sha1:badb6472ac7b4e97d7ead97727471d07508d9a07
-    pristine_git_object: 8ca60ca41063b18955ff45e2b0f21f9736699320
+    last_write_checksum: sha1:70213500045fa758e8cf60f23a1d9f6fbb25835d
+    pristine_git_object: 9278b88c09af35a4dd3a2177eed764dcd0f56804
   retry/config.go:
     id: 82d673cb0389
-    last_write_checksum: sha1:7f7d96b59a18e95bac847ae09c63bbd911ee8432
-    pristine_git_object: 5b3dc7c122d8ab08905485342d7474f8f163888d
+    last_write_checksum: sha1:102d1953fbd7e9f312c4442c71ccca2eaaeaa27d
+    pristine_git_object: 767002c7898128324d8741ce9c534bd466492169
   types/bigint.go:
     id: 6f911e1a03c3
     last_write_checksum: sha1:49b004005d0461fb04b846eca062b070b0360b31
@@ -1669,8 +1681,8 @@ trackedFiles:
     pristine_git_object: 35c439d2661e08fcb6a854096fd7b9a8561b3938
   v3.go:
     id: 71e6067bd243
-    last_write_checksum: sha1:be0d2af3c70db2ed6acc566613ab506d663c0158
-    pristine_git_object: 385f6a257d7bc86e70c3f3a1e9e905d6cb5b9ad7
+    last_write_checksum: sha1:237045ec495cb8824ee9cca24c9335abc575bd8f
+    pristine_git_object: ae5d2f7ca87a945beea1e982155c6485bc58b021
 examples:
   V3TokenRequest:
     speakeasy-default-v3-token-request:
@@ -1871,7 +1883,7 @@ examples:
           application/json: {"code": 1000, "message": "error occurred"}
     Prefill consumer identity (synthetic):
       requestBody:
-        application/json: {"clientCustomerId": "e0f78bc2-f748-4eda-9d29-d756844507fc", "clientHumanId": "aad25769-23bb-458c-80db-50296a82c91b", "clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "emailAddress": "ecoldman1h@storify.com", "firstName": "Elena", "identityAttributes": [{"attributeType": "walletId", "attributeValue": "wallet123"}], "ipAddress": "192.168.1.1", "lastName": "Coldman", "phoneNumber": "2001004053", "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0", "verificationType": "verifiedUser"}
+        application/json: {"addresses": [{"address": "123 Main St", "city": "Springfield", "extendedAddress": "Apt 2", "region": "IL", "zipCode": "62701"}], "clientCustomerId": "e0f78bc2-f748-4eda-9d29-d756844507fc", "clientHumanId": "aad25769-23bb-458c-80db-50296a82c91b", "clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "consent": true, "emailAddress": "ecoldman1h@storify.com", "firstName": "Elena", "identityAttributes": [{"attributeType": "walletId", "attributeValue": "wallet123"}], "ipAddress": "192.168.1.1", "lastName": "Coldman", "phoneNumber": "2001004053", "previousCorrelationId": "713189b8-5555-4b08-83ba-75d08780aebd", "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:124.0) Gecko/20100101 Firefox/124.0", "verificationType": "verifiedUser"}
       responses:
         "200":
           application/json: {"clientRequestId": "client-synthetic-prefill-001", "correlationId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "evaluation": {"authentication": {"result": "pass"}, "identification": {"result": "pass"}, "risk": {"result": "pass"}}, "identity": {"addresses": [{"address": "100 Synthetic St", "city": "Exampletown", "extendedAddress": "Unit 1", "region": "EX", "zipCode": "00001"}, {"address": "200 Placeholder Rd", "city": "Demo City", "extendedAddress": "", "region": "DM", "zipCode": "00002"}], "assuranceLevel": "AL3", "dateOfBirth": "1990-06-15", "emails": ["sample.person@example.invalid", "s.person@example.invalid"], "firstName": "Sample", "lastName": "Person", "nationalId": "900-00-0000", "reasons": ["AL3a"]}, "isEnrolled": true, "phoneNumber": "+15555550123", "proveId": "a07b94ce-218c-461f-beda-d92480e40f61", "provePhoneAlias": "SYNTHPFA00000000000000000000000000000000000000000000000000000001", "success": "true"}
@@ -2285,7 +2297,7 @@ examples:
           application/json: {"code": 1000, "message": "error occurred"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Go SDK Changes:\n* `Provesdkservergo.V3.V3ChallengeRequest()`:  `response.Evaluation.Map<any>` **Changed** (Breaking ⚠️)\n* `Provesdkservergo.V3.V3CompleteRequest()`:  `response.Evaluation.Map<any>` **Changed** (Breaking ⚠️)\n* `Provesdkservergo.V3.V3UnifyRequest()`: \n  *  `request.Request.MobileAuthEnabled` **Removed** (Breaking ⚠️)\n* `Provesdkservergo.V3.V3UnifyBindRequest()`:  `response.Evaluation.Map<any>` **Changed** (Breaking ⚠️)\n* `Provesdkservergo.V3.V3UnifyStatusRequest()`:  `response.Evaluation.Map<any>` **Changed** (Breaking ⚠️)\n* `Provesdkservergo.V3.V3ValidateRequest()`:  `response.Evaluation.Map<any>` **Changed** (Breaking ⚠️)\n* `Provesdkservergo.V3.V3VerifyRequest()`:  `response` **Changed** (Breaking ⚠️)\n* `Provesdkservergo.V3.V3VerifyBatchRequest()`: **Removed** (Breaking ⚠️)\n"
+releaseNotes: "## Go SDK Changes:\n* `Provesdkservergo.V3.V3UnifyStatusRequest()`:  `response.AuthenticationResults` **Added**\n* `Provesdkservergo.V3.V3VerifyRequest()`: \n  *  `request.Request` **Changed**\n  *  `response` **Changed**\n"
 generatedFiles:
   - .gitattributes
   - /models/components/amltypelistresponseinternal.go

@@ -3,6 +3,7 @@
 package components
 
 type V3UnifyStatusResponse struct {
+	AuthenticationResults *AuthenticationResults `json:"authenticationResults,omitempty"`
 	// A client-generated unique ID to identify a specific customer across business lines.
 	// Required if success=true.
 	ClientHumanID *string `json:"clientHumanId,omitempty"`
@@ -26,6 +27,13 @@ type V3UnifyStatusResponse struct {
 	// The result of the possession check.
 	// Possible values are `true`, `false`, `pending`, and `possession_required`.
 	Success string `json:"success"`
+}
+
+func (v *V3UnifyStatusResponse) GetAuthenticationResults() *AuthenticationResults {
+	if v == nil {
+		return nil
+	}
+	return v.AuthenticationResults
 }
 
 func (v *V3UnifyStatusResponse) GetClientHumanID() *string {

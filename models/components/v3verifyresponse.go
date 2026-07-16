@@ -2,9 +2,16 @@
 
 package components
 
+type Signals struct {
+}
+
 type V3VerifyResponse struct {
 	// Additional Identities found as part of the verification flow.
 	AdditionalIdentities []Identity `json:"additionalIdentities,omitempty"`
+	// AddressMatchScore is the fuzzy address match score (0–100) produced during validate flow.
+	// Absent when no address was provided in the request.
+	// Only present for verificationType=validate.
+	AddressMatchScore *int64 `json:"addressMatchScore,omitempty"`
 	// Businesses is used for business prefill.
 	Businesses []Business `json:"businesses,omitempty"`
 	// The input ClientCustomerID.
@@ -15,19 +22,33 @@ type V3VerifyResponse struct {
 	ClientRequestID *string `json:"clientRequestId,omitempty"`
 	// The unique ID that Prove generates for the flow.
 	CorrelationID string `json:"correlationId"`
-	// The evaluation result for the policy. This will contain keys titled "authentication" and "risk" that encompass the different evaluation categories.
+	// Policy evaluation outputs from Luna. May include authentication, identification, and risk categories. Omitted from the response when evaluation.includeEvaluation is not enabled.
 	Evaluation map[string]any `json:"evaluation,omitempty"`
 	Identity   *Identity      `json:"identity,omitempty"`
 	// IsEnrolled indicates whether the identity was successfully enrolled into Identity Manager.
 	IsEnrolled *bool `json:"isEnrolled,omitempty"`
+	// NameMatchScore is the fuzzy name match score (0–100) produced during validate flow.
+	// Absent when name scoring was not performed.
+	// Only present for verificationType=validate.
+	NameMatchScore *int64 `json:"nameMatchScore,omitempty"`
 	// The input phone number.
 	PhoneNumber string `json:"phoneNumber"`
+	// PreviousCorrelationID is the correlationId from the prefill response that preceded this
+	// validate request. Set to an empty string when no preceding prefill was cached.
+	// Only present for verificationType=validate.
+	PreviousCorrelationID *string `json:"previousCorrelationId,omitempty"`
 	// A Prove-generated identifier for the consumer.
 	ProveID *string `json:"proveId,omitempty"`
 	// A persistent ID that uniquely identifies a telephone subscriber.
 	ProvePhoneAlias *string `json:"provePhoneAlias,omitempty"`
+	// Signals
+	Signals []map[string]Signals `json:"signals,omitempty"`
 	// The result of verification. This can be "true" or "false".
-	Success string `json:"success"`
+	// Omitted from the response when blank.
+	Success *string `json:"success,omitempty"`
+	// ValidationStatus indicates whether all configured thresholds passed.
+	// Only present for verificationType=validate.
+	ValidationStatus *bool `json:"validationStatus,omitempty"`
 }
 
 func (v *V3VerifyResponse) GetAdditionalIdentities() []Identity {
@@ -35,6 +56,13 @@ func (v *V3VerifyResponse) GetAdditionalIdentities() []Identity {
 		return nil
 	}
 	return v.AdditionalIdentities
+}
+
+func (v *V3VerifyResponse) GetAddressMatchScore() *int64 {
+	if v == nil {
+		return nil
+	}
+	return v.AddressMatchScore
 }
 
 func (v *V3VerifyResponse) GetBusinesses() []Business {
@@ -93,11 +121,25 @@ func (v *V3VerifyResponse) GetIsEnrolled() *bool {
 	return v.IsEnrolled
 }
 
+func (v *V3VerifyResponse) GetNameMatchScore() *int64 {
+	if v == nil {
+		return nil
+	}
+	return v.NameMatchScore
+}
+
 func (v *V3VerifyResponse) GetPhoneNumber() string {
 	if v == nil {
 		return ""
 	}
 	return v.PhoneNumber
+}
+
+func (v *V3VerifyResponse) GetPreviousCorrelationID() *string {
+	if v == nil {
+		return nil
+	}
+	return v.PreviousCorrelationID
 }
 
 func (v *V3VerifyResponse) GetProveID() *string {
@@ -114,11 +156,25 @@ func (v *V3VerifyResponse) GetProvePhoneAlias() *string {
 	return v.ProvePhoneAlias
 }
 
-func (v *V3VerifyResponse) GetSuccess() string {
+func (v *V3VerifyResponse) GetSignals() []map[string]Signals {
 	if v == nil {
-		return ""
+		return nil
+	}
+	return v.Signals
+}
+
+func (v *V3VerifyResponse) GetSuccess() *string {
+	if v == nil {
+		return nil
 	}
 	return v.Success
+}
+
+func (v *V3VerifyResponse) GetValidationStatus() *bool {
+	if v == nil {
+		return nil
+	}
+	return v.ValidationStatus
 }
 
 // #region class-body-v3verifyresponse

@@ -7,7 +7,7 @@ import (
 	"fmt"
 )
 
-// VerificationType - The verification method based on the use case and authorization level. Current allowed values: "verifiedUser", "accountOpening", "humanAssurance", "prefill", "prefillForBiz", "identityResolution".
+// VerificationType - The verification method based on the use case and authorization level. Current allowed values: "verifiedUser", "accountOpening", "humanAssurance", "prefill", "prefillForBiz", "identityResolution", "validate".
 type VerificationType string
 
 const (
@@ -17,6 +17,7 @@ const (
 	VerificationTypePrefill            VerificationType = "prefill"
 	VerificationTypePrefillForBiz      VerificationType = "prefillForBiz"
 	VerificationTypeIdentityResolution VerificationType = "identityResolution"
+	VerificationTypeValidate           VerificationType = "validate"
 )
 
 func (e VerificationType) ToPointer() *VerificationType {
@@ -39,6 +40,8 @@ func (e *VerificationType) UnmarshalJSON(data []byte) error {
 	case "prefillForBiz":
 		fallthrough
 	case "identityResolution":
+		fallthrough
+	case "validate":
 		*e = VerificationType(v)
 		return nil
 	default:
@@ -47,12 +50,17 @@ func (e *VerificationType) UnmarshalJSON(data []byte) error {
 }
 
 type V3VerifyRequest struct {
+	// An optional list of addresses submitted by the user for validation. Used with verificationType=validate
+	// to validate user-edited addresses against data-service records via SmartyStreets normalisation.
+	Addresses []Address `json:"addresses,omitempty"`
 	// A client-generated unique ID for a specific customer. This can be used by clients to link calls related to the same customer, across different requests or sessions. The format of this ID is defined by the client - Prove recommends using a GUID, but any format can be accepted. Prove does not offer any functionality around the Client Customer ID. Do not include personally identifiable information (PII) in this field.
 	ClientCustomerID *string `json:"clientCustomerId,omitempty"`
 	// An optional client-generated unique ID our Enterprise customer inputs for that consumer across business lines. If the Enterprise customer has been able to identify a consumer across business lines and has a unique identifier for the consumer, they would input this value to Prove. The format of this ID is defined by the client - Prove recommends using a GUID, but any format can be accepted. Do not include personally identifiable information (PII) in this field.
 	ClientHumanID *string `json:"clientHumanId,omitempty"`
 	// A client-generated unique ID for a specific session. This can be used to identify specific requests. The format of this ID is defined by the client - Prove recommends using a GUID, but any format can be accepted. Do not include Personally Identifiable Information (PII) in this field.
 	ClientRequestID *string `json:"clientRequestId,omitempty"`
+	// Indicates whether the consumer has provided consent. Accepts true or false. Defaults to false if not provided.
+	Consent *bool `json:"consent,omitempty"`
 	// The email address of the customer. Acceptable characters are: alphanumeric with symbols '@.+'.
 	EmailAddress *string `json:"emailAddress,omitempty"`
 	// The first name of the individual.
@@ -67,10 +75,20 @@ type V3VerifyRequest struct {
 	// International phone numbers require a leading `+` followed by the country code. Use the appropriate endpoint URL
 	// based on the region the number originates from. Acceptable characters are: alphanumeric with symbols '+'.
 	PhoneNumber string `json:"phoneNumber"`
+	// PreviousCorrelationID is the correlationId returned by the preceding prefill response.
+	// When provided, it is echoed back in the validate response to link the two flows.
+	PreviousCorrelationID *string `json:"previousCorrelationId,omitempty"`
 	// The User agent of the session of the individual.
 	UserAgent *string `json:"userAgent,omitempty"`
-	// The verification method based on the use case and authorization level. Current allowed values: "verifiedUser", "accountOpening", "humanAssurance", "prefill", "prefillForBiz", "identityResolution".
+	// The verification method based on the use case and authorization level. Current allowed values: "verifiedUser", "accountOpening", "humanAssurance", "prefill", "prefillForBiz", "identityResolution", "validate".
 	VerificationType VerificationType `json:"verificationType"`
+}
+
+func (v *V3VerifyRequest) GetAddresses() []Address {
+	if v == nil {
+		return nil
+	}
+	return v.Addresses
 }
 
 func (v *V3VerifyRequest) GetClientCustomerID() *string {
@@ -92,6 +110,13 @@ func (v *V3VerifyRequest) GetClientRequestID() *string {
 		return nil
 	}
 	return v.ClientRequestID
+}
+
+func (v *V3VerifyRequest) GetConsent() *bool {
+	if v == nil {
+		return nil
+	}
+	return v.Consent
 }
 
 func (v *V3VerifyRequest) GetEmailAddress() *string {
@@ -134,6 +159,13 @@ func (v *V3VerifyRequest) GetPhoneNumber() string {
 		return ""
 	}
 	return v.PhoneNumber
+}
+
+func (v *V3VerifyRequest) GetPreviousCorrelationID() *string {
+	if v == nil {
+		return nil
+	}
+	return v.PreviousCorrelationID
 }
 
 func (v *V3VerifyRequest) GetUserAgent() *string {

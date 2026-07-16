@@ -1,6 +1,6 @@
 # VerificationType
 
-The verification method based on the use case and authorization level. Current allowed values: "verifiedUser", "accountOpening", "humanAssurance", "prefill", "prefillForBiz", "identityResolution".
+The verification method based on the use case and authorization level. Current allowed values: "verifiedUser", "accountOpening", "humanAssurance", "prefill", "prefillForBiz", "identityResolution", "validate".
 
 ## Example Usage
 
@@ -23,3 +23,4 @@ value := components.VerificationTypeHumanAssurance
 | `VerificationTypePrefill`            | prefill                              |
 | `VerificationTypePrefillForBiz`      | prefillForBiz                        |
 | `VerificationTypeIdentityResolution` | identityResolution                   |
+| `VerificationTypeValidate`           | validate                             |

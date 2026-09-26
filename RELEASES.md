@@ -449,3 +449,13 @@ Based on:
 - [go v0.14.9] .
 ### Releases
 - [Go v0.14.9] https://github.com/prove-identity/prove-sdk-server-go/releases/tag/v0.14.9 - .
+
+## 2026-09-26 00:24:18
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.799.0 (2.941.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [go v0.15.0] .
+### Releases
+- [Go v0.15.0] https://github.com/prove-identity/prove-sdk-server-go/releases/tag/v0.15.0 - .

@@ -7,8 +7,12 @@ import (
 )
 
 type Error404 struct {
+	// The input ClientRequestID, echoed when provided on the request.
+	ClientRequestID *string `json:"clientRequestId,omitempty"`
 	// An error code that describes the problem category of the request.
 	Code *int64 `json:"code,omitempty"`
+	// The correlation ID for the flow, echoed when available.
+	CorrelationID *string `json:"correlationId,omitempty"`
 	// The error message describing the problem with the request.
 	Message string `json:"message"`
 }

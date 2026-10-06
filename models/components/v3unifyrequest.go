@@ -20,7 +20,7 @@ type V3UnifyRequest struct {
 	// The email address of the customer. Acceptable characters are: alphanumeric with symbols '@.+'.
 	EmailAddress *string `json:"emailAddress,omitempty"`
 	// The URL where the end user will be redirected at the end of Instant Link flow. Required when `possessionType=desktop`.
-	// Acceptable characters are: alphanumeric with symbols '-._+=/:?'. Max length is 128 characters.
+	// Acceptable characters are: alphanumeric with symbols '-._+=/:?'. Max length is 2048 characters.
 	FinalTargetURL *string `json:"finalTargetUrl,omitempty"`
 	// The IP address of the customer. Acceptable characters are: Alphanumeric with '.:' symbols.
 	IPAddress *string `json:"ipAddress,omitempty"`

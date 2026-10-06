@@ -7,6 +7,8 @@ type V3ChallengeRequest struct {
 	CorrelationID string `json:"correlationId"`
 	// The date of birth in one of these formats: YYYY-MM-DD, YYYY-MM, or MM-DD. Acceptable characters are: numeric with symbol '-'.
 	Dob *string `json:"dob,omitempty"`
+	// The email address of the individual.
+	Email *string `json:"email,omitempty"`
 	// The full or last 4 numbers of the social security number. Acceptable characters are: numeric.
 	Ssn *string `json:"ssn,omitempty"`
 }
@@ -23,6 +25,13 @@ func (v *V3ChallengeRequest) GetDob() *string {
 		return nil
 	}
 	return v.Dob
+}
+
+func (v *V3ChallengeRequest) GetEmail() *string {
+	if v == nil {
+		return nil
+	}
+	return v.Email
 }
 
 func (v *V3ChallengeRequest) GetSsn() *string {

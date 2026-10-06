@@ -7,8 +7,12 @@ import (
 )
 
 type Error403 struct {
+	// The input ClientRequestID, echoed when provided on the request.
+	ClientRequestID *string `json:"clientRequestId,omitempty"`
 	// An error code that identifies the specific authorization issue.
 	Code *int64 `json:"code,omitempty"`
+	// The correlation ID for the flow, echoed when available.
+	CorrelationID *string `json:"correlationId,omitempty"`
 	// The error message describing why access is forbidden.
 	Message string `json:"message"`
 }

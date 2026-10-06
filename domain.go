@@ -230,7 +230,7 @@ func (s *Domain) V3DomainConfirmLinkRequest(ctx context.Context, request *compon
 
 			var out sdkerrors.Error400
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, sdkerrors.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			return nil, &out
@@ -251,7 +251,7 @@ func (s *Domain) V3DomainConfirmLinkRequest(ctx context.Context, request *compon
 
 			var out sdkerrors.Error401
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, sdkerrors.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			return nil, &out
@@ -272,7 +272,7 @@ func (s *Domain) V3DomainConfirmLinkRequest(ctx context.Context, request *compon
 
 			var out sdkerrors.Error403
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, sdkerrors.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			return nil, &out
@@ -293,7 +293,7 @@ func (s *Domain) V3DomainConfirmLinkRequest(ctx context.Context, request *compon
 
 			var out sdkerrors.Error
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, sdkerrors.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			return nil, &out
@@ -522,7 +522,7 @@ func (s *Domain) V3DomainIDRequest(ctx context.Context, opts ...operations.Optio
 
 			var out sdkerrors.Error400
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, sdkerrors.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			return nil, &out
@@ -543,7 +543,7 @@ func (s *Domain) V3DomainIDRequest(ctx context.Context, opts ...operations.Optio
 
 			var out sdkerrors.Error401
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, sdkerrors.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			return nil, &out
@@ -564,7 +564,7 @@ func (s *Domain) V3DomainIDRequest(ctx context.Context, opts ...operations.Optio
 
 			var out sdkerrors.Error403
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, sdkerrors.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			return nil, &out
@@ -585,7 +585,7 @@ func (s *Domain) V3DomainIDRequest(ctx context.Context, opts ...operations.Optio
 
 			var out sdkerrors.Error
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, sdkerrors.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			return nil, &out
@@ -819,7 +819,7 @@ func (s *Domain) V3DomainLinkRequest(ctx context.Context, request *components.V3
 
 			var out sdkerrors.Error400
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, sdkerrors.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			return nil, &out
@@ -840,7 +840,7 @@ func (s *Domain) V3DomainLinkRequest(ctx context.Context, request *components.V3
 
 			var out sdkerrors.Error401
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, sdkerrors.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			return nil, &out
@@ -861,7 +861,7 @@ func (s *Domain) V3DomainLinkRequest(ctx context.Context, request *components.V3
 
 			var out sdkerrors.Error403
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, sdkerrors.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			return nil, &out
@@ -882,7 +882,7 @@ func (s *Domain) V3DomainLinkRequest(ctx context.Context, request *components.V3
 
 			var out sdkerrors.Error
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, sdkerrors.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			return nil, &out
@@ -1111,7 +1111,7 @@ func (s *Domain) V3DomainLinkedRequest(ctx context.Context, opts ...operations.O
 
 			var out sdkerrors.Error400
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, sdkerrors.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			return nil, &out
@@ -1132,7 +1132,7 @@ func (s *Domain) V3DomainLinkedRequest(ctx context.Context, opts ...operations.O
 
 			var out sdkerrors.Error401
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, sdkerrors.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			return nil, &out
@@ -1153,7 +1153,7 @@ func (s *Domain) V3DomainLinkedRequest(ctx context.Context, opts ...operations.O
 
 			var out sdkerrors.Error403
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, sdkerrors.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			return nil, &out
@@ -1174,7 +1174,7 @@ func (s *Domain) V3DomainLinkedRequest(ctx context.Context, opts ...operations.O
 
 			var out sdkerrors.Error
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, sdkerrors.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			return nil, &out
@@ -1408,7 +1408,7 @@ func (s *Domain) V3DomainUnlinkRequest(ctx context.Context, request *components.
 
 			var out sdkerrors.Error400
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, sdkerrors.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			return nil, &out
@@ -1429,7 +1429,7 @@ func (s *Domain) V3DomainUnlinkRequest(ctx context.Context, request *components.
 
 			var out sdkerrors.Error401
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, sdkerrors.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			return nil, &out
@@ -1450,7 +1450,7 @@ func (s *Domain) V3DomainUnlinkRequest(ctx context.Context, request *components.
 
 			var out sdkerrors.Error403
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, sdkerrors.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			return nil, &out
@@ -1471,7 +1471,7 @@ func (s *Domain) V3DomainUnlinkRequest(ctx context.Context, request *components.
 
 			var out sdkerrors.Error
 			if err := utils.UnmarshalJsonFromResponseBody(bytes.NewBuffer(rawBody), &out, ""); err != nil {
-				return nil, err
+				return nil, sdkerrors.NewResponseValidationError("response did not match the declared error schema", httpRes.StatusCode, string(rawBody), httpRes, err)
 			}
 
 			return nil, &out

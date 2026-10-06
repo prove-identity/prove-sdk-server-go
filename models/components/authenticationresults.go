@@ -3,8 +3,17 @@
 package components
 
 type AuthenticationResults struct {
+	// An indication of the last authentication method used when the Prove Key was created.
+	KeySource *string `json:"keySource,omitempty"`
 	// An indication of which mobile authentication method was used.
 	Mobile *string `json:"mobile,omitempty"`
+}
+
+func (a *AuthenticationResults) GetKeySource() *string {
+	if a == nil {
+		return nil
+	}
+	return a.KeySource
 }
 
 func (a *AuthenticationResults) GetMobile() *string {

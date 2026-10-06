@@ -5,14 +5,14 @@ management:
   docVersion: 1.0.0
   speakeasyVersion: 1.800.1
   generationVersion: 2.943.0
-  releaseVersion: 0.15.0
-  configChecksum: c20e25d7250854a58140b7e380b2c7bb
+  releaseVersion: 0.15.1
+  configChecksum: 523365fcd5433d981c6a40794b8caaa8
   repoURL: https://github.com/prove-identity/prove-sdk-server-go.git
   installationURL: https://github.com/prove-identity/prove-sdk-server-go
 persistentEdits:
-  generation_id: 39f05636-2309-4932-a21e-155e237908de
-  pristine_commit_hash: 740acf449a1e8e97666c9a0d83487f56ab05f838
-  pristine_tree_hash: 63a8f2da4051a7732ee09b6c25d155b3b3bf28c0
+  generation_id: 1aa4388e-3d7e-477c-afa5-62f7831cde88
+  pristine_commit_hash: 79fff77bbc5c65a61e378df227510a9176c27480
+  pristine_tree_hash: a0cb5a4483ad50e4125c3d44fc17cc63d0af69ef
 features:
   go:
     additionalDependencies: 0.1.0
@@ -1661,8 +1661,8 @@ trackedFiles:
     pristine_git_object: 786206153d8252101a56c2ab1b661466bb8b5b7c
   provesdkservergo.go:
     id: e4a202a2f033
-    last_write_checksum: sha1:f3304e5e504c0a82e854b2bc512f95d44571ea79
-    pristine_git_object: c3c56a87a512f57d371496ff67ad466828c318a8
+    last_write_checksum: sha1:4cabaa8280f666360162ca904c2ab579c0cccccf
+    pristine_git_object: 7ba290c71d57b5f67c07cc1c4dbbe51ccab5e2f4
   retry/config.go:
     id: 82d673cb0389
     last_write_checksum: sha1:102d1953fbd7e9f312c4442c71ccca2eaaeaa27d
@@ -2301,7 +2301,6 @@ examples:
           application/json: {"code": 1000, "message": "error occurred"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Go SDK Changes:\n* `Provesdkservergo.V3.V3TokenRequest()`:  `error` **Changed**\n* `Provesdkservergo.V3.V3ChallengeRequest()`: \n  *  `request.Request.Email` **Added**\n  *  `error` **Changed**\n* `Provesdkservergo.V3.V3CompleteRequest()`:  `error` **Changed**\n* `Provesdkservergo.V3.V3DeviceRevokeRequest()`:  `error` **Changed**\n* `Provesdkservergo.V3.V3StartRequest()`:  `error` **Changed**\n* `Provesdkservergo.V3.V3UnifyRequest()`:  `error` **Changed**\n* `Provesdkservergo.V3.V3UnifyBindRequest()`:  `error` **Changed**\n* `Provesdkservergo.V3.V3UnifyStatusRequest()`: \n  *  `response.AuthenticationResults.KeySource` **Added**\n  *  `error` **Changed**\n* `Provesdkservergo.V3.V3ValidateRequest()`:  `error` **Changed**\n* `Provesdkservergo.V3.V3VerifyRequest()`:  `error` **Changed**\n* `Provesdkservergo.Identity.V3DiscoverRequest()`:  `error` **Changed**\n* `Provesdkservergo.Identity.V3FetchRequest()`:  `error` **Changed**\n* `Provesdkservergo.Identity.V3BatchGetIdentities()`:  `error` **Changed**\n* `Provesdkservergo.Identity.V3EnrollIdentity()`:  `error` **Changed**\n* `Provesdkservergo.Identity.V3BatchEnrollIdentities()`:  `error` **Changed**\n* `Provesdkservergo.Identity.V3CrossDomainIdentity()`:  `error` **Changed**\n* `Provesdkservergo.Identity.V3GetIdentitiesByPhoneNumber()`:  `error` **Changed**\n* `Provesdkservergo.Identity.V3DisenrollIdentity()`:  `error` **Changed**\n* `Provesdkservergo.Identity.V3GetIdentity()`:  `error` **Changed**\n* `Provesdkservergo.Identity.V3ActivateIdentity()`:  `error` **Changed**\n* `Provesdkservergo.Identity.V3DeactivateIdentity()`:  `error` **Changed**\n* `Provesdkservergo.Domain.V3DomainConfirmLinkRequest()`:  `error` **Changed**\n* `Provesdkservergo.Domain.V3DomainIdRequest()`:  `error` **Changed**\n* `Provesdkservergo.Domain.V3DomainLinkRequest()`:  `error` **Changed**\n* `Provesdkservergo.Domain.V3DomainLinkedRequest()`:  `error` **Changed**\n* `Provesdkservergo.Domain.V3DomainUnlinkRequest()`:  `error` **Changed**\n"
 generatedFiles:
   - .gitattributes
   - /models/components/amltypelistresponseinternal.go

@@ -11,7 +11,7 @@ type V3StartRequest struct {
 	Dob *string `json:"dob,omitempty"`
 	// The email address of the customer. Acceptable characters are: alphanumeric with symbols '@.+'.
 	EmailAddress *string `json:"emailAddress,omitempty"`
-	// The URL where the end user will be redirected at the end of the Instant Link flow. Required only when `flowType=desktop`. Acceptable characters are: alphanumeric with symbols '-._+=/:?'. Max length is 128 characters.
+	// The URL where the end user will be redirected at the end of the Instant Link flow. Required only when `flowType=desktop`. Acceptable characters are: alphanumeric with symbols '-._+=/:?'. Max length is 2048 characters.
 	FinalTargetURL *string `json:"finalTargetUrl,omitempty"`
 	// The type of device being user - either `desktop` for desktop web or `mobile` for iOS/Android native apps and mobile web.
 	FlowType string `json:"flowType"`

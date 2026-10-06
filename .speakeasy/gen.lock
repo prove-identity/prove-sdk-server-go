@@ -1,22 +1,22 @@
 lockVersion: 2.0.0
 id: 13f15f39-429b-4f89-9916-f3a11e8cf70c
 management:
-  docChecksum: b79ae79a4f4e6bd4050b20e5ffe6ea5f
+  docChecksum: 0f5c71edfb6d663f8cffc7cb17969168
   docVersion: 1.0.0
-  speakeasyVersion: 1.790.2
-  generationVersion: 2.918.3
-  releaseVersion: 0.14.9
-  configChecksum: 00513eb0aeb3448335b110c3f79498d8
+  speakeasyVersion: 1.800.1
+  generationVersion: 2.943.0
+  releaseVersion: 0.15.0
+  configChecksum: c20e25d7250854a58140b7e380b2c7bb
   repoURL: https://github.com/prove-identity/prove-sdk-server-go.git
   installationURL: https://github.com/prove-identity/prove-sdk-server-go
 persistentEdits:
-  generation_id: 3f9fec86-680a-4b26-98a0-00ce5deb4ae4
-  pristine_commit_hash: d4cc52adbfb0635f5612cb5b7adb19a22f2175b0
-  pristine_tree_hash: 074c854918b73450a03fb7d451e63fb443a10995
+  generation_id: 39f05636-2309-4932-a21e-155e237908de
+  pristine_commit_hash: 740acf449a1e8e97666c9a0d83487f56ab05f838
+  pristine_tree_hash: 63a8f2da4051a7732ee09b6c25d155b3b3bf28c0
 features:
   go:
     additionalDependencies: 0.1.0
-    core: 3.13.47
+    core: 3.14.1
     defaultEnabledRetries: 0.2.0
     envVarSecurityUsage: 0.3.2
     examples: 2.81.7
@@ -25,10 +25,10 @@ features:
     globalSecurityCallbacks: 0.1.0
     globalServerURLs: 2.83.1
     intellisenseMarkdownSupport: 0.1.0
-    oauth2ClientCredentials: 1.1.5
+    oauth2ClientCredentials: 1.1.6
     responseFormat: 0.1.2
-    retries: 2.84.3
-    sdkHooks: 0.3.0
+    retries: 2.84.5
+    sdkHooks: 0.3.1
     serverIDs: 2.81.1
 trackedFiles:
   .gitattributes:
@@ -41,8 +41,8 @@ trackedFiles:
     pristine_git_object: 9b78493fd80bbd78e5f82db4c6c229abfd8da130
   auth.go:
     id: 082b9e5329e5
-    last_write_checksum: sha1:d09a9fa404e0a877db484c31f60e3da523933ef5
-    pristine_git_object: 0767ea02f417afaf31232d119d1fd49d03c0556e
+    last_write_checksum: sha1:0922b680fbcbf4ba6d8593d87a39fd102355d774
+    pristine_git_object: 57f397d250a3e17ffc175d68f3e3aade97ad8417
   docs/models/components/address.md:
     id: 897900884ecb
     last_write_checksum: sha1:e8ab269cdce09493cea1d6fa23eebf28915624fb
@@ -89,8 +89,8 @@ trackedFiles:
     pristine_git_object: 325635a6fd10694258275da6e46ffd1e4fb2afce
   docs/models/components/authenticationresults.md:
     id: d5e6c90f773d
-    last_write_checksum: sha1:96bb8f8b742ce017bdb1e73f01c6ffe95a0c0fab
-    pristine_git_object: b9e4e408151f69b490e70e1f3810ff5b4201b80c
+    last_write_checksum: sha1:d7b57e5a86da51a815ee85c4abb4d2b34c54cd8e
+    pristine_git_object: 8f236b464c7fc19146f27aa6c14e430f86a29b8c
   docs/models/components/authfinishrequest.md:
     id: 46496a6d27f5
     last_write_checksum: sha1:8b2261da647b5e065eb36629e1351c2da3d54789
@@ -481,8 +481,8 @@ trackedFiles:
     pristine_git_object: 7be76b400bdeb3625188f3971ea3d6d76bb6b257
   docs/models/components/v3challengerequest.md:
     id: 521f3dbc5d5e
-    last_write_checksum: sha1:52fa7feb337bf99fe34540a29bf797af17f8c865
-    pristine_git_object: deeb30803fd90f347b9f74d21a50cd5f6da429e3
+    last_write_checksum: sha1:efb8b9ef46f56757cebf2f1c92a7bb011b9323ff
+    pristine_git_object: afb3634f20c8bcaaa4595fc5a0b8d2d1c57f2215
   docs/models/components/v3challengeresponse.md:
     id: edbeb14d0137
     last_write_checksum: sha1:9b729d3d61708ece7922b2994026374510c069c3
@@ -589,8 +589,8 @@ trackedFiles:
     pristine_git_object: d53c207df65977e3f8a38eedba054b45cfec01fd
   docs/models/components/v3startrequest.md:
     id: ce110bf87239
-    last_write_checksum: sha1:e11a3a2b389e9401b09141542cf853c09924f232
-    pristine_git_object: 968053419e6c3dbcbad7f15fa23e084ec44ef5a8
+    last_write_checksum: sha1:1f425bf9986e4c4253973b795e9d8c219136f663
+    pristine_git_object: 8e8be1eb3d3ecbde6464389926d82b5a6f1a3a73
   docs/models/components/v3startresponse.md:
     id: 8b5eb94dc45c
     last_write_checksum: sha1:9c3aa29b062f7ea392b54f1242dc29effb8f2dfa
@@ -613,8 +613,8 @@ trackedFiles:
     pristine_git_object: 7ac528b004abc4c60f896c24182e0717747af108
   docs/models/components/v3unifyrequest.md:
     id: a1263bb8c4ed
-    last_write_checksum: sha1:35e48b5f1dbd5928c0ffb21ab412768390246d6e
-    pristine_git_object: 8e925c854cb8f70437661762926ad9cfad5e1105
+    last_write_checksum: sha1:669baebead1775e7ea1edabcb65c1379712ab312
+    pristine_git_object: 97847910e438e00841cf7aa7728d2baffc292d24
   docs/models/components/v3unifyresponse.md:
     id: 7299e19c8c8e
     last_write_checksum: sha1:932214c059866ffb3e9183062f90520191b5f972
@@ -625,8 +625,8 @@ trackedFiles:
     pristine_git_object: 07c812b1bf1feacf09c9b719207abc1eec2f2cb4
   docs/models/components/v3unifystatusresponse.md:
     id: 773a5f68e881
-    last_write_checksum: sha1:42e3768103c8720e0b03ea998955e6a119f10fcc
-    pristine_git_object: f48974fa59adaf9890f6c0d4c670f96d1afb5509
+    last_write_checksum: sha1:4f87523d420fd33d697c5dc247fbfc08e8db9cf3
+    pristine_git_object: b41168a8d3f5edfe867bfb2ab59d2cfab4097866
   docs/models/components/v3validaterequest.md:
     id: 16a80eaa5320
     last_write_checksum: sha1:194f54e9ff907fd22bd3fc3e25a8db702fcbb8f5
@@ -793,8 +793,8 @@ trackedFiles:
     pristine_git_object: 1649c490ead8c55beff0df5efb7c70543438c90b
   docs/models/operations/v3unifystatusrequestresponse.md:
     id: e6e4b55927be
-    last_write_checksum: sha1:5f9cbc6019189fc208673aa555e2d988bb632805
-    pristine_git_object: 4354ac6fea938fa33a41555d4b6d6c5c43c347d7
+    last_write_checksum: sha1:b6c216af0e17db50711db5bc277c8bfc31dfda6a
+    pristine_git_object: 8fb280ca44ebcc13191e1819656ace5c9a26568f
   docs/models/operations/v3validaterequestresponse.md:
     id: 4879ff691aa6
     last_write_checksum: sha1:8a8a754078d62fc4414e0cf29e356f48a6764c44
@@ -813,16 +813,16 @@ trackedFiles:
     pristine_git_object: 6cb9c16ccf16dbdef703b6058c2d3ac44626bbb4
   docs/models/sdkerrors/error401.md:
     id: f1c90fa1486d
-    last_write_checksum: sha1:e6cf1305bb8174230c4b0596d051637374875ed0
-    pristine_git_object: 796d3bc16d1626950d8e0ca97a08c0d00d62faef
+    last_write_checksum: sha1:20e1135bcf0e93e94bef3a1ae999e08b02697f27
+    pristine_git_object: f3fa9c3bc873d4876f8720bba11836201352a28c
   docs/models/sdkerrors/error403.md:
     id: fec9e546d9c7
-    last_write_checksum: sha1:c19a0c41c88f4ad68143b4b67d3c1db8179b8f92
-    pristine_git_object: 12b628442143dc35fb75c3e8aa8e1eb2b1ebc97a
+    last_write_checksum: sha1:ced4d64fdb89811ea496d8062c8bf7d89ea1e148
+    pristine_git_object: 4a1b5c12409730bc8eb404e45fc14307cc0bed81
   docs/models/sdkerrors/error404.md:
     id: fb2770aed635
-    last_write_checksum: sha1:4fc47bef37733d502d3ee88cd10f02e438fc81bd
-    pristine_git_object: 88e58cfbf74873cb575788f0d8043e7a79ea8f2d
+    last_write_checksum: sha1:8738f83ca854fa61de91f3493b4da33c1cb0e885
+    pristine_git_object: d62cd33d6cdf9edfa93f1c550c2b94fa3fc0de2b
   docs/sdks/auth/README.md:
     id: e9724f17945f
     last_write_checksum: sha1:20343026c5eaa838073db6d7aa7ca63ef9110b0c
@@ -837,24 +837,24 @@ trackedFiles:
     pristine_git_object: ebcc3c250b28ec7fccf164c12dea95296b9efdc6
   docs/sdks/v3/README.md:
     id: ee683463fcdd
-    last_write_checksum: sha1:c3aa26dc370f6089d28bde9c49d2acb1b0ca7753
-    pristine_git_object: 1c1788722342dcfb82b90897eb94b16aeb8f6993
+    last_write_checksum: sha1:70d8b9834d7dece954d45e8681322bb9d07b8fe0
+    pristine_git_object: 0f9d307866e94d563bfb63d8215f648e93c0bc09
   domain.go:
     id: 9fdb7947bd3e
-    last_write_checksum: sha1:afa2e66fa255744000df8bdea01aa5bfb5489ba2
-    pristine_git_object: 82913e5db7e295268756780c8754f7099f294507
+    last_write_checksum: sha1:1ccb9e1c850d8827776b6edb785de31b3b290ef9
+    pristine_git_object: 0b704aabe7524db03b163722e24cdf0ba60305f2
   go.mod:
     id: c47645c391ad
-    last_write_checksum: sha1:196f417819d8e64984c6021c241c564c263c26d0
-    pristine_git_object: 1850c0526ad9e908b72db0ac5f4771a5e98afcfb
+    last_write_checksum: sha1:52fc63a4c45984e45d99ddd7eeab0ff9e95280e4
+    pristine_git_object: a17f8ae1952df4660805fd9d968ab5da9926d06a
   identity.go:
     id: bd2478edc26d
-    last_write_checksum: sha1:3f86dc5d2109a1fa216552c15bb86be1596473bd
-    pristine_git_object: 5c4a338608a55167ce3e27c33460b82554b8173b
+    last_write_checksum: sha1:832689302d4a2a7ad34a831ff3e0653df4fad181
+    pristine_git_object: bb866338ccbbd024228cbd5b6b99956a385acdb3
   internal/config/sdkconfiguration.go:
     id: 33b8bfac5265
-    last_write_checksum: sha1:b4e207d5a92b20b4ba9af842732919105d09025f
-    pristine_git_object: 1611e6427156b587f6a75ce9365d9fba9ed83c62
+    last_write_checksum: sha1:9b59d4ea910c7391ba285c6173d1bdcb40153980
+    pristine_git_object: 3ba72d6132fe87cc7cc7c5aa55e65ee3fb7c30b7
   internal/hooks/clientcredentials.go:
     id: b56b5e7f2d63
     last_write_checksum: sha1:0588f0b6facab6d3ea8d36e8a74a67117b7048ab
@@ -873,16 +873,16 @@ trackedFiles:
     pristine_git_object: 110d464eacf2387b347bad1cb903666354a339e9
   internal/utils/form.go:
     id: 8ea133d76535
-    last_write_checksum: sha1:1d22644d2def4710fd0de6a0c8f6c6f65ce80212
-    pristine_git_object: 43d75582e2c4620c875332a4edf0d02fd472dab2
+    last_write_checksum: sha1:7ddb0707ffdc24b8290c824f5352c54b782a26a5
+    pristine_git_object: c7dbaad4ba883afe4b04cdeb60bfa3667af8360a
   internal/utils/headers.go:
     id: 90d4f18d4adf
-    last_write_checksum: sha1:b0099dfce8c6160cc96b6c14f4ffc741cb79eb70
-    pristine_git_object: 38ef80af17c961b166a336b5a89041ab4a21fea7
+    last_write_checksum: sha1:c156ea1b1b50167836a3cdc82e7f5edb90adb9d6
+    pristine_git_object: c406dfa6782e989728e0eba1e5ee561c0e9bd0d7
   internal/utils/json.go:
     id: ad03e3c502d8
-    last_write_checksum: sha1:94be13c9e669278410d9fb30000a06d72ac08211
-    pristine_git_object: 24ffd1174924879df7dfdcfaf228446250850dbd
+    last_write_checksum: sha1:4f2ebef892860fe70a60dfb78e73d80cc696a4e1
+    pristine_git_object: d14fb10dd9fc2274e9c6dc35e504beb6d0d13460
   internal/utils/oauth2_credentials.go:
     id: 633b88c0d3ff
     last_write_checksum: sha1:f9218b6b3dbd11494cc353bf22eb37f0ca654a7d
@@ -893,20 +893,20 @@ trackedFiles:
     pristine_git_object: 237b1a41eb4f38874f1d4dd64fcc3288d1edeb19
   internal/utils/pathparams.go:
     id: 1f3e0c30fd90
-    last_write_checksum: sha1:d17362e960e5812d36ad412391b9002b59d53b98
-    pristine_git_object: 015d5d8867728a7024c7c6d31c8fc7e99a896b24
+    last_write_checksum: sha1:81406a6770baf170be54efbd0f025d1b80e5751f
+    pristine_git_object: 1f1df17db9ff031289135087c0ac6a464fa9d4da
   internal/utils/queryparams.go:
     id: e7f604e65a58
-    last_write_checksum: sha1:04c00020638f2f506b264555873b51db93e6c8eb
-    pristine_git_object: a6a1fb569c3e64585464990105202fe3003a3f0a
+    last_write_checksum: sha1:30989cd1d88e61725d19be9711d2d1f183c35212
+    pristine_git_object: 9eab5ee839eb1d7c7ae1eb27e3ac01c0599c02bf
   internal/utils/requestbody.go:
     id: 22445ec1c044
-    last_write_checksum: sha1:9bc5b2bc9f73b8f94c78cdeaa805500590a36c21
-    pristine_git_object: 1b6753223e872793b9fe0cedbdc613f36038cab0
+    last_write_checksum: sha1:6e5ecfff5fcab2cd8cfd3d9580c9dc412d343bb1
+    pristine_git_object: f1a4eb18c5574069b43771c881dfe59809cf2528
   internal/utils/retries.go:
     id: b5e011d15c2d
-    last_write_checksum: sha1:f995c885792673b096b0395417f1a2c8a7ef6939
-    pristine_git_object: b236f613dda8de93434f584ab1caebe65d131be9
+    last_write_checksum: sha1:40c0afd568ea1194a5aa623ccea8b3d11b7b33f2
+    pristine_git_object: 017d2052a2ef57b4ea74d7234444832712519689
   internal/utils/security.go:
     id: eeb54c55241b
     last_write_checksum: sha1:49fee4e9252239953611e6de36f4682851499ab5
@@ -917,12 +917,12 @@ trackedFiles:
     pristine_git_object: 16da7323c7ebf50af7663b1eb6b6bd8611bf2c93
   internal/utils/union_test.go:
     id: 4b56247171bd
-    last_write_checksum: sha1:bd5c7506e1d6238117c1ac4e340314a5a41401b5
-    pristine_git_object: 138f7e2a066b10dffd0a9957ecfcab9e00dd26fe
+    last_write_checksum: sha1:c55e5e44c26dfae67b83359851996122a3dfc9cf
+    pristine_git_object: d7d4c8a141f997cdac886c1f41805cc8cabcb210
   internal/utils/utils.go:
     id: 1133b2a27019
-    last_write_checksum: sha1:c03378176a107205b8938606faef3fd8fb8f91a0
-    pristine_git_object: a614e37673d3ea81eabc6139236edfb22a15dc55
+    last_write_checksum: sha1:fde9081eb3ad41619a3afe1c58c579e0c35c6bb6
+    pristine_git_object: 16a29b3637730c8faf36d236e3d114b5f1595733
   models/components/address.go:
     id: 7f30396851a4
     last_write_checksum: sha1:ed56df4ff3cf04bf33f3a5a6f7f612201cae11db
@@ -969,8 +969,8 @@ trackedFiles:
     pristine_git_object: b90ee7ced0be0fa4147e749b58649abdd09414d6
   models/components/authenticationresults.go:
     id: 5fc50038ca55
-    last_write_checksum: sha1:bb9fa919d39c30932d33272695fc02be43de83ef
-    pristine_git_object: cd7166a3d361eb79d515b73190e76c74c1aa7c44
+    last_write_checksum: sha1:3669a3f1e4f4853e79bf2c699b135970113edbce
+    pristine_git_object: 8c8e88ed8a4929e823a6d589260a31750925a906
   models/components/authfinishrequest.go:
     id: e68a7406ed08
     last_write_checksum: sha1:868af5075437b1593746a0adaec41ae11f797e7f
@@ -1341,8 +1341,8 @@ trackedFiles:
     pristine_git_object: ccff6ab7a543f161fbc35a50388f87b530952578
   models/components/v3challengerequest.go:
     id: 0705984234ae
-    last_write_checksum: sha1:deb1ed8c3aec50a59f918d0e4c251b415092bcb7
-    pristine_git_object: 48a5d7647266ae57cb5d457226abe921849d816b
+    last_write_checksum: sha1:73a6ea9d495c61f2f9276b33604418d30d728a9c
+    pristine_git_object: bbfe9651aa61c5feef2db880b95293cf5fb192fa
   models/components/v3challengeresponse.go:
     id: 6bd539445fdf
     last_write_checksum: sha1:b8046e21141ccb1c3237f747a499d89099caf841
@@ -1449,8 +1449,8 @@ trackedFiles:
     pristine_git_object: c70c53a13f6be4f81f2273dd07f1ac53e5480dd5
   models/components/v3startrequest.go:
     id: c89529637900
-    last_write_checksum: sha1:6423253d6ccd5bf0208018e6f16fd82a1ba7990c
-    pristine_git_object: 43ec7ba43d60c955304d7e83e07f9caddb846194
+    last_write_checksum: sha1:853fc7169ec6d6feb7a1f2647625d60e7c724972
+    pristine_git_object: 2be092c68e547f9731e0a754b1acc6157681fb39
   models/components/v3startresponse.go:
     id: 0e2dcec6050d
     last_write_checksum: sha1:d1befe7a519c01fbc86a11712488a50d5fe7ce2f
@@ -1473,8 +1473,8 @@ trackedFiles:
     pristine_git_object: 7cc1d93371c85cc45cc7b8412a156ae5e3806b6e
   models/components/v3unifyrequest.go:
     id: 80697e071d77
-    last_write_checksum: sha1:c129c527981449ca895f1ebd7bac83c5911ce87b
-    pristine_git_object: 6638a7989c3270bbae643c6f0a0e1cee0ef2a11d
+    last_write_checksum: sha1:6d5cc31025f70c5cc8e07c59d7071ebe576930ee
+    pristine_git_object: 318caa4b3e14b760ff8bf3c75538f4e86381f1c6
   models/components/v3unifyresponse.go:
     id: bcf50e43cec3
     last_write_checksum: sha1:cfacca0511a89ce2d282a9b2a7ddeb5c56ba86e2
@@ -1517,8 +1517,8 @@ trackedFiles:
     pristine_git_object: 52e208c3fe418fea9e6967d0201e541ab52fce07
   models/operations/options.go:
     id: d20dd4db9865
-    last_write_checksum: sha1:ab46bb58b8a54dccb9ca93fdf9c1d3154a148ff0
-    pristine_git_object: ae34a4453b2b508be79969b6d6c4361cd4573b58
+    last_write_checksum: sha1:759b3589a16e94264686121a4a5c14211b5fad86
+    pristine_git_object: 7c3e4eb3545174adb5645e608222ade962145c7b
   models/operations/v3activateidentity.go:
     id: fff23cff6ef5
     last_write_checksum: sha1:157c0a855088e954b16782d9982247897062fdfc
@@ -1633,32 +1633,36 @@ trackedFiles:
     pristine_git_object: 230e40da210e980b883040c6ae8a4cb8e9ef1dc0
   models/sdkerrors/error401.go:
     id: f2bc31d34173
-    last_write_checksum: sha1:95939c28bb48219a055e7fd255c9085f5e1a9e08
-    pristine_git_object: fe9bee895785b535b9f3a3961a1071e05c12a736
+    last_write_checksum: sha1:b61811fe46700a7b627f5e2bab8cae660c9be198
+    pristine_git_object: b6e5f3b3149a301030ae3a0f34244121aafbaa0c
   models/sdkerrors/error403.go:
     id: e0dfce3ef71e
-    last_write_checksum: sha1:2b035c28bae1981e776b36b46f9e28d2f7217564
-    pristine_git_object: 3484527e86c03d0e55ac8093760b53e1e6e75f40
+    last_write_checksum: sha1:58b8740859736ef13507812699ffcee0ae6f1044
+    pristine_git_object: 7cfb0b16183cae69bd5e1a15a8c0560a9f1cfe87
   models/sdkerrors/error404.go:
     id: 4d420bcaf02f
-    last_write_checksum: sha1:dcb084fdb20af2fc13396a48890a33b8ec6bb8e5
-    pristine_git_object: 4bfc92ed4afc291aaa963768c94205ba8d9d9b41
+    last_write_checksum: sha1:d483e46c2b72a8a47511a9da030295f0029d1e4d
+    pristine_git_object: b9e9b2f90df1915d2cc1e27b25964996cefbabcb
+  models/sdkerrors/responsevalidationerror.go:
+    id: 256a36c309d1
+    last_write_checksum: sha1:77189808f8c0d0fc49a2e8cc77a8a4006e61682c
+    pristine_git_object: 722897c3a5e71037ddc15d2080bda3a4e2b5141b
   models/sdkerrors/sdkerror.go:
     id: 5234765820c9
     last_write_checksum: sha1:f8e33bc95a5dbae17ece60c1a8f7755ce235c133
     pristine_git_object: 7d63b9813d4d5a025a0337b45f42e4b9fb404eeb
   optionalnullable/optionalnullable.go:
     id: ce60f259ead3
-    last_write_checksum: sha1:d6aff1a420c31e025ea21d46cf056e305ae76fe8
-    pristine_git_object: c6739be0619b6726565e0f11855ffe44b0e5607e
+    last_write_checksum: sha1:b828c94c45116e632925027e4e2c211e971e04e2
+    pristine_git_object: 51c78bcc4f55abb8f64c89a7b70db62335f16e47
   optionalnullable/optionalnullable_test.go:
     id: ad67101ebca3
-    last_write_checksum: sha1:2e9433eff1651ac77d6678ea76880d9a4980cbc2
-    pristine_git_object: e6e5a01c6e721e879e24a38a1f97e3e27d4686d4
+    last_write_checksum: sha1:d3991667754ed67db803aeab4a6239f6f9a1be37
+    pristine_git_object: 786206153d8252101a56c2ab1b661466bb8b5b7c
   provesdkservergo.go:
     id: e4a202a2f033
-    last_write_checksum: sha1:70213500045fa758e8cf60f23a1d9f6fbb25835d
-    pristine_git_object: 9278b88c09af35a4dd3a2177eed764dcd0f56804
+    last_write_checksum: sha1:f3304e5e504c0a82e854b2bc512f95d44571ea79
+    pristine_git_object: c3c56a87a512f57d371496ff67ad466828c318a8
   retry/config.go:
     id: 82d673cb0389
     last_write_checksum: sha1:102d1953fbd7e9f312c4442c71ccca2eaaeaa27d
@@ -1681,8 +1685,8 @@ trackedFiles:
     pristine_git_object: 35c439d2661e08fcb6a854096fd7b9a8561b3938
   v3.go:
     id: 71e6067bd243
-    last_write_checksum: sha1:237045ec495cb8824ee9cca24c9335abc575bd8f
-    pristine_git_object: ae5d2f7ca87a945beea1e982155c6485bc58b021
+    last_write_checksum: sha1:6ba0d3382725f926a015a0d709024bff9f5eec6b
+    pristine_git_object: ddce2411e3894548a6bb670c118d16376ff06465
 examples:
   V3TokenRequest:
     speakeasy-default-v3-token-request:
@@ -1694,7 +1698,7 @@ examples:
         "400":
           application/json: {"code": 1001, "message": "invalid request"}
         "401":
-          application/json: {"code": 8002, "message": "not authorized"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8002, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "not authorized"}
         "500":
           application/json: {"code": 1000, "message": "error occurred"}
   V3ChallengeRequest:
@@ -1714,13 +1718,13 @@ examples:
           application/json: {"code": 8000, "message": "error at prove, try again later"}
     Response with Success Evaluation:
       requestBody:
-        application/json: {"correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "dob": "1981-01", "ssn": "0596"}
+        application/json: {"correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "dob": "1981-01", "email": "user@example.com", "ssn": "0596"}
       responses:
         "200":
           application/json: {"evaluation": {"authentication": {"result": "pass"}, "identification": {"result": "pass"}, "success": true}, "next": {"v3-complete": "/v3/complete"}, "success": true}
     Response with Failed Evaluation:
       requestBody:
-        application/json: {"correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "dob": "1981-01", "ssn": "0596"}
+        application/json: {"correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "dob": "1981-01", "email": "user@example.com", "ssn": "0596"}
       responses:
         "200":
           application/json: {"evaluation": {"authentication": {"failureReasons": {"9003": "Identity is not found."}, "result": "fail"}, "identification": {"failureReasons": {"9003": "Identity is not found."}, "result": "fail"}, "success": false}, "next": {"v3-complete": "/v3/complete"}, "success": false}
@@ -1777,9 +1781,9 @@ examples:
         "400":
           application/json: {"code": 1001, "message": "invalid request"}
         "401":
-          application/json: {"code": 8002, "message": "not authorized"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8002, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "not authorized"}
         "403":
-          application/json: {"code": 8003, "message": "Access forbidden: insufficient permissions"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8003, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "Access forbidden: insufficient permissions"}
         "500":
           application/json: {"code": 1000, "message": "error occurred"}
   V3UnifyRequest:
@@ -1792,9 +1796,9 @@ examples:
         "400":
           application/json: {"code": 1001, "message": "invalid request"}
         "401":
-          application/json: {"code": 8002, "message": "not authorized"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8002, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "not authorized"}
         "403":
-          application/json: {"code": 8003, "message": "Access forbidden: insufficient permissions"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8003, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "Access forbidden: insufficient permissions"}
         "500":
           application/json: {"code": 1000, "message": "error occurred"}
   V3UnifyBindRequest:
@@ -1807,9 +1811,9 @@ examples:
         "400":
           application/json: {"code": 1001, "message": "invalid request"}
         "401":
-          application/json: {"code": 8002, "message": "not authorized"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8002, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "not authorized"}
         "403":
-          application/json: {"code": 8003, "message": "Access forbidden: insufficient permissions"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8003, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "Access forbidden: insufficient permissions"}
         "500":
           application/json: {"code": 1000, "message": "error occurred"}
   V3UnifyStatusRequest:
@@ -1832,13 +1836,13 @@ examples:
         application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd"}
       responses:
         "200":
-          application/json: {"clientHumanId": "7bfbb91d-9df8-4ec0-99a6-de05ecc23a9e", "clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "deviceId": "bf9ea15d-7dfa-4bb4-a64c-6c26b53472fc", "evaluation": {"authentication": {"result": "pass"}, "identification": {"result": "pass"}, "success": true}, "phoneNumber": "2001004011", "proveId": "a07b94ce-218c-461f-beda-d92480e40f61", "success": "true"}
+          application/json: {"authenticationResults": {"keySource": "otp", "mobile": "otp"}, "clientHumanId": "7bfbb91d-9df8-4ec0-99a6-de05ecc23a9e", "clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "deviceId": "bf9ea15d-7dfa-4bb4-a64c-6c26b53472fc", "phoneNumber": "2001004014", "proveId": "a07b94ce-218c-461f-beda-d92480e40f61", "success": "true"}
     Response with Failed Evaluation:
       requestBody:
         application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd"}
       responses:
         "200":
-          application/json: {"evaluation": {"authentication": {"failureReasons": {"9100": "Phone possession incomplete."}}, "identification": {"result": "pass"}, "success": false}, "phoneNumber": "2001004011", "success": "false"}
+          application/json: {"evaluation": {"authentication": {"failureReasons": {"9100": "Phone possession incomplete."}, "result": "fail"}, "risk": {"result": "pass"}}, "phoneNumber": "2001004015", "success": "false"}
   V3ValidateRequest:
     speakeasy-default-v3-validate-request:
       requestBody:
@@ -1910,9 +1914,9 @@ examples:
         "400":
           application/json: {"code": 1001, "message": "invalid request"}
         "401":
-          application/json: {"code": 8002, "message": "not authorized"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8002, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "not authorized"}
         "403":
-          application/json: {"code": 8003, "message": "Access forbidden: insufficient permissions"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8003, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "Access forbidden: insufficient permissions"}
         "500":
           application/json: {"code": 1000, "message": "error occurred"}
   V3EnrollIdentity:
@@ -1925,9 +1929,9 @@ examples:
         "400":
           application/json: {"code": 1001, "message": "invalid request"}
         "401":
-          application/json: {"code": 8002, "message": "not authorized"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8002, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "not authorized"}
         "403":
-          application/json: {"code": 8003, "message": "Access forbidden: insufficient permissions"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8003, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "Access forbidden: insufficient permissions"}
         "500":
           application/json: {"code": 1000, "message": "error occurred"}
   V3BatchEnrollIdentities:
@@ -1940,9 +1944,9 @@ examples:
         "400":
           application/json: {"code": 1001, "message": "invalid request"}
         "401":
-          application/json: {"code": 8002, "message": "not authorized"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8002, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "not authorized"}
         "403":
-          application/json: {"code": 8003, "message": "Access forbidden: insufficient permissions"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8003, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "Access forbidden: insufficient permissions"}
         "500":
           application/json: {"code": 1000, "message": "error occurred"}
   V3DisenrollIdentity:
@@ -1957,9 +1961,9 @@ examples:
         "400":
           application/json: {"code": 1001, "message": "invalid request"}
         "401":
-          application/json: {"code": 8002, "message": "not authorized"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8002, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "not authorized"}
         "403":
-          application/json: {"code": 8003, "message": "Access forbidden: insufficient permissions"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8003, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "Access forbidden: insufficient permissions"}
         "500":
           application/json: {"code": 1000, "message": "error occurred"}
   V3GetIdentity:
@@ -1974,9 +1978,9 @@ examples:
         "400":
           application/json: {"code": 1001, "message": "invalid request"}
         "401":
-          application/json: {"code": 8002, "message": "not authorized"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8002, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "not authorized"}
         "403":
-          application/json: {"code": 8003, "message": "Access forbidden: insufficient permissions"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8003, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "Access forbidden: insufficient permissions"}
         "500":
           application/json: {"code": 1000, "message": "error occurred"}
   V3ActivateIdentity:
@@ -1993,9 +1997,9 @@ examples:
         "400":
           application/json: {"code": 1001, "message": "invalid request"}
         "401":
-          application/json: {"code": 8002, "message": "not authorized"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8002, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "not authorized"}
         "403":
-          application/json: {"code": 8003, "message": "Access forbidden: insufficient permissions"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8003, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "Access forbidden: insufficient permissions"}
         "500":
           application/json: {"code": 1000, "message": "error occurred"}
   V3DeactivateIdentity:
@@ -2012,9 +2016,9 @@ examples:
         "400":
           application/json: {"code": 1001, "message": "invalid request"}
         "401":
-          application/json: {"code": 8002, "message": "not authorized"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8002, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "not authorized"}
         "403":
-          application/json: {"code": 8003, "message": "Access forbidden: insufficient permissions"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8003, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "Access forbidden: insufficient permissions"}
         "500":
           application/json: {"code": 1000, "message": "error occurred"}
   V3GetIdentitiesByPhoneNumber:
@@ -2028,9 +2032,9 @@ examples:
         "400":
           application/json: {"code": 1001, "message": "invalid request"}
         "401":
-          application/json: {"code": 8002, "message": "not authorized"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8002, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "not authorized"}
         "403":
-          application/json: {"code": 8003, "message": "Access forbidden: insufficient permissions"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8003, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "Access forbidden: insufficient permissions"}
         "500":
           application/json: {"code": 1000, "message": "error occurred"}
   V3DomainID:
@@ -2114,9 +2118,9 @@ examples:
         "400":
           application/json: {"code": 1001, "message": "invalid request"}
         "401":
-          application/json: {"code": 8002, "message": "not authorized"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8002, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "not authorized"}
         "403":
-          application/json: {"code": 8003, "message": "Access forbidden: insufficient permissions"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8003, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "Access forbidden: insufficient permissions"}
         "500":
           application/json: {"code": 1000, "message": "error occurred"}
   V3DomainIDRequest:
@@ -2127,9 +2131,9 @@ examples:
         "400":
           application/json: {"code": 1001, "message": "invalid request"}
         "401":
-          application/json: {"code": 8002, "message": "not authorized"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8002, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "not authorized"}
         "403":
-          application/json: {"code": 8003, "message": "Access forbidden: insufficient permissions"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8003, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "Access forbidden: insufficient permissions"}
         "500":
           application/json: {"code": 1000, "message": "error occurred"}
   V3DomainLinkRequest:
@@ -2142,9 +2146,9 @@ examples:
         "400":
           application/json: {"code": 1001, "message": "invalid request"}
         "401":
-          application/json: {"code": 8002, "message": "not authorized"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8002, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "not authorized"}
         "403":
-          application/json: {"code": 8003, "message": "Access forbidden: insufficient permissions"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8003, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "Access forbidden: insufficient permissions"}
         "500":
           application/json: {"code": 1000, "message": "error occurred"}
   V3DomainLinkedRequest:
@@ -2155,9 +2159,9 @@ examples:
         "400":
           application/json: {"code": 1001, "message": "invalid request"}
         "401":
-          application/json: {"code": 8002, "message": "not authorized"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8002, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "not authorized"}
         "403":
-          application/json: {"code": 8003, "message": "Access forbidden: insufficient permissions"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8003, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "Access forbidden: insufficient permissions"}
         "500":
           application/json: {"code": 1000, "message": "error occurred"}
   V3DomainUnlinkRequest:
@@ -2170,9 +2174,9 @@ examples:
         "400":
           application/json: {"code": 1001, "message": "invalid request"}
         "401":
-          application/json: {"code": 8002, "message": "not authorized"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8002, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "not authorized"}
         "403":
-          application/json: {"code": 8003, "message": "Access forbidden: insufficient permissions"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8003, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "Access forbidden: insufficient permissions"}
         "500":
           application/json: {"code": 1000, "message": "error occurred"}
   V3CrossDomainIdentity:
@@ -2188,9 +2192,9 @@ examples:
         "400":
           application/json: {"code": 1001, "message": "invalid request"}
         "401":
-          application/json: {"code": 8002, "message": "not authorized"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8002, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "not authorized"}
         "403":
-          application/json: {"code": 8003, "message": "Access forbidden: insufficient permissions"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8003, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "Access forbidden: insufficient permissions"}
         "500":
           application/json: {"code": 1000, "message": "error occurred"}
   V3VerifyBatchRequest:
@@ -2251,13 +2255,13 @@ examples:
         "400":
           application/json: {"code": 1001, "message": "invalid request"}
         "401":
-          application/json: {"code": 8002, "message": "not authorized"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8002, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "not authorized"}
         "403":
-          application/json: {"code": 8003, "message": "Access forbidden: insufficient permissions"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8003, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "Access forbidden: insufficient permissions"}
         "500":
           application/json: {"code": 1000, "message": "error occurred"}
         "404":
-          application/json: {"code": 8011, "message": "Identity Not Found"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8011, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "Identity Not Found"}
   V3FetchRequest:
     speakeasy-default-v3-fetch-request:
       parameters:
@@ -2270,11 +2274,11 @@ examples:
         "400":
           application/json: {"code": 1001, "message": "invalid request"}
         "401":
-          application/json: {"code": 8002, "message": "not authorized"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8002, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "not authorized"}
         "403":
-          application/json: {"code": 8003, "message": "Access forbidden: insufficient permissions"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8003, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "Access forbidden: insufficient permissions"}
         "404":
-          application/json: {"code": 8011, "message": "Identity Not Found"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8011, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "Identity Not Found"}
         "500":
           application/json: {"code": 1000, "message": "error occurred"}
   V3DiscoverRequest:
@@ -2288,16 +2292,16 @@ examples:
         "400":
           application/json: {"code": 1001, "message": "invalid request"}
         "401":
-          application/json: {"code": 8002, "message": "not authorized"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8002, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "not authorized"}
         "403":
-          application/json: {"code": 8003, "message": "Access forbidden: insufficient permissions"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8003, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "Access forbidden: insufficient permissions"}
         "404":
-          application/json: {"code": 8011, "message": "Identity Not Found"}
+          application/json: {"clientRequestId": "71010d88-d0e7-4a24-9297-d1be6fefde81", "code": 8011, "correlationId": "713189b8-5555-4b08-83ba-75d08780aebd", "message": "Identity Not Found"}
         "500":
           application/json: {"code": 1000, "message": "error occurred"}
 examplesVersion: 1.0.2
 generatedTests: {}
-releaseNotes: "## Go SDK Changes:\n* `Provesdkservergo.V3.V3UnifyStatusRequest()`:  `response.AuthenticationResults` **Added**\n* `Provesdkservergo.V3.V3VerifyRequest()`: \n  *  `request.Request` **Changed**\n  *  `response` **Changed**\n"
+releaseNotes: "## Go SDK Changes:\n* `Provesdkservergo.V3.V3TokenRequest()`:  `error` **Changed**\n* `Provesdkservergo.V3.V3ChallengeRequest()`: \n  *  `request.Request.Email` **Added**\n  *  `error` **Changed**\n* `Provesdkservergo.V3.V3CompleteRequest()`:  `error` **Changed**\n* `Provesdkservergo.V3.V3DeviceRevokeRequest()`:  `error` **Changed**\n* `Provesdkservergo.V3.V3StartRequest()`:  `error` **Changed**\n* `Provesdkservergo.V3.V3UnifyRequest()`:  `error` **Changed**\n* `Provesdkservergo.V3.V3UnifyBindRequest()`:  `error` **Changed**\n* `Provesdkservergo.V3.V3UnifyStatusRequest()`: \n  *  `response.AuthenticationResults.KeySource` **Added**\n  *  `error` **Changed**\n* `Provesdkservergo.V3.V3ValidateRequest()`:  `error` **Changed**\n* `Provesdkservergo.V3.V3VerifyRequest()`:  `error` **Changed**\n* `Provesdkservergo.Identity.V3DiscoverRequest()`:  `error` **Changed**\n* `Provesdkservergo.Identity.V3FetchRequest()`:  `error` **Changed**\n* `Provesdkservergo.Identity.V3BatchGetIdentities()`:  `error` **Changed**\n* `Provesdkservergo.Identity.V3EnrollIdentity()`:  `error` **Changed**\n* `Provesdkservergo.Identity.V3BatchEnrollIdentities()`:  `error` **Changed**\n* `Provesdkservergo.Identity.V3CrossDomainIdentity()`:  `error` **Changed**\n* `Provesdkservergo.Identity.V3GetIdentitiesByPhoneNumber()`:  `error` **Changed**\n* `Provesdkservergo.Identity.V3DisenrollIdentity()`:  `error` **Changed**\n* `Provesdkservergo.Identity.V3GetIdentity()`:  `error` **Changed**\n* `Provesdkservergo.Identity.V3ActivateIdentity()`:  `error` **Changed**\n* `Provesdkservergo.Identity.V3DeactivateIdentity()`:  `error` **Changed**\n* `Provesdkservergo.Domain.V3DomainConfirmLinkRequest()`:  `error` **Changed**\n* `Provesdkservergo.Domain.V3DomainIdRequest()`:  `error` **Changed**\n* `Provesdkservergo.Domain.V3DomainLinkRequest()`:  `error` **Changed**\n* `Provesdkservergo.Domain.V3DomainLinkedRequest()`:  `error` **Changed**\n* `Provesdkservergo.Domain.V3DomainUnlinkRequest()`:  `error` **Changed**\n"
 generatedFiles:
   - .gitattributes
   - /models/components/amltypelistresponseinternal.go

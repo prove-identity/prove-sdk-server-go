@@ -102,6 +102,7 @@ func main() {
     res, err := s.V3.V3ChallengeRequest(ctx, &components.V3ChallengeRequest{
         CorrelationID: "713189b8-5555-4b08-83ba-75d08780aebd",
         Dob: provesdkservergo.Pointer("1981-01"),
+        Email: provesdkservergo.Pointer("user@example.com"),
         Ssn: provesdkservergo.Pointer("0596"),
     })
     if err != nil {
@@ -138,6 +139,7 @@ func main() {
     res, err := s.V3.V3ChallengeRequest(ctx, &components.V3ChallengeRequest{
         CorrelationID: "713189b8-5555-4b08-83ba-75d08780aebd",
         Dob: provesdkservergo.Pointer("1981-01"),
+        Email: provesdkservergo.Pointer("user@example.com"),
         Ssn: provesdkservergo.Pointer("0596"),
     })
     if err != nil {
